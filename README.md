@@ -2,10 +2,12 @@
 
 Descripción de la oferta de productos y/o servicios ofrecidos por su
 sitio: 
-    Ofrecemos el arte de disfrutar un buen vino de alta calidad, con diferentes intensidades, aromas complejos y elegantes que reflejan el carácter de nuestra bodega.
+   
+   Ofrecemos el arte de disfrutar un buen vino de alta calidad, con diferentes intensidades, aromas complejos y elegantes que reflejan el carácter de nuestra bodega.
 
 
 Agregar una breve descripción del público al que apunta el sitio: 
+   
     Nuestro público es toda persona mayor de 18 años con tendencias a experimentar y a disfrutar del placer de descubrir e innovar nuevos sabores.
 
 
