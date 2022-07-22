@@ -1,14 +1,16 @@
 1 -TEMÁTICA DEL MARKET PLACE
 
-Descripción de la oferta de productos y/o servicios ofrecidos por su
+* Descripción de la oferta de productos y/o servicios ofrecidos por su
 sitio: 
    
    Ofrecemos el arte de disfrutar un buen vino de alta calidad, con diferentes intensidades, aromas complejos y elegantes que reflejan el carácter de nuestra bodega.
 
 
-Agregar una breve descripción del público al que apunta el sitio: 
+
+* Agregar una breve descripción del público al que apunta el sitio: 
    
     Nuestro público es toda persona mayor de 18 años con tendencias a experimentar y a disfrutar del placer de descubrir e innovar nuevos sabores.
+
 
 
 Descripción de los integrantes del equipo:
@@ -21,9 +23,11 @@ Descripción de los integrantes del equipo:
 
     Bárbara Freites: Fundadora, Enóloga y asesora técnica responsable de dirigir los procesos de elaboración del vino.
 
+    
+
 2- BUSCAR INSPIRACIÓN EN REFERENTES DEL MERCADO 
 
-5 sitios de referencia indicando brevemente por qué fueron elegidos:
+* 5 sitios de referencia indicando brevemente por qué fueron elegidos:
     
     https://www.norton.com.ar/en/
 
