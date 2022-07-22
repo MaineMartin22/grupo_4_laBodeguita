@@ -23,9 +23,13 @@ Descripción de los integrantes del equipo:
 
 5 sitios de referencia indicando brevemente por qué fueron elegidos:
     https://www.norton.com.ar/en/
+
     https://santajulia.com.ar/la-mantis/
+
     https://zuccardiwines.com/
+
     https://www.chateau-margaux.com/fr
+    
     https://www.antinori.it/en/tenuta/estates-antinori/antinori-nel-chianti-classico-estate/
 
 
