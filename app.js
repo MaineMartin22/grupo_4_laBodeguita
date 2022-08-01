@@ -16,18 +16,18 @@ app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, './view/index.html'))
 });
 
-// app.get('/', (req, res) =>{
-//     res.sendFile(path.join(__dirname, './view/home.html'))
-// });
+app.get('/register', (req, res) =>{
+    res.sendFile(path.join(__dirname, './view/register.html'))
+});
 
-// app.get('/', (req, res) =>{
-//     res.sendFile(path.join(__dirname, './view/home.html'))
-// });
+app.get('/detalleProducto', (req, res) =>{
+    res.sendFile(path.join(__dirname, './view/prodDetail.html'))
+});
 
-// app.get('/', (req, res) =>{
-//     res.sendFile(path.join(__dirname, './view/home.html'))
-// });
+app.get('/login', (req, res) =>{
+    res.sendFile(path.join(__dirname, './view/login.html'))
+});
 
-// app.get('/', (req, res) =>{
-//     res.sendFile(path.join(__dirname, './view/home.html'))
-// });
+app.get('/carrito', (req, res) =>{
+    res.sendFile(path.join(__dirname, './view/prodCar.html'))
+});
