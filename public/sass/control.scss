@@ -1,0 +1,279 @@
+
+// VARIABLES DE COLOR 
+$color1: #071243;
+$color2: #000;
+$color3: #705f01;
+$color4: #fff;
+/*# sourceMappingURL=control.sass.map */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li{
+    list-style: none;
+}
+
+
+//HEADER
+
+.header {
+    height: 10%;
+    width: 100%;
+}
+
+.nav-bar{
+    background: rgb(223,223,223);
+    background: linear-gradient(90deg, rgba(223,223,223,1) 0%, rgba(0,0,0,0.985005753763606) 0%, rgba(7,16,67,1) 66%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+    .menu-hamb{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        i{
+            color: $color4;
+            font-size: 30px;
+        }}
+
+    .nav-contein-login{
+        display: flex;
+        margin: auto;
+        justify-content: space-evenly;
+        a{
+            text-decoration: none;
+            color: $color4;
+        }
+    }
+    
+    .nav-logo{
+        margin: auto;
+        img {
+            width: 100%;
+            height: 150px;
+        }
+    }
+
+
+
+.nav-contein{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+
+} 
+
+.nav-contein ul{
+    display: flex;
+}
+
+.nav-links{
+    color: $color4;
+    text-decoration: none;
+    margin-right: 10px;
+
+}
+
+.nav-links:hover{
+    border-bottom: 1px solid $color4;
+    color: $color4;
+}
+
+
+
+// PRIMER SECTION
+.section {
+    background-image: url(/images/main-fondo.jpg) ;
+    background-color: transparent;
+    background-size: cover;
+    height: 750px;
+    display: flex;
+}
+
+.sect-div{
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    margin-left: 50%;
+
+}
+
+.sect-img {
+    margin: auto; 
+    text-align: center;
+}
+
+
+.la-bodeguita{
+    width: 100%;
+    color: $color4;
+    font-size: 45px;
+
+}
+
+.sect-text p{
+    color: $color4;
+    font-size: 15px;
+}
+
+// SEGUNDA SECTION
+
+.section-two {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background: rgb(223,223,223);
+    background: linear-gradient(90deg, rgba(223,223,223,1) 0%, rgba(0,0,0,0.985005753763606) 0%, rgba(7,16,67,1) 66%);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.carrusel {
+    height: 300px;
+}
+
+
+.carrusel-img{
+    width: 100%;
+}
+
+.text-carrusel {
+    margin-top: 20%;
+    text-align: center;
+    color: $color4;
+    height: 250px;
+}
+
+.sect-p{
+    width: 70%;
+    margin: auto;
+}
+
+
+// FOOTER
+
+.footer{
+    background: rgb(223,223,223);
+    background: linear-gradient(90deg, rgba(223,223,223,1) 0%, rgba(0,0,0,0.985005753763606) 0%, rgba(7,16,67,1) 66%);
+    height: 250px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    text-align: center;
+}
+
+.footer-content{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width:90%;
+}
+
+.footer-content i{
+    font-size: 30px;
+    color: $color4;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.footer-logo{
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+.footer-text{
+    color: $color4;
+}
+
+.footer-text-h{
+    font-size: 20px;
+    color: $color4;
+}
+
+
+
+
+@media (max-width: 650px){
+
+    //HEADER
+    .menu-hamb{
+      display: flex;
+    }
+
+    .nav-logo img {
+        height: 80px;
+    }
+    .nav-contein{
+        display: none;
+    }
+    .sect-div{
+        margin: auto;
+        margin-top: 50%;
+    
+    }
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        height: 400px;
+    }
+    .footer-content{
+        align-content: center;
+        padding-top: 30px;
+        width: 70%;
+    }
+
+}
+
+@media (min-width: 650px){
+    .menu-hamb{
+      display: none;
+      i{
+        display: none;
+      }
+    }
+    .nav-contein{
+        display: flex;
+        margin: auto;
+        justify-content: space-evenly;
+        li, a{
+            color: $color4;
+            text-decoration: none;
+            font-size: 13px;
+        }
+    }
+    
+    .nav-logo img {
+        height: 80px;
+    }
+
+
+    //SECTION NUMERO 2
+    .section-two {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .carrusel {
+        height: auto;
+    }
+
+
+}
