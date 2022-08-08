@@ -1,8 +1,8 @@
 
 // VARIABLES DE COLOR 
-$color1: #071243;
+$color1: #011B36;
 $color2: #000;
-$color3: #705f01;
+$color3: #D1BC00;
 $color4: #fff;
 /*# sourceMappingURL=control.sass.map */
 
@@ -30,60 +30,75 @@ ul, li{
 .header {
     height: 10%;
     width: 100%;
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #011B36, #373B44);
+    background: linear-gradient(to right, #011B36, #373B44);
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    box-shadow: 1px 2px 10px #000;
 }
 
 .nav-bar{
-    background: rgb(223,223,223);
-    background: linear-gradient(90deg, rgba(223,223,223,1) 0%, rgba(0,0,0,0.985005753763606) 0%, rgba(7,16,67,1) 66%);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
+    width: 90%;
+    margin: auto;
 }
-    .menu-hamb{
+.menu-hamb{
         display: flex;
         justify-content: center;
         margin: auto;
         i{
             color: $color4;
-            font-size: 30px;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 25px;
+            transition: all .4s ease-in-out;
+            cursor: pointer;
         }}
 
-    .nav-contein-login{
+.menu-hamb i:hover{
+        color: $color1;
+        background-color: $color4;
+        }
+
+.nav-contein-login{
         display: flex;
         margin: auto;
-        justify-content: space-evenly;
         a{
             text-decoration: none;
             color: $color4;
+
         }
-    }
+        }
     
-    .nav-logo{
+.nav-logo{
         margin: auto;
         img {
             width: 100%;
-            height: 150px;
+            height: 80px;
         }
-    }
-
-
+        }
 
 .nav-contein{
-    display: flex;
+    display: none;
+    width: 100%;
     margin: auto;
-
+    justify-content: space-between;
 } 
 
 .nav-links{
     color: $color4;
     text-decoration: none;
-    margin-right: 10px;
-
+    transition: all .4s ease-in-out;
+    font-family: 'Roboto', sans-serif;
 }
 
-.nav-links:hover{
-    border-bottom: 1px solid $color4;
-    color: $color4;
+.nav-links:hover, .nav-contein-login a:hover{
+    color: $color3;
+    border-bottom: 1px solid #705f01;
 }
 
 
@@ -95,14 +110,16 @@ ul, li{
     background-size: cover;
     height: 750px;
     display: flex;
+    padding-top: 80px;
 }
 
 .sect-div{
     flex-direction: column;
     margin: auto;
     text-align: center;
-    margin-left: 50%;
-
+    margin-top: 50%;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
 }
 
 .sect-img {
@@ -115,7 +132,10 @@ ul, li{
     width: 100%;
     color: $color4;
     font-size: 45px;
+}
 
+.sect-div:hover{
+    transform: scale(1.3);
 }
 
 .sect-text p{
@@ -129,8 +149,9 @@ ul, li{
     width: 100%;
     padding-top: 100px;
     padding-bottom: 50px;
-    background: rgb(223,223,223);
-    background: linear-gradient(90deg, rgba(223,223,223,1) 0%, rgba(0,0,0,0.985005753763606) 0%, rgba(7,16,67,1) 66%);
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #011B36, #373B44);
+    background: linear-gradient(to right, #011B36, #373B44);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
@@ -161,21 +182,23 @@ ul, li{
 // FOOTER
 
 .footer{
-    background: rgb(223,223,223);
-    background: linear-gradient(90deg, rgba(223,223,223,1) 0%, rgba(0,0,0,0.985005753763606) 0%, rgba(7,16,67,1) 66%);
-    height: 250px;
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #011B36, #373B44);
+    background: linear-gradient(to right, #011B36, #373B44);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    height: 400px;
+    justify-content: space-around;
     text-align: center;
+    border-top: 5px solid $color4;
 }
 
 .footer-content{
-    margin: auto;
-    display: flex;
-    flex-direction: column;
     align-content: center;
-    width:90%;
+    padding-top: 30px;
+    width: 70%;
+    margin: auto;
 }
 
 .footer-content i{
@@ -193,6 +216,7 @@ ul, li{
 
 .footer-text{
     color: $color4;
+    margin: auto;
 }
 
 .footer-text-h{
@@ -201,9 +225,154 @@ ul, li{
 }
 
 
+// VINOS - DETALLE DEL PRODUCTO
+.main-vinos{
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #011B36, #373B44);
+    background: linear-gradient(to right, #011B36, #373B44);
+    padding-bottom: 80px;
+    padding-top: 100px;
 
 
-@media (max-width: 650px){
+.sect-search{
+    display: flex;
+    width: 95%;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.sect-search input{
+    padding: 3px 5px;
+    border: 3px solid $color4;
+    border-radius: 3px;
+    width: 100%;
+    outline: none;
+    padding-left: 40px;
+}
+
+.sect-search input:focus{
+    box-shadow: 0 1px 1px $color1;
+    border: 3px solid $color1;
+
+}
+
+.sect-search i{
+    position: absolute;
+    color: $color1;
+    background-color: $color4;
+    border-right: 1px solid $color1;
+    padding: 1px 5px;
+    font-size: 16px;
+    left: 1%;
+    top: 9px;
+}
+
+
+}
+.section-vinos {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.vin-tipos{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.vin-prod{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid $color4;
+}
+
+.vin-tipos-title{
+    text-align: left;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 40px;
+    color: $color4;
+    font-family: 'Montserrat', sans-serif;
+}
+.vin-img{
+    background-color: #fff;
+}
+
+.vin-img img {
+    width: 100%;
+}
+
+.vin-text {
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    background: $color1;
+    opacity: 0.9;
+    position: relative;
+}
+
+.vin-text a{
+    font-size: 12px;
+    color: $color4;
+    border: 1px solid $color4;
+    margin-left: 5%;
+    margin-bottom: 15px;
+}
+
+.vin-text a:focus{
+    box-shadow: 0 1px 1px $color1;
+    border: 1px solid $color1;
+    color: $color1;
+    background-color: $color4;
+}
+
+.vin-text p {
+    color: $color4;
+    margin-left: 5%;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+
+}
+.vin-text h4 {
+    color: $color4;
+    margin-left: 5%;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.vin-text i{
+    color: $color4;
+    font-size: 20px;
+    position: absolute;
+    left: 80%;
+    top: 30%;
+    padding: 8px;
+    border-radius: 25px;
+    border: 1px solid $color4;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.vin-text i:hover{
+    color: $color1;
+    background-color: $color4;
+    border: 1px solid $color1;
+}
+// .sect-text
+
+
+
+@media (min-width: 481px){
 
     //HEADER
     .menu-hamb{
@@ -216,26 +385,22 @@ ul, li{
     .nav-contein{
         display: none;
     }
+
     .sect-div{
         margin: auto;
-        margin-top: 50%;
-    
-    }
-    .footer {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        height: 400px;
-    }
-    .footer-content{
-        align-content: center;
-        padding-top: 30px;
-        width: 70%;
+        margin-left: 40%;
     }
 
+
+    // .sect-prod{
+    //     display: flex;
+    //     flex-direction: column;
+    //     width: 100%;
+    // }
 }
 
-@media (min-width: 650px){
+
+@media (min-width: 610px){
     .menu-hamb{
       display: none;
       i{
@@ -257,8 +422,8 @@ ul, li{
         height: 80px;
     }
 
-
     //SECTION NUMERO 2
+
     .section-two {
         width: 100%;
         display: grid;
@@ -270,5 +435,53 @@ ul, li{
         height: auto;
     }
 
+    // PRODUCTOS
+    .sect-search input {
+        width: 80%;
+    }
+
+
+    .vin-text p{
+        width: 70%;
+    }
+
+
+    .vin-tipos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: center;
+    }
+
+    .vin-prod {
+        width: 45%;
+    }
+
+    .sect-div{
+        margin: auto;
+        margin-left: 55%;
+    }
+    
+    .footer {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .footer-text, .footer-text-h{
+        width: 80%;
+        margin: auto;
+    }
+
+}
+
+@media (min-width: 780px){
+    .vin-prod {
+        width: 30%;
+    }
+
+    .nav-contein li a{
+        font-size: 15px;
+    }
 
 }
