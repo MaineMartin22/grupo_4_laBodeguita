@@ -342,6 +342,11 @@ ul, li {
   border: 1px solid #011B36;
 }
 
+.div-collapse {
+  text-align: justify;
+  width: 90%;
+}
+
 @media (min-width: 481px) {
   .menu-hamb {
     display: flex;
