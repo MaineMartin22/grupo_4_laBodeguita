@@ -16,17 +16,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@200&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
 </head>
-<body>
 <header class="header">
     <nav class="nav-bar">
         <div class="menu-hamb">
             <i class="fa-solid fa-bars"></i>
         </div>
         <div class="nav-contein">
-                <li><a class="nav-links" href="home">Nosotros</a></li>
-                <li><a class="nav-links" href="detalleProducto">Vinos</a></li>
-                <li><a class="nav-links" href="#">Bodega</a></li>
-                <li><a class="nav-links" href="#">Contacto <i class="fa-solid fa-message-middle"></i></a></li>
+            <a class="nav-links" href="home">Nosotros</a>
+            <a class="nav-links" href="detalleProducto">Vinos</a>
+            <a class="nav-links" href="#">Bodega</a>
+            <a class="nav-links" href="#">Contacto <i class="fa-solid fa-message-middle"></i></a>
         </div>
         <div class="nav-logo">
             <img src="images/LogoRedondo.png" alt="LogoRedondo">
@@ -37,7 +36,40 @@
     </nav>
 </header>
 <main>
-
+    <section class="productos-detail">
+        <div class="prod-detail">
+            <div class="prod-detail-img">
+                <img src="/images/vinopng.png" alt="">
+            </div>
+            <div class="prod-detail-info">
+                <div class="prod-detail-title">
+                    <h2 class="prod-detail-h2">Title del vino</h2>
+                    <div class="prod-detail-caract">
+                        <ul class="prod-detail-ul">
+                            <li>Alcohol: XXX</li>
+                            <li>Acidez: XXX</li>
+                            <li>Azúcar Residual: XXX</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prod-detail-descr">
+                    <h4 class="prod-detail-h4">Notas de cata</h4>
+                    <ul class="prod-detail-ul-2">
+                        <li><b>Color:</b> Rojo violeta, profundo y vivo con matices azulados.</li>
+                        <li><b>Aroma:</b> a frutos rojos y negros como cerezas, casis, ciruelas y moras,
+                            integrados con los aromas de maduración en barrica como vainilla, tabaco
+                            y chocolate.</li>
+                        <li><b>Sabor:</b> Sedoso en boca, buena estructura, con marcada presencia de frutos
+                            rojos, taninos agradables y dulces.</li>
+                    </ul>
+                </div>
+                <div class="prod-detail-buttons">
+                    <a href="#" class="prod-detail-butt">Añadir a carrito</a>
+                    <a href="detalleProducto" class="prod-detail-butt">Ver otros vinos</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 <footer class="footer">
     <div class="footer-content">
