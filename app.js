@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-app.listen(3000, () =>{
+app.listen(2000, () =>{
     console.log('servidor corriendo');
 })
 
@@ -39,5 +39,9 @@ app.get('/carrito', (req, res) =>{
 
 app.get('/vino1', (req, res) =>{
     res.sendFile(path.join(__dirname, './view/productos/vino1.html'))
+});
+
+app.get('/finalizarCompra', (req, res) =>{
+    res.sendFile(path.join(__dirname, './view/finalizarCompra.html'))
 });
 
