@@ -104,8 +104,15 @@ ul, li{
 
 
 // PRIMER SECTION
+
+.main{
+    background-image: url(/images/main-fondo.jpg);
+    background-attachment: fixed;
+}
+
 .section {
-    background-image: url(/images/main-fondo.jpg) ;
+    background-image: url(/images/main-fondo.jpg);
+    background-attachment: fixed;
     background-color: transparent;
     background-size: cover;
     height: 750px;
@@ -176,6 +183,100 @@ ul, li{
 .sect-p{
     width: 70%;
     margin: auto;
+}
+
+
+
+
+// INICIO - OFERTAS
+
+.ofertas{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.ofer-title{
+    width: 90%;
+    margin: auto;
+    color: $color4;
+}
+
+.ofer-title h3{
+    font-size: 30px;
+}
+
+.ofer-productos{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.ofer-prod{
+    display: flex;
+    flex-direction: column;
+    background-color: $color4;
+    margin-bottom: 15px;
+}
+
+.ofer-img{
+    width: 100%;
+    padding: 30px 0px;
+}
+
+.ofer-img img{
+    width: 100%;
+    margin: auto;
+    object-fit: contain;
+    filter: drop-shadow(-15px 10px 10px rgb(63, 63, 63))
+}
+
+.ofer-text{
+    width: 90%;
+    margin: auto;
+    padding-bottom: 30px;
+    border-top: 2px solid $color1;
+}
+
+.ofer-text h4{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.ofer-text p{
+    margin-top: 10px;
+}
+
+.descuento{
+    display: inline;
+    border-bottom: 1px solid $color1;
+}
+
+.ofer-precio{
+    font-size: 20px;
+}
+
+
+.ofer-text a{
+    font-size: 15px;
+    color: $color1;
+    padding: 5px;
+    border: 1px solid $color1;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.ofer-text a:hover{
+    border: 1px solid $color4;
+    color: $color4;
+    background-color: $color1;
 }
 
 
@@ -295,6 +396,10 @@ ul, li{
     border: 1px solid $color4;
 }
 
+.vin-prod:hover{
+    box-shadow: 1px 5px 10px 8px #000000;
+}
+
 .vin-tipos-title{
     text-align: left;
     margin: auto;
@@ -391,6 +496,7 @@ ul, li{
 .productos-detail {
     background-image: url(/images/main-fondo.jpg);
     padding-top: 100px;
+    background-attachment: fixed;
 }
 
 .prod-detail {
@@ -425,8 +531,6 @@ ul, li{
     margin-bottom: 40px;
 
 }
-
-//font-family: 'Roboto', sans-serif;
 
 .prod-detail-caract{
     font-family: 'Montserrat', sans-serif;
@@ -571,6 +675,24 @@ ul, li{
         height: auto;
     }
 
+
+
+    //OFERTAS
+    .ofer-productos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .ofer-prod{
+        width: 45%;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+
+
+
+
     // PRODUCTOS
     .sect-search input {
         width: 80%;
@@ -651,7 +773,6 @@ ul, li{
     .vin-prod {
         width: 30%;
     }
-
     .nav-contein li a{
         font-size: 15px;
     }
@@ -660,5 +781,14 @@ ul, li{
         width: 100%;
     }
     
+    .nav-logo img {
+            height: 75px;
 
+}
+
+.ofer-prod{
+    width: 23%;
+    margin: auto;
+    margin-bottom: 40px;
+}
 }
