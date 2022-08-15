@@ -30,9 +30,9 @@ ul, li {
 }
 
 .nav-bar {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
   width: 90%;
   margin: auto;
 }
@@ -41,7 +41,9 @@ ul, li {
   display: flex;
   justify-content: center;
   margin: auto;
+  width: 33%;
 }
+
 .menu-hamb i {
   color: #fff;
   padding: 5px;
@@ -57,9 +59,11 @@ ul, li {
 }
 
 .nav-contein-login {
-  display: flex;
   margin: auto;
+  width: 33%;
+  text-align: center;
 }
+
 .nav-contein-login a {
   text-decoration: none;
   color: #fff;
@@ -67,15 +71,17 @@ ul, li {
 
 .nav-logo {
   margin: auto;
+  width: 33%;
 }
 .nav-logo img {
   width: 100%;
-  height: 80px;
+  height: 50px;
+  filter: drop-shadow(-3px 1px 1px #000);
 }
 
 .nav-contein {
   display: none;
-  width: 100%;
+  width: 33%;
   margin: auto;
   justify-content: space-between;
 }
@@ -85,6 +91,7 @@ ul, li {
   text-decoration: none;
   transition: all 0.4s ease-in-out;
   font-family: "Roboto", sans-serif;
+  border-bottom: 1px solid transparent;
 }
 
 .nav-links:hover, .nav-contein-login a:hover {
@@ -92,16 +99,14 @@ ul, li {
   border-bottom: 1px solid #705f01;
 }
 
-.main {
+main {
   background-image: url(/images/main-fondo.jpg);
   background-attachment: fixed;
+  background-size: cover;
 }
 
 .section {
-  background-image: url(/images/main-fondo.jpg);
-  background-attachment: fixed;
   background-color: transparent;
-  background-size: cover;
   height: 750px;
   display: flex;
   padding-top: 80px;
@@ -136,68 +141,52 @@ ul, li {
   font-size: 15px;
 }
 
+/*CARRUSEL, SECCION DOS*/
 .section-two {
   width: 100%;
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 100px;
   background: #373B44;
   background: -webkit-linear-gradient(to right, #011B36, #373B44);
   background: linear-gradient(to right, #011B36, #373B44);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-}
-
-.carrusel {
-  height: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .carrusel-img {
   width: 100%;
 }
 
-.text-carrusel {
-  margin-top: 20%;
-  text-align: center;
-  color: #fff;
-  height: 250px;
-}
-
-.sect-p {
-  width: 70%;
-  margin: auto;
-}
-
+/* INICIO - OFERTAS*/
 .ofertas {
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   text-align: left;
-  margin-top: 25px;
+  padding-top: 30px;
+  border-top: 1px solid #fff;
 }
 
 .ofer-title {
   width: 90%;
   margin: auto;
   color: #fff;
+  margin-bottom: 30px;
+  font-family: "Roboto", sans-serif;
 }
-
 .ofer-title h3 {
   font-size: 30px;
-}
-
-.ofer-productos {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: auto;
 }
 
 .ofer-prod {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  margin: auto;
   margin-bottom: 15px;
+  width: 90%;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: #d0d0d0;
 }
 
 .ofer-img {
@@ -209,14 +198,18 @@ ul, li {
   width: 100%;
   margin: auto;
   object-fit: contain;
-  filter: drop-shadow(-15px 10px 10px rgb(63, 63, 63));
 }
 
 .ofer-text {
-  width: 90%;
+  width: 100%;
   margin: auto;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 50px;
   border-top: 2px solid #011B36;
+  background: #373B44;
+  background: -webkit-linear-gradient(to right, #011B36, #373B44);
+  background: linear-gradient(to right, #011B36, #373B44);
+  color: #fff;
 }
 
 .ofer-text h4 {
@@ -225,37 +218,46 @@ ul, li {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin-top: 10px;
+  width: 90%;
+  margin: auto;
 }
 
 .ofer-text p {
-  margin-top: 10px;
+  padding-top: 15px;
+  width: 90%;
+  margin: auto;
 }
 
 .descuento {
-  display: inline;
-  border-bottom: 1px solid #011B36;
+  width: 90%;
+  margin: auto;
 }
 
 .ofer-precio {
   font-size: 20px;
+  width: 90%;
+  padding-bottom: 20px;
+  margin: auto;
 }
 
-.ofer-text a {
+.ofer-bot {
   font-size: 15px;
-  color: #011B36;
-  padding: 5px;
-  border: 1px solid #011B36;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  text-decoration: none;
-}
-
-.ofer-text a:hover {
-  border: 1px solid #fff;
   color: #fff;
-  background-color: #011B36;
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  margin-left: 5%;
 }
 
+.ofer-bot:hover {
+  border: 1px solid #011B36;
+  color: #011B36;
+  background-color: #fff;
+}
+
+/*Footer*/
 .footer {
   background: #373B44;
   background: -webkit-linear-gradient(to right, #011B36, #373B44);
@@ -284,9 +286,10 @@ ul, li {
 }
 
 .footer-logo {
-  width: 50px;
-  height: 50px;
+  width: 50%;
+  height: 100px;
   margin: auto;
+  filter: drop-shadow(-3px 1px 1px #000);
 }
 
 .footer-text {
@@ -299,6 +302,7 @@ ul, li {
   color: #fff;
 }
 
+/*VINOS - DETALLE DEL PRODUCTO*/
 .main-vinos {
   background: #373B44;
   background: -webkit-linear-gradient(to right, #011B36, #373B44);
@@ -576,10 +580,6 @@ ul, li {
     display: flex;
   }
 
-  .nav-logo img {
-    height: 80px;
-  }
-
   .nav-contein {
     display: none;
   }
@@ -608,19 +608,12 @@ ul, li {
     font-size: 13px;
   }
 
-  .nav-logo img {
-    height: 80px;
-  }
-
   .section-two {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+    display: none;
   }
 
-  .carrusel {
-    height: auto;
+  .ofertas {
+    display: flex;
   }
 
   .ofer-productos {
@@ -630,7 +623,7 @@ ul, li {
   }
 
   .ofer-prod {
-    width: 45%;
+    width: 43%;
     margin: auto;
     margin-bottom: 40px;
   }
@@ -716,12 +709,8 @@ ul, li {
     width: 100%;
   }
 
-  .nav-logo img {
-    height: 75px;
-  }
-
   .ofer-prod {
-    width: 23%;
+    width: 22%;
     margin: auto;
     margin-bottom: 40px;
   }
