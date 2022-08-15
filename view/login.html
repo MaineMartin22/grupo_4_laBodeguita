@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- LINKEAMOS CSS -->
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/estilosLog.css">
     <!-- LINKEAMOS FONT AWESOME -->
     <script src="https://kit.fontawesome.com/7bb0545f1c.js" crossorigin="anonymous"></script>
     <!-- LINKEAMOS BOOTSTRAP CSS -->
@@ -27,6 +27,7 @@
             <a class="nav-links" href="detalleProducto">Vinos</a>
             <a class="nav-links" href="#">Bodega</a>
             <a class="nav-links" href="#">Contacto <i class="fa-solid fa-message-middle"></i></a>
+            
         </div>
         <div class="nav-logo">
             <img src="images/LogoRedondo.svg" alt="LogoRedondo">
@@ -37,7 +38,26 @@
     </nav>
 </header>
 <main>
-
+  <!-- Formulario -->
+  <div class="contenedor-formulario">
+    <div class="wrap">
+      <form action="" class="formulario" name="formulario-registro" method="post"></form>
+      <div>
+          <div class="general">
+              <input type="email" id="email" name="email">
+              <label class="label" for="email">Email </label>
+          </div>
+          <div class="general">
+              <input type="password" id="pass" name="pass">
+              <label class="label" for="pass">Contraseña </label>
+            <br>
+              <p>"¿No recuerdas tu contraseña?"<a href= "login">Haz click aquí</a></p>     
+            <br>
+          <input type="submit" id="boton" value="Ingresar">
+      </div>
+    </div>  
+</form>
+  </div>
 </main>
 <footer class="footer">
     <div class="footer-content">
