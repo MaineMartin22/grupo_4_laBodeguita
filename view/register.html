@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- LINKEAMOS CSS -->
     <link rel="stylesheet" href="/css/estilosReg.css">
+    <link rel="stylesheet" href="/css/estilos.css">
     <!-- LINKEAMOS FONT AWESOME -->
     <script src="https://kit.fontawesome.com/7bb0545f1c.js" crossorigin="anonymous"></script>
     <!-- LINKEAMOS BOOTSTRAP CSS -->
@@ -28,67 +29,57 @@
             <a class="nav-links" href="detalleProducto">Vinos</a>
             <a class="nav-links" href="#">Bodega</a>
             <a class="nav-links" href="#">Contacto <i class="fa-solid fa-message-middle"></i></a>
-            <a class="nav-links" href="register">Ingresar</a>
         </div>
         <div class="nav-logo">
             <img src="images/LogoRedondo.svg" alt="LogoRedondo">
         </div>
         <div class="nav-contein-login">
             <li><a class="nav-links" href="#">Ingresar <i class="fa-solid fa-right-to-bracket"></i></a></li>
-           <li><a class="nav-links" href="register">Ingresar</a></li> 
         </div>
     </nav>
 </header>
-
-<main>
-
-                            <!-- Formulario -->
+<!-- Formulario -->
+<main class="formulario-main">
 <div class="contenedor-formulario">
   <div class="wrap">
-    <form action="" class="formulario" name="formulario-registro" method="post"></form>
-    <div>
+    <form class="formulario" name="formulario-registro" method="post"></form>
+    <div class="conteiner-general-regist">
         <div class="general">
-            <input type="text" id="nombre" name="nombre">
-            <label class="label" for="nombre">Nombre </label>
-            
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            <label class="label" for="nombre"></label>
         </div>
         <div class="general">
-            <input type="text" id="apellido" name="nombre">
-            <label class="label" for="apellido">Apellido </label>
+            <input type="text" id="apellido" name="nombre" placeholder="Apellido">
+            <label class="label" for="apellido"></label>
         </div>
         <div class="general">
-            <input type="text" id="direccion" name="direccion">
-            <label class="label" for="direccion">Dirección </label>
+            <input type="text" id="direccion" name="direccion" placeholder="Dirección">
+            <label class="label" for="direccion"></label>
         </div>
         <div class="general">
-          <input type="text" id="pais" name="pais">
-          <label class="label" for="pais">País </label>
+          <input type="text" id="pais" name="pais" placeholder="País">
+          <label class="label" for="pais"></label>
       </div>
         <div class="general">
-            <input type="email" id="email" name="email">
-            <label class="label" for="email">Email </label>
+            <input type="email" id="email" name="email" placeholder="Email">
+            <label class="label" for="email"></label>
         </div>
         <div class="general">
-            <input type="password" id="pass" name="pass">
-            <label class="label" for="pass">Contraseña </label>
+            <input type="password" id="pass" name="pass" placeholder="Contraseña">
+            <label class="label" for="pass"></label>
         </div>
         <div class="checkbox">
+            <div>
             <input type="checkbox" id="mayor-edad" name="mayor-edad" value="true">
             <label for="mayor-edad">Soy mayor de 18</label>
+            </div>
+            <input type="submit" id="boton" value="Registrarse">
         </div>
-    
-        <input type="submit" id="boton" value="Registrarse">
     </div>
-    <br>
     <p>¿Ya eres miembro?<a href= "login">Inicia Sesión</a></p>
   </div>  
- 
-    
-
 </form>
 </div>
-
-    <script src="js/formulario-registro.js"></script>
 </main>
 
 <footer class="footer">
@@ -107,9 +98,8 @@
         </ul>
     </div>
 </footer>
-</body>
-
-
-<!-- BOOTSTRAP JS -->
+<script src="js/formulario-registro.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+<!-- BOOTSTRAP JS -->
 </html>
