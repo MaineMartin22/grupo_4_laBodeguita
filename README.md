@@ -30,3 +30,7 @@ https://zuccardiwines.com/
 https://www.chateau-margaux.com/fr
 
 https://www.antinori.it/en/tenuta/estates-antinori/antinori-nel-chianti-classico-estate/
+
+
+TABLERO DE TRABAJO
+https://trello.com/b/pgWHrfvM/la-bodeguita
