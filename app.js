@@ -1,12 +1,16 @@
 const  express = require('express');
-
 const path = require('path');
+const dotenv = require('dotenv').config();
+
 
 const app = express();
 
-app.listen(2000, () =>{
-    console.log('servidor corriendo');
+
+
+app.listen(process.env.PORT, () =>{
+    console.log('servidor corriendo en el puerto ' + process.env.PORT);
 })
+
 
 app.use(express.static('public'));
 
