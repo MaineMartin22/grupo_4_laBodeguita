@@ -292,52 +292,6 @@ main {
   background-color: #fff;
 }
 
-/*Footer*/
-
-.footer {
-  background: #373B44;
-  background: -webkit-linear-gradient(to right, #011B36, #373B44);
-  background: linear-gradient(to right, #011B36, #373B44);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  height: 400px;
-  justify-content: space-around;
-  text-align: center;
-  border-top: 2px solid #011B36;
-}
-
-.footer-content {
-  align-content: center;
-  padding-top: 30px;
-  width: 70%;
-  margin: auto;
-}
-
-.footer-content i {
-  font-size: 30px;
-  color: #fff;
-  margin-top: 15px;
-  margin-right: 15px;
-}
-
-.footer-logo {
-  width: 50%;
-  height: 100px;
-  margin: auto;
-  filter: drop-shadow(-3px 1px 1px #000);
-}
-
-.footer-text {
-  color: #fff;
-  margin: auto;
-}
-
-.footer-text-h {
-  font-size: 20px;
-  color: #fff;
-}
-
 /*VINOS - DETALLE DEL PRODUCTO*/
 
 .main-vinos {
@@ -610,6 +564,138 @@ main {
   color: #fff;
 }
 
+/*SECTION CARRITO DE COMPRAS*/
+
+.shopping-cart{
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+
+.cart-card1{
+  padding-top: 90px;
+  width: 100%;
+}
+
+.cart-total{
+  font-size: 30px;
+  color: #fff;
+}
+
+.cart-total p{
+  
+}
+
+.cart-card2{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.cart-prod{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 30px;
+}
+
+.cart-prod img{
+  width: 40%;
+}
+
+.cart-prod-text{
+  width: 60%;
+}
+
+.form-group{
+  width: 100%;
+  margin: auto;
+}
+.cart-card3{
+  padding-bottom: 30px;
+}
+
+.cart-card3 a{
+  font-size: 16px;
+}
+
+.cart-card3 a button{
+  background-color: #011B36;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all .4s ease-in-out;
+}
+
+.cart-card3 a button:hover{
+  background-color: #fff;
+  color: #011B36;
+  border: 1px solid #011B36;
+}
+
+
+
+
+/*Footer*/
+
+.footer {
+  background: #373B44;
+  background: -webkit-linear-gradient(to right, #011B36, #373B44);
+  background: linear-gradient(to right, #011B36, #373B44);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  height: 400px;
+  justify-content: space-around;
+  text-align: center;
+  border-top: 2px solid #011B36;
+}
+
+.footer-content {
+  align-content: center;
+  padding-top: 30px;
+  width: 70%;
+  margin: auto;
+}
+
+.footer-content i {
+  font-size: 30px;
+  color: #fff;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.footer-logo {
+  width: 50%;
+  height: 100px;
+  margin: auto;
+  filter: drop-shadow(-3px 1px 1px #000);
+}
+
+.footer-text {
+  color: #fff;
+  margin: auto;
+}
+
+.footer-text-h {
+  font-size: 20px;
+  color: #fff;
+}
+
 @media (min-width: 481px) {
 
   /* NAV BAR EN MOBILE */
@@ -628,6 +714,17 @@ main {
     text-align: center;
     transition: all .4s ease-in-out;
   }
+
+
+  .cart-card2{
+    width: 60%;
+  }
+
+    .cart-prod img{
+    width: 50%;
+    }
+
+
 }
 @media (min-width: 610px) {
 
@@ -740,6 +837,34 @@ main {
     width: 50%;
   }
 
+
+  .cart-card2{
+    width: 60%;
+  }
+
+  .cart-prod img{
+    width: 50%;
+  }
+  .cart-prod-text h3{
+    font-size: 18px;
+  }
+
+  .form-group{
+    width: 45%;
+    margin: auto;
+  }
+
+  .input-group{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+
+
+
+
+
   /* FOOTER EN TABLET */
 
   .footer {
@@ -782,5 +907,14 @@ main {
     width: 22%;
     margin: auto;
     margin-bottom: 40px;
+  }
+
+
+  .cart-card2{
+    width: 40%;
+  }
+
+  .cart-prod img{
+    width: 30%;
   }
 }
