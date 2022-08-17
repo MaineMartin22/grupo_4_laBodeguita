@@ -478,7 +478,7 @@ main {
   width: 100%;
   object-fit: contain;
   margin-top: 20px;
-  filter: drop-shadow(-40px 15px 10px rgb(61, 61, 61));
+  filter: drop-shadow(-6px 5px 5px #fff);
 }
 
 .prod-detail-info {
