@@ -17,25 +17,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@200&family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="header">
-    <nav class="nav-bar">
-        <div class="menu-hamb">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="nav-contein">
-            <a class="nav-links" href="home">Nosotros</a>
-            <a class="nav-links" href="detalleProducto">Vinos</a>
-            <a class="nav-links" href="register">Registrarse <i class="fa-solid fa-message-middle"></i></a>
-        </div>
-        <div class="nav-logo">
-            <img src="images/LogoRedondo.svg" alt="LogoRedondo">
-        </div>
-        <div class="nav-contein-login">
-            <a class="nav-links" href="login"><p>Ingresar </p><i class="fa-solid fa-right-to-bracket"></i></a>
-            <a href="carrito" class="carrito-i"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-    </nav>
-</header>
+    <header class="header">
+        <nav id="desktopnav" class="nav-bar">
+            <div class="menu-hamb">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="nav-contein">
+                <a class="nav-links" href="home">Nosotros</a>
+                <a class="nav-links" href="detalleProducto">Vinos</a>
+                <a class="nav-links" href="register">Registrarse <i class="fa-solid fa-message-middle"></i></a>
+            </div>
+            <div class="nav-logo">
+                <img src="images/LogoRedondo.svg" alt="LogoRedondo">
+            </div>
+            <div class="nav-contein-login">
+                <a class="nav-links" href="login"><p>Ingresar </p><i class="fa-solid fa-right-to-bracket"></i></a>
+                <a href="carrito" class="carrito-i"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </nav>
+    
+        <nav id="mobilenav" class="navbar fixed-top">
+            <div id="mobilenav-cont" class="container-fluid">
+            <div class="nav-logo-mobile">
+              <a class="navbar-brand" href="home"><img src="/images/LogoRedondo.svg" alt=""></a>
+            </div>
+              <button class="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <div class="offcanvas-div">
+                    <a class="navbar-brand" id="offcanvasNavbarLabel"><img src="/images/LogoRedondo.svg" alt=""></a>
+                  </div>
+                  <button type="button" class="text-reset" data-bs-dismiss="offcanvas" id="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-links" aria-current="page" href="home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-links" href="detalleProducto">Vinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="carrito" class="carrito-i nav-links">Mi carrito <i class="fa-solid fa-cart-shopping"></i></a>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-links" href="login"><p>Ingresar <i class="fa-solid fa-right-to-bracket"></i></p></a></li>
+                    </li>
+                  </ul>
+                    <form class="sect-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
+                        <button class="btn btn-outline-light" type="submit">Búscar</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
 <main class="main">
     <section class="section">
         <div class="sect-div">
@@ -43,7 +83,7 @@
                 <h2 class="la-bodeguita">La Bodeguita</h2>
             </div>
             <div class="sect-text">
-                <p class="sect-p">Frase que se nos ocurra agregar al inicio</p>
+                <p class="sect-p">El arte de disfrutar un buen vino</p>
             </div>
         </div>
     </section>
