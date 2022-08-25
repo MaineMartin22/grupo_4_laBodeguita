@@ -473,7 +473,7 @@ main {
   flex-direction: column;
   margin-bottom: 10px;
   background-color: #fff;
-  width: 100%;
+  width: 70%;
   margin: auto;
   margin-top: 20px;
   border: 1px solid #fff;
@@ -503,69 +503,58 @@ main {
 .vin-text {
   width: 100%;
   margin: auto;
-  text-align: left;
+  text-align: center;
   background: #011B36;
   opacity: 0.9;
-  position: relative;
+
 }
 
 .vin-text a {
-  font-size: 12px;
-  color: #fff;
+  font-size: 15px;
+  color: #011B36;
   border: 1px solid #fff;
-  margin-left: 5%;
   margin-bottom: 15px;
+  background-color: #fff;
 }
 
 .vin-text a:focus {
   box-shadow: 0 1px 1px #011B36;
-  border: 1px solid #011B36;
-  color: #011B36;
-  background-color: #fff;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: #011B36;
 }
 
 .vin-text p {
   color: #fff;
-  margin-left: 5%;
   font-size: 13px;
   font-family: "Roboto", sans-serif;
 }
 
 .vin-text h4 {
   color: #fff;
-  margin-left: 5%;
   margin-top: 10px;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
 .vin-text i {
+  text-align: center;
+  width: auto;
   color: #fff;
-  font-size: 20px;
-  position: absolute;
-  left: 80%;
-  top: 30%;
-  padding: 8px;
-  border-radius: 25px;
-  border: 1px solid #fff;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.vin-text i:hover {
-  color: #011B36;
-  background-color: #fff;
-  border: 1px solid #011B36;
+  background-color: #011B36;
+  padding: 3px;
+  border-radius: 50%;
 }
 
 .div-collapse {
-  text-align: justify;
-  width: 90%;
+  text-align: center;
+  margin: auto;
 }
 
 .div--colapse {
-  height: 120px;
+  height: 130px;
   width: 80%;
+  margin: auto;
   padding-top: 10px;
 }
 
@@ -923,18 +912,13 @@ main {
     width: 80%;
   }
 
-  .vin-text p {
-    width: 70%;
-    font-size: 13px;
-  }
 
   .vin-tipos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: stretch;
-    align-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .vin-prod {
@@ -948,6 +932,12 @@ main {
   .div--colapse {
     height: 170px;
     width: 100%;
+    text-align: center;
+  }
+
+  .div--colapse p {
+    margin: auto;
+    margin-bottom: 20px;
   }
 
   .sect-div {
@@ -1031,7 +1021,7 @@ main {
 
   /* PRODUCTOS EN DESKTOP */
   .vin-prod {
-    width: 30%;
+    width: 24%;
   }
   .vin-text p {
     width: 80%;
