@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const  express = require('express');
 
@@ -7,41 +8,23 @@ const app = express();
 app.listen(2000, () =>{
     console.log('servidor corriendo');
 })
+=======
+const express = require("express")
+const dotenv = require("dotenv").config()
+const mainRoutes = require("./routes/mainRoutes")
+const ejs = require("ejs")
 
+const app = express()
+
+app.set("view engine", "ejs");
+>>>>>>> 4be201b4312d9fab65208d039b451c84e7f2ec55
+
+app.use("/", mainRoutes)
 app.use(express.static('public'));
 
-
-// Respondemos a 
-app.get('/', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/index.html'))
-});
-
-app.get('/home', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/index.html'))
-});
+app.listen(process.env.PORT || 2000, () =>{
+    console.log("Servidor corriendo en https://localhost:" + process.env.PORT)
+})
 
 
-app.get('/register', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/register.html'))
-});
-
-app.get('/detalleProducto', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/prodDetail.html'))
-});
-
-app.get('/login', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/login.html'))
-});
-
-app.get('/carrito', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/prodCar.html'))
-});
-
-app.get('/vino1', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/productos/vino1.html'))
-});
-
-app.get('/finalizarCompra', (req, res) =>{
-    res.sendFile(path.join(__dirname, './view/finalizarCompra.html'))
-});
 

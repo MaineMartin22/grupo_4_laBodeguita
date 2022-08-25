@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+        </header>
+<main>
+    <section class="productos-detail">
+        <div class="prod-detail">
+            <div class="prod-detail-img">
+                <img src="/images/vinopng.png" alt="">
+            </div>
+            <div class="prod-detail-info">
+                <div class="prod-detail-title">
+                    <h2 class="prod-detail-h2">Title del vino</h2>
+                    <div class="prod-detail-caract">
+                        <ul class="prod-detail-ul">
+                            <li>Alcohol: XXX</li>
+                            <li>Acidez: XXX</li>
+                            <li>Azúcar Residual: XXX</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prod-detail-descr">
+                    <h4 class="prod-detail-h4">Notas de cata</h4>
+                    <ul class="prod-detail-ul-2">
+                        <li><b>Color:</b> Rojo violeta, profundo y vivo con matices azulados.</li>
+                        <li><b>Aroma:</b> a frutos rojos y negros como cerezas, casis, ciruelas y moras,
+                            integrados con los aromas de maduración en barrica como vainilla, tabaco
+                            y chocolate.</li>
+                        <li><b>Sabor:</b> Sedoso en boca, buena estructura, con marcada presencia de frutos
+                            rojos, taninos agradables y dulces.</li>
+                    </ul>
+                </div>
+                <div class="prod-detail-buttons">
+                    <a href="carrito" class="prod-detail-butt">Añadir a carrito</a>
+                    <a href="detalleProducto" class="prod-detail-butt">Ver otros vinos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <%- include("../partials/footer") %>
+</footer>
+</body>
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>
