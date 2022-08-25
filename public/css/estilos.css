@@ -332,6 +332,8 @@ main {
   background: -webkit-linear-gradient(to right, #011B36, #373B44);
   background: linear-gradient(to right, #011B36, #373B44);
   color: #fff;
+  text-align: center;
+
 }
 
 .ofer-text h4 {
@@ -364,19 +366,19 @@ main {
 
 .ofer-bot {
   font-size: 15px;
-  color: #fff;
+  color: #011B36;
   padding: 5px;
-  border: 1px solid #fff;
+  border: 1px solid #011B36;
+  background-color: #fff;
   border-radius: 5px;
   margin-bottom: 30px;
   text-decoration: none;
-  margin-left: 5%;
 }
 
 .ofer-bot:hover {
-  border: 1px solid #011B36;
-  color: #011B36;
-  background-color: #fff;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: #011B36;
 }
 
 /*VINOS - DETALLE DEL PRODUCTO*/
@@ -473,7 +475,7 @@ main {
   flex-direction: column;
   margin-bottom: 10px;
   background-color: #fff;
-  width: 70%;
+  width: 80%;
   margin: auto;
   margin-top: 20px;
   border: 1px solid #fff;
@@ -494,10 +496,14 @@ main {
 
 .vin-img {
   background-color: #fff;
+  height: 450px;
 }
 
 .vin-img img {
   width: 100%;
+  height: 450px;
+  object-fit: contain;
+
 }
 
 .vin-text {
@@ -526,7 +532,7 @@ main {
 
 .vin-text p {
   color: #fff;
-  font-size: 13px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -549,13 +555,14 @@ main {
 .div-collapse {
   text-align: center;
   margin: auto;
+
 }
 
 .div--colapse {
-  height: 130px;
-  width: 80%;
+  width: 100%;
   margin: auto;
   padding-top: 10px;
+  height: 130px;
 }
 
 .vin-butt {
@@ -907,8 +914,6 @@ main {
   .sect-search input {
     width: 80%;
   }
-
-
   .vin-tipos {
     display: flex;
     flex-direction: row;
@@ -952,7 +957,7 @@ main {
   .prod-detail-img {
     width: 40%;
     margin: auto;
-    min-height: 300px;
+    min-height: 150px;
     margin-top: 30px;
   }
 
@@ -1005,7 +1010,7 @@ main {
     margin: auto;
   }
 }
-@media (min-width: 780px) {
+@media (min-width: 810px) {
 
   /* NAVBAR EN DESKTOP */
   .nav-contein a {
@@ -1017,17 +1022,30 @@ main {
 
   /* PRODUCTOS EN DESKTOP */
   .vin-prod {
-    width: 24%;
+    width: 22%;
   }
   .vin-text p {
-    width: 80%;
-    font-size: 11px;
+    width: 100%;
+    font-size: 15px;
+  }
+  .vin-text a {
+    font-size: 12px;
   }
 
   .div--colapse {
     height: 140px;
     width: 100%;
   }
+
+  .vin-img{
+    height: 200px;
+  }
+  .vin-img img{
+    height: 200px;
+    object-fit: contain;
+  }
+
+
 
   /* OFERTAS EN DESKTOP */
 

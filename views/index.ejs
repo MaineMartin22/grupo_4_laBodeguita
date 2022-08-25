@@ -25,7 +25,8 @@
         <div class="carrusel">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
+                  
+                    <div class="carousel-item active">
                     <div class="carrusel-img" src="/images/vino1.png" class="d-block w-100" alt="...">
                         <div class="ofer-prod">
                             <div class="ofer-img">
@@ -33,12 +34,13 @@
                             </div>
                             <div class="ofer-text">
                                 <div>
-                                <h4>Title del Vino 1</h4>
-                                <p>Descripción del vino, entre otros datos cortos para convencer</p>
+                                <h4>La Linda</h4>
+                                <p>Rojo violeta, profundo y vivo con matices azulados.</p>
                                 </div>
                                 <div>
-                                <p class="descuento">30% de descuento</p>
-                                <p class="ofer-precio">Precio: $XXX</p>
+                                <p class="descuento">Descuento: 10%</p>
+                                <p class="ofer-precio">Precio anterior: <del>$3000</p></del>
+                                <h5 class="ofer-precio">Precio: $2700</h5>
                                 </div>
                                 <a class="ofer-bot" href="#">Comprar</a>
                                 <a class="ofer-bot" href="detalleProducto">Ver más</a>
@@ -46,6 +48,7 @@
                         </div>
                     </div>
                   </div>
+                  <% oferta.forEach(function(ofer){ %>      
                   <div class="carousel-item">
                     <div class="carrusel-img" src="/images/vino1.png" class="d-block w-100" alt="...">
                         <div class="ofer-prod">
@@ -54,62 +57,22 @@
                             </div>
                             <div class="ofer-text">
                                 <div>
-                                <h4>Title del Vino 2</h4>
-                                <p>Descripción del vino, entre otros datos cortos para convencer</p>
+                                <h4><%=ofer.name%> </h4>
+                                <p><%=ofer.color%> </p>
                                 </div>
                                 <div>
-                                <p class="descuento">20% de descuento</p>
-                                <p class="ofer-precio">Precio: $XXX</p>
-                                </div>
+                                <p class="descuento">Descuento: <%=ofer.oferta%>%</p>
+                                <p class="ofer-precio">Precio anterior: <del>$<%=ofer.precio%></p></del>
+                                <h5 class="ofer-precio">Precio: $<%=ofer.precio-ofer.precio*ofer.porcen%></h5></div>
                                 <a class="ofer-bot" href="#">Comprar</a>
                                 <a class="ofer-bot" href="detalleProducto">Ver más</a>
                             </div>
                         </div>
                     </div>
-                    </div>
-                  <div class="carousel-item">
-                    <div class="carrusel-img" src="/images/vino1.png" alt="...">
-                        <div class="ofer-prod">
-                            <div class="ofer-img">
-                                <img src="/images/vinopng.png" alt="vino">
-                            </div>
-                            <div class="ofer-text">
-                                <div>
-                                <h4>Title del Vino 3</h4>
-                                <p>Descripción del vino, entre otros datos cortos para convencer</p>
-                                </div>
-                                <div>
-                                <p class="descuento">15% de descuento</p>
-                                <p class="ofer-precio">Precio: $XXX</p>
-                                </div>
-                                <a class="ofer-bot" href="#">Comprar</a>
-                                <a class="ofer-bot" href="detalleProducto">Ver más</a>
-                            </div>
-                        </div>
-                    </div>          
-                </div>
-                <div class="carousel-item">
-                    <div class="carrusel-img" src="/images/vino1.png" alt="...">
-                        <div class="ofer-prod">
-                            <div class="ofer-img">
-                                <img src="/images/vinopng.png" alt="vino">
-                            </div>
-                            <div class="ofer-text">
-                                <div>
-                                <h4>Title del Vino 4</h4>
-                                <p>Descripción del vino, entre otros datos cortos para convencer</p>
-                                </div>
-                                <div>
-                                <p class="descuento">15% de descuento</p>
-                                <p class="ofer-precio">Precio: $XXX</p>
-                                </div>
-                                <a class="ofer-bot" href="#">Comprar</a>
-                                <a class="ofer-bot" href="detalleProducto">Ver más</a>
-                            </div>
-                        </div>
-                    </div>          
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  </div>
+                  <% }); %>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
@@ -124,73 +87,26 @@
         <h3>Ofertas del mes</h3>
     </div>
     <div class="ofer-productos">
+        <% oferta.forEach(function(ofer){ %>      
         <div class="ofer-prod">
             <div class="ofer-img">
                 <img src="/images/vinopng.png" alt="vino">
             </div>
             <div class="ofer-text">
                 <div>
-                <h4>Title del Vino 1</h4>
-                <p>Descripción del vino, entre otros datos cortos para convencer</p>
+                    <h4><%=ofer.name%> </h4>
+                    <p><%=ofer.color%> </p>
                 </div>
                 <div>
-                <p class="descuento">30% de descuento</p>
-                <p class="ofer-precio">Precio: $XXX</p>
+                    <p class="descuento">Descuento: <%=ofer.oferta%>%</p>
+                    <p class="ofer-precio">Precio anterior: <del>$<%=ofer.precio%></p></del>
+                    <h5 class="ofer-precio">Precio: $<%=ofer.precio-ofer.precio*ofer.porcen%></h5>
+                    <a class="ofer-bot" href="#">Comprar</a>
+                    <a class="ofer-bot" href="detalleProducto">Ver más</a>
                 </div>
-                <a class="ofer-bot" href="#">Comprar</a>
-                <a class="ofer-bot" href="detalleProducto">Ver más</a>
-            </div>
-        </div>
-        <div class="ofer-prod">
-            <div class="ofer-img">
-                <img src="/images/vinopng.png" alt="vino">
-            </div>
-            <div class="ofer-text">
-                <div>
-                <h4>Title del Vino 2</h4>
-                <p>Descripción del vino, entre otros datos cortos para convencer</p>
                 </div>
-                <div>
-                <p class="descuento">20% de descuento</p>
-                <p class="ofer-precio">Precio: $XXX</p>
-                </div>
-                <a class="ofer-bot" href="#">Comprar</a>
-                <a class="ofer-bot" href="detalleProducto">Ver más</a>
             </div>
-        </div>
-        <div class="ofer-prod">
-            <div class="ofer-img">
-                <img src="/images/vinopng.png" alt="vino">
-            </div>
-            <div class="ofer-text">
-                <div>
-                <h4>Title del Vino 3</h4>
-                <p>Descripción del vino, entre otros datos cortos para convencer</p>
-                </div>
-                <div>
-                <p class="descuento">15% de descuento</p>
-                <p class="ofer-precio">Precio: $XXX</p>
-                </div>
-                <a class="ofer-bot" href="#">Comprar</a>
-                <a class="ofer-bot" href="detalleProducto">Ver más</a>
-            </div>
-        </div>
-        <div class="ofer-prod">
-            <div class="ofer-img">
-                <img src="/images/vinopng.png" alt="vino">
-            </div>
-            <div class="ofer-text">
-                <div>
-                <h4>Title del Vino 4</h4>
-                <p>Descripción del vino, entre otros datos cortos para convencer</p>
-                </div>
-                <div>
-                <p class="descuento">15% de descuento</p>
-                <p class="ofer-precio">Precio: $XXX</p>
-                </div>
-                <a class="ofer-bot" href="#">Comprar</a>
-                <a class="ofer-bot" href="detalleProducto">Ver más</a>
-            </div>
+            <% }); %>
         </div>
     </div>
 </section>

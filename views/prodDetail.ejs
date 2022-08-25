@@ -16,458 +16,78 @@
     </div>
     <h2 class="vin-tipos-title">Vino Tinto</h2>
     <div class="vin-tipos">
+
+        <% tinto.forEach(function(tint) { %>      
         <div class="vin-prod">
             <div class="vin-img">
                 <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
             </div>
             <div class="vin-text">
-                <h4>Title del vino</h4>
+                <h4><%=tint.name%></h4>
                 <div>
-                    <a href="#collapse1" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse1" aria-expanded="false">Descripción</a>
+                    <a href="#<%=tint.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=tint.collapse%>" aria-expanded="false">Descripción</a>
                     <a href="carrito" class="btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
                 </div>
-                    <div class="div-collapse collapse" id="collapse1">
+                    <div class="div-collapse collapse" id="<%=tint.collapse%>">
                         <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
+                        <p>Tamaño: <%=tint.tamaño%> </p>
+                        <p>Precio: $<%=tint.precio%> </p>
                         <a class="vin-butt" href="vino1" target="_blank">Más información</a>
                     </div>
                     </div>
             </div>
             </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse2" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse2" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse2">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-                <div class="vin-img">
-                    <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-                </div>
-                <div class="vin-text">
-                    <h4>Title del vino</h4>
-                    <div>
-                        <a href="#collapse3" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse3" aria-expanded="false">Descripción</a>
-                    </div>
-                        <div class="div-collapse collapse" id="collapse3">
-                           <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                        </div>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </div>
-                </div>
-                <div class="vin-prod">
-                    <div class="vin-img">
-                        <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-                    </div>
-                    <div class="vin-text">
-                        <h4>Title del vino</h4>
-                        <div>
-                            <a href="#collapse4" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse4" aria-expanded="false">Descripción</a>
-                        </div>
-                            <div class="div-collapse collapse" id="collapse4">
-                              <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                            </div>
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </div>
-                    </div>
-
-                    <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse5" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse5" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse5">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse6" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse6" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse6">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
+            <% }); %>
         </div>
-    </div>
     <h2 class="vin-tipos-title">Vino Blanco</h2>
     <div class="vin-tipos">
+
+        <% blanco.forEach(function(blanc) { %>      
         <div class="vin-prod">
             <div class="vin-img">
                 <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
             </div>
             <div class="vin-text">
-                <h4>Title del vino</h4>
+                <h4><%=blanc.name%></h4>
                 <div>
-                    <a href="#collapse7" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse7" aria-expanded="false">Descripción</a>
+                    <a href="#<%=blanc.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=blanc.collapse%>" aria-expanded="false">Descripción</a>
+                    <a href="carrito" class="btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
                 </div>
-                    <div class="div-collapse collapse" id="collapse7">
+                    <div class="div-collapse collapse" id="<%=blanc.collapse%>">
                         <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
+                        <p>Tamaño: <%=blanc.tamaño%> </p>
+                        <p>Precio: $<%=blanc.precio%> </p>
                         <a class="vin-butt" href="vino1" target="_blank">Más información</a>
                     </div>
-
                     </div>
-                <i class="fa-solid fa-cart-plus"></i>
             </div>
+            </div>
+            <% }); %>
         </div>
-        <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse8" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse8" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse8">
-                      <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-                <div class="vin-img">
-                    <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-                </div>
-                <div class="vin-text">
-                    <h4>Title del vino</h4>
-                    <div>
-                        <a href="#collapse9" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse9" aria-expanded="false">Descripción</a>
-                    </div>
-                        <div class="div-collapse collapse" id="collapse9">
-                          <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                        </div>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </div>
-                </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse10" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse10" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse10">
-                      <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse11" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse11" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse11">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse12" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse12" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse12">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-        </div>
-        <h2 class="vin-tipos-title">Vino Rosado</h2>
+    <h2 class="vin-tipos-title">Vino Rosado</h2>
     <div class="vin-tipos">
+        <% rosado.forEach(function(rosa) { %>      
         <div class="vin-prod">
             <div class="vin-img">
                 <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
             </div>
             <div class="vin-text">
-                <h4>Title del vino</h4>
+                <h4><%=rosa.name%></h4>
                 <div>
-                    <a href="#collapse13" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse13" aria-expanded="false">Descripción</a>
+                    <a href="#<%=rosa.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=rosa.collapse%>" aria-expanded="false">Descripción</a>
+                    <a href="carrito" class="btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
                 </div>
-                    <div class="div-collapse collapse" id="collapse13">
-                      <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
+                    <div class="div-collapse collapse" id="<%=rosa.collapse%>">
+                        <div class="div--colapse">
+                        <p>Tamaño: <%=rosa.tamaño%> </p>
+                        <p>Precio: $<%=rosa.precio%> </p>
                         <a class="vin-butt" href="vino1" target="_blank">Más información</a>
                     </div>
                     </div>
-                <i class="fa-solid fa-cart-plus"></i>
             </div>
             </div>
-            <div class="vin-prod">
-                <div class="vin-img">
-                    <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-                </div>
-                <div class="vin-text">
-                    <h4>Title del vino</h4>
-                    <div>
-                        <a href="#collapse14" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse14" aria-expanded="false">Descripción</a>
-                    </div>
-                        <div class="div-collapse collapse" id="collapse14">
-                           <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-
-                        </div>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </div>
-                </div>
-                <div class="vin-prod">
-                    <div class="vin-img">
-                        <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-                    </div>
-                    <div class="vin-text">
-                        <h4>Title del vino</h4>
-                        <div>
-                            <a href="#collapse15" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse15" aria-expanded="false">Descripción</a>
-                        </div>
-                            <div class="div-collapse collapse" id="collapse15">
-                             <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-
-                            </div>
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </div>
-                    </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse16" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse16" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse16">
-                      <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse17" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse17" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse17">
-                      <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse18" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse18" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse18">
-                      <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
+            <% }); %>
         </div>
-        <h2 class="vin-tipos-title">Vino Espumoso</h2>
-    <div class="vin-tipos">
-        <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse19" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse19" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse19">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-        </div>
-        <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse20" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse20" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse20">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            </div>
-            <div class="vin-prod">
-                <div class="vin-img">
-                    <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-                </div>
-                <div class="vin-text">
-                    <h4>Title del vino</h4>
-                    <div>
-                        <a href="#collapse21" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse21" aria-expanded="false">Descripción</a>
-                    </div>
-                        <div class="div-collapse collapse" id="collapse21">
-                           <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                        </div>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </div>
-                </div>
-                    <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse22" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse22" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse22">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-        </div>
-
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse23" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse23" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse23">
-                      <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-        </div>
-
-            <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4>Title del vino</h4>
-                <div>
-                    <a href="#collapse24" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse24" aria-expanded="false">Descripción</a>
-                </div>
-                    <div class="div-collapse collapse" id="collapse24">
-                       <div class="div--colapse">
-                        <p>Descripción del producto en general, contenido y fecha de realización entre otras muchas cosas más para agregar</p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-        </div>
-</div>
 </section>
 </main>
 <footer class="footer">
