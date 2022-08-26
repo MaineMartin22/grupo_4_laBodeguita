@@ -44,12 +44,12 @@ const oferta = [
 
 const controller = {
     index: (req, res) => {res.render("index",{oferta:oferta})},
-    register: (req, res) => {res.render("register")},
-    productDetail: (req, res) =>{res.render("prodDetail",{tinto:tinto, blanco:blanco, rosado:rosado,})},
-    login: (req, res) => {res.render("login")},
-    prodCar:(req, res) => {res.render("prodCar")},
+    register: (req, res) => {res.render("./usuarios/register")},
+    productDetail: (req, res) =>{res.render("./productos/prodDetail",{tinto:tinto, blanco:blanco, rosado:rosado,})},
+    login: (req, res) => {res.render("./usuarios/login")},
+    prodCar:(req, res) => {res.render("./productos/prodCar")},
     wine1: (req, res) => {res.render("./productos/vino1")},
-    toBuy: (req, res) => {res.render("finalizarCompra")}
+    toBuy: (req, res) => {res.render("./usuarios/finalizarCompra")}
 }
 
 module.exports = controller
