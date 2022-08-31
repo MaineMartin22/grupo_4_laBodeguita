@@ -1,13 +1,15 @@
-const model = {
-    agregarProducto: (tinto, nuevoProducto) =>{
-        tinto.push(nuevoProducto);
-        return tinto;
-    },
+const Maincontroller = require("../controllers/mainController")
 
-    editarProducto: (tinto, prodEdit) =>{
-        tinto.push(prodEdit);
-        return tinto
-    }
+const model = {
+    // agregarProducto: (tinto, nuevoProducto) =>{
+    //     tinto.push(nuevoProducto);
+    //     return tinto;
+    // },
+
+    // editarProducto: (tinto, prodEdit) =>{
+    //     tinto.push(prodEdit);
+    //     return tinto
+    // }
 }
 
 module.exports = model;

@@ -28,8 +28,9 @@
                 <option><%=prodToEdit.tipo%></option>
                 <option>Rosado</option>
                 <option>Tinto</option>
-            </select>
             <% };%>
+        </select>
+
             <h3>Precio</h3>
             <input type="number" name="precio" id="precio" value="<%=prodToEdit.precio%>">
             <h3>Bodega</h3>
@@ -42,12 +43,12 @@
                     <option><%=prodToEdit.bodega%></option>
                     <option>Norton</option>
                     <option>Malbec</option>
-                <% } else { %>
+                <% } else { return%>
                     <option><%=prodToEdit.bodega%></option>
                     <option>Malbec</option>
                     <option>Santa Julia</option>
-                </select>
                 <% }; %>
+            </select>
 
             <h3>% de alcohol</h3>
             <input type="text" name="alcohol" id="alcohol" value="<%=prodToEdit.alcohol%>">

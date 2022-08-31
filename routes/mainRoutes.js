@@ -26,7 +26,9 @@ router.post('/create', Maincontroller.create)
 
 router.get('/edit/:idProd', Maincontroller.edit)
 
-router.put('/edit/:idProd', Maincontroller.update)
+router.put('/edit/:idProd', function(res, req) {
+    res.send("soy put")
+})
 
 router.delete('delete/:idUser', function(res, req){
     res.send("soy delete")

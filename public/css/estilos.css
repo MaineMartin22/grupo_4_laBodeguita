@@ -823,31 +823,72 @@ main {
     margin: auto;
     width: 80%;
     padding-top: 100px;
-    padding-bottom: 100px;
-    color: #fff;
-    height: 800px;
+    padding-bottom: 105px;
+  }
+
+  .prodList-div{
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+    padding: 30px 0px;
   }
 
   .prodList h4{
     font-size: 18px;
+    margin: auto;
   }
 
   .prodList-ul{
     list-style: none;
     text-align: left;
-  }
+    margin: auto;
+    margin-top: 40px;
 
+}
+
+  .prodList-ul div{
+    display: flex;
+    justify-content: space-evenly;
+  }
   .prodList-ul li{
     list-style: none;
     margin-top: 5px;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .prodList-ul form{
+    width: 40%;
+    margin: auto;
 
   }
 
   .prodList-ul a{
     text-decoration: none;
-    color: #fff;
+    color: #000;
     font-size: 20px;
     }
+
+    .prodList-ul form button{
+      background-color: #011B36;
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      padding: 10px;
+      transition: all .4s ease-in-out;
+      text-align: left;
+    }
+    
+    .prodList-ul form button:hover{
+      background-color: #fff;
+      color: #011B36;
+      border: 1px solid #011B36;
+    }
+
 
 @media (min-width: 481px) {
 
