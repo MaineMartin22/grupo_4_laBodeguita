@@ -10,20 +10,24 @@
     </header>
     <main>
         <section class="prodList">
+        <div class="prodList-div">
         <h4>Lista de productos</h4>
         <h4>Haz click para ver y editar</h4>
         <ul class="prodList-ul">
         <% for( let i = 0; i < tinto.length; i++ ) { %>
+            <div>
             <li>
                 <a href="edit/<%=tinto[i].id%>"><%= tinto[i].name %></a>
             </li>
             <form action="/delete/<%=tinto[i].id%>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
             </form>
+            </div>
         <% } %>
     </ul>
-    </main>
+    </div>
 </section>
+    </main>
     <footer class="footer">
     <%- include("./partials/footer") %>
   </footer>

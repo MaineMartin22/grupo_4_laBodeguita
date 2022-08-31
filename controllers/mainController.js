@@ -99,20 +99,20 @@ const controller = {
         res.redirect("/list")
     },
 
-    update: (req, res) =>{
-        const idProd = Number(req.params.idProd);
+    // update: (req, res) =>{
+    //     const idProd = Number(req.params.idProd);
 
-        const newArrayProducts = tinto.map(oneProduct => {
-            if (oneProduct.id === Number(req.params.idProd)){
-                return {
-                    ...oneProduct,
-                    ...req.body,
+    //     const newArrayProducts = tinto.map(oneProduct => {
+    //         if (oneProduct.id === Number(req.params.idProd)){
+    //             return {
+    //                 ...oneProduct,
+    //                 ...req.body,
 
-                }
-            }
-            return oneProduct
-        });
-    }
+    //             }
+    //         }
+    //         return oneProduct
+    //     });
+    // }
 }
 
 
