@@ -11,28 +11,24 @@
     <section class="productos-detail">
         <div class="prod-detail">
             <div class="prod-detail-img">
-                <img src="/images/vinopng.png" alt="">
+                <img src="<%=tinto.imagen%>" alt="">
             </div>
             <div class="prod-detail-info">
                 <div class="prod-detail-title">
-                    <h2 class="prod-detail-h2">Title del vino</h2>
+                    <h2 class="prod-detail-h2"><%=tinto.name%> </h2>
                     <div class="prod-detail-caract">
                         <ul class="prod-detail-ul">
-                            <li>Alcohol: XXX</li>
-                            <li>Acidez: XXX</li>
-                            <li>Azúcar Residual: XXX</li>
+                            <li><%=tinto.alcohol%> </li>
                         </ul>
                     </div>
                 </div>
                 <div class="prod-detail-descr">
-                    <h4 class="prod-detail-h4">Notas de cata</h4>
+                    <h4 class="prod-detail-h4">Información</h4>
                     <ul class="prod-detail-ul-2">
-                        <li><b>Color:</b> Rojo violeta, profundo y vivo con matices azulados.</li>
-                        <li><b>Aroma:</b> a frutos rojos y negros como cerezas, casis, ciruelas y moras,
-                            integrados con los aromas de maduración en barrica como vainilla, tabaco
-                            y chocolate.</li>
-                        <li><b>Sabor:</b> Sedoso en boca, buena estructura, con marcada presencia de frutos
-                            rojos, taninos agradables y dulces.</li>
+                        <li><b>Color:</b> <%=tinto.color%> </li>
+                        <li><b>Precio:</b> <%=tinto.precio%> </li>
+                        <li><b>Bodega:</b> <%=tinto.bodega%></li>
+                        <li><b>Tipo:</b> <%=tinto.tipo%></li>
                     </ul>
                 </div>
                 <div class="prod-detail-buttons">

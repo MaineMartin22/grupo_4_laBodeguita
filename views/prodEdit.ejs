@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("./partials/head") %>
+        <link rel="stylesheet" href="/css/estilosReg.css">
+      </head>
+<body>
+    <header class="header">
+        <%- include("./partials/navBar") %>
+    </header>
+    <main>
+    <div class="create-div">
+    <form method="POST" action="/edit?_method=PUT" class="create">
+            <h3>Editando producto: <%=prodToEdit.name%> - ID número: <%= prodToEdit.id %> </h3>
+            <div>
+            <input type="text" name="name" id="name" value="<%=prodToEdit.name%>">
+            <h3>Tipo</h3>
+            <select name="tipo" id="tipo">
+            <% if (prodToEdit.tipo == "Rosado") { %>
+                <option><%=prodToEdit.tipo%></option>
+                <option>Tinto</option>
+                <option>Blanco</option>
+            <% } else if (prodToEdit.tipo == "Tinto" ) { %> 
+                <option><%=prodToEdit.tipo%></option>
+                <option>Rosado</option>
+                <option>Blanco</option>
+            <% } else { %>
+                <option><%=prodToEdit.tipo%></option>
+                <option>Rosado</option>
+                <option>Tinto</option>
+            </select>
+            <% };%>
+            <h3>Precio</h3>
+            <input type="number" name="precio" id="precio" value="<%=prodToEdit.precio%>">
+            <h3>Bodega</h3>
+            <select name="bodega" id="bodega">
+                <% if (prodToEdit.bodega === "Malbec") { %>
+                    <option><%=prodToEdit.bodega%></option>
+                    <option>Santa Julia</option>
+                    <option>Norton</option>
+                <% } else if (prodToEdit.bodega === "Santa Julia" ) { %> 
+                    <option><%=prodToEdit.bodega%></option>
+                    <option>Norton</option>
+                    <option>Malbec</option>
+                <% } else { %>
+                    <option><%=prodToEdit.bodega%></option>
+                    <option>Malbec</option>
+                    <option>Santa Julia</option>
+                </select>
+                <% }; %>
+
+            <h3>% de alcohol</h3>
+            <input type="text" name="alcohol" id="alcohol" value="<%=prodToEdit.alcohol%>">
+            <h3>Tamaño</h3>
+            <input type="text" name="tamaño" id="tamaño" value="<%=prodToEdit.tamaño%>">
+            <h3>Color</h3>
+            <input type="text" name="color" id="color" value="<%=prodToEdit.color%>">
+        <button type="submit">Enviar</button>
+        <button type="reset">Borrar</button>
+    </div>
+</form>
+</div>
+</main>
+<footer class="footer">
+    <%- include("./partials/footer") %>
+  </footer>
+  </body>
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

@@ -768,6 +768,7 @@ main {
 
 
 
+
 /*Footer*/
 
 .footer {
@@ -813,6 +814,40 @@ main {
   font-size: 20px;
   color: #fff;
 }
+
+
+  /* LISTA DE PRODUCTOS  */
+
+  .prodList{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #fff;
+    height: 800px;
+  }
+
+  .prodList h4{
+    font-size: 18px;
+  }
+
+  .prodList-ul{
+    list-style: none;
+    text-align: left;
+  }
+
+  .prodList-ul li{
+    list-style: none;
+    margin-top: 5px;
+
+  }
+
+  .prodList-ul a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    }
 
 @media (min-width: 481px) {
 

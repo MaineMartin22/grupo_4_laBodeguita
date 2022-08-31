@@ -20,10 +20,10 @@
         <% tinto.forEach(function(tint) { %>      
         <div class="vin-prod">
             <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
+                <img src=<%=tint.imagen%> alt="">
             </div>
             <div class="vin-text">
-                <h4><%=tint.name%></h4>
+                <h4><%=tint.name%> - <%=tint.tipo%></h4>
                 <div>
                     <a href="#<%=tint.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=tint.collapse%>" aria-expanded="false">Descripción</a>
                     <a href="carrito" class="btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
@@ -32,55 +32,6 @@
                         <div class="div--colapse">
                         <p>Tamaño: <%=tint.tamaño%> </p>
                         <p>Precio: $<%=tint.precio%> </p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-            </div>
-            </div>
-            <% }); %>
-        </div>
-    <h2 class="vin-tipos-title">Vino Blanco</h2>
-    <div class="vin-tipos">
-
-        <% blanco.forEach(function(blanc) { %>      
-        <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4><%=blanc.name%></h4>
-                <div>
-                    <a href="#<%=blanc.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=blanc.collapse%>" aria-expanded="false">Descripción</a>
-                    <a href="carrito" class="btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
-                </div>
-                    <div class="div-collapse collapse" id="<%=blanc.collapse%>">
-                        <div class="div--colapse">
-                        <p>Tamaño: <%=blanc.tamaño%> </p>
-                        <p>Precio: $<%=blanc.precio%> </p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
-                    </div>
-                    </div>
-            </div>
-            </div>
-            <% }); %>
-        </div>
-    <h2 class="vin-tipos-title">Vino Rosado</h2>
-    <div class="vin-tipos">
-        <% rosado.forEach(function(rosa) { %>      
-        <div class="vin-prod">
-            <div class="vin-img">
-                <img src="/images/CADUS-SINGLE-VINEYARD.jpg" alt="">
-            </div>
-            <div class="vin-text">
-                <h4><%=rosa.name%></h4>
-                <div>
-                    <a href="#<%=rosa.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=rosa.collapse%>" aria-expanded="false">Descripción</a>
-                    <a href="carrito" class="btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
-                </div>
-                    <div class="div-collapse collapse" id="<%=rosa.collapse%>">
-                        <div class="div--colapse">
-                        <p>Tamaño: <%=rosa.tamaño%> </p>
-                        <p>Precio: $<%=rosa.precio%> </p>
                         <a class="vin-butt" href="vino1" target="_blank">Más información</a>
                     </div>
                     </div>
