@@ -10,7 +10,9 @@ router.get('/register', Maincontroller.register);
 
 router.get('/detalleProducto', Maincontroller.productDetail);
 
-router.get('/search', Maincontroller.search)
+router.get('/vinos', Maincontroller.vinos);
+
+router.get('/search', Maincontroller.search);
 
 router.get('/login', Maincontroller.login);
 
@@ -20,11 +22,11 @@ router.get('/finalizarCompra', Maincontroller.toBuy);
 
 router.get('/list', Maincontroller.list);
 
-router.get('/create' ,Maincontroller.product)
+router.get('/create' ,Maincontroller.product);
 
-router.post('/create', Maincontroller.create)
+router.post('/create', Maincontroller.create);
 
-router.get('/edit/:idProd', Maincontroller.edit)
+router.get('/edit/:idProd', Maincontroller.edit);
 
 router.put('/edit/:idProd', function(res, req) {
     res.send("soy put")

@@ -38,6 +38,7 @@ const controller = {
     prodCar:(req, res) => {res.render("prodCar")},
     toBuy: (req, res) => {res.render("finalizarCompra")},
     product: (req,res) => {res.render("prodCreate")},
+    vinos: (req,res) =>{res.render("vinos", {tinto:tinto})},
 
     list: function(req, res){
         tinto;

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include("../partials/head") %>
+    <%- include("./partials/head") %>
 </head>
 <body>
     <header class="header">
-        <%- include("../partials/navBar") %>
+        <%- include("./partials/navBar") %>
     </header>
 <main class="main-vinos">
 <section class="section-vinos">
@@ -32,7 +32,7 @@
                         <div class="div--colapse">
                         <p>Tamaño: <%=tint.tamaño%> </p>
                         <p>Precio: $<%=tint.precio%> </p>
-                        <a class="vin-butt" href="vino1" target="_blank">Más información</a>
+                        <a class="vin-butt" href="vinos" target="_blank">Más información</a>
                     </div>
                     </div>
             </div>
@@ -42,7 +42,7 @@
 </section>
 </main>
 <footer class="footer">
-    <%- include("../partials/footer") %>
+    <%- include("./partials/footer") %>
 </footer>
 </body>
 <!-- BOOTSTRAP JS -->
