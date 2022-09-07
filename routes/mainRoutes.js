@@ -12,8 +12,6 @@ router.get('/detalleProducto', Maincontroller.productDetail);
 
 router.get('/vinos', Maincontroller.vinos);
 
-router.get('/search', Maincontroller.search);
-
 router.get('/login', Maincontroller.login);
 
 router.get('/carrito', Maincontroller.prodCar);
@@ -26,15 +24,17 @@ router.get('/create' ,Maincontroller.product);
 
 router.post('/create', Maincontroller.create);
 
-router.get('/edit/:idProd', Maincontroller.edit);
+// router.get('/search', Maincontroller.search);
 
-router.put('/edit/:idProd', function(res, req) {
-    res.send("soy put")
-})
 
-router.delete('delete/:idUser', function(res, req){
-    res.send("soy delete")
-})
+// router.get('/edit/:idProd', Maincontroller.edit);
+
+// router.post('/edit/:idProd', Maincontroller.update);
+
+// router.get('/delete/:idUser', Maincontroller.delete)
+
+// router.post('/delete/:idUser', Maincontroller.delete)
+
 
 
 module.exports = router

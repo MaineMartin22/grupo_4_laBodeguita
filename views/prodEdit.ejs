@@ -10,8 +10,8 @@
     </header>
     <main>
     <div class="create-div">
-    <form method="POST" action="/edit?_method=PUT" class="create">
-            <h3>Editando producto: <%=prodToEdit.name%> - ID número: <%= prodToEdit.id %> </h3>
+    <form method="POST" action="/edit/<%= prodToEdit.id %>" class="create">
+            <h3>Editando producto: <%=prodToEdit.name%> - ID número: <%= prodToEdit.id %></h3>
             <div>
             <input type="text" name="name" id="name" value="<%=prodToEdit.name%>">
             <h3>Tipo</h3>

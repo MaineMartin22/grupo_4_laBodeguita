@@ -19,7 +19,7 @@
             <li>
                 <a href="edit/<%=tinto[i].id%>"><%= tinto[i].name %></a>
             </li>
-            <form action="/delete/<%=tinto[i].id%>?_method=DELETE" method="POST">
+            <form action="/delete/<%=tinto[i].id%>" method="POST">
                 <button type="submit">Delete</button>
             </form>
             </div>
