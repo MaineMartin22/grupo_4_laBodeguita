@@ -13,18 +13,23 @@
         <div class="prodList-div">
         <h4>Lista de productos</h4>
         <h4>Haz click para ver y editar</h4>
-        <ul class="prodList-ul">
-        <% for( let i = 0; i < tinto.length; i++ ) { %>
+       <div class="prodList-ul">
+        <% tinto.forEach(tint => { %>
+         
+
             <div>
-            <li>
-                <a href="edit/<%=tinto[i].id%>"><%= tinto[i].name %></a>
-            </li>
-            <form action="product/delete/<%= tinto[i].id %>?_method=delete" method="POST" enctype="multipart/form-data">
-                <button type="submit">Delete</button>
+                <h3><%= tint.name %> </h3>
+            </div>
+            <div>
+                <form action="product/edit/<%= tint.id %>" method="get" enctype="multipart/form-data">
+                    <button type="submit">Editar</button>
+                </form>
+            <form action="product/delete/<%= tint.id %>?_method=delete" method="POST" enctype="multipart/form-data">
+                <button type="submit">Borrar</button>
             </form>
             </div>
-        <% } %>
-    </ul>   
+        <% }) %>
+    </div>
     </div>
 </section>
     </main>
