@@ -31,9 +31,8 @@ router.post('/create', Maincontroller.create);
 
 // router.post('/edit/:idProd', Maincontroller.update);
 
-// router.get('/delete/:idUser', Maincontroller.delete)
+router.get('/delete/:idProd', Maincontroller.list)
 
-// router.post('/delete/:idUser', Maincontroller.delete)
 
 
 

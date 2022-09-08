@@ -62,36 +62,43 @@ const controller = {
         res.redirect('/detalleProducto')
     },
 
-    // edit : function(req, res) {
-    //     let idProd = req.params.idProd;
-    //     tinto;
+     edit : function(req, res) {
+        let idProd = req.params.idProd;
+       tinto;
 
-    //     let prodToEdit = tinto[idProd - 1];
+     let prodToEdit = tinto[idProd - 1];
 
-    //     res.render("prodEdit", {prodToEdit: prodToEdit});
-    // },
+        res.render("prodEdit", {prodToEdit: prodToEdit});
+    },
 
-    // update: (req, res) =>{
-    //     const idProd = Number(req.params.idProd);
+    /* update: (req, res) =>{
+        const idProd = Number(req.params.idProd);
 
-    //     const newArrayProducts = tinto.map(oneProduct => {
-    //         if (oneProduct.id === Number(req.params.idProd)){
-    //             let newTinto = {};
-    //             newTinto[tinto.id] = tinto.id
-    //             return newTinto
-    //         }
-    //         return oneProduct
-    //     });
-    //     res.render("prodEdit",{newArrayProducts:newArrayProducts})
-    //     res.redirect('/prodEdit')
-    // },
+        const newArrayProducts = tinto.map(oneProduct => {
+            if (oneProduct.id === Number(req.params.idProd)){
+                let newTinto = {};
+                newTinto[tinto.id] = tinto.id
+                return newTinto
+            }
+            return oneProduct
+        });
+        res.render("prodEdit",{newArrayProducts:newArrayProducts})
+        res.redirect('/prodEdit')
+    },
+ */
+    delete: (req, res) =>{
+        const idProd = req.params.idProd;
 
-    // delete: (req, res) =>{
-    //     const idProd = req.params.idProd;
-    //     tinto;
-    //     let prodToDelete = tinto.splice(0,idProd);
-    //     res.render("prodList", {prodToDelete: prodToDelete})
-    // }
+        const productoEliminar = tinto.find(vino => vino.id == idProd)
+        const index = tinto.indexOf(productoEliminar)
+
+        tinto.splice(index, 1);
+
+        fs.writeFileSync(miPathDataBase, JSON.stringify(tinto))
+
+        res.redirect('/list')
+
+    }
 }
 
 module.exports = controller

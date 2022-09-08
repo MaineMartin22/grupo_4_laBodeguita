@@ -19,12 +19,12 @@
             <li>
                 <a href="edit/<%=tinto[i].id%>"><%= tinto[i].name %></a>
             </li>
-            <form action="/delete/<%=tinto[i].id%>" method="POST">
+            <form action="product/delete/<%= tinto[i].id %>?_method=delete" method="POST" enctype="multipart/form-data">
                 <button type="submit">Delete</button>
             </form>
             </div>
         <% } %>
-    </ul>
+    </ul>   
     </div>
 </section>
     </main>
