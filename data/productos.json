@@ -1,7 +1,8 @@
 [
     {
         "id": 1,
-        "oferta": "15%",
+        "oferta": "false",
+        "descuento": "15%",
         "name": "Muga",
         "tipo": "blanco",
         "bodega": "Norton",
@@ -13,7 +14,8 @@
     },
     {
         "id": 2,
-        "oferta": "5%",
+        "oferta": "true",
+        "descuento": "5%",
         "name": "Santa Julia",
         "tipo": "tinto",
         "bodega": "Norton",
@@ -25,7 +27,8 @@
     },
     {
         "id": 3,
-        "oferta": "30%",
+        "oferta": "false",
+        "descuento": "10%",
         "name": "Las Perdices",
         "tipo": "tinto",
         "bodega": "Santa Julia",
@@ -37,7 +40,8 @@
     },
     {
         "id": 4,
-        "oferta": "10%",
+        "oferta": "true",
+        "descuento": "30%",
         "name": "La Linda",
         "tipo": "rosado",
         "bodega": "Malbec",
@@ -49,7 +53,8 @@
     },
     {
         "id": 5,
-        "oferta": "15%",
+        "oferta": "false",
+        "descuento": "15%",
         "name": "Tintillo",
         "tipo": "blanco",
         "bodega": "Norton",
@@ -61,7 +66,8 @@
     },
     {
         "id": 6,
-        "oferta": "12%",
+        "oferta": "false",
+        "descuento": "12%",
         "name": "La Mantis",
         "tipo": "blanco",
         "bodega": "Malbec",
@@ -73,7 +79,8 @@
     },
     {
         "id": 7,
-        "oferta": "25%",
+        "oferta": "false",
+        "descuento": "25%",
         "name": "Impromptu Rosé",
         "tipo": "rosado",
         "bodega": "Santa Julia",
@@ -85,7 +92,8 @@
     },
     {
         "id": 8,
-        "oferta": "10%",
+        "oferta": "true",
+        "descuento": "10%",
         "name": "Flor de Muga",
         "tipo": "rosado",
         "bodega": "Malbec",
@@ -97,7 +105,8 @@
     },
     {
         "id": 9,
-        "oferta": "25%",
+        "oferta": "false",
+        "descuento": "25%",
         "name": "Bel Lago",
         "tipo": "blanco",
         "bodega": "Santa Julia",
@@ -109,7 +118,8 @@
     },
     {
         "id": 10,
-        "oferta ": "20%",
+        "oferta ":"false",
+        "descuento": "20%",
         "name": "Regina 2016",
         "tipo": "rosado",
         "bodega": "Malbec",
@@ -121,7 +131,8 @@
     },
     {
         "id": 11,
-        "oferta": "30%",
+        "oferta": "true",
+        "descuento": "20%",
         "name": "La Linda",
         "tipo": " tinto",
         "bodega": "Malbec",
@@ -133,7 +144,8 @@
     },
     {
         "id": 12,
-        "oferta": "10%",
+        "oferta":"false",
+        "descuento": "10%",
         "name": "Jillana",
         "tipo": "tinto",
         "bodega": "Santa Julia",
@@ -145,10 +157,11 @@
     },
     {
         "id": 13,
-        "oferta": "15%",
+        "oferta":"false",
+        "descuento": "15%",
         "name": "Garnacha",
         "tipo": "tinto",
-        "bodega": " Norton",
+        "bodega": "Norton",
         "tamaño": "750ml",
         "collapse": "collapses13",
         "precio": "$8149.58",
@@ -157,7 +170,8 @@
     },
     {
         "id": 14,
-        "oferta": "5%",
+        "oferta":"false",
+        "descuento": "5%",
         "name": "Flor de Muga",
         "tipo": "rosado",
         "bodega": "Santa Julia",
@@ -169,7 +183,8 @@
     },
     {
         "id": 15,
-        "oferta": "10%",
+        "oferta":"false",
+        "descuento": "10%",
         "name": "Lavena",
         "tipo": "blanco",
         "bodega": "Malbec",
@@ -181,7 +196,8 @@
     },
     {
         "id": 16,
-        "oferta": "Amorts",
+        "oferta":"false",
+        "descuento": "5%",
         "name": "Cruz Santa",
         "tipo": "tinto",
         "bodega ": "Norton",
@@ -193,7 +209,8 @@
     },
     {
         " id": 17,
-        "oferta": "15%",
+        "oferta":"false",
+        "descuento": "15%",
         "name": "Magna",
         "tipo": "tinto",
         "bodega": "Santa Julia",
@@ -205,7 +222,8 @@
     },
     {
         "id": 18,
-        "oferta": "10%",
+        "oferta":"true",
+        "descuento": "10%",
         "name": "Gargalo",
         "tipo": "blanco",
         "bodega": "Norton",
@@ -217,7 +235,8 @@
     },
     {
         "id": 19,
-        "oferta": "5%",
+        "oferta":"false",
+        "descuento": "5%",
         "name": "Rolly Gassmann",
         "tipo": "blanco",
         "bodega": "Malbec",
@@ -229,7 +248,8 @@
     },
     {
         "id": 20,
-        "oferta": "15%",
+        "oferta":"true",
+        "descuento": "15%",
         "name": "Guímaro",
         "tipo": "tinto",
         "bodega": "Norton",
