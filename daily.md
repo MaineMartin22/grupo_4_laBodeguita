@@ -1,0 +1,2 @@
+Se cumplieron las weekly en nuestro caso, respetando horarios y tiempos de trabajo.
+Se sub dividió el grupo para tareas y pusheos y funcionó perfectamente para cumplir con la enterga en tiempo y forma.

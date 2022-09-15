@@ -1,16 +1,26 @@
+// ************ Require's ************
 const express = require("express")
 const dotenv = require("dotenv").config()
 const mainRoutes = require("./routes/mainRoutes")
+const prodRoutes = require("./routes/prodRoutes")
 const ejs = require("ejs")
-const app = express()
 const methodOverride = require('method-override')
 
-app.set("view engine", "ejs");
+// ************ express() - (don't touch) ************
+const app = express()
+
+// ************ Middlewares - (don't touch) ************
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended : true}));
 app.use(express.json());
-app.use("/", mainRoutes);
-app.use(express.static('public'));
 app.use(methodOverride('_method'));
+app.use("/", mainRoutes);
+app.use("/product", prodRoutes)
+
+// ************ Template Engine - (don't touch) ************
+app.set("view engine", "ejs");
+
+// ************ Listen ************
 app.listen(process.env.PORT || 2000, () =>{
 console.log("Servidor corriendo en https://localhost:" + process.env.PORT)
 })

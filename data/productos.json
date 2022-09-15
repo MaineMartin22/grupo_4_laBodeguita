@@ -1,16 +1,3 @@
 [
- {
-  "id": 1,
-  "name": "Barbara",
-  "tipo": "Tinto",
-  "bodega": "Malbec",
-  "collapse": "collapse1",
-  "precio": "3500",
-  "alcohol": "13.3",
-  "color": "Oscuro",
-  "oferta": "true",
-  "descuento": "15",
-  "tamaño": "750ml",
-  "imagen": "CADUS-SINGLE-VINEYARD.jpg"
- }
+
 ]

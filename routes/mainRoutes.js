@@ -24,16 +24,9 @@ router.get('/create' ,Maincontroller.product);
 
 router.post('/create', Maincontroller.create);
 
-// router.get('/search', Maincontroller.search);
 
+router.get('/delete/:idProd', Maincontroller.list)
 
-// router.get('/edit/:idProd', Maincontroller.edit);
-
-// router.post('/edit/:idProd', Maincontroller.update);
-
-// router.get('/delete/:idUser', Maincontroller.delete)
-
-// router.post('/delete/:idUser', Maincontroller.delete)
 
 
 

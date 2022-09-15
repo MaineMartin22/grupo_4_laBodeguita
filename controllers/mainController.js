@@ -1,5 +1,5 @@
 const ejs = require("ejs")
-const productsModel = require('../models/productsModel')
+const subir = require('../models/productsModel')
 const fs = require('fs');
 const path = require('path')
 const miPathDataBase = path.join(__dirname, '../data/productos.json')
@@ -11,6 +11,7 @@ const agregarProducto = nuevoProducto =>{
 
     return tinto
 }
+
 
 const controller = {
     index: (req, res) => {res.render("index",{tinto:tinto})},
@@ -62,36 +63,55 @@ const controller = {
         res.redirect('/detalleProducto')
     },
 
-    // edit : function(req, res) {
-    //     let idProd = req.params.idProd;
-    //     tinto;
+     update : function(req, res) {
+        let idProd = req.params.idProd;
 
-    //     let prodToEdit = tinto[idProd - 1];
+        let prodToEdit = tinto[idProd - 1];
 
-    //     res.render("prodEdit", {prodToEdit: prodToEdit});
-    // },
+        res.render("prodEdit", {prodToEdit: prodToEdit});
+    },
 
-    // update: (req, res) =>{
-    //     const idProd = Number(req.params.idProd);
+    edit:(req, res)=> {
+        const idProd = req.params.idProd;
 
-    //     const newArrayProducts = tinto.map(oneProduct => {
-    //         if (oneProduct.id === Number(req.params.idProd)){
-    //             let newTinto = {};
-    //             newTinto[tinto.id] = tinto.id
-    //             return newTinto
-    //         }
-    //         return oneProduct
-    //     });
-    //     res.render("prodEdit",{newArrayProducts:newArrayProducts})
-    //     res.redirect('/prodEdit')
-    // },
+        const vinoEditado = {
+            id: idProd,
+            name : req.body.name,
+            tipo : req.body.tipo,
+            bodega : req.body.bodega,
+            precio : req.body.precio,
+            alcohol : req.body.alcohol,
+            color : req.body.color,
+            oferta: req.body.oferta,
+            descuento: req.body.descuento,
+            tamaño : req.body.tamaño,
+            imagen : req.body.imagen
+        }
 
-    // delete: (req, res) =>{
-    //     const idProd = req.params.idProd;
-    //     tinto;
-    //     let prodToDelete = tinto.splice(0,idProd);
-    //     res.render("prodList", {prodToDelete: prodToDelete})
-    // }
+        const productoEditar = tinto.find(vino => vino.id == idProd)
+        const index = tinto.indexOf(productoEditar)
+
+        tinto.splice(index, 1, vinoEditado);
+
+        fs.writeFileSync(miPathDataBase, JSON.stringify(tinto, null, ' '))
+
+        res.redirect('/detalleProducto')
+    },
+
+
+    delete: (req, res) =>{
+        const idProd = req.params.idProd;
+
+        const productoEliminar = tinto.find(vino => vino.id == idProd)
+        const index = tinto.indexOf(productoEliminar)
+
+        tinto.splice(index, 1);
+
+        fs.writeFileSync(miPathDataBase, JSON.stringify(tinto))
+
+        res.redirect('/list')
+
+    }
 }
 
 module.exports = controller

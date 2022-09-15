@@ -836,43 +836,20 @@ main {
     padding: 30px 0px;
   }
 
-  .prodList h4{
+  .prodList-ul{
     font-size: 18px;
     margin: auto;
+    align-items: center;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
-
-  .prodList-ul{
-    list-style: none;
-    text-align: left;
-    margin: auto;
-    margin-top: 40px;
-
-}
 
   .prodList-ul div{
     display: flex;
-    justify-content: space-evenly;
+    width: 50%;
   }
-  .prodList-ul li{
-    list-style: none;
-    margin-top: 5px;
-    width: 40%;
-    margin: auto;
-    text-align: center;
-  }
-
-  .prodList-ul form{
-    width: 40%;
-    margin: auto;
-
-  }
-
-  .prodList-ul a{
-    text-decoration: none;
-    color: #000;
-    font-size: 20px;
-    }
-
     .prodList-ul form button{
       background-color: #011B36;
       color: #fff;
