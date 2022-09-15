@@ -15,3 +15,35 @@
 3- ¿Qué debemos dejar de hacer? 
 
 - Deberíamos dejar de estar tan incomunicados, a pesar de que cada uno tiene su tarea asignada, estaría bueno ir informando cómo vamos.
+
+
+RETRO SPRING 3
+1. Comenzar a hacer:
+  * Definir tareas según habilidad de cada uno.
+  * Hacer un repaso de los puntos a mejorar en el spring entregado, y en basándonos en las habilidades de c/u, asignar las correcciones.
+  
+2. Hacer más: 
+  * Ampliar los conocimientos individuales con el fin de mejorar el desarrollo grupal.
+  * Mantener la comunicación activa como grupo.
+  
+3. Continuar haciendo:
+  * Las reuniones semanales y final de cada spring
+  * Seguir trabajando unidos y apoyándonos
+
+4. Dejar de hacer:
+  * Dejar de posponer los días y horarios pautados en la weekly
+
+RETRO SPRING 4
+1. Comenzar a hacer:
+   * Hacer un repaso de los puntos a mejorar en el spring entregado, y en basándonos en las habilidades de c/u, asignar las correcciones.
+  
+2. Hacer más: 
+  * Ampliar los conocimientos individuales con el fin de mejorar el desarrollo grupal.
+  
+  
+3. Continuar haciendo:
+  * Definir tareas según habilidad de cada uno.
+  * Mantener la comunicación activa como grupo.
+  * Las reuniones semanales y final de cada spring
+  * Seguir trabajando unidos y apoyándonos
+
