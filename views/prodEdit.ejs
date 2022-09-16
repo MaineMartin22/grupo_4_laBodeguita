@@ -51,7 +51,21 @@
             <h3>% de alcohol</h3>
             <input type="text" name="alcohol" id="alcohol" value="<%=prodToEdit.alcohol%>">
             <h3>Tamaño</h3>
-            <input type="text" name="tamaño" id="tamaño" value="<%=prodToEdit.tamaño%>">
+            <select name="tamaño" id="tamaño">
+                <% if (prodToEdit.tamaño === "750ml") { %>
+                    <option><%=prodToEdit.tamaño%></option>
+                    <option>1000ml</option>
+                    <option>1250ml</option>
+                <% } else if (prodToEdit.tamaño === "1000ml" ) { %> 
+                    <option><%=prodToEdit.tamaño%></option>
+                    <option>750ml</option>
+                    <option>1250ml</option>
+                <% } else { return%>
+                    <option><%=prodToEdit.tamaño%></option>
+                    <option>750ml</option>
+                    <option>1000ml</option>
+                <% }; %>
+            </select>
             <h3>Color</h3>
             <input type="text" name="color" id="color" value="<%=prodToEdit.color%>">
         <button type="submit">Enviar</button>

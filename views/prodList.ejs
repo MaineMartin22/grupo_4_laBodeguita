@@ -15,10 +15,12 @@
         <h4>Haz click para ver y editar</h4>
        <div class="prodList-ul">
         <% tinto.forEach(tint => { %>
-         
-
             <div>
-                <h3><%= tint.name %> </h3>
+            <div>
+                <div>
+                <h3><%= tint.name %> - </h3>
+                <h3> ID Nro: <%= tint.id %> </h3>
+                </div>
             </div>
             <div>
                 <form action="product/edit/<%= tint.id %>" method="get" enctype="multipart/form-data">
@@ -28,6 +30,7 @@
                 <button type="submit">Borrar</button>
             </form>
             </div>
+        </div>
         <% }) %>
     </div>
     </div>

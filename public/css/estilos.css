@@ -821,34 +821,46 @@ main {
   .prodList{
     text-align: center;
     margin: auto;
-    width: 80%;
-    padding-top: 100px;
+    width: 100%;
+    padding-top: 95px;
     padding-bottom: 105px;
   }
 
   .prodList-div{
-    background-color: #fff;
     color: #000;
     text-align: center;
-    width: 80%;
     margin: auto;
+    display: flex;
     flex-direction: column;
-    padding: 30px 0px;
+    background-color: #fff;
+    
+  }
+
+  .prodList-div h4{
+    
   }
 
   .prodList-ul{
     font-size: 18px;
     margin: auto;
     align-items: center;
-    flex-wrap: nowrap;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
   }
 
   .prodList-ul div{
     display: flex;
-    width: 50%;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .prodList-ul div div{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    text-align: center;
   }
     .prodList-ul form button{
       background-color: #011B36;

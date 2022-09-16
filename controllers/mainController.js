@@ -82,6 +82,7 @@ const controller = {
             precio : req.body.precio,
             alcohol : req.body.alcohol,
             color : req.body.color,
+            collapse: 'collapse' + idProd,
             oferta: req.body.oferta,
             descuento: req.body.descuento,
             tamaño : req.body.tamaño,

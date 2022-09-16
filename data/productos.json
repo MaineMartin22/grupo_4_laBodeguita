@@ -1,3 +1,13 @@
 [
-
+ {
+  "id": "1",
+  "name": "Sergio",
+  "tipo": "Tinto",
+  "bodega": "Malbec",
+  "precio": "3500",
+  "alcohol": "14.3",
+  "color": "Rojo",
+  "collapse": "collapse1",
+  "tamaño": "1250ml"
+ }
 ]
