@@ -13,6 +13,7 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
         <button class="btn btn-outline-light" type="submit">Búscar</button>
+        </form>
     </div>
     <h2 class="vin-tipos-title">Vino Tinto</h2>
     <div class="vin-tipos">
@@ -31,8 +32,12 @@
                     <div class="div-collapse collapse" id="<%=tint.collapse%>">
                         <div class="div--colapse">
                         <p>Tamaño: <%=tint.tamaño%> </p>
-                        <p>Precio: <%=tint.precio%> </p>
-                        <a class="vin-butt" href="vinos" target="_blank">Más información</a>
+                        <% if (tint.oferta === "true") { %>
+                            <p>Precio:$<%= tint.precio-(tint.precio * (tint.descuento/100))%> $<del><%= tint.precio%></del> </p>
+                            <% } else {%> 
+                            <p>Precio:$<%=tint.precio%></p>
+                        <% } %> 
+                        <a class="vin-butt" href="/product/<%=tint.id%>" target="_blank">Más información</a>
                     </div>
                     </div>
             </div>
@@ -58,9 +63,9 @@
                             <div class="div--colapse">
                             <p>Tamaño: <%=tint.tamaño%></p>
                             <% if (tint.oferta === "true") { %>
-                                <p>Precio:$ <%= tint.precio-(tint.precio * (tint.descuento/100))%></p>
+                                <p>Precio:$<%= tint.precio-(tint.precio * (tint.descuento/100))%> $<del><%= tint.precio%></del> </p>
                             <% } else {%> 
-                                <p>Precio:$ <%=tint.precio%></p>
+                                <p>Precio:$<%=tint.precio%></p>
                             <% } %> 
                             <a class="vin-butt" href="vinos" target="_blank">Más información</a>
                         </div>
@@ -88,9 +93,9 @@
                             <div class="div--colapse">
                             <p>Tamaño: <%=tint.tamaño%></p>
                             <% if (tint.oferta === "true") { %>
-                                <p>Precio:$ <%= tint.precio-(tint.precio * (tint.descuento/100))%></p>
+                                <p>Precio:$<%= tint.precio-(tint.precio * (tint.descuento/100))%> $<del><%= tint.precio%></del> </p>
                             <% } else {%> 
-                                <p>Precio:$ <%=tint.precio%></p>
+                                <p>Precio:$<%=tint.precio%></p>
                             <% } %> 
                             <a class="vin-butt" href="vinos" target="_blank">Más información</a>
                         </div>

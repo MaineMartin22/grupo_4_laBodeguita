@@ -1,0 +1,51 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("./partials/head") %>
+</head>
+<body>
+    <header class="header">
+        <%- include("./partials/navBar") %>
+    </header>
+<main class="main-vinos">
+<section class="section-vinos">
+    <div class="sect-search" id="sect-search-main">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <form action="/product/search" method="get">
+        <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
+        <button class="btn btn-outline-light" type="submit">Búscar</button>
+        </form>
+    </div>
+    <h2 class="vin-tipos-title">Vinos</h2>
+    <div class="vin-tipos">
+       <% for( let i = 0; i < prodResult.length; i++ ) { %>
+        <div class="vin-prod">
+            <div class="vin-img">
+                <img src=/images/<%=prodResult.imagen%> alt="">
+            </div>
+            <div class="vin-text">
+                <h4><%=prodResult.name%></h4>
+                <div>
+                    <a href="#<%=prodResult.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=prodResult.collapse%>" aria-expanded="false">Descripción</a>
+                    <a href="carrito" class="btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
+                </div>
+                    <div class="div-collapse collapse" id="<%=prodResult.collapse%>">
+                        <div class="div--colapse">
+                        <p>Tamaño: <%=prodResult.tamaño%> </p>
+                        <p>Precio: <%=prodResult.precio%> </p>
+                        <a class="vin-butt" href="vinos" target="_blank">Más información</a>
+                    </div>
+                    </div>
+            </div>
+            </div>
+            <% } %>
+        </div>
+</section>
+</main>
+<footer class="footer">
+    <%- include("./partials/footer") %>
+</footer>
+</body>
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html> -->

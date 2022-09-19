@@ -10,8 +10,6 @@ router.get('/register', Maincontroller.register);
 
 router.get('/detalleProducto', Maincontroller.productDetail);
 
-router.get('/vinos', Maincontroller.vinos);
-
 router.get('/login', Maincontroller.login);
 
 router.get('/carrito', Maincontroller.prodCar);

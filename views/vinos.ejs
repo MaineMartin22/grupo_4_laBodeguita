@@ -9,33 +9,39 @@
         </header>
 <main>
     <section class="productos-detail">
+        <% tinto.forEach(function(tint) { %>
+            <% if (tint.id == idProd) { %>
+             
         <div class="prod-detail">
             <div class="prod-detail-img">
-                <img src="<%=tinto.imagen%>" alt="">
+                <img src="/images/<%=tint.imagen%>" alt="">
             </div>
             <div class="prod-detail-info">
                 <div class="prod-detail-title">
-                    <h2 class="prod-detail-h2"><%=tinto.name%> </h2>
+                    <h2 class="prod-detail-h2"><%=tint.name%> </h2>
                     <div class="prod-detail-caract">
-                        <ul class="prod-detail-ul">
-                            <li><%=tinto.alcohol%> </li>
-                        </ul>
+                        <div class="prod-detail-ul">
+                            <h3>Alcohol: <%=tint.alcohol%>%</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="prod-detail-descr">
                     <h4 class="prod-detail-h4">Información</h4>
                     <ul class="prod-detail-ul-2">
-                        <li><b>Color:</b> <%=tinto.color%> </li>
-                        <li><b>Bodega:</b> <%=tinto.bodega%></li>
-                        <li><b>Tipo:</b> <%=tinto.tipo%></li>
+                        <li><b>Color:</b> <%=tint.color%> </li>
+                        <li><b>Bodega:</b> <%=tint.bodega%></li>
+                        <li><b>Tipo:</b> <%=tint.tipo%></li>
+                        <li>Hasta 3 cuotas sin interés <i class="fa-solid fa-credit-card"></i></li>
                     </ul>
                 </div>
                 <div class="prod-detail-buttons">
-                    <a href="carrito" class="prod-detail-butt">Añadir a carrito</a>
-                    <a href="detalleProducto" class="prod-detail-butt">Ver otros vinos</a>
+                    <a href="../carrito" class="prod-detail-butt">Añadir a carrito</a>
+                    <a href="../detalleProducto" class="prod-detail-butt">Ver otros vinos</a>
                 </div>
             </div>
         </div>
+        <% } %>
+        <% }) %>
     </section>
 </main>
 <footer class="footer">

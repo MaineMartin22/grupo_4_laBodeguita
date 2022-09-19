@@ -40,7 +40,7 @@
                                 <div>
                                 <p class="descuento">Descuento: 10%</p>
                                 <p class="ofer-precio">Precio anterior: <del>$3000</p></del>
-                                <h5 class="ofer-precio">Precio: $2700</h5>
+                                <h5 class="ofer-precio">Precio:$2700</h5>
                                 </div>
                                 <a class="ofer-bot" href="#">Comprar</a>
                                 <a class="ofer-bot" href="detalleProducto">Ver más</a>
@@ -48,7 +48,8 @@
                         </div>
                     </div>
                   </div>
-                  <% tinto.forEach(function(ofer) { %>      
+                  <% tinto.forEach(function(ofer) { %>
+                    <% if (ofer.oferta === "true") { %> 
                     <div class="carousel-item">
                     <div class="carrusel-img" src="/images/vino1.png" class="d-block w-100" alt="...">
                         <div class="ofer-prod">
@@ -62,7 +63,7 @@
                                 </div>
                                 <div>
                                 <p class="descuento">Descuento: <%=ofer.descuento%>%</p>
-                                <p class="ofer-precio">Precio anterior: <del> <%=ofer.precio%></p></del>
+                                <p class="ofer-precio">Precio anterior: $<del><%=ofer.precio%></p></del>
                                 <h5 class="ofer-precio">Precio:$<%= ofer.precio-(ofer.precio * (ofer.descuento/100))%> 
                                 </h5></div>
                                 <a class="ofer-bot" href="#">Comprar</a>
@@ -71,6 +72,7 @@
                         </div>
                     </div>
                   </div>
+                  <% } %>  
                   <% }); %>
 
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -101,9 +103,9 @@
                     <p><%=ofer.color%> </p>
                 </div>
                 <div>
-                    <p class="descuento">Descuento: <%=(ofer.oferta * 100)%>%</p>
+                    <p class="descuento">Descuento: <%=ofer.descuento%>%</p>
                     <p class="ofer-precio">Precio anterior: <del>$<%=ofer.precio%></p></del>
-                    <h5 class="ofer-precio">Precio:$ <%=ofer.precio-ofer.precio*ofer.oferta%></h5>
+                    <h5 class="ofer-precio">Precio:$ <%=ofer.precio - ofer.precio * (ofer.descuento/100)%></h5>
                     <a class="ofer-bot" href="#">Comprar</a>
                     <a class="ofer-bot" href="detalleProducto">Ver más</a>
                 </div>

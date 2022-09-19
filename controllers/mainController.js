@@ -28,19 +28,23 @@ const controller = {
         res.render('prodList', {'tinto':tinto});
     },
 
-    // search: function(req, res) {
-    //     let prodSearch = req.query.search;
-    //     tinto;
+    detalle: function(req,res){
+        const idProd = req.params.idProd;
 
-    //     let prodResults = [];
+        res.render('vinos', {'tinto': tinto, 'idProd': idProd})
+    },
+
+    // search: function(req, res) {
+    //     let prodBuscado = req.query.search;
+    //     let prodResult = [];
 
     //     for (let i = 0; i < tinto.length; i++) {
-    //         if (tinto[i].name.includes(prodSearch)) {
-    //             prodResults.push(tinto[i])
-    //         }
-            
-    //         res.send(prodResults)
+    //         if (tinto[i].name.includes(prodBuscado)) {
+    //         prodResult.push(tinto[i]);
     //     }
+    //     }
+
+    //     res.render('prodResults', {prodResult: prodResult})
     // },
 
     create: function(req, res) {
@@ -50,11 +54,11 @@ const controller = {
         tipo : req.body.tipo,
         bodega : req.body.bodega,
         collapse : 'collapse' + (tinto.length + 1),
-        precio : req.body.precio,
+        precio : Number(req.body.precio),
         alcohol : req.body.alcohol,
         color : req.body.color,
         oferta: req.body.oferta,
-        descuento: req.body.descuento,
+        descuento: Number(req.body.descuento),
         tamaño : req.body.tamaño,
         imagen : req.body.imagen
         }
@@ -79,12 +83,12 @@ const controller = {
             name : req.body.name,
             tipo : req.body.tipo,
             bodega : req.body.bodega,
-            precio : req.body.precio,
+            precio :  Number(req.body.precio),
             alcohol : req.body.alcohol,
             color : req.body.color,
             collapse: 'collapse' + idProd,
             oferta: req.body.oferta,
-            descuento: req.body.descuento,
+            descuento: Number(req.body.descuento),
             tamaño : req.body.tamaño,
             imagen : req.body.imagen
         }
