@@ -154,16 +154,16 @@
   "imagen": "CADUS-SINGLE-VINEYARD.jpg"
  },
  {
-  "id": "12",
+  "id": 12,
   "name": "Dulma",
   "tipo": "Rosado",
   "bodega": "Malbec",
+  "collapse": "collapse12",
   "precio": 7500,
   "alcohol": "14.3",
   "color": "Rosado",
-  "collapse": "collapse12",
-  "oferta": "false",
-  "descuento": null,
+  "oferta": "true",
+  "descuento": 15,
   "tamaño": "750ml",
   "imagen": "CADUS-SINGLE-VINEYARD.jpg"
  }

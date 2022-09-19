@@ -35,18 +35,3 @@ https://www.antinori.it/en/tenuta/estates-antinori/antinori-nel-chianti-classico
 TABLERO DE TRABAJO
 https://trello.com/b/pgWHrfvM/la-bodeguita
 
-RETRO SPRING 3
-1. Comenzar a hacer:
-  * Definir tareas según habilidad de cada uno.
-  * Hacer un repaso de los puntos a mejorar en el spring entregado, y en basándonos en las habilidades de c/u, asignar las correcciones.
-  
-2. Hacer más: 
-  * Ampliar los conocimientos individuales con el fin de mejorar el desarrollo grupal.
-  * Mantener la comunicación activa como grupo.
-  
-3. Continuar haciendo:
-  * Las reuniones semanales y final de cada spring
-  * Seguir trabajando unidos y apoyándonos
-
-4. Dejar de hacer:
-  * Dejar de posponer los días y horarios pautados en la weekly
