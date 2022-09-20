@@ -221,7 +221,7 @@ ul, li {
 /* MAIN ESTILOS - SECTION 1 */
 
 main {
-  background-image: url(/images/main-fondo.jpg);
+  background-image: url(/images/products/main-fondo.jpg);
   background-attachment: fixed;
   background-size: cover;
 }

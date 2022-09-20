@@ -3,8 +3,11 @@ const subir = require('../models/productsModel')
 const fs = require('fs');
 const path = require('path')
 const miPathDataBase = path.join(__dirname, '../data/productos.json')
+const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
 const prods = fs.readFileSync('./data/productos.json', 'utf-8');
+const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
 const tinto = JSON.parse(prods);
+const users = JSON.parse(usuario);
 
 const agregarProducto = nuevoProducto =>{
     tinto.push(nuevoProducto);
@@ -15,7 +18,6 @@ const agregarProducto = nuevoProducto =>{
 
 const controller = {
     index: (req, res) => {res.render("index",{tinto:tinto})},
-    register: (req, res) => {res.render("register")},
     productDetail: (req, res) =>{res.render("prodDetail",{tinto:tinto})},
     login: (req, res) => {res.render("login")},
     prodCar:(req, res) => {res.render("prodCar")},
@@ -96,12 +98,14 @@ const controller = {
         const productoEditar = tinto.find(vino => vino.id == idProd)
         const index = tinto.indexOf(productoEditar)
 
-        tinto.splice(index, 1, vinoEditado);
+        /* tinto.splice(index, 1, vinoEditado); */
+        tinto[index] = vinoEditado
 
         fs.writeFileSync(miPathDataBase, JSON.stringify(tinto, null, ' '))
 
         res.redirect('/detalleProducto')
     },
+    
 
 
     delete: (req, res) =>{
@@ -116,7 +120,50 @@ const controller = {
 
         res.redirect('/list')
 
-    }
+    },
+
+    registerUser: (req, res) =>{
+        let newUser = {
+            id : tinto.length+1,
+            nombre : req.body.nombre,
+            apellido : req.body.apellido,
+            email : req.body.email,
+            contraseña : req.body.contraseña,
+            categoria : req.body.categoria,
+            imagen : req.body.imagen,
+            }
+            users.push(newUser);
+            fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
+            res.render("register")
+    },
+
+    updateUser: (req, res) =>{
+        let idUser = req.params.idUser;
+
+        let userCreate = users[idUser - 1];
+
+        res.render("index", {userCreate: userCreate, tinto: tinto});
+
+    },
+
+    userList: function(req, res){
+        users;
+        res.render('userList', {'users':users});
+    },
+
+    deleteUser: (req, res) =>{
+        const idUser = req.params.idUser;
+
+        const usuarioEliminar = users.find(users => users.id == idUser)
+        const index = users.indexOf(usuarioEliminar)
+
+        users.splice(index, 1);
+
+        fs.writeFileSync(miUserPathDataBase, JSON.stringify(users))
+
+       /*  res.redirect('list') */
+
+    },
 }
 
 module.exports = controller

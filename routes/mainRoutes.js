@@ -6,8 +6,6 @@ router.get('/', Maincontroller.index);
 
 router.get('/home', Maincontroller.index);
 
-router.get('/register', Maincontroller.register);
-
 router.get('/detalleProducto', Maincontroller.productDetail);
 
 router.get('/login', Maincontroller.login);
@@ -22,9 +20,7 @@ router.get('/create' ,Maincontroller.product);
 
 router.post('/create', Maincontroller.create);
 
-
 router.get('/delete/:idProd', Maincontroller.list)
-
 
 
 
