@@ -9,6 +9,8 @@ router.post('/register', Maincontroller.updateUser);
 
 router.get('/list' ,Maincontroller.userList);
 
+router.get('/delete/:idUser', Maincontroller.userList)
+
 router.delete('/delete/:idUser', Maincontroller.deleteUser)
 
 module.exports = router

@@ -161,7 +161,7 @@ const controller = {
 
         fs.writeFileSync(miUserPathDataBase, JSON.stringify(users))
 
-       /*  res.redirect('list') */
+        res.redirect('../list')
 
     },
 }
