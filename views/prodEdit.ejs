@@ -56,6 +56,8 @@
             </select>
             <h3>% de alcohol</h3>
             <input type="text" name="alcohol" id="alcohol" value="<%=prodToEdit.alcohol%>">
+            <h3>Descuento en número entero</h3>
+            <input type="text" name="descuento" id="descuento" value="<%=prodToEdit.descuento%>">
             <h3>Tamaño</h3>
             <select name="tamaño" id="tamaño">
                 <% if (prodToEdit.tamaño === "750ml") { %>
