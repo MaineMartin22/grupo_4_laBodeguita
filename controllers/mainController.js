@@ -2,6 +2,8 @@ const ejs = require("ejs")
 const subir = require('../models/productsModel')
 const fs = require('fs');
 const path = require('path')
+const bcryptjs = require("bcryptjs")
+
 const miPathDataBase = path.join(__dirname, '../data/productos.json')
 const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
 const prods = fs.readFileSync('./data/productos.json', 'utf-8');
@@ -48,6 +50,10 @@ const controller = {
 
     //     res.render('prodResults', {prodResult: prodResult})
     // },
+    getData : function () {
+        return JSON.parse (fs.readFileSync(this.fileName , 'utf-8'));
+     },
+
 
     create: function(req, res) {
         let newProducto = {
@@ -123,19 +129,32 @@ const controller = {
     },
 
     registerUser: (req, res) =>{
+
         let newUser = {
-            id : tinto.length+1,
-            nombre : req.body.nombre,
-            apellido : req.body.apellido,
-            email : req.body.email,
-            contraseña : req.body.contraseña,
-            categoria : req.body.categoria,
-            imagen : req.body.imagen,
+            id: users.length+1,
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            password: req.body.password,
+            categoria: req.body.categoria,
+            imagen: req.body.imagen,
             }
             users.push(newUser);
             fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
+            res.redirect("/")
             res.render("register")
+
     },
+
+    /* processRegister : (req, res) => {
+        const resultValidation = validationResult(req);
+        if(resultValidation.errors.length > 0 ) {
+           return res.render ('register', {
+              errors: resultValidation.mapped(),
+              oldData: req.body
+            })
+        }
+    }, */
 
     updateUser: (req, res) =>{
         let idUser = req.params.idUser;

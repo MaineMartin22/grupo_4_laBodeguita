@@ -5,6 +5,8 @@ const router = express.Router()
 
 router.get('/register' ,Maincontroller.registerUser);
 
+router.post('/register' ,Maincontroller.registerUser);
+
 router.post('/register', Maincontroller.updateUser);
 
 router.get('/list' ,Maincontroller.userList);
