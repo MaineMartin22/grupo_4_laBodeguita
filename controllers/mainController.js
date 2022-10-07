@@ -137,11 +137,10 @@ const controller = {
             email: req.body.email,
             password: req.body.password,
             categoria: req.body.categoria,
-            imagen: req.body.imagen,
+            imagen: req.body.avatar,
             }
             users.push(newUser);
             fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
-            res.redirect("/")
             res.render("register")
 
     },

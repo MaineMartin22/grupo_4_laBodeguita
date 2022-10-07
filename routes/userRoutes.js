@@ -1,13 +1,26 @@
 const express = require("express")
-const multer = require("multer")    
+const multer = require('multer')
+const path = require("path")
 const Maincontroller = require("../controllers/mainController")
 const router = express.Router()
 
-router.get('/register' ,Maincontroller.registerUser);
 
-router.post('/register' ,Maincontroller.registerUser);
+var storage = multer.diskStorage ({
+    destination : ( req , file , cb ) => {
+         cb ( null , path.join( __dirname, '../public/images/avatars'));
+        },
+        filename : ( req , file , cb ) => {
+            const newFilename = 'avatar-' + Date.now ( ) + path.extname ( file.originalname ) ;
+            cb ( null , newFilename ) ;
+        }
+    });
 
-router.post('/register', Maincontroller.updateUser);
+var upload = multer({storage});
+        
+
+router.get('/register', Maincontroller.registerUser);
+
+router.post('/register', upload.any('avatar'), Maincontroller.registerUser);
 
 router.get('/list' ,Maincontroller.userList);
 
