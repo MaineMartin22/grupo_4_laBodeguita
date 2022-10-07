@@ -139,21 +139,17 @@ const controller = {
             categoria: req.body.categoria,
             imagen: req.body.avatar,
             }
+
+            newUser = {
+                ... req.body,
+                password: bcryptjs.hashSync(req.body.password, 12)
+            }
+
             users.push(newUser);
             fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
             res.render("register")
 
     },
-
-    /* processRegister : (req, res) => {
-        const resultValidation = validationResult(req);
-        if(resultValidation.errors.length > 0 ) {
-           return res.render ('register', {
-              errors: resultValidation.mapped(),
-              oldData: req.body
-            })
-        }
-    }, */
 
     updateUser: (req, res) =>{
         let idUser = req.params.idUser;
