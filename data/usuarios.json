@@ -1,56 +1,65 @@
 [
- {
-  "id": 1,
-  "nombre": "Kayla",
-  "apellido": "Jerzycowski",
-  "email": "kjerzycowski3@nps.gov",
-  "password": "kYuQRm12brL",
-  "categoria": "cliente",
-  "imagen": "img04.jpg"
- },
- {
-  "id": 2,
-  "nombre": "Kayla",
-  "apellido": "Jerzycowski",
-  "email": "kjerzycowski3@nps.gov",
-  "password": "kYuQRm12brL",
-  "categoria": "cliente",
-  "imagen": "img04.jpg"
- },
- {
-  "id": 3,
-  "nombre": "Kayla",
-  "apellido": "Jerzycowski",
-  "email": "kjerzycowski3@nps.gov",
-  "password": "kYuQRm12brL",
-  "categoria": "cliente",
-  "imagen": "img04.jpg"
- },
- {
-  "id": 4,
-  "nombre": "Kayla",
-  "apellido": "Jerzycowski",
-  "email": "kjerzycowski3@nps.gov",
-  "password": "kYuQRm12brL",
-  "categoria": "cliente",
-  "imagen": "img04.jpg"
- },
- {
-  "id": 5,
-  "nombre": "Kayla",
-  "apellido": "Jerzycowski",
-  "email": "kjerzycowski3@nps.gov",
-  "password": "kYuQRm12brL",
-  "categoria": "cliente",
-  "imagen": "img04.jpg"
- },
- {
-  "id": 6,
-  "nombre": "Kayla",
-  "apellido": "Jerzycowski",
-  "email": "kjerzycowski3@nps.gov",
-  "password": "kYuQRm12brL",
-  "categoria": "cliente",
-  "imagen": "img04.jpg"
- }
+    {
+        "id": 1,
+        "nombre": "Kayla",
+        "apellido": "Jerzycowski",
+        "email": "kjerzycowski3@nps.gov",
+        "password": "kYuQRm12brL",
+        "categoria": "cliente",
+        "imagen": "img04.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Kayla",
+        "apellido": "Jerzycowski",
+        "email": "kjerzycowski3@nps.gov",
+        "password": "kYuQRm12brL",
+        "categoria": "cliente",
+        "imagen": "img04.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Kayla",
+        "apellido": "Jerzycowski",
+        "email": "kjerzycowski3@nps.gov",
+        "password": "kYuQRm12brL",
+        "categoria": "cliente",
+        "imagen": "img04.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Kayla",
+        "apellido": "Jerzycowski",
+        "email": "kjerzycowski3@nps.gov",
+        "password": "kYuQRm12brL",
+        "categoria": "cliente",
+        "imagen": "img04.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Kayla",
+        "apellido": "Jerzycowski",
+        "email": "kjerzycowski3@nps.gov",
+        "password": "kYuQRm12brL",
+        "categoria": "cliente",
+        "imagen": "img04.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Kayla",
+        "apellido": "Jerzycowski",
+        "email": "kjerzycowski3@nps.gov",
+        "password": "kYuQRm12brL",
+        "categoria": "cliente",
+        "imagen": "img04.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Barby",
+        "apellido": "Freites",
+        "email": "barby@gmail.com",
+        "password": "barby1234",
+        "categoria": "cliente",
+        "imagen": "img04.jpg"
+    }
 ]

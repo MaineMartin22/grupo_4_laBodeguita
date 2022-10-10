@@ -7,11 +7,19 @@ const userRoutes = require("./routes/userRoutes")
 const ejs = require("ejs")
 const multer = require("multer")
 const methodOverride = require('method-override')
+const session = require('express-session');
 
 //  express()
 const app = express()
 
 //  Middlewares
+app.use(session({ secret: "Nuestro mensaje secreto",
+secret: "Nuestro mensaje secreto",
+resave: false,
+saveUninitialized: false,
+ 
+}));
+
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended : true}));
 app.use(express.json());

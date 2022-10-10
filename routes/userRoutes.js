@@ -2,6 +2,7 @@ const express = require("express")
 const multer = require('multer')
 const path = require("path")
 const Maincontroller = require("../controllers/mainController")
+const userController = require('../controllers/userController')
 const router = express.Router()
 
 
@@ -21,6 +22,17 @@ var upload = multer({storage});
 router.get('/register', Maincontroller.registerUser);
 
 router.post('/register', upload.single('avatar'), Maincontroller.registerUser);
+
+//Formulario Login
+
+router.get('/login' , userController.login); 
+
+//Proceso de Login
+router.post('/login', userController.loginProcess); 
+
+//Perfil de usuario
+router.get('/profile/', userController.profile)
+
 
 router.get('/list' ,Maincontroller.userList);
 
