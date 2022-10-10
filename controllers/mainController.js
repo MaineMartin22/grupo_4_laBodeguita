@@ -1,5 +1,7 @@
 const ejs = require("ejs")
-const subir = require('../models/productsModel')
+
+const User = require('../models/User')
+
 const fs = require('fs');
 const path = require('path')
 const miPathDataBase = path.join(__dirname, '../data/productos.json')
