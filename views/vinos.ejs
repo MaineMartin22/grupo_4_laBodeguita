@@ -6,7 +6,7 @@
 <body>
     <header class="header">
         <%- include("./partials/navBar") %>
-        </header>
+    </header>
 <main>
     <section class="productos-detail">
         <% tinto.forEach(function(tint) { %>
@@ -31,6 +31,11 @@
                         <li><b>Color:</b> <%=tint.color%> </li>
                         <li><b>Bodega:</b> <%=tint.bodega%></li>
                         <li><b>Tipo:</b> <%=tint.tipo%></li>
+                        <% if (tint.oferta === "true") { %>
+                            <li><b>Precio: $<%= tint.precio-(tint.precio * (tint.descuento/100))%></b> $<del><%= tint.precio%></del></li>
+                        <% } else {%> 
+                            <li><b>Precio:$<%=tint.precio%></b><li>
+                        <% } %> 
                         <li>Hasta 3 cuotas sin interés <i class="fa-solid fa-credit-card"></i></li>
                     </ul>
                 </div>
