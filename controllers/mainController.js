@@ -6,6 +6,8 @@ const fs = require('fs');
 
 const path = require('path')
 
+const bcryptjs = require("bcryptjs")
+
 const miPathDataBase = path.join(__dirname, '../data/productos.json')
 
 const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
@@ -46,6 +48,10 @@ const controller = {
 
         res.render('vinos', {'tinto': tinto, 'idProd': idProd})
     },
+    getData : function () {
+        return JSON.parse (fs.readFileSync(this.fileName , 'utf-8'));
+     },
+
     create: function(req, res) {
         let newProducto = {
         id : tinto.length+1,
@@ -103,8 +109,6 @@ const controller = {
         res.redirect('/detalleProducto')
     },
     
-
-
     delete: (req, res) =>{
         const idProd = req.params.idProd;
 
@@ -135,6 +139,12 @@ const controller = {
                 contrasena : req.body.contrasena,
                 imagen : req.file.filename
                 }
+
+                // newUser = {
+                //     ... req.body,
+                //     password: bcryptjs.hashSync(req.body.password, 12)
+                // }
+
                 users.push(newUser);
                 fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
                 res.redirect('../home');

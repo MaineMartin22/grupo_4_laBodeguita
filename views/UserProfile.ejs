@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %>
+  <body>
+    <%- include("./partials/navBar") %>
+    <h1>Bienvenido</h1>
+    <% if(locals.user && locals.user) {%>
+    <h3><%= user.name %> - <%=user.userEmail %></h3>
+    <img src="/public/images/users/avatar.png <%=user.avatar.filename %>" alt="">
+
+    <form action="/users/logout" method="GET">
+      <button type="submit">Cerrar Sesion</button>
+    </form>
+    <% } %>
+
+    <p>Que desea hacer?</p>
+  </body>
+</html>

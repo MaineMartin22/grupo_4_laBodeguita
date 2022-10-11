@@ -1,9 +1,10 @@
 const express = require("express")
-const multer = require("multer")    
+const multer = require('multer')
+const path = require("path")
 const Maincontroller = require("../controllers/mainController")
+const userController = require('../controllers/userController')
 const router = express.Router()
 const { body } = require('express-validator')
-const path = require('path')
 
 // IMAGENES A TRAVES DE MULTER
 
@@ -32,11 +33,26 @@ const validateUser = [
     .isEmail().withMessage('Debes completar tu email'),
     body('contrasena')
     .notEmpty().withMessage('Debes completar tu contraseña'),
-];
+];        
 
-router.get('/register' ,Maincontroller.registerUser);
+// REGISTER GET
 
-router.post('/register', uploadFile.single('avatar'), validateUser , Maincontroller.updateUser);
+router.get('/register', Maincontroller.registerUser);
+
+// REGISTER POST
+
+router.post('/register', uploadFile.single('avatar'), validateUser, Maincontroller.updateUser);
+
+//Formulario Login
+
+router.get('/login' , userController.login); 
+
+//Proceso de Login
+router.post('/login', userController.loginProcess); 
+
+//Perfil de usuario
+router.get('/profile/', userController.profile)
+
 
 router.get('/list' , Maincontroller.userList);
 
