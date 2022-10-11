@@ -6,7 +6,7 @@
   "bodega": "Norton",
   "precio": 3500,
   "alcohol": "19.9",
-  "color": "Rosadito como la crema de la mañana",
+  "color": "Rosadito",
   "collapse": "collapse1",
   "oferta": "true",
   "descuento": 10,
@@ -22,7 +22,7 @@
   "alcohol": "14.1",
   "color": "Blanco",
   "collapse": "collapse2",
-  "oferta": "true",
+  "oferta": "false",
   "descuento": 10,
   "tamaño": "750ml",
   "imagen": "CADUS-SINGLE-VINEYARD.jpg"

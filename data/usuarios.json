@@ -61,5 +61,14 @@
   "password": "barby1234",
   "categoria": "cliente",
   "imagen": "img04.jpg"
+ },
+ {
+  "id": 8,
+  "nombre": "Sergio",
+  "apellido": "Picard",
+  "direccion": "qwewqeqw",
+  "email": "sergio@gmail.com",
+  "contrasena": "asfdaslf",
+  "imagen": "1665453328380_img.webp"
  }
 ]
