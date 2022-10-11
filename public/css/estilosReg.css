@@ -47,13 +47,16 @@
   }
   .general label.label{
     position: absolute;
-    top: 16px;
     left: 0px;
     font-size: 16px;
     line-height: 16px;
     margin-left: 16px;
+    top: -5px;
     transition: 3s ease;
+    color: rgb(117, 117, 117);
   }
+
+
 
   .checkbox {
     display: flex;
@@ -86,6 +89,12 @@
     color: #000;
     font-style: none;
   }
+
+  .msg-error{
+    color: red!important; 
+
+  }
+
 
 
 

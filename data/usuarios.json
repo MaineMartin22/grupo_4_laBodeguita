@@ -3,60 +3,54 @@
   "id": 1,
   "nombre": "Kayla",
   "apellido": "Jerzycowski",
+  "direccion": "kjerzycowski3",
   "email": "kjerzycowski3@nps.gov",
   "contrasena": "kYuQRm12brL",
-  "categoria": "cliente",
   "imagen": "img04.jpg"
  },
  {
   "id": 2,
-  "nombre": "Sergio",
+  "nombre": "Kayla",
   "apellido": "Jerzycowski",
+  "direccion": "kjerzycowski3",
   "email": "kjerzycowski3@nps.gov",
   "contrasena": "kYuQRm12brL",
-  "categoria": "cliente",
   "imagen": "img04.jpg"
  },
  {
   "id": 3,
   "nombre": "Kayla",
   "apellido": "Jerzycowski",
+  "direccion": "kjerzycowski3",
   "email": "kjerzycowski3@nps.gov",
   "contrasena": "kYuQRm12brL",
-  "categoria": "cliente",
   "imagen": "img04.jpg"
  },
  {
   "id": 4,
   "nombre": "Kayla",
   "apellido": "Jerzycowski",
+  "direccion": "kjerzycowski3",
   "email": "kjerzycowski3@nps.gov",
   "contrasena": "kYuQRm12brL",
-  "categoria": "cliente",
   "imagen": "img04.jpg"
  },
  {
   "id": 5,
   "nombre": "Kayla",
   "apellido": "Jerzycowski",
+  "direccion": "kjerzycowski3",
   "email": "kjerzycowski3@nps.gov",
   "contrasena": "kYuQRm12brL",
-  "categoria": "cliente",
   "imagen": "img04.jpg"
  },
  {
   "id": 6,
   "nombre": "Kayla",
   "apellido": "Jerzycowski",
+  "direccion": "kjerzycowski3",
   "email": "kjerzycowski3@nps.gov",
   "contrasena": "kYuQRm12brL",
-  "categoria": "cliente",
   "imagen": "img04.jpg"
- },
- {
-  "id": 13
- },
- {
-  "id": 13
  }
 ]

@@ -13,31 +13,43 @@
 <main class="formulario-main">
 <div class="contenedor-formulario">
   <div class="wrap">
-    <form class="formulario" name="formulario-registro" method="post" action="/users/register">
+    <form class="formulario" name="formulario-registro" method="post" action="/users/register" enctype="multipart/form-data">
     <div class="conteiner-general-regist">
         <div class="general">
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre ">
-            <label class="label" for="nombre"></label>
+            <label class="label" for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
+            <% if (locals.errores && errores.nombre) { %>
+              <p class="msg-error"> <%= errores.nombre.msg%></p>
+            <% } %>
+        </div>
+
+        <div class="general">
+            <label class="label" for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" value="<%= locals.old && old.apellido ? old.apellido : '' %>">
+            <% if (locals.errores && errores.apellido) { %>
+              <p class="msg-error"> <%= errores.apellido.msg%></p>
+            <% } %>
         </div>
         <div class="general">
-            <input type="text" id="apellido" name="nombre" placeholder="Apellido">
-            <label class="label" for="apellido"></label>
+            <label class="label" for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" value="<%= locals.old && old.direccion ? old.direccion : '' %>" >
+            <% if (locals.errores && errores.direccion) { %>
+              <p class="msg-error"> <%= errores.direccion.msg%></p>
+            <% } %>
         </div>
         <div class="general">
-            <input type="text" id="direccion" name="direccion" placeholder="Dirección">
-            <label class="label" for="direccion"></label>
+            <label class="label" for="email">Email</label>
+            <input type="email" id="email" name="email" value="<%= locals.old && old.email ? old.email : '' %>">
+            <% if (locals.errores && errores.email) { %>
+              <p class="msg-error"> <%= errores.email.msg%></p>
+            <% } %>
         </div>
         <div class="general">
-          <input type="text" id="pais" name="pais" placeholder="País">
-          <label class="label" for="pais"></label>
-      </div>
-        <div class="general">
-            <input type="email" id="email" name="email" placeholder="Email">
-            <label class="label" for="email"></label>
-        </div>
-        <div class="general">
-            <input type="password" id="pass" name="pass" placeholder="Contraseña">
-            <label class="label" for="pass"></label>
+            <label class="label" for="pass">Contraseña</label>
+            <input type="password" id="pass" name="contrasena">
+            <% if (locals.errores && errores.contrasena) { %>
+              <p class="msg-error"> <%= errores.contrasena.msg%></p>
+            <% } %>
         </div>
         <div class="general">
           <input type="file" id="avatar" name="avatar">

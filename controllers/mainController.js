@@ -3,17 +3,26 @@ const ejs = require("ejs")
 const User = require('../models/User')
 
 const fs = require('fs');
+
 const path = require('path')
+
 const miPathDataBase = path.join(__dirname, '../data/productos.json')
+
 const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
+
 const prods = fs.readFileSync('./data/productos.json', 'utf-8');
+
 const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
+
 const tinto = JSON.parse(prods);
+
 const users = JSON.parse(usuario);
+
+const { validationResult } = require('express-validator')
+
 
 const agregarProducto = nuevoProducto =>{
     tinto.push(nuevoProducto);
-
     return tinto
 }
 
@@ -37,20 +46,6 @@ const controller = {
 
         res.render('vinos', {'tinto': tinto, 'idProd': idProd})
     },
-
-    // search: function(req, res) {
-    //     let prodBuscado = req.query.search;
-    //     let prodResult = [];
-
-    //     for (let i = 0; i < tinto.length; i++) {
-    //         if (tinto[i].name.includes(prodBuscado)) {
-    //         prodResult.push(tinto[i]);
-    //     }
-    //     }
-
-    //     res.render('prodResults', {prodResult: prodResult})
-    // },
-
     create: function(req, res) {
         let newProducto = {
         id : tinto.length+1,
@@ -125,26 +120,28 @@ const controller = {
     },
 
     registerUser: (req, res) =>{
-        let newUser = {
-            id : tinto.length+1,
-            nombre : req.body.nombre,
-            apellido : req.body.apellido,
-            email : req.body.email,
-            contraseña : req.body.contraseña,
-            categoria : req.body.categoria,
-            imagen : req.body.imagen,
-            }
-            users.push(newUser);
-            fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
-            res.render("register")
+        res.render('register')
     },
 
     updateUser: (req, res) =>{
-        let idUser = req.params.idUser;
-
-        let userCreate = users[idUser - 1];
-
-        res.render("index", {userCreate: userCreate, tinto: tinto});
+        let errores = validationResult(req);
+        if (errores.isEmpty()){
+            let newUser = {
+                id : users.length+1,
+                nombre : req.body.nombre,
+                apellido : req.body.apellido,
+                direccion : req.body.direccion,
+                email : req.body.email,
+                contrasena : req.body.contrasena,
+                imagen : req.file.filename
+                }
+                users.push(newUser);
+                fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
+                res.redirect('../home');
+        }
+        else{
+            res.render('register', {errores: errores.mapped(), old: req.body},)
+        }
 
     },
 
