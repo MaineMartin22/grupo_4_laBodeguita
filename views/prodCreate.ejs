@@ -10,7 +10,7 @@
     </header>
     <main>
     <div class="create-div">
-    <form method="POST" action="/create" class="create">
+    <form method="POST" action="/create" class="create" enctype="multipart/form-data">
             <input type="text" name="name" id="name" placeholder="Nombre del producto">
             <h3>Tipo de producto</h3>
             <select name="tipo">
@@ -37,14 +37,14 @@
             <input type="number" name="alcohol" id="alcohol" step="0.01" min="0" max="20" placeholder="Alcohol producto">
             <label for="">Color de producto</label>
             <input type="text" name="color" id="color" placeholder="Color de producto">
-            <select name="tamaño">
+            <select name="tamano">
                 <option>750ml</option>
                 <option>1000ml</option>
                 <option>1250ml</option>
             </select>
             <label for="imagen">Seleccionar imagen</label>
-            <input type="file" name="imagen" accept=".jpg" id="imagen" multiple>
-        <button method="POST" type="submit">Enviar</button>
+            <input type="file" id="imagen" name="imagen">
+            <button method="POST" type="submit">Enviar</button>
         <button type="reset">Borrar</button>
 </form>
 </div>

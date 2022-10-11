@@ -64,23 +64,21 @@ const controller = {
         color : req.body.color,
         oferta: req.body.oferta,
         descuento: Number(req.body.descuento),
-        tamaño : req.body.tamaño,
-        imagen : req.body.imagen
+        tamaño : req.body.tamano,
+        imagen : req.file.originalname,
         }
         tinto.push(newProducto);
         fs.writeFileSync(miPathDataBase, JSON.stringify(tinto, null, ' '))
         res.redirect('/detalleProducto')
     },
 
-     update : function(req, res) {
-        let idProd = req.params.idProd;
+    edit : function(req, res) {
+        const idProd = req.params.idProd;
 
-        let prodToEdit = tinto[idProd - 1];
-
-        res.render("prodEdit", {prodToEdit: prodToEdit});
+        res.render('prodEdit', {'tinto': tinto, 'idProd': idProd})
     },
 
-    edit:(req, res)=> {
+    update:(req, res)=> {
         const idProd = req.params.idProd;
 
         const vinoEditado = {
@@ -94,8 +92,8 @@ const controller = {
             collapse: 'collapse' + idProd,
             oferta: req.body.oferta,
             descuento: Number(req.body.descuento),
-            tamaño : req.body.tamaño,
-            imagen : req.body.imagen
+            tamaño : req.body.tamano,
+            imagen : req.file.originalname
         }
 
         const productoEditar = tinto.find(vino => vino.id == idProd)
@@ -106,7 +104,7 @@ const controller = {
 
         fs.writeFileSync(miPathDataBase, JSON.stringify(tinto, null, ' '))
 
-        res.redirect('/detalleProducto')
+        res.redirect('/list')
     },
     
     delete: (req, res) =>{

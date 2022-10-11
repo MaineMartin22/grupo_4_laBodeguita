@@ -1,12 +1,12 @@
 const express = require("express")
 const multer = require('multer')
 const path = require("path")
-const Maincontroller = require("../controllers/mainController")
+const Maincontroller = require('../controllers/mainController')
 const userController = require('../controllers/userController')
 const router = express.Router()
 const { body } = require('express-validator')
 
-// IMAGENES A TRAVES DE MULTER
+// IMAGENES A TRAVES DE MULTER PARA EL AVATAR
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) =>{

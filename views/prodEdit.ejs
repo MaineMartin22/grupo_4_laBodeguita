@@ -10,22 +10,24 @@
     </header>
     <main>
     <div class="create-div">
-    <form method="POST" action="<%= prodToEdit.id %>" class="create">
-            <h3>Editando producto: <%=prodToEdit.name%> - ID número: <%= prodToEdit.id %></h3>
+        <% tinto.forEach(function(tint) { %>
+            <% if (tint.id == idProd) { %>
+    <form method="POST" action="<%= tint.id %>" class="create" enctype="multipart/form-data">
+            <h3>Editando producto: <%=tint.name%> - ID número: <%= tint.id %></h3>
             <div>
-            <input type="text" name="name" id="name" value="<%=prodToEdit.name%>">
+            <input type="text" name="name" id="name" value="<%=tint.name%>">
             <h3>Tipo</h3>
             <select name="tipo" id="tipo">
-            <% if (prodToEdit.tipo == "Rosado") { %>
-                <option><%=prodToEdit.tipo%></option>
+            <% if (tint.tipo == "Rosado") { %>
+                <option><%=tint.tipo%></option>
                 <option>Tinto</option>
                 <option>Blanco</option>
-            <% } else if (prodToEdit.tipo == "Tinto" ) { %> 
-                <option><%=prodToEdit.tipo%></option>
+            <% } else if (tint.tipo == "Tinto" ) { %> 
+                <option><%=tint.tipo%></option>
                 <option>Rosado</option>
                 <option>Blanco</option>
             <% } else { %>
-                <option><%=prodToEdit.tipo%></option>
+                <option><%=tint.tipo%></option>
                 <option>Rosado</option>
                 <option>Tinto</option>
             <% };%>
@@ -37,49 +39,43 @@
         </select>
 
             <h3>Precio</h3>
-            <input type="number" name="precio" id="precio" value="<%=prodToEdit.precio%>">
+            <input type="number" name="precio" id="precio" value="<%=tint.precio%>">
             <h3>Bodega</h3>
             <select name="bodega" id="bodega">
-                <% if (prodToEdit.bodega === "Malbec") { %>
-                    <option><%=prodToEdit.bodega%></option>
+                <% if (tint.bodega === "Malbec") { %>
+                    <option><%=tint.bodega%></option>
                     <option>Santa Julia</option>
                     <option>Norton</option>
-                <% } else if (prodToEdit.bodega === "Santa Julia" ) { %> 
-                    <option><%=prodToEdit.bodega%></option>
+                <% } else if (tint.bodega === "Santa Julia" ) { %> 
+                    <option><%=tint.bodega%></option>
                     <option>Norton</option>
                     <option>Malbec</option>
                 <% } else { return%>
-                    <option><%=prodToEdit.bodega%></option>
+                    <option><%=tint.bodega%></option>
                     <option>Malbec</option>
                     <option>Santa Julia</option>
                 <% }; %>
             </select>
             <h3>% de alcohol</h3>
-            <input type="text" name="alcohol" id="alcohol" value="<%=prodToEdit.alcohol%>">
+            <input type="text" name="alcohol" id="alcohol" value="<%=tint.alcohol%>">
             <h3>Descuento en número entero</h3>
-            <input type="text" name="descuento" id="descuento" value="<%=prodToEdit.descuento%>">
+            <input type="text" name="descuento" id="descuento" value="<%=tint.descuento%>">
             <h3>Tamaño</h3>
-            <select name="tamaño" id="tamaño">
-                <% if (prodToEdit.tamaño === "750ml") { %>
-                    <option><%=prodToEdit.tamaño%></option>
-                    <option>1000ml</option>
-                    <option>1250ml</option>
-                <% } else if (prodToEdit.tamaño === "1000ml" ) { %> 
-                    <option><%=prodToEdit.tamaño%></option>
-                    <option>750ml</option>
-                    <option>1250ml</option>
-                <% } else { return%>
-                    <option><%=prodToEdit.tamaño%></option>
+            <select name="tamano" id="tamano">
                     <option>750ml</option>
                     <option>1000ml</option>
-                <% }; %>
+                    <option>1250ml</option>
             </select>
             <h3>Color</h3>
-            <input type="text" name="color" id="color" value="<%=prodToEdit.color%>">
-        <button type="submit">Enviar</button>
-        <button type="reset">Borrar</button>
+            <input type="text" name="color" id="color" value="<%=tint.color%>">
+            <label for="imagen">Seleccionar imagen</label>
+            <input type="file" id="imagen" name="imagen">
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
     </div>
 </form>
+<% } %>
+<% }) %>
 </div>
 </main>
 <footer class="footer">
