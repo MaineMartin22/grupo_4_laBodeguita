@@ -134,14 +134,9 @@ const controller = {
                 apellido : req.body.apellido,
                 direccion : req.body.direccion,
                 email : req.body.email,
-                contrasena : req.body.contrasena,
+                contrasena: bcryptjs.hashSync(req.body.contrasena, 12),
                 imagen : req.file.filename
                 }
-
-                // newUser = {
-                //     ... req.body,
-                //     password: bcryptjs.hashSync(req.body.password, 12)
-                // }
 
                 users.push(newUser);
                 fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
