@@ -46,29 +46,11 @@
  },
  {
   "id": 6,
-  "nombre": "Kayla",
-  "apellido": "Jerzycowski",
-  "email": "kjerzycowski3@nps.gov",
-  "password": "kYuQRm12brL",
-  "categoria": "cliente",
-  "imagen": "img04.jpg"
- },
- {
-  "id": 7,
   "nombre": "Barby",
   "apellido": "Freites",
   "email": "barby@gmail.com",
   "password": "barby1234",
   "categoria": "cliente",
   "imagen": "img04.jpg"
- },
- {
-  "id": 8,
-  "nombre": "Sergio",
-  "apellido": "Picard",
-  "direccion": "qwewqeqw",
-  "email": "sergio@gmail.com",
-  "contrasena": "asfdaslf",
-  "imagen": "1665453328380_img.webp"
  }
 ]

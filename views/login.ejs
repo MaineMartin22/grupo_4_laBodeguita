@@ -15,7 +15,7 @@
     <!-- Formulario -->
     <div class="contenedor-formulario">
       <div class="wrap">
-        <form action="/login" class="formulario" name="formulario-registro" method="post" enctype="multipart/form-data"></form>
+        <form action="./login" class="formulario" name="formulario-registro" method="POST" enctype="multipart/form-data">
         <div>
           <div class="general">
             <label class="label" for="email"></label>
@@ -34,13 +34,11 @@
             <div>
               <input class="remember" type="checkbox" name="remember_me" id="remember_me" />
               <label for="remember_me">Recordarme</label>
-              <br>
-              <br>
               <p>¿No recuerdas tu contraseña? Haz click<a href="home"> aquí</a></p>
               <p>¿Aún no tienes cuenta?<a href="/users/register"> Registrarse</a></p>
-              <input type="submit" id="boton" value="Ingresar">
             </div>
           </div>
+          <button type="submit" id="boton" value="Ingresar">Ingresar</button>
         </div>
         </form>
       </div>

@@ -5,13 +5,14 @@ const bcryptjs = require("bcryptjs")
 const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
 const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
 const users = JSON.parse(usuario);
+const User = require('../models/User')
 
 const userController = {
     login: (req, res) => {
         res.render('login'); //formulario login
     },
     loginProcess: (req, res) => {
-        let userToLogin = users.findByField('email', req.body.email); //verificamos or email si la persona está registrada
+        let userToLogin = User.findByField('email', req.body.email); //verificamos or email si la persona está registrada
 
         if (userToLogin) {
             let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);

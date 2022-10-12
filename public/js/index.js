@@ -1,16 +1,62 @@
-//FORMULARIO LOGIN
-            // Agarramos el formulario por su id, y lo guardamos dentro de la variable formulario
-            const formularioLogin = document.getElementById('formularioLogin');
-            // Agregamos un escucha de eventos al formulario, que ejecute una función cuando el evento sea ejecutado
-            formularioLogin.addEventListener('submit', function(e){
-                e.preventDefault();
 
-                console.log(formularioLogin.nombre.value)
+// INTENTO DE CARRITO DE COMPRAS, FALLO 1 :(
 
-                if(formularioLogin.nombre.value.length < 2){
-                    alert('No se ingresó un nombre válido!')
-                }
-                if(formularioLogin.contraseña.value.length < 2){
-                    alert('No se ingresó una contraseña válida!')
-                }
-            });
+
+// const clickButton = document.querySelectorAll('.addCar')
+// const tbody = document.querySelector('.tbody')
+// let carrito = []
+
+// clickButton.forEach(btn => {
+//     btn.addEventListener('click', addToCart);
+// })
+
+// function addToCart(e) {
+//     const button = e.target
+//     const item = button.closest('.vin-prod')
+//     const itemTitle = item.querySelector('.vin-title').textContent;
+//     const itemPrice = item.querySelector('.price').textContent;
+//     const itemImg = item.querySelector('.vin-img-jpg').src;
+    
+
+//     const newCart = {
+//         title: itemTitle,
+//         price: itemPrice,
+//         image: itemImg,
+//         cant: 1
+//     }
+
+//     addItemCarrito(newCart)
+// }
+
+// function addItemCarrito(newCart) {
+
+//     carrito.push(newCart)
+//     renderCarrito()
+// }
+// function renderCarrito(){
+//     tbody.innerHTML = ''
+//     carrito.map(item => {
+//       const tr = document.createElement('tr')
+//       tr.classList.add('ItemCarrito')
+//       const Content = `
+      
+//       <th scope="row">1</th>
+//               <td class="table__productos">
+//                 <img src=${item.img}  alt="">
+//                 <h6 class="title">${item.title}</h6>
+//               </td>
+//               <td class="table__price"><p>${item.price}</p></td>
+//               <td class="table__cantidad">
+//                 <input type="number" min="1" value=${item.cant} class="input__elemento">
+//                 <button class="delete btn btn-danger">x</button>
+//               </td>
+      
+//       `
+//       tr.innerHTML = Content;
+//       tbody.append(tr)
+  
+//       tr.querySelector(".delete").addEventListener('click', removeItemCarrito)
+//       tr.querySelector(".input__elemento").addEventListener('change', sumaCantidad)
+//     })
+//     CarritoTotal()
+//   }

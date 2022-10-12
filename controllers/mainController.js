@@ -38,10 +38,14 @@ const controller = {
     product: (req,res) => {res.render("prodCreate")},
     vinos: (req,res) =>{res.render("vinos", {tinto:tinto})},
 
+    // LISTADO DE PRODUCTOS
+
     list: function(req, res){
         tinto;
         res.render('prodList', {'tinto':tinto});
     },
+
+    // DETALLE DE CADA UNO
 
     detalle: function(req,res){
         const idProd = req.params.idProd;
@@ -51,6 +55,8 @@ const controller = {
     getData : function () {
         return JSON.parse (fs.readFileSync(this.fileName , 'utf-8'));
      },
+
+    // CREAR PRODUCTOS
 
     create: function(req, res) {
         let newProducto = {
@@ -71,6 +77,8 @@ const controller = {
         fs.writeFileSync(miPathDataBase, JSON.stringify(tinto, null, ' '))
         res.redirect('/detalleProducto')
     },
+
+    // EDITAR DE PRODUCTO
 
     edit : function(req, res) {
         const idProd = req.params.idProd;
@@ -106,6 +114,9 @@ const controller = {
 
         res.redirect('/list')
     },
+
+    // BORRAR PRODUCTO
+
     
     delete: (req, res) =>{
         const idProd = req.params.idProd;
@@ -121,12 +132,25 @@ const controller = {
 
     },
 
+    // REGISTRO DE NUEVO USUARIO
+
     registerUser: (req, res) =>{
         res.render('register')
     },
 
     updateUser: (req, res) =>{
         let errores = validationResult(req);
+
+        // ERROR SI EXISTE OTRO USUARIO CON EL MISMO EMAIL
+
+        let userInDb = User.findByField('email', req.body.email)
+
+        if (userInDb){
+            return res.render('register', {errores: {email: { msg: 'Este email ya está registrado'}}, old: req.body})
+        }
+
+        // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
+
         if (errores.isEmpty()){
             let newUser = {
                 id : users.length+1,
@@ -140,7 +164,7 @@ const controller = {
 
                 users.push(newUser);
                 fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
-                res.redirect('../home');
+                res.redirect('login');
         }
         else{
             res.render('register', {errores: errores.mapped(), old: req.body},)
@@ -148,10 +172,41 @@ const controller = {
 
     },
 
+
+    // LOGIN DE USUARIOS
+
+    // Comentado porque lo estan haciendo barb y cele en userController
+
+    // login: (req, res) =>{
+    //     return res.send('login')
+    // },
+    // loginProcess: (req, res) =>{
+    //     let userToLogin = User.findByField('email', req.body.email) // buscamos el usuario por su email, ya q es unico
+
+    //     if (userToLogin) {
+    //         return res.send(userToLogin)
+    //     }
+
+    //     return res.render('login', {
+    //         errores: {
+    //             email:{
+    //                 msg:'No se encuentra este email' 
+    //             }
+    //         }
+    //     })
+    // },
+    // profile: (req, res) =>{
+    //     return res.render('userProfile')
+    // },
+
+    // LISTA DE USUARIOS
+
     userList: function(req, res){
         users;
         res.render('userList', {'users':users});
     },
+
+    // BORRAR USUARIOS
 
     deleteUser: (req, res) =>{
         const idUser = req.params.idUser;
@@ -161,7 +216,7 @@ const controller = {
 
         users.splice(index, 1);
 
-        fs.writeFileSync(miUserPathDataBase, JSON.stringify(users))
+        fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
 
         res.redirect('../list')
 
