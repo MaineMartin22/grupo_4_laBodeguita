@@ -22,6 +22,8 @@ const uploadFile = multer({ storage });
 
 //VALIDACIONES
 
+//VER DONDE VA
+
 const validateUser = [
     body('nombre')
     .notEmpty().withMessage('Debes completar tu nombre'),

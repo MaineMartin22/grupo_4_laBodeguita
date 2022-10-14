@@ -8,9 +8,11 @@ const ejs = require("ejs")
 const multer = require("multer")
 const methodOverride = require('method-override')
 const session = require('express-session');
+const logger = require('morgan');
 
 //  express()
-const app = express()
+const app = express();
+app.use(logger('tiny'));
 
 //  Middlewares
 app.use(session({ secret: "Nuestro mensaje secreto",

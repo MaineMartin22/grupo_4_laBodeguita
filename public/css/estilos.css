@@ -510,6 +510,10 @@ main {
   background-color: hsla(211, 96%, 11%, 0.691);
 }
 
+.swal-button {
+  background-color: #03356b;
+}
+
 .vin-img img:hover ~ i{
   transform: scale(1.4);
 }
