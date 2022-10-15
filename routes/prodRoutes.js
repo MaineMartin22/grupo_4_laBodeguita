@@ -4,6 +4,7 @@ const router = express.Router()
 const multer = require('multer')
 const path = require("path")
 
+const notadmMiddleware = require('../middlewares/notadmMiddleware');
 
 
 const productStorage = multer.diskStorage({
@@ -20,11 +21,19 @@ const productFile = multer({ productStorage });
 
 // router.get('/search', Maincontroller.search)
 
+router.get('/list', notadmMiddleware, Maincontroller.list);
+
+router.get('/create' , notadmMiddleware, Maincontroller.product);
+
+router.post('/create', productFile.single('imagen'), Maincontroller.create);
+
 router.get('/:idProd', Maincontroller.detalle)
+
+router.get('/delete/:idProd', notadmMiddleware, Maincontroller.list)
 
 router.delete('/delete/:idProd', Maincontroller.delete)
 
-router.get('/edit/:idProd', Maincontroller.edit)
+router.get('/edit/:idProd', notadmMiddleware, Maincontroller.edit)
 
 router.post('/edit/:idProd', productFile.single('imagen'), Maincontroller.update)
 

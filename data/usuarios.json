@@ -1,1 +1,22 @@
-[]
+[
+ {
+  "id": 1,
+  "nombre": "sergio",
+  "apellido": "picard",
+  "direccion": "sergio 305",
+  "email": "sergio@gmail.com",
+  "contrasena": "$2a$12$0Y7MjXm4IqnrbwW1.l7zE.J1Bn.b9noxjeVoXQBPrHRJAJyxe0U36",
+  "categoria": "admin",
+  "imagen": "1665843077146_img.webp"
+ },
+ {
+    "id": 2,
+    "nombre": "pipita",
+    "apellido": "higuain",
+    "direccion": "sergio 305",
+    "email": "higua@gmail.com",
+    "contrasena": "$2a$12$0Y7MjXm4IqnrbwW1.l7zE.J1Bn.b9noxjeVoXQBPrHRJAJyxe0U36",
+    "categoria": "comprador",
+    "imagen": "1665843077146_img.webp"
+   }
+]

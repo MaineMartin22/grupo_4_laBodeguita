@@ -37,6 +37,7 @@ const userController = {
                 direccion : req.body.direccion,
                 email : req.body.email,
                 contrasena: bcryptjs.hashSync(req.body.contrasena, 12),
+                categoria: "comprador",
                 imagen : req.file.filename
                 }
 
@@ -73,17 +74,23 @@ const userController = {
 
     },
 
+
     login: (req, res) => {
         res.render('login'); //formulario login
     },
     	loginProcess: (req, res) => {
             let userToLogin = User.findByField('email', req.body.email);
-            
+            let userAdmin = User.findByField('categoria', "admin");
+
             if(userToLogin) {
                 let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.contrasena);
                 if (isOkThePassword) {
                     delete userToLogin.contrasena;
                     req.session.userLogged = userToLogin;
+
+                    if(userToLogin.categoria == userAdmin.categoria){
+                        req.session.admin = userAdmin;
+                    }
     
                     if(req.body.remember_user) {
                         res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
@@ -111,7 +118,8 @@ const userController = {
 
     profile: (req, res) => { //perfil usuario
         return res.render('userProfile',{
-            user: req.session.userLogged
+            user: req.session.userLogged,
+            admin: req.session.admin
         }); 
     },
     logout: (req, res) =>{

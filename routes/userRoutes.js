@@ -10,6 +10,9 @@ const guestMiddleware = require('../middlewares/userMiddleware')
 
 const authMiddleware = require('../middlewares/authMiddleware');
 
+const notadmMiddleware = require('../middlewares/notadmMiddleware');
+
+
 // IMAGENES A TRAVES DE MULTER PARA EL AVATAR
 
 const storage = multer.diskStorage({
@@ -64,9 +67,9 @@ router.get('/logout', userController.logout)
 
 
 
-router.get('/list' , userController.userList);
+router.get('/list', notadmMiddleware, userController.userList);
 
-router.get('/delete/:idUser', userController.userList)
+router.get('/delete/:idUser', notadmMiddleware, userController.userList)
 
 router.delete('/delete/:idUser', userController.deleteUser)
 

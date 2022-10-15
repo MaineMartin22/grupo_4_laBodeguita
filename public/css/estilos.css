@@ -117,7 +117,6 @@ ul, li {
 }
 
 .avatar-img{
-  width: 40%;
   border-radius: 50%;
   border: 1px solid white;
   background-color: white;
@@ -890,7 +889,7 @@ main {
   }
 
   .prodList-ul{
-    font-size: 18px;
+    font-size: 15px;
     margin: auto;
     align-items: center;
     display: flex;
