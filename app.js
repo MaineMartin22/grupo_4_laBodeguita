@@ -8,19 +8,34 @@ const ejs = require("ejs")
 const multer = require("multer")
 const methodOverride = require('method-override')
 const session = require('express-session');
+const cookies = require('cookie-parser');
 const logger = require('morgan');
+
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
 
 //  express()
 const app = express();
 app.use(logger('tiny'));
 
 //  Middlewares
-app.use(session({ secret: "Nuestro mensaje secreto",
+app.use(session({ 
 secret: "Nuestro mensaje secreto",
 resave: false,
 saveUninitialized: false,
- 
 }));
+
+// cookies
+
+app.use(cookies());
+
+// usuario logeado
+
+app.use(userLoggedMiddleware);
+
+app.use(express.urlencoded({ extended: false }));
+
+
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended : true}));

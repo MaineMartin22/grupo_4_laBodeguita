@@ -61,12 +61,11 @@ ul, li {
 
 .nav-contein-login {
   display: flex;
-  flex-wrap: wrap;
   width: 33%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   text-align: center;
   align-items: center;
-  gap: 20px;
+  gap: 5px;
 }
 
 .nav-logo {
@@ -83,7 +82,7 @@ ul, li {
   display: none;
   width: 33%;
   margin: auto;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .nav-links {
@@ -92,6 +91,11 @@ ul, li {
   transition: all 0.4s ease-in-out;
   font-family: "Roboto", sans-serif;
   border-bottom: 1px solid transparent;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
 }
 
 .nav-links:hover{
@@ -108,25 +112,59 @@ ul, li {
 
 }
 
-.nav-contein-login a p{
-  display: none;
+.nav-contein-login li{
+  width: 48%;
+}
+
+.avatar-img{
+  width: 40%;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: white;
+}
+
+.offcanvas-div a{
+  color: white;
+  text-decoration: none;
+}
+
+.offcanvas-div a:focus{
+  color: white;
+
+}
+
+.offcanvas-div a div{
+  height: 60px;
+  object-fit: contain;
+  margin: auto;
+}
+
+
+.offcanvas-div a div img{
+  height: 60px;
+  object-fit: contain;
+  margin: auto;
 }
 
 .nav-contein-login a{
-  font-size: 18px;
-  transition: all 0.4s ease-in-out;
   text-decoration: none;
+  color: white;
 }
+
+.nav-contein-login ul li a{
+  color: #000;
+}
+
+.nav-contein-login a:focus{
+  color: white;
+}
+
+
 
 .nav-links i{
   font-size: 18px;
 }
 
-.nav-contein-login a:hover{
-  color: #D1BC00;
-  border-bottom: 1px solid transparent;
-
-}
 
 #offcanvasNavbar{
   background: #373B44;
@@ -215,6 +253,11 @@ ul, li {
 
 .nav-logo-mobile{
   width: 50%;
+}
+
+/* PROFILE ESTILOS */
+.main-profile{
+  padding-top: 100px;
 }
 
 
@@ -941,11 +984,6 @@ main {
     font-size: 14px;
   }
 
-  .nav-contein-login a p{
-    display: inline;
-    font-size: 14px;
-  }
-
   #desktopnav{
     display: flex;
   }
@@ -1085,10 +1123,12 @@ main {
 
   /* NAVBAR EN DESKTOP */
   .nav-contein a {
-      font-size: 18px;
+      font-size: 15px;
   }
-  .nav-contein-login a p{
-    font-size: 18px;
+
+  .nav-contein-login li img{
+    width: 22%;
+  
   }
 
   /* PRODUCTOS EN DESKTOP */

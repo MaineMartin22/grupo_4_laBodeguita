@@ -6,6 +6,10 @@ const userController = require('../controllers/userController')
 const router = express.Router()
 const { body } = require('express-validator')
 
+const guestMiddleware = require('../middlewares/userMiddleware')
+
+const authMiddleware = require('../middlewares/authMiddleware');
+
 // IMAGENES A TRAVES DE MULTER PARA EL AVATAR
 
 const storage = multer.diskStorage({
@@ -39,27 +43,31 @@ const validateUser = [
 
 // REGISTER GET
 
-router.get('/register', Maincontroller.registerUser);
+router.get('/register', guestMiddleware, userController.registerUser);
 
 // REGISTER POST
 
-router.post('/register', uploadFile.single('avatar'), validateUser, Maincontroller.updateUser);
+router.post('/register', uploadFile.single('avatar'), validateUser, userController.updateUser);
 
 //Formulario Login
 
-router.get('/login' , userController.login); 
+router.get('/login' , guestMiddleware, userController.login); 
 
 //Proceso de Login
 router.post('/login', userController.loginProcess); 
 
 //Perfil de usuario
-router.get('/profile/', userController.profile)
+router.get('/profile', authMiddleware, userController.profile)
+
+//Proceso LogOut
+router.get('/logout', userController.logout)
 
 
-router.get('/list' , Maincontroller.userList);
 
-router.get('/delete/:idUser', Maincontroller.userList)
+router.get('/list' , userController.userList);
 
-router.delete('/delete/:idUser', Maincontroller.deleteUser)
+router.get('/delete/:idUser', userController.userList)
+
+router.delete('/delete/:idUser', userController.deleteUser)
 
 module.exports = router

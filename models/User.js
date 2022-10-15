@@ -1,5 +1,6 @@
 const fs = require("fs")
 const path = require('path')
+const bcrypt = require('bcrypt')
 
 const User = {
     fileName: './data/usuarios.json',
@@ -55,7 +56,12 @@ const User = {
         return true;
 
 
-    }
+    },
+    comparePassword: function(password, user){
+        if (!user.password)
+          return false;
+        return bcrypt.compareSync(password, user.password);
+      }
 }
 
 module.exports = User;

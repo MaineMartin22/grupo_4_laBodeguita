@@ -1,4 +1,3 @@
-const { validationResult } = require('express');
 const fs = require('fs');
 const path = require('path')
 const bcryptjs = require("bcryptjs")
@@ -7,43 +6,118 @@ const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
 const users = JSON.parse(usuario);
 const User = require('../models/User')
 
+const { validationResult } = require('express-validator')
+
+
 const userController = {
+     // REGISTRO DE NUEVO USUARIO
+
+     registerUser: (req, res) =>{
+        res.render('register')
+    },
+
+    updateUser: (req, res) =>{
+        let errores = validationResult(req);
+
+        // ERROR SI EXISTE OTRO USUARIO CON EL MISMO EMAIL
+
+        let userInDb = User.findByField('email', req.body.email)
+
+        if (userInDb){
+            return res.render('register', {errores: {email: { msg: 'Este email ya está registrado'}}, old: req.body})
+        }
+
+        // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
+
+        if (errores.isEmpty()){
+            let newUser = {
+                id : users.length+1,
+                nombre : req.body.nombre,
+                apellido : req.body.apellido,
+                direccion : req.body.direccion,
+                email : req.body.email,
+                contrasena: bcryptjs.hashSync(req.body.contrasena, 12),
+                imagen : req.file.filename
+                }
+
+                users.push(newUser);
+                fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
+                res.redirect('login');
+        }
+        else{
+            res.render('register', {errores: errores.mapped(), old: req.body},)
+        }
+
+    },
+
+      // LISTA DE USUARIOS
+
+      userList: function(req, res){
+        users;
+        res.render('userList', {'users':users});
+    },
+
+    // BORRAR USUARIOS
+
+    deleteUser: (req, res) =>{
+        const idUser = req.params.idUser;
+
+        const usuarioEliminar = users.find(users => users.id == idUser)
+        const index = users.indexOf(usuarioEliminar)
+
+        users.splice(index, 1);
+
+        fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
+
+        res.redirect('../list')
+
+    },
+
     login: (req, res) => {
         res.render('login'); //formulario login
     },
-    loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email); //verificamos or email si la persona está registrada
-
-        if (userToLogin) {
-            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-            if (isOkThePassword) {
-                delete userToLogin.password; //borra la contraseña por seguridad ya que no queremos tener esta información cuando esté logueado
-                req.session.userLogged = userToLogin;
-                return res.redirect('users/profile'); //crear perfil de usuario
+    	loginProcess: (req, res) => {
+            let userToLogin = User.findByField('email', req.body.email);
+            
+            if(userToLogin) {
+                let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.contrasena);
+                if (isOkThePassword) {
+                    delete userToLogin.contrasena;
+                    req.session.userLogged = userToLogin;
+    
+                    if(req.body.remember_user) {
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                    }
+    
+                    return res.redirect('/users/profile');
+                } 
+                return res.render('login', {
+                    errors: {
+                        email: {
+                            msg: 'Las credenciales son inválidas'
+                        }
+                    }
+                });
             }
+    
             return res.render('login', {
                 errors: {
                     email: {
-                        msg: 'Las credenciales son invalidas'
+                        msg: 'No se encuentra este email en nuestra base de datos'
                     }
                 }
             });
-        }
-
-        return res.render('login', {
-            errors: {
-                email: {
-                    msg: 'No se encuentra este email en nuestra base de datos'
-                }
-            }
-        });
-
-    },
+        },
 
     profile: (req, res) => { //perfil usuario
         return res.render('userProfile',{
             user: req.session.userLogged
         }); 
+    },
+    logout: (req, res) =>{
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        return res.redirect('/');
     }
 }
 
