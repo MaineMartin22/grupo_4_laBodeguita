@@ -1,7 +1,6 @@
 const express = require("express")
 const multer = require('multer')
 const path = require("path")
-const Maincontroller = require('../controllers/mainController')
 const userController = require('../controllers/userController')
 const router = express.Router()
 const { body } = require('express-validator')
@@ -65,12 +64,20 @@ router.get('/profile', authMiddleware, userController.profile)
 //Proceso LogOut
 router.get('/logout', userController.logout)
 
-
+// LISTA DE USUARIOS
 
 router.get('/list', notadmMiddleware, userController.userList);
+
+//BORRAR USUARIOS
 
 router.get('/delete/:idUser', notadmMiddleware, userController.userList)
 
 router.delete('/delete/:idUser', userController.deleteUser)
+
+// EDITAR USUARIO DESDE ADMIN
+
+router.get('/edit/:idUser', notadmMiddleware, userController.userEdit )
+
+router.post('/edit/:idUser', uploadFile.single('avatar'), userController.userEditUpdate)
 
 module.exports = router

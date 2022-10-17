@@ -61,6 +61,10 @@ const User = {
         if (!user.password)
           return false;
         return bcrypt.compareSync(password, user.password);
+      },
+
+       changeToUpperCase: function(text) {
+        return text.toUpperCase();
       }
 }
 

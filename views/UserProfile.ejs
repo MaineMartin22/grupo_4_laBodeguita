@@ -9,11 +9,49 @@
     <%- include("./partials/navBar") %>
     </header>
     <main class="main-profile">
-    <h2>Bienvenido <%= user.nombre %> </h2>
-    <form action="/users/logout" method="GET">
-      <button type="submit">Cerrar Sesion</button>
-    </form>
-    <p>Que desea hacer?</p>
+    <h2>Bienvenido ¡<%= user.nombre %>!</h2>
+    <div class="profile-info">
+      <div class="profile-title">
+        <div class="profile-img">
+          <img src="/images/avatar/<%= user.imagen %> " alt="avatar">
+        </div>
+        <div class="profile-name">
+          <p><%= user.nombre %> <%= user.apellido %></p>
+        </div>
+        <div class="profile-category">
+          <p><%= user.categoria %></p>
+        </div>
+      </div>
+      <div class="profile-data">
+        <p>Editar mi información</p>
+        <form action="/users/profile" method="POST">
+          <div>  
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" value="<%= user.nombre %>">
+          </div>
+          <div>  
+            <label for="nombre">Apellido</label>
+            <input type="text" name="apellido" value="<%= user.apellido %>">
+          </div>
+          <div>  
+            <label for="nombre">Direccion</label>
+            <input type="text" name="direccion" value="<%= user.direccion %>">
+          </div>
+          <div>  
+            <label for="contrasena">Nueva contraseña</label>
+            <input type="password" name="contrasena">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="buttons-profile">
+      <form action="/users/logout" method="GET">
+        <button id="logout" type="submit">Cerrar Sesion</button>
+      </form>
+      <form action="/users/profile">
+        <button id="edit" type="submit">Guardar cambios</button>
+      </form>
+    </div>
   </main>
   <footer class="footer">
     <%- include("./partials/footer") %>

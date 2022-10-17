@@ -32,12 +32,12 @@ const userController = {
         if (errores.isEmpty()){
             let newUser = {
                 id : users.length+1,
-                nombre : req.body.nombre,
-                apellido : req.body.apellido,
+                nombre : User.changeToUpperCase(req.body.nombre),
+                apellido : User.changeToUpperCase(req.body.apellido),
                 direccion : req.body.direccion,
                 email : req.body.email,
                 contrasena: bcryptjs.hashSync(req.body.contrasena, 12),
-                categoria: "comprador",
+                categoria: "COMPRADOR",
                 imagen : req.file.filename
                 }
 
@@ -120,12 +120,48 @@ const userController = {
         return res.render('userProfile',{
             user: req.session.userLogged,
             admin: req.session.admin
-        }); 
+        });
     },
+
     logout: (req, res) =>{
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
+    },
+
+
+    userEdit: (req, res) =>{
+        const idUser = req.params.idUser;
+
+        res.render('userEdit', {'users': users, 'idUser': idUser})
+    },
+
+    userEditUpdate: (req, res) =>{
+
+        const idUser = req.params.idUser;
+        const userToEdit = users.find(user => user.id == idUser)
+
+
+        const userEditado = {
+            id: Number(idUser),
+            nombre : req.body.nombre,
+            apellido : req.body.apellido,
+            direccion : req.body.direccion,
+            email : userToEdit.email,
+            contrasena: userToEdit.contrasena,
+            categoria: req.body.categoria,
+            imagen : req.file.filename
+        }
+
+        const index = users.indexOf(userToEdit)
+
+        /* tinto.splice(index, 1, vinoEditado); */
+        users[index] = userEditado
+
+        fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
+
+        res.redirect('/users/list')
+
     }
 }
 

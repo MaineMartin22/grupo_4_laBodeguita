@@ -18,14 +18,25 @@
   </div>
   <div class="nav-contein-login">
       <% if (locals.isLogged) { %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="avatar-img" src="/images/avatar/<%= locals.userLogged.imagen %>" alt="avatar"> Hola <%= locals.userLogged.nombre %></a>
+        <div class="user-div">
+        <div class="profile-img-nav">
+          <img src="/images/avatar/<%= locals.userLogged.imagen %>" alt="avatar">
+        </div>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola <%= locals.userLogged.nombre %></a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="/users/logout">Cerrar sesión</a></li>
+          <% if (locals.isLogged && locals.userLogged.categoria == "admin") { %>
+            <li><a class="dropdown-item" href="/home">Inicio</a></li>
+            <li><a class="dropdown-item" href="/detalleProducto">Vinos</a></li>
+            <li><a class="dropdown-item" href="/finalizarCompra">Finalizar compra</a></li>
+
+            <% };%> 
         </ul>
       </li>
+    </div>
       <% } else { %> 
       <a class="nav-links" href="/users/login">Ingresar</a>
       <% }; %>
@@ -45,7 +56,7 @@
       <div class="offcanvas-header">
         <div class="offcanvas-div">
           <% if (locals.isLogged) { %>
-            <a class="navbar-brand" href="/users/profile"><div><img class src="/images/avatar/<%= locals.userLogged.imagen %>" alt="avatar"></div>Bienvenido <%= locals.userLogged.nombre %> </a> 
+            <a class="navbar-brand" href="/users/profile">¡Bienvenido <%= locals.userLogged.nombre %>! </a> 
           <% }else { %>
           <a class="navbar-brand" id="offcanvasNavbarLabel"><img src="/images/products/LogoRedondo.svg" alt=""></a>
           <% }; %> 
