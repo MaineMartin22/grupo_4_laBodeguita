@@ -1,6 +1,6 @@
 const ejs = require("ejs")
 
-const User = require('../models/User')
+const User = require('../database/models/User')
 
 const fs = require('fs');
 
