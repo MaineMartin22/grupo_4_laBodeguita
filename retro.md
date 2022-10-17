@@ -47,3 +47,18 @@ RETRO SPRING 4
   * Las reuniones semanales y final de cada spring
   * Seguir trabajando unidos y apoyándonos
 
+RETRO SPRING 5
+1. Comenzar a hacer:
+   * Hacer un repaso de los puntos a mejorar en el spring entregado, y en basándonos en las habilidades de c/u, asignar las correcciones.
+
+  
+2. Hacer más: 
+  * Ampliar los conocimientos individuales con el fin de mejorar el desarrollo grupal y cumplimiento de las actividades asignadas..
+  * Colaborarnos entre todos ante las dificultades que presente alguno con la asignación, para que sirva de orientación y le permita culminar la tarea asignada.
+  
+  
+3. Continuar haciendo:
+  * Seguimiento semanal y reporte de los avances.
+  * Mantener la comunicación activa como grupo.
+  * Seguir trabajando unidos y apoyándonos
+  
