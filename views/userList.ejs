@@ -23,14 +23,13 @@
                 </div>
             </div>
             <div>
-                <form action="/users/edit/<%=tint.id%>" method="get">
+                <form action="edit/<%= tint.id %>" method="get" enctype="multipart/form-data">
                     <button type="submit">Editar</button>
                 </form>
-            <form action="/users/delete/<%= tint.id %>?_method=delete" method="POST">
+            <form action="delete/<%= tint.id %>?_method=delete" method="POST" enctype="multipart/form-data">
                 <button type="submit">Borrar</button>
             </form>
             </div>
-        </div>
         </div>
         <% }) %>
     </div>
