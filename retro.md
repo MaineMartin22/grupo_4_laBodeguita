@@ -62,3 +62,13 @@ RETRO SPRINT 5
   * Mantener la comunicación activa como grupo.
   * Seguir trabajando unidos y apoyándonos
   
+
+  ¡TIPS AL VER LA PAGINA!
+
+  * La pagina incluye vista desde usuario (comprador) y desde el admin tambien, además de las vistas entre quien esta y no logeado
+    un usuario admin para loguear es:
+    
+    email:admin@gmail.com
+    pass: soyeladmin
+
+   Para ser comprador, simplemente al registrarse ya se registra con esa categoría, por lo que un usuario nuevo nunca será admin, y solo el admin ya existente puede cambiar el rol de un usuario de comprador a admin
