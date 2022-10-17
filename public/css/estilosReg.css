@@ -104,9 +104,6 @@
   padding-top: 150px;
   padding-bottom: 150px;
 }
-
-
-
 .create{
   width: 90%;
   display: flex;
@@ -127,7 +124,7 @@
   text-align: left;
 }
 
-.create input, .create select {
+.create input, .create select, #avatar {
   width: 80%;
   margin: auto;
   outline: none;
@@ -169,7 +166,7 @@
   z-index: -1;
   }
 
-  .create label[for="imagen"] {
+  .create label[for="imagen"], .create label[for="avatar"] {
     font-size: 14px;
     font-weight: 600;
     color: #fff;

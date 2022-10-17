@@ -48,9 +48,9 @@
       <form action="/users/logout" method="GET">
         <button id="logout" type="submit">Cerrar Sesion</button>
       </form>
-      <form action="/users/profile">
-        <button id="edit" type="submit">Guardar cambios</button>
-      </form>
+      <form action="edit/<%= tint.id %>" method="get">
+        <button type="submit">Editar</button>
+    </form>
     </div>
   </main>
   <footer class="footer">

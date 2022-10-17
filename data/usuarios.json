@@ -8,35 +8,5 @@
   "contrasena": "$2a$12$0Y7MjXm4IqnrbwW1.l7zE.J1Bn.b9noxjeVoXQBPrHRJAJyxe0U36",
   "categoria": "admin",
   "imagen": "1665843077146_img.webp"
- },
- {
-  "id": 2,
-  "nombre": "GONZALO",
-  "apellido": "HIGUAIN",
-  "direccion": "aragon 430",
-  "email": "higua@gmail.com",
-  "contrasena": "$2a$12$8neTowYTxpAmk4oHBMSPxuOo.q7EFfot90It4TXOyVHjDPSnSR1Sa",
-  "categoria": "COMPRADOR",
-  "imagen": "1665958805177_img.webp"
- },
- {
-  "id": 3,
-  "nombre": "KAXOR",
-  "apellido": "FERRERO",
-  "direccion": "Anda a saber",
-  "email": "kaxorito@gmail.com",
-  "contrasena": "$2a$12$g0TRahJTApWAvOGEvXXXTeO5QNWhfqEOQILwvZhLmjM5QJGr47vv6",
-  "categoria": "COMPRADOR",
-  "imagen": "1665881053768_img.webp"
- },
- {
-  "id": 4,
-  "nombre": "PEPE",
-  "apellido": "PEPARDO",
-  "direccion": "pepe 205",
-  "email": "pepe@gmail.com",
-  "contrasena": "$2a$12$bSuZZyb9Nxr93DNJvrUUMOvjbJnGFNxjuvis6yJw/736/EQRylOhC",
-  "categoria": "COMPRADOR",
-  "imagen": "1665961684600_img.webp"
  }
 ]
