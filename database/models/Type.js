@@ -1,19 +1,16 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Category_product';
+    let alias = 'Type';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
-        id_user: {
-            type: dataTypes.INT(11),
+        name: {
+            type: dataTypes.STRING(25),
             allowNull: false
         },
-        id_product: {
-            type: dataTypes.INT(11),
-            allowNull: false
-        }
+
     };
     let config = {
         timestamps: true,
@@ -21,8 +18,17 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
         deletedAt: false
     };
-    
-const Category_product = sequelize.define(alias, cols, config);
 
-return Category_product
+    const Type = sequelize.define(alias, cols, config);
+
+    Type.associate = function (models) {
+
+        Type.hasMany(models.Product, {
+            as: "Tipo", 
+            foreignKey: "type_products", //columna en la DB que une las 2 tablas
+
+        });
+
+    }
+    return Types
 };

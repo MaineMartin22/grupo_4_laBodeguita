@@ -6,11 +6,11 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        id_product: {
+        id_color: {
             type: dataTypes.INT(11),
             allowNull: false
         },
-        id_user: {
+        color_product: {
             type: dataTypes.INT(11),
             allowNull: false
         }
@@ -21,8 +21,16 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
         deletedAt: false
     };
-    
-const Color_product = sequelize.define(alias, cols, config);
 
-return Color_product
+    const Color_product = sequelize.define(alias, cols, config);
+
+    Color_product.associate = function (models) {
+       
+        Color_product.belongsTo(models.Color, {
+            as: "Color", 
+            foreignKey: "id_color", //columna en la DB que une las 2 tablas
+
+        });
+    }
+    return Color_product
 };

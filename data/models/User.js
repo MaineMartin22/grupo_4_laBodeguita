@@ -1,6 +1,6 @@
 const fs = require("fs")
 const path = require('path')
-const bcrypt = require('bcrypt')
+const bcryptjs = require('bcryptjs')
 
 const User = {
     fileName: './data/usuarios.json',
@@ -60,7 +60,7 @@ const User = {
     comparePassword: function(password, user){
         if (!user.password)
           return false;
-        return bcrypt.compareSync(password, user.password);
+        return bcryptjs.compareSync(password, user.password);
       },
 
        changeToUpperCase: function(text) {

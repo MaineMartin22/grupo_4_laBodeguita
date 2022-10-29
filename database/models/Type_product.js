@@ -6,8 +6,12 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        type: {
-            type: dataTypes.STRING(25),
+        id_type: {
+            type: dataTypes.INT(11),
+            allowNull: false
+        },
+        type_products: {
+            type: dataTypes.INT(11),
             allowNull: false
         }
     };
@@ -20,5 +24,12 @@ module.exports = (sequelize, dataTypes) => {
     
 const Type_product = sequelize.define(alias, cols, config);
 
+Type_product.associate = function(models) {
+    Type_product.belongsTo(models.type,{
+        as: "Tipo", 
+        foreignKey: "id_type", //columna en la DB que une las 2 tablas
+                   
+    });
+}
 return Type_product
 };
