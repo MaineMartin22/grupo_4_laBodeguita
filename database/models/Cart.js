@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         cart_user: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         }
     };
@@ -22,7 +22,7 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: false
     };
 
-    const Cart = sequelize.define(alias, cols, config);
+    const Cart = sequelize.define(alias, cols, config)
 
     Cart.associate = function (models) {
 

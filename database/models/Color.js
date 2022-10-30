@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Colors';
+    let alias = 'Color';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -18,15 +18,15 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: false
     };
 
-    const Colors = sequelize.define(alias, cols, config);
+    const Color = sequelize.define(alias, cols, config);
     
-    Colors.associate = function (models) {
-       /*  Color.belongsTo(models.Color_product, {
+    Color.associate = function (models) {
+       Color.belongsTo(models.Color_product, {
             as: "Color", 
             foreignKey: "id_color", //columna en la DB que une las 2 tablas
 
-        }); */
-        Colors.belongsToMany(modelos.Product,{
+        });
+        Color.belongsToMany(models.Product,{
             as: "Colores",
             through: "colors_products", //a través de qué tabla pivot se unen los 2 modelos
             foreignKey: "id_color", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
@@ -34,5 +34,5 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false
         })
     }
-    return Colors
+    return Color
 };

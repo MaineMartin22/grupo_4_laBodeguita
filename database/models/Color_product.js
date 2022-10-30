@@ -7,11 +7,11 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         id_color: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         color_product: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         }
     };

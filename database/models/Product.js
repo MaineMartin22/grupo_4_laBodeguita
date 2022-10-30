@@ -11,11 +11,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         type: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         id_cellar: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         price: {
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         color: {
-            type: dataTypes.INT(25),
+            type: dataTypes.INTEGER(25),
             allowNull: false
         },
         collapse: {
@@ -70,7 +70,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "id_cellar", //columna en la DB que une las 2 tablas
 
         });
-        Product.belongsToMany(models.Colors,{
+        Product.belongsToMany(models.Color,{
             as: "Colores",
             through: "Colors_products", //a través de qué tabla pivot se unen los 2 modelos
             foreignKey: "product_color", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual

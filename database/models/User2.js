@@ -15,19 +15,19 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         email: {
-            type: dataTypes.TEXT,
+            type: dataTypes.STRING(25),
             allowNull: false
         },
         password: {
-            type: dataTypes.TEXT,
+            type: dataTypes.STRING(25),
             allowNull: false
         },
         category: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         image: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(50),
             allowNull: false
         },
     };
@@ -39,18 +39,21 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User2 = sequelize.define(alias, cols, config); 
 
-    User2.hasMany(models.Cart, {
-        as: "Carrito_usuario", 
-        foreignKey: "cart_users", //columna en la DB que une las 2 tablas
+    User2.associate = function(models){
 
-    });
-    User2.belongsToMany(modelos.Categories,{
-        as: "Categoria",
-        through: "categories_users", //a través de qué tabla pivot se unen los 2 modelos
-        foreignKey: "users_categories", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
-        otherKey: "id_categories", // le dice a sequalize cuál es el nombre de la columna en la tabla pivot que hace referencia a la conexión
-        timestamps: false
-    });
+        User2.hasMany(models.Cart, {
+            as: "Carrito_usuario", 
+            foreignKey: "cart_users", //columna en la DB que une las 2 tablas
+    
+        });
+        User2.belongsToMany(models.Categories,{
+            as: "Categoria",
+            through: "categories_users", //a través de qué tabla pivot se unen los 2 modelos
+            foreignKey: "users_categories", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
+            otherKey: "id_categories", // le dice a sequalize cuál es el nombre de la columna en la tabla pivot que hace referencia a la conexión
+            timestamps: false
+        });
+    }
 
     return User2
 };

@@ -7,11 +7,11 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         users_categories: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         id_categories: {
-            type: dataTypes.INT(11),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         }
         
