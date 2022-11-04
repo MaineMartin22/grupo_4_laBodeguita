@@ -11,15 +11,15 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         type: {
-            type: dataTypes.INTEGER(11),
+            type: dataTypes.STRING(25),
             allowNull: false
         },
-        id_cellar: {
-            type: dataTypes.INTEGER(11),
+        cellar: {
+            type: dataTypes.STRING(25),
             allowNull: false
         },
         price: {
-            type: dataTypes.DECIMAL(),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         alcohol: {
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         color: {
-            type: dataTypes.INTEGER(25),
+            type: dataTypes.STRING(20),
             allowNull: false
         },
         collapse: {
@@ -39,15 +39,23 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         discount: {
-            type: dataTypes.DECIMAL(),
+            type: dataTypes.STRING(20),
             allowNull: false
         },
         size: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(8),
             allowNull: false
         },
         image: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(50),
+            allowNull: false
+        },
+        id_cellar: {
+            type: dataTypes.STRING(25),
+            allowNull: false
+        },
+        id_color: {
+            type: dataTypes.STRING(25),
             allowNull: false
         },
     };
@@ -55,32 +63,27 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
-        deletedAt: false
+        deletedAt: false,
+        tableName: "products" //Nacho explicó que el nombre de la tabla sería el nombre del modelo en plural
     }
     const Product = sequelize.define(alias, cols, config);
 
     Product.associate = function (models) {
-        Product.belongsTo(models.Type, {
-            as: "Tipo", 
-            foreignKey: "Type_product", //columna en la DB que une las 2 tablas
 
-        });
         Product.belongsTo(models.Cellar, {
-            as: "Cellar", 
+            as: "cellars",
             foreignKey: "id_cellar", //columna en la DB que une las 2 tablas
-
         });
-        Product.belongsToMany(models.Color,{
-            as: "Colores",
-            through: "Colors_products", //a través de qué tabla pivot se unen los 2 modelos
-            foreignKey: "product_color", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
-            otherKey: "id_color", // le dice a sequalize cuál es el nombre de la columna en la tabla pivot que hace referencia a la conexión
+        Product.belongsTo(models.Color, {
+            as: "colors",
+            foreignKey: "id_color", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
+        });
+        Product.belongsToMany(models.Cart_product, {
+            as: "cart_products",
+            through: "cart_product", // ponemos el nombre de la tabla pivot
+            foreignKey: "id_product", // nombre de la columna en la tabla pivot que hace referencia al modelo actual
+            otherKey: "id_cart", // le dice a sequalize cuál es el nombre de la columna en la tabla pivot que hace referencia a la conexión
             timestamps: false
-        });
-        Product.belongsTo(models.Cart, {
-            as: "Carrito", 
-            foreignKey: "cart_products", //columna en la DB que une las 2 tablas
-
         });
     }
 

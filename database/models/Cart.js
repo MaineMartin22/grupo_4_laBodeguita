@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, dataTypes) => {
     let alias = 'Cart';
     let cols = {
@@ -10,31 +11,27 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(25),
             allowNull: false
         },
-        cart_user: {
-            type: dataTypes.INTEGER(11),
+       id_user: {                           
+            type: dataTypes.STRING(25),
             allowNull: false
-        }
-    };
+        },
+    }; 
     let config = {
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
-    };
+        timestamps: false,
+        tableName: "carts" //Nacho explicó que el nombre de la tabla sería el nombre del modelo en plural
+    }
 
     const Cart = sequelize.define(alias, cols, config)
 
     Cart.associate = function (models) {
-
-        Cart.hasMany(models.Product, {
-            as: "Carrito",
-            foreignKey: "cart_products", //columna en la DB que une las 2 tablas
-
+        
+        Cart.belongsTo(models.Cart_product, {
+            as: "cart_products",
+            foreignKey: "id_cart", //columna en la DB que une las 2 tablas
         });
-        Cart.belongsTo(models.User2, {
-            as: "Carrito_usuario",
-            foreignKey: "cart_user", //columna en la DB que une las 2 tablas
-
+        Cart.hasMany(models.User2, {
+            as: "users2",
+            foreignKey: "id_user", //columna en la DB que une las 2 tablas
         });
     }
 

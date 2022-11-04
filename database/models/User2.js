@@ -2,9 +2,9 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'User2';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.UUID,
+            defaultValue: dataTypes.UUIDV4,
             primaryKey: true,
-            autoIncrement: true
         },
         name: {
             type: dataTypes.STRING(25),
@@ -23,35 +23,39 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         category: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false
+            type: dataTypes.STRING(25),
+            allowNull: true
         },
         image: {
             type: dataTypes.STRING(50),
             allowNull: false
         },
+        id_categories: {
+            type: dataTypes.STRING(25),
+            allowNull: false
+        },
+        id_cart: {
+            type: dataTypes.STRING(25),
+            allowNull: false
+        },
+
     };
     let config = {
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        timestamps: false,
+        tableName: "users2"
     }
     const User2 = sequelize.define(alias, cols, config); 
 
     User2.associate = function(models){
 
-        User2.hasMany(models.Cart, {
-            as: "Carrito_usuario", 
-            foreignKey: "cart_users", //columna en la DB que une las 2 tablas
+        User2.belongsTo(models.Cart, {
+            as: "carts", 
+            foreignKey: "id_user", //columna en la DB que une las 2 tablas
     
         });
-        User2.belongsToMany(models.Categories,{
-            as: "Categoria",
-            through: "categories_users", //a través de qué tabla pivot se unen los 2 modelos
-            foreignKey: "users_categories", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
-            otherKey: "id_categories", // le dice a sequalize cuál es el nombre de la columna en la tabla pivot que hace referencia a la conexión
-            timestamps: false
+        User2.belongsTo(models.Category,{
+            as: "categories",
+            foreignKey: "id_categories", //columna en la DB que une las 2 tablas
         });
     }
 

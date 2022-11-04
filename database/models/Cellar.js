@@ -13,16 +13,14 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
+        tableName: "cellars" //Nacho explicó que el nombre de la tabla sería el nombre del modelo en plural
     };
 
     const Cellar = sequelize.define(alias, cols, config);
 
     Cellar.associate = function (models) {
         Cellar.hasMany(models.Product, {
-            as: "Bodega", 
+            as: "products",
             foreignKey: "id_cellar", //columna en la DB que une las 2 tablas
 
         });
