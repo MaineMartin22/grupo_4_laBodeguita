@@ -10,7 +10,7 @@
     </header>
     <main>
     <div class="create-div">
-    <form method="POST" action="/create" class="create" enctype="multipart/form-data">
+    <form method="POST" action="/product/create" class="create" enctype="multipart/form-data">
             <input type="text" name="name" id="name" placeholder="Nombre del producto">
             <h3>Tipo de producto</h3>
             <select name="tipo">
@@ -18,16 +18,19 @@
                 <option>Blanco</option>
                 <option>Rosado</option>
             </select>
-            <h3>Oferta</h3>
+            <h3>Oferta: "0" para no, "1" para si</h3>
             <select name="oferta">
-                <option>true</option>
-                <option>false</option>
+                <option>0</option>
+                <option>1</option>
             </select>
-            <h3>Bodega</h3>
+            <h3>Bodegas</h3>
+            <li>1: Malbec</li>
+            <li>2: Santa Julia</li>
+            <li>3: Norton</li>   
             <select name="bodega">
-                <option>Malbec</option>
-                <option>Santa Julia</option>
-                <option>Norton</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
             </select>
             <label for="">Precio</label>
             <input type="number" name="precio" id="precio" placeholder="Precio">

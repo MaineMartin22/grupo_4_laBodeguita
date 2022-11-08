@@ -49,13 +49,13 @@
                         </div>
                     </div>
                   </div>
-                  <% tinto.forEach(function(ofer) { %>
-                    <% if (ofer.oferta === "true") { %> 
+                  <% productos.forEach(function(ofer) { %>
+                    <% if (ofer.sale != "0") { %> 
                     <div class="carousel-item">
                     <div class="carrusel-img" src="/images/products/vino1.png" class="d-block w-100" alt="...">
                         <div class="ofer-prod">
                             <div class="ofer-img">
-                                <img src="/images/products/<%= ofer.imagen %> " alt="vino">
+                                <img src="/images/products/<%= ofer.image %> " alt="vino">
                             </div>
                             <div class="ofer-text">
                                 <div>
@@ -63,9 +63,9 @@
                                 <p><%=ofer.color%> </p>
                                 </div>
                                 <div>
-                                <p class="descuento">Descuento: <%=ofer.descuento%>%</p>
-                                <p class="ofer-precio">Precio anterior: $<del><%=ofer.precio%></p></del>
-                                <h5 class="ofer-precio">Precio:$<%= ofer.precio-(ofer.precio * (ofer.descuento/100))%> 
+                                <p class="descuento">Descuento: <%=ofer.discount%>%</p>
+                                <p class="ofer-precio">Precio anterior: $<del><%=ofer.price%></p></del>
+                                <h5 class="ofer-precio">Precio:$<%= ofer.price-(ofer.price * (ofer.discount/100))%> 
                                 </h5></div>
                                 <a class="ofer-bot" href="#">Comprar</a>
                                 <a class="ofer-bot" href="detalleProducto">Ver más</a>
@@ -90,12 +90,12 @@
         <h3>Ofertas del mes</h3>
     </div>
     <div class="ofer-productos">
-        <% tinto.forEach(function(ofer) { %>      
-        <% if (ofer.oferta === "true") { %>
+        <% productos.forEach(function(ofer) { %>      
+        <% if (ofer.sale != "0") { %>
          
         <div class="ofer-prod" data-aos="zoom-in-up">
             <div class="ofer-img">
-                <img src="/images/products/<%= ofer.imagen %>" alt="vino">
+                <img src="/images/products/<%= ofer.image %>" alt="vino">
             </div>
             <div class="ofer-text">
                 <div>
@@ -103,9 +103,9 @@
                     <p><%=ofer.color%> </p>
                 </div>
                 <div>
-                    <p class="descuento">Descuento: <%=ofer.descuento%>%</p>
-                    <p class="ofer-precio">Precio anterior: <del>$<%=ofer.precio%></p></del>
-                    <h5 class="ofer-precio">Precio:$ <%=ofer.precio - ofer.precio * (ofer.descuento/100)%></h5>
+                    <p class="descuento">Descuento: <%=ofer.discount%>%</p>
+                    <p class="ofer-precio">Precio anterior: <del>$<%=ofer.price%></p></del>
+                    <h5 class="ofer-precio">Precio:$ <%=ofer.price - ofer.price * (ofer.discount/100)%></h5>
                     <a class="ofer-bot" href="#">Comprar</a>
                     <a class="ofer-bot" href="detalleProducto">Ver más</a>
                 </div>

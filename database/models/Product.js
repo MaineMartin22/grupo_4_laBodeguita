@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         image: {
             type: dataTypes.STRING(50),
-            allowNull: false
+            // allowNull: false
         },
         id_cellar: {
             type: dataTypes.STRING(25),

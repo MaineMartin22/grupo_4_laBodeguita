@@ -36,14 +36,19 @@ const agregarProducto = nuevoProducto =>{
 
 
 const controller = {
-    index: (req, res) => {res.render("index",{tinto})},
     productDetail: (req, res) =>{res.render("prodDetail",{tinto})},
     login: (req, res) => {res.render("login")},
     prodCar:(req, res) => {res.render("prodCar")},
     toBuy: (req, res) => {res.render("finalizarCompra")},
     product: (req,res) => {res.render("prodCreate")},
     vinos: (req,res) =>{res.render("vinos", {tinto})},
-
+    index: function(req, res){
+        db.Product.findAll()
+            .then(function(productos){
+            return res.render('index.ejs', {productos})
+        })
+        },
+    
     // LISTADO DE PRODUCTOS
 
    list: function(req, res){
@@ -52,6 +57,7 @@ const controller = {
         return res.render('prodList.ejs', {productos})
     })
     },
+
 
     // DETALLE DE CADA UNO
 
