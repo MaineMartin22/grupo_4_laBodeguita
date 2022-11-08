@@ -14,23 +14,12 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(25),
             allowNull: false
         },
-        cellar: {
-            type: dataTypes.STRING(25),
-            allowNull: false
-        },
+        
         price: {
             type: dataTypes.INTEGER(11),
             allowNull: false
         },
         alcohol: {
-            type: dataTypes.STRING(20),
-            allowNull: false
-        },
-        color: {
-            type: dataTypes.STRING(20),
-            allowNull: false
-        },
-        collapse: {
             type: dataTypes.STRING(20),
             allowNull: false
         },
@@ -60,10 +49,7 @@ module.exports = (sequelize, dataTypes) => {
         },
     };
     let config = {
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false,
+        timestamps: false,
         tableName: "products" //Nacho explicó que el nombre de la tabla sería el nombre del modelo en plural
     }
     const Product = sequelize.define(alias, cols, config);

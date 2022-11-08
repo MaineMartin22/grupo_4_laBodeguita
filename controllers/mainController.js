@@ -26,6 +26,8 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
+const Product = db.Product
+
 
 const agregarProducto = nuevoProducto =>{
     tinto.push(nuevoProducto);
@@ -34,13 +36,13 @@ const agregarProducto = nuevoProducto =>{
 
 
 const controller = {
-    index: (req, res) => {res.render("index",{Product})},
-    productDetail: (req, res) =>{res.render("prodDetail",{Product})},
+    index: (req, res) => {res.render("index",{tinto})},
+    productDetail: (req, res) =>{res.render("prodDetail",{tinto})},
     login: (req, res) => {res.render("login")},
     prodCar:(req, res) => {res.render("prodCar")},
     toBuy: (req, res) => {res.render("finalizarCompra")},
     product: (req,res) => {res.render("prodCreate")},
-    vinos: (req,res) =>{res.render("vinos", {Product})},
+    vinos: (req,res) =>{res.render("vinos", {tinto})},
 
     // LISTADO DE PRODUCTOS
 
