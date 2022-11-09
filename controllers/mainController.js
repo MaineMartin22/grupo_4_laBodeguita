@@ -130,7 +130,7 @@ const controller = {
     // BORRAR PRODUCTO
 
 
-    delete: (req, res) =>{
+    delete: async (req, res) =>{
         db.Product.destroy({
         where: {
         id: req.params.idProd
