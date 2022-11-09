@@ -97,18 +97,16 @@ const controller = {
 
     // EDITAR DE PRODUCTO
 
-    edit : function(req, res) {
-        let pedidoProducto = db.Product.findByPk(req.params.id);
-        let pedidoGenero = db.Genre.findAll();
-
-        Promise.all[pedidoProducto, pedidoGenero]
-        .then(function([producto, generos]){
-            res.render('prodEdit', {producto, generos})
-        })
-    },
+    edit : function(req,res){
+        console.log(req.params.idProd);
+        db.Product.findByPk(req.params.idProd)
+            .then(product => {
+            res.render('prodEdit',{product} );
+        });
+        },
 
     update:(req, res)=> {
-        db.Product.update({ 
+        db.Product.update({
             name: req.body.name,
             type: req.body.tipo,
             id_cellar: req.body.bodega,
@@ -118,15 +116,15 @@ const controller = {
             sale: req.body.oferta,
             discount: req.body.descuento,
             size: req.body.tamano,
-            image: req.body.imagen
+            image: req.file.originalname
 
         }, {
         where: {
-            id: req.params.id
+            id: req.params.idProd
         }
         });
 
-        res.redirect('/list')
+        res.redirect('../list')
     },
 
     // BORRAR PRODUCTO
@@ -135,10 +133,10 @@ const controller = {
     delete: (req, res) =>{
         db.Product.destroy({
         where: {
-        id: req.params.id
+        id: req.params.idProd
         }
         })
-        res.redirect('/list')
+        res.redirect('/product/list')
 
     }
 }

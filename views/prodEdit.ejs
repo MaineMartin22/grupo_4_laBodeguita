@@ -10,56 +10,44 @@
     </header>
     <main>
     <div class="create-div">
-        <% tinto.forEach(function(tint) { %>
-            <% if (tint.id == idProd) { %>
-    <form method="POST" action="<%= tint.id %>" class="create" enctype="multipart/form-data">
-            <h3>Editando producto: <%=tint.name%> - ID número: <%= tint.id %></h3>
+    <form method="POST" action="<%= product.id %>" class="create" enctype="multipart/form-data">
+            <h3>Editando producto: <%=product.name%> - ID número: <%= product.id %></h3>
             <div>
-            <input type="text" name="name" id="name" value="<%=tint.name%>">
+            <input type="text" name="name" id="name" value="<%=product.name%>">
             <h3>Tipo</h3>
             <select name="tipo" id="tipo">
-            <% if (tint.tipo == "Rosado") { %>
-                <option><%=tint.tipo%></option>
+            <% if (product.type == "Rosado") { %>
+                <option><%=product.type%></option>
                 <option>Tinto</option>
                 <option>Blanco</option>
-            <% } else if (tint.tipo == "Tinto" ) { %> 
-                <option><%=tint.tipo%></option>
+            <% } else if (product.type == "Tinto" ) { %> 
+                <option><%=product.type%></option>
                 <option>Rosado</option>
                 <option>Blanco</option>
             <% } else { %>
-                <option><%=tint.tipo%></option>
+                <option><%=product.type%></option>
                 <option>Rosado</option>
                 <option>Tinto</option>
             <% };%>
         </select>
-        <h3>Oferta</h3>
+        <h3>Oferta: "0" para no, "1" para si</h3>
         <select name="oferta" id="oferta">
-            <option>true</option>
-            <option>false</option>
+            <option>0</option>
+            <option>1</option>
         </select>
 
             <h3>Precio</h3>
-            <input type="number" name="precio" id="precio" value="<%=tint.precio%>">
-            <h3>Bodega</h3>
+            <input type="number" name="precio" id="precio" value="<%=product.price%>">
+            <h3>Bodega: 1 - Malbec, 2 - Santa Julia, 3 - Norton</h3>
             <select name="bodega" id="bodega">
-                <% if (tint.bodega === "Malbec") { %>
-                    <option><%=tint.bodega%></option>
-                    <option>Santa Julia</option>
-                    <option>Norton</option>
-                <% } else if (tint.bodega === "Santa Julia" ) { %> 
-                    <option><%=tint.bodega%></option>
-                    <option>Norton</option>
-                    <option>Malbec</option>
-                <% } else { return%>
-                    <option><%=tint.bodega%></option>
-                    <option>Malbec</option>
-                    <option>Santa Julia</option>
-                <% }; %>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
             </select>
             <h3>% de alcohol</h3>
-            <input type="text" name="alcohol" id="alcohol" value="<%=tint.alcohol%>">
+            <input type="text" name="alcohol" id="alcohol" value="<%=product.alcohol%>">
             <h3>Descuento en número entero</h3>
-            <input type="text" name="descuento" id="descuento" value="<%=tint.descuento%>">
+            <input type="text" name="descuento" id="descuento" value="<%=product.discount%>">
             <h3>Tamaño</h3>
             <select name="tamano" id="tamano">
                     <option>750ml</option>
@@ -67,15 +55,13 @@
                     <option>1250ml</option>
             </select>
             <h3>Color</h3>
-            <input type="text" name="color" id="color" value="<%=tint.color%>">
+            <input type="text" name="color" id="color" value="Color">
             <label for="imagen">Seleccionar imagen</label>
             <input type="file" id="imagen" name="imagen">
             <button type="submit">Enviar</button>
             <button type="reset">Borrar</button>
     </div>
 </form>
-<% } %>
-<% }) %>
 </div>
 </main>
 <footer class="footer">
