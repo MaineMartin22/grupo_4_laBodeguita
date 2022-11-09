@@ -8,33 +8,30 @@
         <%- include("./partials/navBar") %>
     </header>
 <main>
-    <section class="productos-detail">
-        <% tinto.forEach(function(tint) { %>
-            <% if (tint.id == idProd) { %>
-             
+    <section class="productos-detail">             
         <div class="prod-detail">
             <div class="prod-detail-img">
-                <img src="/images/products/<%=tint.imagen%>" alt="">
+                <img src="/images/products/<%=product.image%>" alt="">
             </div>
             <div class="prod-detail-info">
                 <div class="prod-detail-title">
-                    <h2 class="prod-detail-h2"><%=tint.name%> </h2>
+                    <h2 class="prod-detail-h2"><%=product.name%> </h2>
                     <div class="prod-detail-caract">
                         <div class="prod-detail-ul">
-                            <h3>Alcohol: <%=tint.alcohol%>%</h3>
+                            <h3>Alcohol: <%=product.alcohol%>%</h3>
                         </div>
                     </div>
                 </div>
                 <div class="prod-detail-descr">
                     <h4 class="prod-detail-h4">Información</h4>
                     <ul class="prod-detail-ul-2">
-                        <li><b>Color:</b> <%=tint.color%> </li>
-                        <li><b>Bodega:</b> <%=tint.bodega%></li>
-                        <li><b>Tipo:</b> <%=tint.tipo%></li>
-                        <% if (tint.oferta === "true") { %>
-                            <li><b>Precio: $<%= tint.precio-(tint.precio * (tint.descuento/100))%></b> $<del><%= tint.precio%></del></li>
+                        <li><b>Color:</b> <%=product.color%> </li>
+                        <li><b>Bodega:</b> <%=product.cellar%></li>
+                        <li><b>Tipo:</b> <%=product.type%></li>
+                        <% if (product.sale != "0") { %>
+                            <li><b>Precio: $<%= product.price-(product.price * (product.discount/100))%></b> $<del><%= product.price%></del></li>
                         <% } else {%> 
-                            <li><b>Precio:$<%=tint.precio%></b><li>
+                            <li><b>Precio:$<%=product.price%></b><li>
                         <% } %> 
                         <li>Hasta 3 cuotas sin interés <i class="fa-solid fa-credit-card"></i></li>
                     </ul>
@@ -45,8 +42,6 @@
                 </div>
             </div>
         </div>
-        <% } %>
-        <% }) %>
     </section>
 </main>
 <footer class="footer">

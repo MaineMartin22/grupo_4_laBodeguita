@@ -36,18 +36,25 @@ const agregarProducto = nuevoProducto =>{
 
 
 const controller = {
-    productDetail: (req, res) =>{res.render("prodDetail",{tinto})},
     login: (req, res) => {res.render("login")},
     prodCar:(req, res) => {res.render("prodCar")},
     toBuy: (req, res) => {res.render("finalizarCompra")},
     product: (req,res) => {res.render("prodCreate")},
     vinos: (req,res) =>{res.render("vinos", {tinto})},
+
     index: function(req, res){
-        db.Product.findAll()
-            .then(function(productos){
-            return res.render('index.ejs', {productos})
-        })
-        },
+    db.Product.findAll()
+        .then(function(productos){
+        return res.render('index.ejs', {productos})
+    })
+    },
+
+    productDetail: function(req, res){
+    db.Product.findAll()
+        .then(function(productos){
+        return res.render('prodDetail.ejs', {productos})
+    })
+    },
     
     // LISTADO DE PRODUCTOS
 
@@ -62,9 +69,10 @@ const controller = {
     // DETALLE DE CADA UNO
 
     detalle: function(req,res){
-    db.Product.findByPk(req.params.id)
-    .then(product => {
-        res.render('prodDetail.ejs', {product});
+    console.log(req.params.idProd);
+    db.Product.findByPk(req.params.idProd)
+        .then(product => {
+        res.render('vinos.ejs',{product} );
     });
     },
 
@@ -81,7 +89,7 @@ const controller = {
             sale: req.body.oferta,
             discount: req.body.descuento,
             size: req.body.tamano,
-            image: req.body.imagen
+            image: req.file.originalname
 
         })
         res.redirect('/detalleProducto')

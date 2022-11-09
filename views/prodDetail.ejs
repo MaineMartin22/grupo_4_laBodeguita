@@ -17,28 +17,28 @@
     </div>
     <h2 class="vin-tipos-title">Vino Tinto</h2>
     <div class="vin-tipos">
-        <% Product.forEach(function(tint) { %>      
-        <% if (tint.tipo === "Tinto") { %>
+        <% productos.forEach(function(tint) { %>      
+        <% if (tint.type === "Tinto") { %>
         <div class="vin-prod">
             <div class="vin-img">
-                <% if (tint.oferta === "true") { %>
+                <% if (tint.sale != "0") { %>
                     <i class="fa-solid fa-star"></i>
                 <% } %>
-                <img class="vin-img-jpg" src=/images/products/<%=tint.imagen%> alt="">
+                <img class="vin-img-jpg" src=/images/products/<%=tint.image%> alt="">
             </div>
             <div class="vin-text">
                 <h4 class="vin-title"><%=tint.name%></h4>
                 <div>
-                    <a href="#<%=tint.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=tint.collapse%>" aria-expanded="false">Descripción</a>
+                    <a href="#collapse<%=tint.id%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse<%=tint.id%>" aria-expanded="false">Descripción</a>
                     <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
                 </div>
-                    <div class="div-collapse collapse" id="<%=tint.collapse%>">
+                    <div class="div-collapse collapse" id="collapse<%=tint.id%>">
                         <div class="div--colapse">
-                        <p>Tamaño: <%=tint.tamaño%> </p>
-                        <% if (tint.oferta === "true") { %>
-                            <p><b class="price">Precio: $<%= tint.precio-(tint.precio * (tint.descuento/100))%></b> $<del><%= tint.precio%></del></p>
+                        <p>Tamaño: <%=tint.size%> </p>
+                        <% if (tint.sale != "0") { %>
+                            <p><b class="price">Precio: $<%= tint.price-(tint.price * (tint.discount/100))%></b> $<del><%= tint.price%></del></p>
                         <% } else {%> 
-                            <p><b class="price">Precio: $<%=tint.precio%></b></p>
+                            <p><b class="price">Precio: $<%=tint.price%></b></p>
                         <% } %> 
                         <a class="vin-butt" href="/product/<%=tint.id%>" target="_blank">Más información</a>
                     </div>
@@ -50,67 +50,67 @@
         </div>
         <h2 class="vin-tipos-title">Vino Blanco</h2>
         <div class="vin-tipos">
-            <% tinto.forEach(function(tint) { %>      
-            <% if (tint.tipo === "Blanco") { %>
-            <div class="vin-prod">
-                <div class="vin-img">
-                    <% if (tint.oferta === "true") { %>
-                        <i class="fa-solid fa-star"></i>
-                    <% } %>
-                <img class="vin-img-jpg" src=/images/products/<%=tint.imagen%> alt="">
-                </div>
-                <div class="vin-text">
-                    <h4 class="vin-title"><%=tint.name%></h4>
-                    <div>
-                        <a href="#<%=tint.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=tint.collapse%>" aria-expanded="false">Descripción</a>
-                        <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>Agregar</a>
+            <% productos.forEach(function(tint) { %>      
+            <% if (tint.type === "Blanco") { %>
+                <div class="vin-prod">
+                    <div class="vin-img">
+                        <% if (tint.sale != "0") { %>
+                            <i class="fa-solid fa-star"></i>
+                        <% } %>
+                        <img class="vin-img-jpg" src=/images/products/<%=tint.image%> alt="">
                     </div>
-                        <div class="div-collapse collapse" id="<%=tint.collapse%>">
-                            <div class="div--colapse">
-                            <p>Tamaño: <%=tint.tamaño%></p>
-                            <% if (tint.oferta === "true") { %>
-                                <p><b class="price">Precio: $<%= tint.precio-(tint.precio * (tint.descuento/100))%></b> $<del><%= tint.precio%></del></p>
-                            <% } else {%> 
-                                <p><b class="price">Precio: $<%=tint.precio%></b></p>
-                            <% } %> 
-                            <a class="vin-butt" href="/product/<%=tint.id%>" target="_blank">Más información</a>
+                    <div class="vin-text">
+                        <h4 class="vin-title"><%=tint.name%></h4>
+                        <div>
+                            <a href="#collapse<%=tint.id%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse<%=tint.id%>" aria-expanded="false">Descripción</a>
+                            <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
                         </div>
-                        </div>
-                </div>
-                </div>
+                            <div class="div-collapse collapse" id="collapse<%=tint.id%>">
+                                <div class="div--colapse">
+                                <p>Tamaño: <%=tint.size%> </p>
+                                <% if (tint.sale != "0") { %>
+                                    <p><b class="price">Precio: $<%= tint.price-(tint.price * (tint.discount/100))%></b> $<del><%= tint.price%></del></p>
+                                <% } else {%> 
+                                    <p><b class="price">Precio: $<%=tint.price%></b></p>
+                                <% } %> 
+                                <a class="vin-butt" href="/product/<%=tint.id%>" target="_blank">Más información</a>
+                            </div>
+                            </div>
+                    </div>
+                    </div>
                 <% } %>
                 <% }); %>
             </div>
             <h2 class="vin-tipos-title">Vino Rosado</h2>
         <div class="vin-tipos">
-            <% tinto.forEach(function(tint) { %>      
-            <% if (tint.tipo === "Rosado") { %>
-            <div class="vin-prod">
-                <div class="vin-img">
-                    <% if (tint.oferta === "true") { %>
-                        <i class="fa-solid fa-star"></i>
-                    <% } %>
-                    <img class="vin-img-jpg" src=/images/products/<%=tint.imagen%> alt="">
-                </div>
-                <div class="vin-text">
-                    <h4 class="vin-title"><%=tint.name%></h4>
-                    <div>
-                        <a href="#<%=tint.collapse%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="<%=tint.collapse%>" aria-expanded="false">Descripción</a>
-                        <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
+            <% productos.forEach(function(tint) { %>      
+            <% if (tint.type === "Rosado") { %>
+                <div class="vin-prod">
+                    <div class="vin-img">
+                        <% if (tint.sale != "0") { %>
+                            <i class="fa-solid fa-star"></i>
+                        <% } %>
+                        <img class="vin-img-jpg" src=/images/products/<%=tint.image%> alt="">
                     </div>
-                        <div class="div-collapse collapse" id="<%=tint.collapse%>">
-                            <div class="div--colapse">
-                            <p>Tamaño: <%=tint.tamaño%></p>
-                            <% if (tint.oferta === "true") { %>
-                                <p><b class="price">Precio: $<%= tint.precio-(tint.precio * (tint.descuento/100))%></b> $<del><%= tint.precio%></del></p>
-                            <% } else {%> 
-                                <p><b class="price">Precio: $<%=tint.precio%></b></p>
-                            <% } %> 
-                            <a class="vin-butt" href="/product/<%=tint.id%>" target="_blank">Más información</a>
+                    <div class="vin-text">
+                        <h4 class="vin-title"><%=tint.name%></h4>
+                        <div>
+                            <a href="#collapse<%=tint.id%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse<%=tint.id%>" aria-expanded="false">Descripción</a>
+                            <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
                         </div>
-                        </div>
-                </div>
-                </div>
+                            <div class="div-collapse collapse" id="collapse<%=tint.id%>">
+                                <div class="div--colapse">
+                                <p>Tamaño: <%=tint.size%> </p>
+                                <% if (tint.sale != "0") { %>
+                                    <p><b class="price">Precio: $<%= tint.price-(tint.price * (tint.discount/100))%></b> $<del><%= tint.price%></del></p>
+                                <% } else {%> 
+                                    <p><b class="price">Precio: $<%=tint.price%></b></p>
+                                <% } %> 
+                                <a class="vin-butt" href="/product/<%=tint.id%>" target="_blank">Más información</a>
+                            </div>
+                            </div>
+                    </div>
+                    </div>
                 <% } %>
                 <% }); %>
             </div>
