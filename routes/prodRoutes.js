@@ -1,5 +1,7 @@
 const express = require("express")
 const Maincontroller = require("../controllers/mainController")
+const searchController = require("../controllers/searchController")
+
 const router = express.Router()
 const multer = require('multer')
 const path = require("path")
@@ -19,7 +21,7 @@ const productStorage = multer.diskStorage({
 
 const productFile = multer({ productStorage });
 
-// router.get('/search', Maincontroller.search)
+router.get('/search', searchController.searchBar)
 
 router.get('/list', notadmMiddleware, Maincontroller.list);
 

@@ -16,7 +16,9 @@ function userLoggedMiddleware(req, res, next) {
 	}
 
 	if (req.session.userLogged) {
+		
 		res.locals.isLogged = true;
+
         // paso lo que tengo en session a una variable local
 		res.locals.userLogged = req.session.userLogged;
 	}

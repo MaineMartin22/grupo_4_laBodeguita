@@ -1,7 +1,3 @@
-const ejs = require("ejs")
-
-const User = require('../data/models/User')
-
 const fs = require('fs');
 
 const path = require('path')
@@ -29,18 +25,11 @@ const { Op } = require("sequelize");
 const Product = db.Product
 
 
-const agregarProducto = nuevoProducto =>{
-    tinto.push(nuevoProducto);
-    return tinto
-}
-
-
 const controller = {
     login: (req, res) => {res.render("login")},
     prodCar:(req, res) => {res.render("prodCar")},
     toBuy: (req, res) => {res.render("finalizarCompra")},
     product: (req,res) => {res.render("prodCreate")},
-    vinos: (req,res) =>{res.render("vinos", {tinto})},
 
     index: function(req, res){
     db.Product.findAll()
