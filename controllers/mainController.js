@@ -26,22 +26,22 @@ const Product = db.Product
 
 
 const controller = {
-    login: (req, res) => {res.render("login")},
-    prodCar:(req, res) => {res.render("prodCar")},
-    toBuy: (req, res) => {res.render("finalizarCompra")},
-    product: (req,res) => {res.render("prodCreate")},
+    login: (req, res) => {res.render("./usuarios/login")},
+    prodCar:(req, res) => {res.render("./productos/prodCar")},
+    toBuy: (req, res) => {res.render("./productos/finalizarCompra")},
+    product: (req,res) => {res.render("./admin/prodCreate")},
 
     index: function(req, res){
     db.Product.findAll()
         .then(function(productos){
-        return res.render('index.ejs', {productos})
+        return res.render('./web/index.ejs', {productos})
     })
     },
 
     productDetail: function(req, res){
     db.Product.findAll()
         .then(function(productos){
-        return res.render('prodDetail.ejs', {productos})
+        return res.render('./productos/prodDetail.ejs', {productos})
     })
     },
     
@@ -50,7 +50,7 @@ const controller = {
    list: function(req, res){
     db.Product.findAll()
         .then(function(productos){
-        return res.render('prodList.ejs', {productos})
+        return res.render('./admin/prodList.ejs', {productos})
     })
     },
 
@@ -61,7 +61,7 @@ const controller = {
     console.log(req.params.idProd);
     db.Product.findByPk(req.params.idProd)
         .then(product => {
-        res.render('vinos.ejs',{product} );
+        res.render('./productos/vinos.ejs',{product} );
     });
     },
 
@@ -81,7 +81,7 @@ const controller = {
             image: req.file.originalname
 
         })
-        res.redirect('/detalleProducto')
+        res.redirect('./productos/detalleProducto')
     },
 
     // EDITAR DE PRODUCTO
@@ -90,7 +90,7 @@ const controller = {
         console.log(req.params.idProd);
         db.Product.findByPk(req.params.idProd)
             .then(product => {
-            res.render('prodEdit',{product} );
+            res.render('./admin/prodEdit',{product} );
         });
         },
 

@@ -13,7 +13,7 @@ const userController = {
      // REGISTRO DE NUEVO USUARIO
 
      registerUser: (req, res) =>{
-        res.render('register')
+        res.render('./usuarios/register')
     },
 
     updateUser: (req, res) =>{
@@ -55,7 +55,7 @@ const userController = {
 
       userList: function(req, res){
         users;
-        res.render('userList', {'users':users});
+        res.render('./admin/userList', {'users':users});
     },
 
     // BORRAR USUARIOS
@@ -76,7 +76,7 @@ const userController = {
 
 
     login: (req, res) => {
-        res.render('login'); //formulario login
+        res.render('./usuarios/login'); //formulario login
     },
     	loginProcess: (req, res) => {
             let userToLogin = User.findByField('email', req.body.email);
@@ -98,7 +98,7 @@ const userController = {
     
                     return res.redirect('/users/profile');
                 } 
-                return res.render('login', {
+                return res.render('./usuarios/login', {
                     errors: {
                         email: {
                             msg: 'Las credenciales son inválidas'
@@ -107,7 +107,7 @@ const userController = {
                 });
             }
     
-            return res.render('login', {
+            return res.render('./usuarios/login', {
                 errors: {
                     email: {
                         msg: 'No se encuentra este email en nuestra base de datos'
@@ -117,7 +117,7 @@ const userController = {
         },
 
     profile: (req, res) => { //perfil usuario
-        return res.render('userProfile',{
+        return res.render('./usuarios/userProfile',{
             user: req.session.userLogged,
             admin: req.session.admin
         });
@@ -160,7 +160,7 @@ const userController = {
 
         fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
 
-        res.redirect('/users/list')
+        res.redirect('./users/list')
 
     }
 }
