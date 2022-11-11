@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2022 a las 23:50:55
+-- Tiempo de generación: 12-11-2022 a las 00:26:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -102,11 +102,12 @@ CREATE TABLE `colors` (
 --
 
 INSERT INTO `colors` (`id`, `name`) VALUES
-(1, 'red'),
-(2, 'pink'),
-(3, 'black'),
-(4, 'white'),
-(5, 'green');
+(1, 'Rojo'),
+(2, 'Rosado'),
+(3, 'Negro'),
+(4, 'Blanco'),
+(5, 'Dorado'),
+(6, 'Plateado');
 
 -- --------------------------------------------------------
 
@@ -119,6 +120,7 @@ CREATE TABLE `products` (
   `name` varchar(25) NOT NULL,
   `type` varchar(25) NOT NULL,
   `price` int(11) NOT NULL,
+  `description` text NOT NULL,
   `alcohol` varchar(20) NOT NULL,
   `sale` tinyint(1) NOT NULL,
   `discount` varchar(20) NOT NULL,
@@ -132,19 +134,19 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `type`, `price`, `alcohol`, `sale`, `discount`, `size`, `image`, `id_cellar`, `id_color`) VALUES
-(12, 'Sergio', 'Tinto', 5000, '14.5', 1, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(13, 'Santa Malena', 'Blanco', 9000, '14.3', 0, '15', '750ml', 'Santa-Malena-Rosado.png', '1', ''),
-(14, 'Malbec', 'Rosado', 6000, '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '3', ''),
-(15, 'Santa Julia', 'Tinto', 6000, '15', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(16, 'Malbec', 'Tinto', 4600, '14.5', 0, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '2', ''),
-(17, 'Alma Negra', 'Tinto', 7000, '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(18, 'Malbec', 'Blanco', 6000, '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(19, 'Santa Julia', 'Blanco', 4500, '13.5', 1, '14', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(20, 'Malbec Rosado', 'Rosado', 6000, '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(21, 'Alma blanca', 'Blanco', 3000, '15.3', 0, '5', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(22, 'Alma Rosada', 'Rosado', 6000, '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(23, 'Santa Julia', 'Rosado', 6000, '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '');
+INSERT INTO `products` (`id`, `name`, `type`, `price`, `description`, `alcohol`, `sale`, `discount`, `size`, `image`, `id_cellar`, `id_color`) VALUES
+(12, 'Sergio', 'Tinto', 5000, '', '14.5', 1, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
+(13, 'Santa Malena', 'Blanco', 9000, '', '14.3', 0, '15', '750ml', 'Santa-Malena-Rosado.png', '1', '2'),
+(14, 'Malbec', 'Rosado', 6000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '3', '3'),
+(15, 'Santa Julia', 'Tinto', 6000, '', '15', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
+(16, 'Malbec', 'Tinto', 4600, '', '14.5', 0, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '2', '2'),
+(17, 'Alma Negra', 'Tinto', 7000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
+(18, 'Malbec', 'Blanco', 6000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
+(19, 'Santa Julia', 'Blanco', 4500, '', '13.5', 1, '14', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
+(20, 'Malbec Rosado', 'Rosado', 6000, '', '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
+(21, 'Alma blanca', 'Blanco', 3000, '', '15.3', 0, '5', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '3'),
+(22, 'Alma Rosada', 'Rosado', 6000, '', '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
+(23, 'Santa Julia', 'Rosado', 6000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4');
 
 -- --------------------------------------------------------
 
@@ -247,7 +249,7 @@ ALTER TABLE `cellars`
 -- AUTO_INCREMENT de la tabla `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `products`

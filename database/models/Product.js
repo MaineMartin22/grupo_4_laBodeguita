@@ -19,6 +19,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(11),
             allowNull: false
         },
+        
+        description: {
+            type: dataTypes.TEXT,
+            allowNull: false
+        },
         alcohol: {
             type: dataTypes.STRING(20),
             allowNull: false

@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        timestamps: true,
+        timestamps: false,
         tableName: "cellars" //Nacho explicó que el nombre de la tabla sería el nombre del modelo en plural
     };
 

@@ -59,9 +59,11 @@ const controller = {
 
     detalle: function(req,res){
     console.log(req.params.idProd);
-    db.Product.findByPk(req.params.idProd)
+    db.Product.findByPk(req.params.idProd, {
+        include: [{association : 'cellars'}, {association : 'colors'}]
+    })
         .then(product => {
-        res.render('./productos/vinos.ejs',{product} );
+        res.render('./productos/vinos.ejs', {product});
     });
     },
 
