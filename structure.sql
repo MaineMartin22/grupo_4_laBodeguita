@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2022 a las 10:53:56
+-- Tiempo de generación: 11-11-2022 a las 23:50:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -134,7 +134,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `type`, `price`, `alcohol`, `sale`, `discount`, `size`, `image`, `id_cellar`, `id_color`) VALUES
 (12, 'Sergio', 'Tinto', 5000, '14.5', 1, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
-(13, 'Santa Malena', 'Blanco', 6000, '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
+(13, 'Santa Malena', 'Blanco', 9000, '14.3', 0, '15', '750ml', 'Santa-Malena-Rosado.png', '1', ''),
 (14, 'Malbec', 'Rosado', 6000, '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '3', ''),
 (15, 'Santa Julia', 'Tinto', 6000, '15', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', ''),
 (16, 'Malbec', 'Tinto', 4600, '14.5', 0, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '2', ''),
