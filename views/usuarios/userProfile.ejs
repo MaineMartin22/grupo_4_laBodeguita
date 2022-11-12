@@ -25,22 +25,14 @@
       <div class="profile-data">
         <p>Editar mi información</p>
         <form action="/users/profile" method="POST">
-          <div>  
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" value="<%= user.nombre %>">
-          </div>
-          <div>  
             <label for="nombre">Apellido</label>
             <input type="text" name="apellido" value="<%= user.apellido %>">
-          </div>
-          <div>  
             <label for="nombre">Direccion</label>
             <input type="text" name="direccion" value="<%= user.direccion %>">
-          </div>
-          <div>  
             <label for="contrasena">Nueva contraseña</label>
             <input type="password" name="contrasena">
-          </div>
         </form>
       </div>
     </div>

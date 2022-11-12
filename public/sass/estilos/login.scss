@@ -1,5 +1,5 @@
-  /* Formato Formulario-Registro */
-  .formulario-main{
+ /* Formato Formulario-Registro */
+ .formulario-main{
     background-color: #011B36;
     margin-top: 50px;
   }
@@ -212,39 +212,3 @@
   border: 1px solid #011B36;
 }
 
-
-
-
-
-
-
-@media (min-width: 481px) {
-
-  .create{
-    width: 90%;
-  }
-}
-
-  
-  @media (min-width: 610px) {
-    
-
-    .create{
-      width: 70%;
-    }
-
-     /* Formato Formulario-Login EN TABLET*/
-
-     .contenedor-formulario{
-      padding-top: 15%;
-      padding-bottom: 15%;
-    }
-}
-
-@media (min-width: 810px) {
-  
-  .create{
-    width: 50%;
-  }
-}
-  

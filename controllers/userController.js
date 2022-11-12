@@ -24,7 +24,7 @@ const userController = {
         let userInDb = User.findByField('email', req.body.email)
 
         if (userInDb){
-            return res.render('register', {errores: {email: { msg: 'Este email ya está registrado'}}, old: req.body})
+            return res.render('./usuarios/register', {errores: {email: { msg: 'Este email ya está registrado'}}, old: req.body})
         }
 
         // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
@@ -43,10 +43,10 @@ const userController = {
 
                 users.push(newUser);
                 fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
-                res.redirect('login');
+                res.redirect('./usuarios/login');
         }
         else{
-            res.render('register', {errores: errores.mapped(), old: req.body},)
+            res.render('./usuarios/register', {errores: errores.mapped(), old: req.body},)
         }
 
     },

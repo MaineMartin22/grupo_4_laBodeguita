@@ -1,0 +1,114 @@
+/* DETALLE DE LOS VINOS*/
+
+.productos-detail {
+    background-image: url(/images/main-fondo.jpg);
+    padding-top: 100px;
+    background-attachment: fixed;
+  }
+  
+  .prod-detail {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  
+  .prod-detail-title {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .prod-detail-img {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  
+  .prod-detail-img img {
+    width: 100%;
+    object-fit: contain;
+    margin-top: 20px;
+  }
+  
+  .prod-detail-info {
+    text-align: center;
+    color: #fff;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .prod-detail-caract {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin: auto;
+  }
+  
+  .prod-detail-descr {
+    margin: auto;
+    width: 90%;
+  }
+  
+  .prod-detail-h2 {
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .prod-detail-h4 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+  
+  .prod-detail-ul {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .prod-detail-ul h3 {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  
+  .prod-detail-ul-2 {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .prod-detail-ul-2 li {
+    font-size: 15px;
+  }
+  
+  .prod-detail-ul-2 li b {
+    border-bottom: 1px solid #fff;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+  }
+  
+  .prod-detail-buttons {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+  }
+  
+  .prod-detail-buttons a {
+    text-decoration: none;
+    color: #011B36;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .prod-detail-buttons a:hover {
+    background-color: #011B36;
+    color: #fff;
+  }
+  
+  
