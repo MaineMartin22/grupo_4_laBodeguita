@@ -33,7 +33,7 @@ router.get('/:idProd', Maincontroller.detalle)
 
 router.get('/delete/:idProd', notadmMiddleware, Maincontroller.list)
 
-router.delete('/delete/:idProd', Maincontroller.delete)
+router.post('/delete/:idProd', Maincontroller.delete)
 
 router.get('/edit/:idProd', notadmMiddleware, Maincontroller.edit)
 

@@ -10,31 +10,34 @@
     </header>
     <main>
         <section class="prodList">
-        <div class="prodList-div">
-        <h4>Lista de productos</h4>
-        <h4>Haz click para ver y editar</h4>
-       <div class="prodList-ul">
-        <% users.forEach(tint => { %>
+            <div class="prodList-div">
             <div>
-            <div>
-                <div>
-                <h3><%= tint.nombre %> - </h3>
-                <h3> ID Nro: <%= tint.id %> </h3>
+            <h4>Lista de productos</h4>
+            <h4>Haz click para ver y editar</h4>
+            <article class="col-12" >
+            <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Editar</th>
+                          <th scope="col">Borrar</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% users.forEach(tint => { %>
+                        <tr>
+                          <td><%= tint.id%> </td>
+                          <td><%= tint.nombre%> </td>
+                          <td><a href="/users/edit/<%= tint.id%> "> <ion-icon name="pencil-outline"><i class="fa-solid fa-pencil"></i></i></a></td>
+                          <td><a href="/users/delete/<%= tint.id%>"><ion-icon name="trash-outline"><i class="fa-solid fa-trash"></i></a></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
                 </div>
             </div>
-            <div>
-                <form action="edit/<%= tint.id %>" method="get" enctype="multipart/form-data">
-                    <button type="submit">Editar</button>
-                </form>
-            <form action="delete/<%= tint.id %>?_method=delete" method="POST" enctype="multipart/form-data">
-                <button type="submit">Borrar</button>
-            </form>
-            </div>
-        </div>
-        <% }) %>
-    </div>
-    </div>
-</section>
+    </section>
     </main>
     <footer class="footer">
     <%- include("../partials/footer") %>

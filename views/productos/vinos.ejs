@@ -31,9 +31,10 @@
                         <% if (product.sale != "0") { %>
                             <li><b>Precio: $<%= product.price-(product.price * (product.discount/100))%></b> $<del><%= product.price%></del></li>
                         <% } else {%> 
-                            <li><b>Precio:$<%=product.price%></b><li>
+                            <li><b>Precio: $<%=product.price%></b><li>
                         <% } %> 
-                        <li>Hasta 3 cuotas sin interés <i class="fa-solid fa-credit-card"></i></li>
+                        <li><b>Descripción:</b> <%=product.description%></li>
+                        <li><h3>Hasta 3 cuotas sin interés <i class="fa-solid fa-credit-card"></i></h3></li>
                     </ul>
                 </div>
                 <div class="prod-detail-buttons">

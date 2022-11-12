@@ -24,27 +24,29 @@
                 <option>1</option>
             </select>
             <h3>Bodegas</h3>
-            <li>1: Malbec</li>
-            <li>2: Santa Julia</li>
-            <li>3: Norton</li>   
             <select name="bodega">
+                <% cellars.forEach(e => { %>
+                <option><%= e.id %> </option>
+                <% }) %>
+            </select>
+            <input type="number" name="precio" id="precio" placeholder="Precio">
+            <input type="number" name="descuento" id="descuento" placeholder="Descuento">
+            <input type="number" name="alcohol" id="alcohol" step="0.01" min="0" max="20" placeholder="Alcohol producto">
+            <h3>Color</h3>
+            <select name="color" id="color">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
-            </select>
-            <label for="">Precio</label>
-            <input type="number" name="precio" id="precio" placeholder="Precio">
-            <label for="">Descuento</label>
-            <input type="number" name="descuento" id="descuento" placeholder="Descuento">
-            <label for="">Alcohol producto</label>
-            <input type="number" name="alcohol" id="alcohol" step="0.01" min="0" max="20" placeholder="Alcohol producto">
-            <label for="">Color de producto</label>
-            <input type="text" name="color" id="color" placeholder="Color de producto">
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>            
             <select name="tamano">
                 <option>750ml</option>
                 <option>1000ml</option>
                 <option>1250ml</option>
             </select>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
             <label for="imagen">Seleccionar imagen</label>
             <input type="file" id="imagen" name="imagen">
             <button method="POST" type="submit">Enviar</button>

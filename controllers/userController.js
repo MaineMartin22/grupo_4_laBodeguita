@@ -133,7 +133,7 @@ const userController = {
     userEdit: (req, res) =>{
         const idUser = req.params.idUser;
 
-        res.render('userEdit', {'users': users, 'idUser': idUser})
+        res.render('./admin/userEdit', {'users': users, 'idUser': idUser})
     },
 
     userEditUpdate: (req, res) =>{

@@ -24,12 +24,22 @@ const { Op } = require("sequelize");
 
 const Product = db.Product
 
+const Cellar = db.Cellar
+
 
 const controller = {
     login: (req, res) => {res.render("./usuarios/login")},
     prodCar:(req, res) => {res.render("./productos/prodCar")},
     toBuy: (req, res) => {res.render("./productos/finalizarCompra")},
-    product: (req,res) => {res.render("./admin/prodCreate")},
+
+    product: function(req, res){
+        db.Cellar.findAll()
+            .then(function(cellars){
+            return res.render('./admin/prodCreate', {cellars})
+        })
+        },
+
+
 
     index: function(req, res){
     db.Product.findAll()
@@ -75,15 +85,15 @@ const controller = {
             type: req.body.tipo,
             id_cellar: req.body.bodega,
             price: req.body.precio,
+            description: req.body.description,
             alcohol: req.body.alcohol,
-            color: req.body.color,
+            id_color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
             size: req.body.tamano,
             image: req.file.originalname
-
         })
-        res.redirect('./productos/detalleProducto')
+        res.redirect('./list')
     },
 
     // EDITAR DE PRODUCTO
@@ -102,6 +112,7 @@ const controller = {
             type: req.body.tipo,
             id_cellar: req.body.bodega,
             price: req.body.precio,
+            description: req.body.description,
             alcohol: req.body.alcohol,
             color: req.body.color,
             sale: req.body.oferta,
@@ -121,14 +132,15 @@ const controller = {
     // BORRAR PRODUCTO
 
 
-    delete: async (req, res) =>{
+    delete: (req, res) =>{
+        id = req.params.idProd
         db.Product.destroy({
         where: {
-        id: req.params.idProd
+        id: id
         }
+        }).then(function(result){
+            res.redirect('../list')
         })
-        res.redirect('/product/list')
-
     }
 }
 
