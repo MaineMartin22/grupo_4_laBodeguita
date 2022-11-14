@@ -22,13 +22,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(25),
             allowNull: false
         },
-        category: {
-            type: dataTypes.STRING(25),
-            allowNull: true
-        },
         image: {
             type: dataTypes.STRING(50),
-            allowNull: false
+            //allowNull: false
         },
         id_categories: {
             type: dataTypes.STRING(25),
@@ -36,7 +32,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         id_cart: {
             type: dataTypes.STRING(25),
-            allowNull: false
+            //allowNull: false
         },
 
     };
@@ -47,12 +43,12 @@ module.exports = (sequelize, dataTypes) => {
     const User2 = sequelize.define(alias, cols, config); 
 
     User2.associate = function(models){
-
+/* 
         User2.belongsTo(models.Cart, {
             as: "carts", 
             foreignKey: "id_user", //columna en la DB que une las 2 tablas
     
-        });
+        }); */
         User2.belongsTo(models.Category,{
             as: "categories",
             foreignKey: "id_categories", //columna en la DB que une las 2 tablas

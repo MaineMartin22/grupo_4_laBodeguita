@@ -3,8 +3,11 @@ const path = require('path')
 const bcryptjs = require("bcryptjs")
 const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
 const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
-const users = JSON.parse(usuario);
 const User = require('../data/models/User')
+const db = require('../database/models');
+const User2 = db.User2
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
 const { validationResult } = require('express-validator')
 
@@ -21,7 +24,11 @@ const userController = {
 
         // ERROR SI EXISTE OTRO USUARIO CON EL MISMO EMAIL
 
-        let userInDb = User.findByField('email', req.body.email)
+        let userInDb = User.findAll({
+            where: {
+                email: req.body.email
+            }
+        })
 
         if (userInDb){
             return res.render('./usuarios/register', {errores: {email: { msg: 'Este email ya está registrado'}}, old: req.body})
@@ -30,22 +37,15 @@ const userController = {
         // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
 
         if (errores.isEmpty()){
-            let newUser = {
-                id : users.length+1,
-                nombre : User.changeToUpperCase(req.body.nombre),
-                apellido : User.changeToUpperCase(req.body.apellido),
-                direccion : req.body.direccion,
+            User2.create({
+                name : req.body.name,
+                surname : req.body.surname,
                 email : req.body.email,
-                contrasena: bcryptjs.hashSync(req.body.contrasena, 12),
-                categoria: "COMPRADOR",
+                password: bcryptjs.hashSync(req.body.password, 12),
                 imagen : req.file.filename
-                }
-
-                users.push(newUser);
-                fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
+            })
                 res.redirect('./usuarios/login');
-        }
-        else{
+        } else{
             res.render('./usuarios/register', {errores: errores.mapped(), old: req.body},)
         }
 
@@ -54,49 +54,51 @@ const userController = {
       // LISTA DE USUARIOS
 
       userList: function(req, res){
-        users;
-        res.render('./admin/userList', {'users':users});
-    },
+        User2.findAll()
+            .then(function(usuarios){
+            return res.render('./admin/userList.ejs', {usuarios})
+        })
+        },
 
     // BORRAR USUARIOS
 
     deleteUser: (req, res) =>{
-        const idUser = req.params.idUser;
-
-        const usuarioEliminar = users.find(users => users.id == idUser)
-        const index = users.indexOf(usuarioEliminar)
-
-        users.splice(index, 1);
-
-        fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
-
-        res.redirect('../list')
-
+        (req, res) =>{
+            id = req.params.idUser
+           User2.destroy({
+            where: {
+            id: id
+            }
+            }).then(function(result){
+                res.redirect('../list')
+            })
+        }
     },
 
 
     login: (req, res) => {
         res.render('./usuarios/login'); //formulario login
     },
-    	loginProcess: (req, res) => {
-            let userToLogin = User.findByField('email', req.body.email);
-            let userAdmin = User.findByField('categoria', "admin");
 
-            if(userToLogin) {
-                let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.contrasena);
-                if (isOkThePassword) {
-                    delete userToLogin.contrasena;
-                    req.session.userLogged = userToLogin;
+    loginProcess: (req, res) => {
+        let userToLogin = User.findByField('email', req.body.email);
+        let userAdmin = User.findByField('categoria', "admin");
 
-                    if(userToLogin.categoria == userAdmin.categoria){
-                        req.session.admin = userAdmin;
-                    }
+        if(userToLogin) {
+            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.contrasena);
+            if (isOkThePassword) {
+                delete userToLogin.contrasena;
+                req.session.userLogged = userToLogin;
+
+                if(userToLogin.categoria == userAdmin.categoria){
+                    req.session.admin = userAdmin;
+                }
     
-                    if(req.body.remember_user) {
-                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-                    }
+                if(req.body.remember_user) {
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                }
     
-                    return res.redirect('/users/profile');
+                return res.redirect('/users/profile');
                 } 
                 return res.render('./usuarios/login', {
                     errors: {
@@ -136,34 +138,24 @@ const userController = {
         res.render('./admin/userEdit', {'users': users, 'idUser': idUser})
     },
 
-    userEditUpdate: (req, res) =>{
-
-        const idUser = req.params.idUser;
-        const userToEdit = users.find(user => user.id == idUser)
-
-
-        const userEditado = {
-            id: Number(idUser),
-            nombre : req.body.nombre,
-            apellido : req.body.apellido,
-            direccion : req.body.direccion,
-            email : userToEdit.email,
-            contrasena: userToEdit.contrasena,
-            categoria: req.body.categoria,
+    userEditUpdate:(req, res)=> {
+        User2.update({
+            name : req.body.name,
+            surname : req.body.surname,
+            email : req.body.email,
+            password: bcryptjs.hashSync(req.body.password, 12),
             imagen : req.file.filename
+        }, {
+        where: {
+            id: req.params.idUser
         }
+        });
 
-        const index = users.indexOf(userToEdit)
-
-        /* tinto.splice(index, 1, vinoEditado); */
-        users[index] = userEditado
-
-        fs.writeFileSync(miUserPathDataBase, JSON.stringify(users, null, ' '))
-
-        res.redirect('./users/list')
-
-    }
+        res.redirect('../list')
+    },
+    
 }
+
 
 
 module.exports = userController;

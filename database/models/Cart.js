@@ -29,10 +29,10 @@ module.exports = (sequelize, dataTypes) => {
             as: "cart_products",
             foreignKey: "id_cart", //columna en la DB que une las 2 tablas
         });
-        Cart.hasMany(models.User2, {
+        /* Cart.hasMany(models.User2, {
             as: "users2",
             foreignKey: "id_user", //columna en la DB que une las 2 tablas
-        });
+        }); */
     }
 
     return Cart;

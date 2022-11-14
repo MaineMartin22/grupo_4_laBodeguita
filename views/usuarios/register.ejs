@@ -17,7 +17,7 @@
     <div class="conteiner-general-regist">
         <div class="general">
             <label class="label" for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
+            <input type="text" id="nombre" name="name" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
             <% if (locals.errores && errores.nombre) { %>
               <p class="msg-error"><%= errores.nombre.msg%></p>
             <% } %>
@@ -25,7 +25,7 @@
 
         <div class="general">
             <label class="label" for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido" value="<%= locals.old && old.apellido ? old.apellido : '' %>">
+            <input type="text" id="apellido" name="surname" value="<%= locals.old && old.apellido ? old.apellido : '' %>">
             <% if (locals.errores && errores.apellido) { %>
               <p class="msg-error"> <%= errores.apellido.msg%></p>
             <% } %>
