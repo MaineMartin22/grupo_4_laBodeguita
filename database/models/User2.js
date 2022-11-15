@@ -18,6 +18,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(25),
             allowNull: false
         },
+        direction: {
+            type: dataTypes.STRING(50),
+            allowNull: false
+        },
         password: {
             type: dataTypes.STRING(25),
             allowNull: false

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2022 a las 00:26:19
+-- Tiempo de generación: 15-11-2022 a las 00:05:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -160,11 +160,17 @@ CREATE TABLE `users2` (
   `surname` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL,
-  `category` varchar(25) NOT NULL DEFAULT 'usuario',
   `image` varchar(50) NOT NULL,
-  `id_categories` varchar(25) NOT NULL,
+  `id_categories` varchar(25) NOT NULL DEFAULT '2',
   `id_cart` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users2`
+--
+
+INSERT INTO `users2` (`id`, `name`, `surname`, `email`, `password`, `image`, `id_categories`, `id_cart`) VALUES
+(1, 'admin', '1', 'admin@gmail.com', 'admin', '', '1', '');
 
 --
 -- Índices para tablas volcadas
@@ -261,7 +267,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `users2`
 --
 ALTER TABLE `users2`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

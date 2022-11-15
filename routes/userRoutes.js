@@ -4,6 +4,9 @@ const path = require("path")
 const userController = require('../controllers/userController')
 const router = express.Router()
 const { body } = require('express-validator')
+const db = require('../database/models');
+
+const User2 = db.User2
 
 const guestMiddleware = require('../middlewares/userMiddleware')
 
@@ -30,17 +33,48 @@ const uploadFile = multer({ storage });
 
 //VER DONDE VA
 
+const users = User2.findAll()
+
 const validateUser = [
-    body('nombre')
-    .notEmpty().withMessage('Debes completar tu nombre'),
-    body('apellido')
-    .notEmpty().withMessage('Debes colocar tu apellido'),
-    body('direccion')
-    .notEmpty().withMessage('Debes colocar tu direccion'),
-    body('email')
-    .isEmail().withMessage('Debes completar tu email'),
-    body('contrasena')
-    .notEmpty().withMessage('Debes completar tu contraseña'),
+    body('name').isLength({
+        min: 1
+      }).withMessage('El campo nombre no puede estar vacío'),
+      body('surname').isLength({min: 1   
+      }).withMessage('El campo apellido no puede estar vacío'),
+      body('email').isEmail().withMessage('Agregar un email válido'),
+
+  //Aquí valido el Password   
+  body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres al menos una letra y un número'),
+  //Aquí valido si eusuario existe o no en la tabla de usuarios Por el campo email)
+  body('email').custom(function (value) {
+    let contador = 0;
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].email == value) {
+            contador++;
+        }
+    }
+    if (contador > 0) {
+        return false;   // Si retorno falso no aparece el mensaje de error
+    } else {
+        return true;    //Si retorno true, aparece el mensaje de error
+    }
+  }).withMessage('Usuario ya se encuentra registrado'),
+
+//Aquí valido la confimación del password dispuesto por el usuario
+body('repassword').isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
+
+//Aquí valido si las contraseñas son iguales o no
+//El ( value ) viene a ser el valor que viaje en el name del del input del campo 
+//El valor { req } corresponde a lo que viene desde el formulario
+
+body('repassword').custom((value, {req}) =>{
+        if(req.body.password == value ){
+            return true    // Si yo retorno un true  no se muestra el error     
+        }else{
+            return false   // Si retorno un false si se muestra el error
+        }    
+}).withMessage('Las contraseñas deben ser iguales'),
+
 ];        
 
 // REGISTER GET

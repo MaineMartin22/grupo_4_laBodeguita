@@ -32,7 +32,7 @@
         </div>
         <div class="general">
             <label class="label" for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" value="<%= locals.old && old.direccion ? old.direccion : '' %>" >
+            <input type="text" id="direccion" name="direction" value="<%= locals.old && old.direccion ? old.direccion : '' %>" >
             <% if (locals.errores && errores.direccion) { %>
               <p class="msg-error"> <%= errores.direccion.msg%></p>
             <% } %>
@@ -46,7 +46,14 @@
         </div>
         <div class="general">
             <label class="label" for="pass">Contraseña</label>
-            <input type="password" id="pass" name="contrasena">
+            <input type="password" id="pass" name="password">
+            <% if (locals.errores && errores.contrasena) { %>
+              <p class="msg-error"> <%= errores.contrasena.msg%></p>
+            <% } %>
+        <div class="general">
+          <div class="general">
+            <label class="label" for="pass">Repetir contraseña</label>
+            <input type="password" id="pass" name="repassword">
             <% if (locals.errores && errores.contrasena) { %>
               <p class="msg-error"> <%= errores.contrasena.msg%></p>
             <% } %>

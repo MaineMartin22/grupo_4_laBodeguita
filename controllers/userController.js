@@ -24,27 +24,39 @@ const userController = {
 
         // ERROR SI EXISTE OTRO USUARIO CON EL MISMO EMAIL
 
-        let userInDb = User.findAll({
+        // DE ACA HASTA 
+
+        console.log(User2.findAll());
+
+
+        let userInDb = User2.findAll({
             where: {
                 email: req.body.email
             }
         })
-
-        if (userInDb){
+        console.log(userInDb.email);
+        if (userInDb.email){
             return res.render('./usuarios/register', {errores: {email: { msg: 'Este email ya está registrado'}}, old: req.body})
         }
 
-        // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
+        //ACA, NO ANDA, NI TAMPOCO LLEGAN LOS ERRORES, PORQUE SI NO, NO CREARÍA EL USUARIO, POR LO QUE NO ANDAN TAMPOCO LAS VALIDACIONES
 
+
+        // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
         if (errores.isEmpty()){
-            User2.create({
+            let user = {
                 name : req.body.name,
                 surname : req.body.surname,
                 email : req.body.email,
+                direction: req.body.direction,
                 password: bcryptjs.hashSync(req.body.password, 12),
-                imagen : req.file.filename
+                image : req.file.filename,
+                id_categories: 0
+            }
+            User2.create(user)
+            .then((storedUser) => {
+                return  res.redirect('./login');
             })
-                res.redirect('./usuarios/login');
         } else{
             res.render('./usuarios/register', {errores: errores.mapped(), old: req.body},)
         }
