@@ -13,13 +13,13 @@ const { validationResult } = require('express-validator')
 
 
 const userController = {
-     // REGISTRO DE NUEVO USUARIO
+    // REGISTRO DE NUEVO USUARIO
 
-     registerUser: (req, res) =>{
+    registerUser: (req, res) => {
         res.render('./usuarios/register')
     },
 
-    updateUser: (req, res) =>{
+    updateUser: (req, res) => {
         let errores = validationResult(req);
 
         // ERROR SI EXISTE OTRO USUARIO CON EL MISMO EMAIL
@@ -35,53 +35,53 @@ const userController = {
             }
         })
         console.log(userInDb.email);
-        if (userInDb.email){
-            return res.render('./usuarios/register', {errores: {email: { msg: 'Este email ya está registrado'}}, old: req.body})
+        if (userInDb.email) {
+            return res.render('./usuarios/register', { errores: { email: { msg: 'Este email ya está registrado' } }, old: req.body })
         }
 
         //ACA, NO ANDA, NI TAMPOCO LLEGAN LOS ERRORES, PORQUE SI NO, NO CREARÍA EL USUARIO, POR LO QUE NO ANDAN TAMPOCO LAS VALIDACIONES
 
 
         // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
-        if (errores.isEmpty()){
+        if (errores.isEmpty()) {
             let user = {
-                name : req.body.name,
-                surname : req.body.surname,
-                email : req.body.email,
+                name: req.body.name,
+                surname: req.body.surname,
+                email: req.body.email,
                 direction: req.body.direction,
                 password: bcryptjs.hashSync(req.body.password, 12),
-                image : req.file.filename,
+                image: req.file.filename,
                 id_categories: 0
             }
             User2.create(user)
-            .then((storedUser) => {
-                return  res.redirect('./login');
-            })
-        } else{
-            res.render('./usuarios/register', {errores: errores.mapped(), old: req.body},)
+                .then((storedUser) => {
+                    return res.redirect('./login');
+                })
+        } else {
+            res.render('./usuarios/register', { errores: errores.mapped(), old: req.body },)
         }
 
     },
 
-      // LISTA DE USUARIOS
+    // LISTA DE USUARIOS
 
-      userList: function(req, res){
+    userList: function (req, res) {
         User2.findAll()
-            .then(function(usuarios){
-            return res.render('./admin/userList.ejs', {usuarios})
-        })
-        },
+            .then(function (usuarios) {
+                return res.render('./admin/userList.ejs', { usuarios })
+            })
+    },
 
     // BORRAR USUARIOS
 
-    deleteUser: (req, res) =>{
-        (req, res) =>{
+    deleteUser: (req, res) => {
+        (req, res) => {
             id = req.params.idUser
-           User2.destroy({
-            where: {
-            id: id
-            }
-            }).then(function(result){
+            User2.destroy({
+                where: {
+                    id: id
+                }
+            }).then(function (result) {
                 res.redirect('../list')
             })
         }
@@ -93,79 +93,73 @@ const userController = {
     },
 
     loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
-        let userAdmin = User.findByField('categoria', "admin");
+        User2.findOne({
+            where: {
+                email: req.body.email
+            },
+            raw: true
+        })
+            .then((user) => {
+                //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
+                let errors = validationResult(req);
 
-        if(userToLogin) {
-            let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.contrasena);
-            if (isOkThePassword) {
-                delete userToLogin.contrasena;
-                req.session.userLogged = userToLogin;
+                if (req.body.email != '' && req.body.password != '') {
+                    bcryptjs.compareSync(req.body.password, user.password)
+                } else {
+                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), { errors: [{ msg: "Credenciales invalidas" }] });
+                }
+                //console.log(user);
 
-                if(userToLogin.categoria == userAdmin.categoria){
-                    req.session.admin = userAdmin;
+                if (user.length === 0) {
+                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), { errors: [{ msg: "Credenciales invalidas" }] });
+                } else {
+                    req.session.usuario = user;
                 }
-    
-                if(req.body.remember_user) {
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
+                if (req.body.recordarme) {
+                    res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 })
                 }
-    
-                return res.redirect('/users/profile');
-                } 
-                return res.render('./usuarios/login', {
-                    errors: {
-                        email: {
-                            msg: 'Las credenciales son inválidas'
-                        }
-                    }
-                });
-            }
-    
-            return res.render('./usuarios/login', {
-                errors: {
-                    email: {
-                        msg: 'No se encuentra este email en nuestra base de datos'
-                    }
-                }
-            });
-        },
+                return res.redirect('/');
+
+            })
+    },
 
     profile: (req, res) => { //perfil usuario
-        return res.render('./usuarios/userProfile',{
+        return res.render('./usuarios/userProfile', {
             user: req.session.userLogged,
             admin: req.session.admin
         });
     },
 
-    logout: (req, res) =>{
+    logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
     },
 
 
-    userEdit: (req, res) =>{
+    userEdit: (req, res) => {
         const idUser = req.params.idUser;
 
-        res.render('./admin/userEdit', {'users': users, 'idUser': idUser})
+        res.render('./admin/userEdit', { 'users': users, 'idUser': idUser })
     },
 
-    userEditUpdate:(req, res)=> {
+    userEditUpdate: (req, res) => {
         User2.update({
-            name : req.body.name,
-            surname : req.body.surname,
-            email : req.body.email,
+            name: req.body.name,
+            surname: req.body.surname,
+            email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 12),
-            imagen : req.file.filename
+            imagen: req.file.filename
         }, {
-        where: {
-            id: req.params.idUser
-        }
+            where: {
+                id: req.params.idUser
+            }
         });
 
         res.redirect('../list')
     },
-    
+
 }
 
 
