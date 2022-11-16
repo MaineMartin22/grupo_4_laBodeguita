@@ -51,8 +51,7 @@ const userController = {
                 email : req.body.email,
                 direction: req.body.direction,
                 password: bcryptjs.hashSync(req.body.password, 12),
-                // image : req.file.filename,
-                id_categories: 0
+                image : req.file.filename
             }
 
             User2.findOne({

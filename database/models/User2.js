@@ -30,10 +30,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(50),
             //allowNull: false
         },
-        id_categories: {
-            type: dataTypes.STRING(25),
-            allowNull: false
-        },
         id_cart: {
             type: dataTypes.STRING(25),
             //allowNull: false
