@@ -1,15 +1,25 @@
 const fs = require('fs');
+
 const path = require('path')
+
 const bcryptjs = require("bcryptjs")
-const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
-const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
+
 const User = require('../data/models/User')
+
+const User3 = require('../data/models/User2')
+
+
 const db = require('../database/models');
+
 const User2 = db.User2
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
 
 const { validationResult } = require('express-validator')
+
+
+
+// console.log(User2.findAll().then(function(result) {
+//     console.log(result);
+// }));
 
 
 const userController = {
@@ -19,49 +29,56 @@ const userController = {
         res.render('./usuarios/register')
     },
 
-    updateUser: (req, res) => {
-        let errores = validationResult(req);
+    updateUser: (req, res) =>{
+        const resultValidation = validationResult(req);
 
-        // ERROR SI EXISTE OTRO USUARIO CON EL MISMO EMAIL
+        // return res.send (resultValidation)
 
-        // DE ACA HASTA 
+        // return res.send(resultValidation.mapped())
 
-        console.log(User2.findAll());
+        // return res.send(errors)
 
 
-        let userInDb = User2.findAll({
-            where: {
-                email: req.body.email
-            }
-        })
-        console.log(userInDb.email);
-        if (userInDb.email) {
-            return res.render('./usuarios/register', { errores: { email: { msg: 'Este email ya está registrado' } }, old: req.body })
+        if(resultValidation.errors.length > 0) {
+            return  res.render('./usuarios/register', {
+                errors: resultValidation.mapped(),  old: req.body
+            });
         }
-
-        //ACA, NO ANDA, NI TAMPOCO LLEGAN LOS ERRORES, PORQUE SI NO, NO CREARÍA EL USUARIO, POR LO QUE NO ANDAN TAMPOCO LAS VALIDACIONES
-
-
-        // SI NO HAY ERRORES, SE PROCEDE A CREAR EL USUARIO
-        if (errores.isEmpty()) {
-            let user = {
-                name: req.body.name,
-                surname: req.body.surname,
-                email: req.body.email,
+    
+           let user = {
+                name : req.body.name,
+                surname : req.body.surname,
+                email : req.body.email,
                 direction: req.body.direction,
                 password: bcryptjs.hashSync(req.body.password, 12),
-                image: req.file.filename,
+                // image : req.file.filename,
                 id_categories: 0
             }
-            User2.create(user)
-                .then((storedUser) => {
-                    return res.redirect('./login');
-                })
-        } else {
-            res.render('./usuarios/register', { errores: errores.mapped(), old: req.body },)
-        }
 
-    },
+            User2.findOne({
+                where: {
+                    email: req.body.email
+                },
+                raw: true
+            })
+            .then((users) => { 
+                console.log(users);
+                if (users) {
+                    return  res.render('./usuarios/register', {
+                        old: req.body, errors: [{msg: 'Este email esta creado'}]
+                        //FALTA CREAR EL ERROR QUE INFORME QUE EL EMAIL YA ESTA REGISTRADO
+                    });
+                }
+                else{
+                    User2
+                    .create(user)
+                    .then((storedUser) => {
+                        return  res.redirect('./login');
+                    })
+                    .catch(error => console.log(error));
+                }
+            })
+        },
 
     // LISTA DE USUARIOS
 

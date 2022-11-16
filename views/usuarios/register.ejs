@@ -15,47 +15,55 @@
   <div class="wrap">
     <form class="formulario" name="formulario-registro" method="post" action="/users/register" enctype="multipart/form-data">
     <div class="conteiner-general-regist">
+<% if (locals.errors) { %>
+  <% for (let oneError in errors) { %>
+    <p><% errors[oneError].msg %> </p>
+  <%}  %> 
+<% }; %>
         <div class="general">
             <label class="label" for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="name" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
-            <% if (locals.errores && errores.nombre) { %>
-              <p class="msg-error"><%= errores.nombre.msg%></p>
+            <input type="text" id="nombre" name="name" value="<%= locals.old && old.name ? old.name : '' %>">
+            <% if (locals.errors && errors.name) { %>
+              <p class="msg-error"><%= errors.name.msg%></p>
             <% } %>
         </div>
 
         <div class="general">
             <label class="label" for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="surname" value="<%= locals.old && old.apellido ? old.apellido : '' %>">
-            <% if (locals.errores && errores.apellido) { %>
-              <p class="msg-error"> <%= errores.apellido.msg%></p>
+            <input type="text" id="apellido" name="surname" value="<%= locals.old && old.surname ? old.surname : '' %>">
+            <% if (locals.errors && errors.surname) { %>
+              <p class="msg-error"> <%= errors.surname.msg%></p>
             <% } %>
         </div>
         <div class="general">
             <label class="label" for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direction" value="<%= locals.old && old.direccion ? old.direccion : '' %>" >
-            <% if (locals.errores && errores.direccion) { %>
-              <p class="msg-error"> <%= errores.direccion.msg%></p>
+            <input type="text" id="direccion" name="direction" value="<%= locals.old && old.direction ? old.direction : '' %>" >
+            <% if (locals.errors && errors.direction) { %>
+              <p class="msg-error"> <%= errors.direction.msg%></p>
             <% } %>
         </div>
         <div class="general">
             <label class="label" for="email">Email</label>
             <input type="email" id="email" name="email" value="<%= locals.old && old.email ? old.email : '' %>">
-            <% if (locals.errores && errores.email) { %>
-              <p class="msg-error"> <%= errores.email.msg%></p>
+            <% if (locals.errors && errors.email) { %>
+              <p class="msg-error"> <%= errors.email.msg%></p>  
+            <% } %>
+            <% if (locals.errors && errors.msg) { %>
+              <p class="msg-error"> <%= errors.msg%></p>  
             <% } %>
         </div>
         <div class="general">
             <label class="label" for="pass">Contraseña</label>
             <input type="password" id="pass" name="password">
-            <% if (locals.errores && errores.contrasena) { %>
-              <p class="msg-error"> <%= errores.contrasena.msg%></p>
+            <% if (locals.errors && errors.password) { %>
+              <p class="msg-error"> <%= errors.password.msg%></p>
             <% } %>
         <div class="general">
           <div class="general">
             <label class="label" for="pass">Repetir contraseña</label>
             <input type="password" id="pass" name="repassword">
-            <% if (locals.errores && errores.contrasena) { %>
-              <p class="msg-error"> <%= errores.contrasena.msg%></p>
+            <% if (locals.errors && errors.repassword) { %>
+              <p class="msg-error"> <%= errors.repassword.msg%></p>
             <% } %>
         <div class="general">
           <input type="file" id="avatar" name="avatar">
