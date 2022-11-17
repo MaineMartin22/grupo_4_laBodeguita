@@ -2,6 +2,8 @@ const express = require("express")
 const Maincontroller = require("../controllers/mainController")
 const searchController = require("../controllers/searchController")
 
+const authMiddleware = require('../middlewares/authMiddleware')
+
 const router = express.Router()
 const multer = require('multer')
 const path = require("path")
@@ -23,19 +25,19 @@ const productFile = multer({ productStorage });
 
 router.get('/search', searchController.searchBar)
 
-router.get('/list', notadmMiddleware, Maincontroller.list);
+router.get('/list', authMiddleware, notadmMiddleware, Maincontroller.list);
 
-router.get('/create' , notadmMiddleware, Maincontroller.product);
+router.get('/create' , authMiddleware, notadmMiddleware, Maincontroller.product);
 
 router.post('/create', productFile.single('imagen'), Maincontroller.create);
 
 router.get('/:idProd', Maincontroller.detalle)
 
-router.get('/delete/:idProd', notadmMiddleware, Maincontroller.list)
+router.get('/delete/:idProd', authMiddleware, notadmMiddleware, Maincontroller.list)
 
 router.post('/delete/:idProd', Maincontroller.delete)
 
-router.get('/edit/:idProd', notadmMiddleware, Maincontroller.edit)
+router.get('/edit/:idProd', authMiddleware, notadmMiddleware, Maincontroller.edit)
 
 router.post('/edit/:idProd', productFile.single('imagen'), Maincontroller.update)
 

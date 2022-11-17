@@ -13,7 +13,7 @@ router.get('/home', Maincontroller.index);
 
 router.get('/detalleProducto', Maincontroller.productDetail);
 
-router.get('/carrito', userLoggedMiddleware, Maincontroller.prodCar);
+router.get('/carrito', authMiddleware, userLoggedMiddleware, Maincontroller.prodCar);
 
 router.get('/finalizarCompra', Maincontroller.toBuy);
 

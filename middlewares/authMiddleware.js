@@ -1,6 +1,5 @@
 function authMiddleware(req, res, next) {
-	let admin = "admin"
-	if(admin != "admin"){  
+	if(!req.session.usuario){  
 		return res.redirect('/users/login');
 	}
 	next();
