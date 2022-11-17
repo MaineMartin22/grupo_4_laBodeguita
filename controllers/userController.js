@@ -26,7 +26,7 @@ const userController = {
     // REGISTRO DE NUEVO USUARIO
 
     registerUser: (req, res) => {
-        res.render('./usuarios/register')
+        res.render('./usuarios/register', {usuario: req.session.usuario})
     },
 
     updateUser: (req, res) =>{
@@ -41,6 +41,7 @@ const userController = {
 
         if(resultValidation.errors.length > 0) {
             return  res.render('./usuarios/register', {
+                usuario: req.session.usuario,
                 errors: resultValidation.mapped(),  old: req.body
             });
         }
@@ -64,6 +65,7 @@ const userController = {
                 console.log(users);
                 if (users) {
                     return  res.render('./usuarios/register', {
+                        usuario: req.session.usuario,
                         old: req.body, errors: [{msg: 'Este email esta creado'}]
                         //FALTA CREAR EL ERROR QUE INFORME QUE EL EMAIL YA ESTA REGISTRADO
                     });
@@ -84,7 +86,7 @@ const userController = {
     userList: function (req, res) {
         User2.findAll()
             .then(function (usuarios) {
-                return res.render('./admin/userList.ejs', { usuarios })
+                return res.render('./admin/userList.ejs', { usuarios, usuario: req.session.usuario })
             })
     },
 
@@ -105,7 +107,7 @@ const userController = {
 
 
     login: (req, res) => {
-        res.render('./usuarios/login'); //formulario login
+        res.render('./usuarios/login', {usuario: req.session.usuario}); //formulario login
     },
 
     loginProcess: (req, res) => {
@@ -121,19 +123,27 @@ const userController = {
 
                 if (req.body.email != '' && req.body.password != '') {
                     bcryptjs.compareSync(req.body.password, user.password)
+                    console.log('ok1')
                 } else {
-                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), { errors: [{ msg: "Credenciales invalidas" }] });
+                    console.log('ok2')
+                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), { usuario: req.session.usuario, errors: [{ msg: "Credenciales invalidas" }] });
+                   
                 }
                 //console.log(user);
 
                 if (user.length === 0) {
-                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), { errors: [{ msg: "Credenciales invalidas" }] });
+                    console.log('ok3')
+                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), {usuario: req.session.usuario, errors: [{ msg: "Credenciales invalidas" }] });
+                    
                 } else {
+                    console.log('ok4')
                     req.session.usuario = user;
                 }
                 //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
                 if (req.body.recordarme) {
+                    console.log('ok5')
                     res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 })
+                    console.log('ok6')
                 }
                 return res.redirect('/');
 
@@ -142,6 +152,7 @@ const userController = {
 
     profile: (req, res) => { //perfil usuario
         return res.render('./usuarios/userProfile', {
+            usuario: req.session.usuario,
             user: req.session.userLogged,
             admin: req.session.admin
         });
@@ -157,7 +168,7 @@ const userController = {
     userEdit: (req, res) => {
         const idUser = req.params.idUser;
 
-        res.render('./admin/userEdit', { 'users': users, 'idUser': idUser })
+        res.render('./admin/userEdit', { usuario: req.session.usuario, 'users': users, 'idUser': idUser })
     },
 
     userEditUpdate: (req, res) => {

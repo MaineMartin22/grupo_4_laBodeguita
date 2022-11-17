@@ -9,28 +9,25 @@
     <%- include("../partials/navBar") %>
     </header>
     <main class="main-profile">
-    <h2>Bienvenido ¡<%= user.nombre %>!</h2>
+    <h2>Bienvenido ¡<%= usuario.name %>!</h2>
     <div class="profile-info">
       <div class="profile-title">
         <div class="profile-img">
-          <img src="/images/avatar/<%= user.imagen %> " alt="avatar">
+          <img src="/images/avatar/<%= usuario.image %> " alt="avatar">
         </div>
         <div class="profile-name">
-          <p><%= user.nombre %> <%= user.apellido %></p>
-        </div>
-        <div class="profile-category">
-          <p><%= user.categoria %></p>
+          <p><%= usuario.name %> <%= usuario.surname %></p>
         </div>
       </div>
       <div class="profile-data">
         <p>Editar mi información</p>
         <form action="/users/profile" method="POST">
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" value="<%= user.nombre %>">
+            <input type="text" name="nombre" value="<%= usuario.name %>">
             <label for="nombre">Apellido</label>
-            <input type="text" name="apellido" value="<%= user.apellido %>">
+            <input type="text" name="apellido" value="<%= usuario.surname %>">
             <label for="nombre">Direccion</label>
-            <input type="text" name="direccion" value="<%= user.direccion %>">
+            <input type="text" name="direccion" value="<%= usuario.direction %>">
             <label for="contrasena">Nueva contraseña</label>
             <input type="password" name="contrasena">
         </form>

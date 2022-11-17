@@ -44,14 +44,15 @@ const controller = {
     index: function(req, res){
     db.Product.findAll()
         .then(function(productos){
-        return res.render('./web/index.ejs', {productos})
+            console.log(req.session.usuario)
+        return res.render('./web/index.ejs', {productos, usuario: req.session.usuario})
     })
     },
 
     productDetail: function(req, res){
     db.Product.findAll()
         .then(function(productos){
-        return res.render('./productos/prodDetail.ejs', {productos})
+        return res.render('./productos/prodDetail.ejs', {productos, usuario: req.session.usuario})
     })
     },
     
@@ -60,7 +61,7 @@ const controller = {
    list: function(req, res){
     db.Product.findAll()
         .then(function(productos){
-        return res.render('./admin/prodList.ejs', {productos})
+        return res.render('./admin/prodList.ejs', {productos, usuario: req.session.usuario})
     })
     },
 
@@ -73,7 +74,7 @@ const controller = {
         include: [{association : 'cellars'}, {association : 'colors'}]
     })
         .then(product => {
-        res.render('./productos/vinos.ejs', {product});
+        res.render('./productos/vinos.ejs', {product, usuario: req.session.usuario});
     });
     },
 
@@ -102,7 +103,7 @@ const controller = {
         console.log(req.params.idProd);
         db.Product.findByPk(req.params.idProd)
             .then(product => {
-            res.render('./admin/prodEdit',{product} );
+            res.render('./admin/prodEdit',{product, usuario: req.session.usuario} );
         });
         },
 

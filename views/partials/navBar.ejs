@@ -3,7 +3,7 @@
       <i class="fa-solid fa-bars"></i>
   </div>
   <div class="nav-contein">
-    <% if (locals.isLogged && locals.userLogged.categoria == "admin") { %>
+    <% if (usuario&& usuario.id_categories == 1) { %>
       <a class="nav-links" href="/users/list">Usuarios</a>
       <a class="nav-links" href="/product/create">Crear</a>
       <a class="nav-links" href="/product/list">Lista de productos</a>
@@ -17,18 +17,18 @@
       <a href="/"><img src="/images/products/LogoRedondo.svg" alt="LogoRedondo"></a>
   </div>
   <div class="nav-contein-login">
-      <% if (locals.isLogged) { %>
+      <% if (usuario) { %>
         <div class="user-div">
         <div class="profile-img-nav">
-          <img src="/images/avatar/<%= locals.userLogged.imagen %>" alt="avatar">
+          <img src="/images/avatar/<%= usuario.image %>" alt="avatar">
         </div>
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola <%= locals.userLogged.nombre %></a>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola <%= usuario.name %></a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="/users/logout">Cerrar sesión</a></li>
-          <% if (locals.isLogged && locals.userLogged.categoria == "admin") { %>
+          <% if (usuario&& usuario.id_categories == 1) { %>
             <li><a class="dropdown-item" href="/home">Inicio</a></li>
             <li><a class="dropdown-item" href="/detalleProducto">Vinos</a></li>
             <li><a class="dropdown-item" href="/finalizarCompra">Finalizar compra</a></li>
@@ -55,8 +55,8 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <div class="offcanvas-div">
-          <% if (locals.isLogged) { %>
-            <a class="navbar-brand" href="/users/profile">¡Bienvenido <%= locals.userLogged.nombre %>! </a> 
+          <% if (usuario) { %>
+            <a class="navbar-brand" href="/users/profile">¡Bienvenido <%= usuario.name %>! </a> 
           <% }else { %>
           <a class="navbar-brand" id="offcanvasNavbarLabel"><img src="/images/products/LogoRedondo.svg" alt=""></a>
           <% }; %> 
@@ -65,7 +65,7 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <% if (locals.isLogged && locals.userLogged.categoria == "admin") { %>
+          <% if (usuario&& usuario.id_categories == 1) { %>
             <li class="nav-item">
               <a class="nav-links" aria-current="page" href="/product/create">Crear productos</a>
             </li>
@@ -86,7 +86,7 @@
               <a href="/carrito" class="carrito-i nav-links">Mi carrito <i class="fa-solid fa-cart-shopping"></i></a>
             </li>
             <% }; %> 
-          <% if (locals.isLogged) { %>
+          <% if (usuario) { %>
           <li class="nav-item">
               <a class="nav-links" href="/users/profile"><p>Mi perfil <i class="fa-solid fa-right-to-bracket"></i></p></a></li>
           </li>
