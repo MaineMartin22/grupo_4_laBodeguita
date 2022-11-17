@@ -28,14 +28,14 @@ const Cellar = db.Cellar
 
 
 const controller = {
-    login: (req, res) => {res.render("./usuarios/login")},
-    prodCar:(req, res) => {res.render("./productos/prodCar")},
-    toBuy: (req, res) => {res.render("./productos/finalizarCompra")},
+    login: (req, res) => {res.render("./usuarios/login", {usuario: req.session.usuario})},
+    prodCar:(req, res) => {res.render("./productos/prodCar", {usuario: req.session.usuario})},
+    toBuy: (req, res) => {res.render("./productos/finalizarCompra", {usuario: req.session.usuario})},
 
     product: function(req, res){
         db.Cellar.findAll()
             .then(function(cellars){
-            return res.render('./admin/prodCreate', {cellars})
+            return res.render('./admin/prodCreate', {cellars, usuario: req.session.usuario})
         })
         },
 

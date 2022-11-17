@@ -1,5 +1,9 @@
 function notadmMiddleware(req, res, next) {
-	if (!req.session.admin) {
+
+	// console.log(req.session.usuario);
+	// console.log(req.session.usuario.id_categories);
+
+	if (req.session.usuario.id_categories !== 1) {
 		return res.redirect('/');
 	}
 	next();

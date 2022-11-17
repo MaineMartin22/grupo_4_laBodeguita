@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2022 a las 00:05:55
+-- Tiempo de generación: 16-11-2022 a las 23:23:41
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -135,18 +135,18 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `type`, `price`, `description`, `alcohol`, `sale`, `discount`, `size`, `image`, `id_cellar`, `id_color`) VALUES
-(12, 'Sergio', 'Tinto', 5000, '', '14.5', 1, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
-(13, 'Santa Malena', 'Blanco', 9000, '', '14.3', 0, '15', '750ml', 'Santa-Malena-Rosado.png', '1', '2'),
-(14, 'Malbec', 'Rosado', 6000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '3', '3'),
-(15, 'Santa Julia', 'Tinto', 6000, '', '15', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
-(16, 'Malbec', 'Tinto', 4600, '', '14.5', 0, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '2', '2'),
-(17, 'Alma Negra', 'Tinto', 7000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
-(18, 'Malbec', 'Blanco', 6000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
-(19, 'Santa Julia', 'Blanco', 4500, '', '13.5', 1, '14', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
-(20, 'Malbec Rosado', 'Rosado', 6000, '', '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
-(21, 'Alma blanca', 'Blanco', 3000, '', '15.3', 0, '5', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '3'),
-(22, 'Alma Rosada', 'Rosado', 6000, '', '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
-(23, 'Santa Julia', 'Rosado', 6000, '', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4');
+(12, 'Sergio', 'Tinto', 5000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.5', 1, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
+(13, 'Santa Malena', 'Blanco', 9000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 0, '15', '750ml', 'Santa-Malena-Rosado.png', '1', '2'),
+(14, 'Malbec', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '3', '3'),
+(15, 'Santa Julia', 'Tinto', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '15', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
+(16, 'Malbec', 'Tinto', 4600, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.5', 0, '10', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '2', '2'),
+(17, 'Alma Negra', 'Tinto', 7000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
+(18, 'Malbec', 'Blanco', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
+(19, 'Santa Julia', 'Blanco', 4500, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '13.5', 1, '14', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
+(20, 'Malbec Rosado', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
+(21, 'Alma blanca', 'Blanco', 3000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '15.3', 0, '5', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '3'),
+(22, 'Alma Rosada', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 0, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
+(23, 'Santa Julia', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', '750ml', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4');
 
 -- --------------------------------------------------------
 
@@ -159,9 +159,10 @@ CREATE TABLE `users2` (
   `name` varchar(25) NOT NULL,
   `surname` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
+  `direction` varchar(50) NOT NULL,
   `password` varchar(25) NOT NULL,
   `image` varchar(50) NOT NULL,
-  `id_categories` varchar(25) NOT NULL DEFAULT '2',
+  `id_categories` int(11) NOT NULL DEFAULT 2,
   `id_cart` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -169,8 +170,15 @@ CREATE TABLE `users2` (
 -- Volcado de datos para la tabla `users2`
 --
 
-INSERT INTO `users2` (`id`, `name`, `surname`, `email`, `password`, `image`, `id_categories`, `id_cart`) VALUES
-(1, 'admin', '1', 'admin@gmail.com', 'admin', '', '1', '');
+INSERT INTO `users2` (`id`, `name`, `surname`, `email`, `direction`, `password`, `image`, `id_categories`, `id_cart`) VALUES
+(1, 'Sergio', 'Picard', 'sergio@gmail.com', 'Aragón 305', 'sergio12345', '1665877724799_img.webp', 1, ''),
+(3, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$iJMyjsLoJmdHgVH5i6', '', 2, ''),
+(6, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$2.NBhI2pUKfKgR.Whr', '', 0, ''),
+(97781777, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$AGgZcQPPIo9b/XOyXS', '', 0, ''),
+(97781778, 'sergio', 'picard', 'sergio1@gmail.com', 'sergio 305', '$2a$12$dZF0cWX1m.GN9kychP', '1668475006840_img.webp', 0, ''),
+(97781779, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$Kkl8cqftkzJxxyit4A', '1668475121197_img.webp', 0, ''),
+(97781780, ' Martin', 'Maine', 'mm@gmail.com', 'Avenida Mitre 939', '$2a$12$40PSAXGWtKY.esiUsY', '1668514194623_img.png', 0, ''),
+(97781781, 'martin', 'maine', 'mm123@gmail.com', 'avenida mitre 939', '$2a$12$CufnM0D4Xg99G4Ywn5', '1668628244581_img.png', 1, '');
 
 --
 -- Índices para tablas volcadas
@@ -261,13 +269,13 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `users2`
 --
 ALTER TABLE `users2`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97781782;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
