@@ -54,6 +54,10 @@ let validaciones = [
             return false   // Si retorno un false si se muestra el error
         }}).withMessage('Las contraseñas deben ser iguales')];
 
+router.get('/register', guestMiddleware, userController.registerUser);
+
+router.post('/register', guestMiddleware, uploadFile.single('avatar'), validaciones, userController.updateUser);
+
 
 router.get('/login' , guestMiddleware, userController.login); 
 
