@@ -1364,6 +1364,13 @@ main button {
   font-size: 10px;
 }
 
+.totalAmount {
+  font-size: 30px;
+  color: #303f9f;
+  background-color: #fff;
+  width: auto;
+}
+
 @media (min-width: 481px) {
   /* NAV BAR EN MOBILE */
   .menu-hamb {
