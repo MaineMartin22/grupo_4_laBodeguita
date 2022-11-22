@@ -137,8 +137,14 @@
   .nav-contein-login a:focus{
     color: white;
   }
-  
-  
+
+  .nav-contein-login li a span{
+    position: absolute;
+    top: 20%;
+    background-color: #0b335e;
+    color: #fff;
+    padding: 0px 4px;
+  }
   
   .nav-links i{
     font-size: 18px;
@@ -233,3 +239,17 @@
   .nav-logo-mobile{
     width: 50%;
   }
+
+  .offcanvas-body .offcanvas-body-img{
+    align-self: center;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      margin: auto;
+      width: 50%;
+    }
+  }
+  

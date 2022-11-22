@@ -1,0 +1,27 @@
+.cart{
+    width: 90%;
+    margin: auto;
+    padding-top: 100px;
+    table{
+        width: 100%;
+        color: #303f9f;
+        background-color: #fff;
+        thead{
+            width: 100%;
+            tr{
+                th{
+                    font-size: 15px;
+
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    font-size: 10px;
+
+                }
+            }
+        }
+    }
+}

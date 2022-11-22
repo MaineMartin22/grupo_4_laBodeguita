@@ -30,7 +30,7 @@
                 <h4 class="vin-title"><%=tint.name%></h4>
                 <div>
                     <a href="#collapse<%=tint.id%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse<%=tint.id%>" aria-expanded="false">Descripción</a>
-                    <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
+                    <a href="#" class="addCart btn" data-id="<%= tint.id %> "><i class="fa-solid fa-plus"></i>  Agregar</a>
                 </div>
                     <div class="div-collapse collapse" id="collapse<%=tint.id%>">
                         <div class="div--colapse">
@@ -63,7 +63,7 @@
                         <h4 class="vin-title"><%=tint.name%></h4>
                         <div>
                             <a href="#collapse<%=tint.id%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse<%=tint.id%>" aria-expanded="false">Descripción</a>
-                            <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
+                            <a href="#" class="addCart btn" data-id="<%= tint.id %> "><i class="fa-solid fa-plus"></i>  Agregar</a>
                         </div>
                             <div class="div-collapse collapse" id="collapse<%=tint.id%>">
                                 <div class="div--colapse">
@@ -96,7 +96,7 @@
                         <h4 class="vin-title"><%=tint.name%></h4>
                         <div>
                             <a href="#collapse<%=tint.id%>" class="btn" role="button" data-bs-toggle="collapse" aria-controls="collapse<%=tint.id%>" aria-expanded="false">Descripción</a>
-                            <a href="#" class="addCar btn"><i class="fa-solid fa-plus"></i>  Agregar</a>
+                            <a href="#" class="addCart btn" data-id="<%= tint.id %> "><i class="fa-solid fa-plus"></i>  Agregar</a>
                         </div>
                             <div class="div-collapse collapse" id="collapse<%=tint.id%>">
                                 <div class="div--colapse">
@@ -121,12 +121,12 @@
 </footer>
 </body>
 <!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="js/index.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<%- include("../partials/scripts") %>
 <script>function mostrar(){
-        swal('Las estrellas marcan las ofertas', '¡Disfrute su visita!', 'info');                       
-    }
-    window.mostrar()
-                            </script>
+    swal('Las estrellas marcan las ofertas', '¡Disfrute su visita!', 'info');                       
+}
+window.mostrar()  </script>
+
+
 </html>

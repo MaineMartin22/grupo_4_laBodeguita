@@ -153,6 +153,14 @@ a {
   color: white;
 }
 
+.nav-contein-login li a span {
+  position: absolute;
+  top: 20%;
+  background-color: #0b335e;
+  color: #fff;
+  padding: 0px 4px;
+}
+
 .nav-links i {
   font-size: 18px;
 }
@@ -242,6 +250,19 @@ a {
 }
 
 .nav-logo-mobile {
+  width: 50%;
+}
+
+.offcanvas-body .offcanvas-body-img {
+  align-self: center;
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.offcanvas-body .offcanvas-body-img img {
+  margin: auto;
   width: 50%;
 }
 
@@ -449,7 +470,6 @@ main {
   background: none;
   border: none;
   border-bottom: 2px solid lightblue;
-  color: black;
 }
 
 .general label.label {
@@ -525,7 +545,7 @@ main {
   text-align: left;
 }
 
-.create input, .create select, .create textarea {
+.create input, .create select, .create textarea, #avatar {
   width: 80%;
   margin: auto;
   outline: none;
@@ -1322,6 +1342,26 @@ main button {
 .footer-text-h {
   font-size: 20px;
   color: #fff;
+}
+
+.cart {
+  width: 90%;
+  margin: auto;
+  padding-top: 100px;
+}
+.cart table {
+  width: 100%;
+  color: #303f9f;
+  background-color: #fff;
+}
+.cart table thead {
+  width: 100%;
+}
+.cart table thead tr th {
+  font-size: 15px;
+}
+.cart table tbody tr td {
+  font-size: 10px;
 }
 
 @media (min-width: 481px) {

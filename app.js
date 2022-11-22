@@ -4,6 +4,7 @@ const dotenv = require("dotenv").config()
 const mainRoutes = require("./routes/mainRoutes")
 const prodRoutes = require("./routes/prodRoutes")
 const userRoutes = require("./routes/userRoutes")
+const apiRoutes = require ("./routes/apiRoutes")
 const ejs = require("ejs")
 const multer = require("multer")
 const methodOverride = require('method-override')
@@ -45,6 +46,8 @@ app.use(methodOverride('_method'));
 app.use("/", mainRoutes);
 app.use("/product", prodRoutes)
 app.use("/users", userRoutes)
+app.use("/api", apiRoutes)
+
 
 // Template Engine
 app.set("view engine", "ejs");

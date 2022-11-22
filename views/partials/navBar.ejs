@@ -3,7 +3,7 @@
       <i class="fa-solid fa-bars"></i>
   </div>
   <div class="nav-contein">
-    <% if (usuario&& usuario.id_categories == 1) { %>
+    <% if (usuario && usuario.id_categories == 1) { %>
       <a class="nav-links" href="/users/list">Usuarios</a>
       <a class="nav-links" href="/product/create">Crear</a>
       <a class="nav-links" href="/product/list">Lista de productos</a>
@@ -40,7 +40,7 @@
       <% } else { %> 
       <a class="nav-links" href="/users/login">Ingresar</a>
       <% }; %>
-      <li class="nav-item"><a href="/carrito" class="carrito-i"><i class="fa-solid fa-cart-shopping"></i></a></li>
+      <li class="nav-item"><a href="/carrito" class="carrito-i"><i class="fa-solid fa-cart-shopping"></i><span class="cartNumber">0</span></a></li>
   </div>
 </nav>
 
@@ -104,6 +104,9 @@
               <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
               <button class="btn btn-outline-light" type="submit">Búscar</button>
           </form>
+          <div class="offcanvas-body-img">
+          <img src="/images/products/LogoRedondo.svg" alt="Logo"></a>
+          </div>
       </div>
     </div>
   </div>
