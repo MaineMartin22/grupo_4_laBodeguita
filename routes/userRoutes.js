@@ -38,8 +38,8 @@ const uploadFile = multer({ storage });
 
 let validaciones = [
     body('name').notEmpty().withMessage('El campo nombre no puede estar vacío'),
-    body('surname').notEmpty().withMessage('El campo nombre no puede estar vacío'),
-    body('direction').notEmpty().withMessage('El campo nombre no puede estar vacío'),
+    body('surname').notEmpty().withMessage('El campo apellido no puede estar vacío'),
+    body('direction').notEmpty().withMessage('El campo dirección no puede estar vacío'),
     body('email').isEmail().withMessage('Agregar un email válido'),
   //Aquí valido el Password   
     body('password').notEmpty({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres al menos una letra y un número'),
