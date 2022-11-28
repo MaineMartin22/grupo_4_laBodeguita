@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
     console.log('Archivo vinculado')
 
-
+    let button = document.getElementById('boton')
     let name = document.getElementById('nombre')
     let surname = document.getElementById('apellido')
     let direccion = document.getElementById('direccion')
@@ -9,6 +9,8 @@ window.addEventListener("load", function () {
     let password = document.getElementById('pass')
     let repassword = document.getElementById('pass2')
     let avatar = document.getElementById('avatar')
+    let checkbox = document.getElementById('mayor-edad')
+
 
     //console.log(name, surname, direccion, email, password, repassword)
 
@@ -48,15 +50,15 @@ window.addEventListener("load", function () {
     direccion.addEventListener('blur', validateEmptyField)
 
     password.addEventListener('blur', validatePassword)
-    
+
     repassword.addEventListener('blur', validatePassword)
 
 
-    email.addEventListener('change', function(e){
-        let expReg=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    email.addEventListener('change', function (e) {
+        let expReg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
         let isValid = expReg.test(email.value)
 
-        if (isValid == false){
+        if (isValid == false) {
             sweetAlert('Ingrese un email válido')
         }
     })
@@ -75,6 +77,18 @@ window.addEventListener("load", function () {
         } else {
             field.nextElementSibling.classList.remove('error');
         }
+
+        if (avatar.value < 1) {
+            alert('subi un avatar')
+        }
     })
+
+    button.addEventListener('click', function (e) {
+        if (!checkbox.checked) {
+            e.preventDefault();
+            alert('debes ser mayor de edad wey')
+        }
+    })
+
 
 })
