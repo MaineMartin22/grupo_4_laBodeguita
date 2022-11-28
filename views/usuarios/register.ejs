@@ -38,9 +38,9 @@
 
                     <div class="general">
                       <label class="label" for="apellido">Apellido</label>
-                      <input type="text" id="apellido" name="surname"
+                      <input type="text" id="apellido" name="surname" class="apellido"
                         value="<%= locals.old && old.surname ? old.surname : '' %>">
-                        <span></span>
+                        <span class="error"></span>
                       <% if (locals.errors && errors.surname) { %>
                         <p class="msg-error">
                           <%= errors.surname.msg%>
@@ -84,7 +84,7 @@
                         <% } %>
                           <div class="general">
                             <div class="general">
-                              <label class="label" for="pass">Repetir contraseña</label>
+                              <label class="label" for="pass2">Repetir contraseña</label>
                               <input type="password" id="pass2" name="repassword">
                               <span></span>
                               <% if (locals.errors && errors.repassword) { %>
@@ -93,7 +93,7 @@
                                 </p>
                                 <% } %>
                                   <div class="general">
-                                    <input type="file" id="avatar" name="avatar">
+                                    <input type="file" id="avatar" name="avatar" width="100%">
                                     <span></span>
                                   </div>
                                   <div class="checkbox">

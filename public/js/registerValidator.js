@@ -43,15 +43,12 @@ window.addEventListener("load", function () {
 
     name.addEventListener('blur', validateEmptyField)
 
-    name.addEventListener('click', function (e) {
-
-    })
-
-
     surname.addEventListener('blur', validateEmptyField)
+
     direccion.addEventListener('blur', validateEmptyField)
 
     password.addEventListener('blur', validatePassword)
+    
     repassword.addEventListener('blur', validatePassword)
 
 
