@@ -51,3 +51,28 @@ if (localStorage.carrito) {
         });
     });
 }
+
+
+let checkoutCart = document.querySelector('#checkoutCart')
+
+checkoutCart.onsubmit = (e) =>{
+    e.preventDefault();
+    const formData = {
+        orderItems: products,
+        paymentMethod: checkoutCart.paymentMethod.value,
+        shippingMethod: checkoutCart.shippingMethod.value,
+        total: calcularTotal(products),
+    };
+    // fetch('/api/checkout', {
+    //     method: "POST",
+    //     headers:{
+    //         "Content-Type":"application/json"
+    //     },
+    //     body: JSON.stringify(formData)
+    // })
+    // .then(r=>r.json())
+    // .then((res) =>{
+    //     console.log(res);
+    // })
+    console.log(formData);
+};
