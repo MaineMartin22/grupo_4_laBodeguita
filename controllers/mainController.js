@@ -81,6 +81,17 @@ const controller = {
     // CREAR PRODUCTOS
 
     create: function(req, res) {
+
+        const resultValidation = validationResult(req);
+
+
+        if(resultValidation.errors.length > 0) {
+            return  res.render('./admin/prodCreate', {
+                usuario: req.session.usuario,
+                errors: resultValidation.mapped(),  old: req.body,
+            });
+        }
+        else{
         db.Product.create({
             name: req.body.name,
             type: req.body.tipo,
@@ -94,7 +105,7 @@ const controller = {
             size: req.body.tamano,
             image: req.file.originalname
         })
-        res.redirect('./list')
+        res.redirect('./list')}
     },
 
     // EDITAR DE PRODUCTO

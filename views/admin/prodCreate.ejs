@@ -11,7 +11,12 @@
     <main>
     <div class="create-div">
     <form method="POST" action="/product/create" class="create" enctype="multipart/form-data">
-            <input type="text" name="name" id="name" placeholder="Nombre del producto">
+            <input type="text" name="name" id="name" placeholder="Nombre del producto" value="<%= locals.old && old.name ? old.name : '' %>">
+            <% if (locals.errors && errors.name) { %>
+                <p class="msg-error">
+                <%= errors.name.msg%>
+                </p>
+            <% } %>
             <h3>Tipo de producto</h3>
             <select name="tipo">
                 <option>Tinto</option>
@@ -25,13 +30,28 @@
             </select>
             <h3>Bodegas</h3>
             <select name="bodega">
-                <% cellars.forEach(e => { %>
-                <option><%= e.id %> </option>
-                <% }) %>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
             </select>
-            <input type="number" name="precio" id="precio" placeholder="Precio">
-            <input type="number" name="descuento" id="descuento" placeholder="Descuento">
-            <input type="number" name="alcohol" id="alcohol" step="0.01" min="0" max="20" placeholder="Alcohol producto">
+            <input type="number" name="precio" id="precio" placeholder="Precio" value="<%= locals.old && old.precio ? old.precio : '' %>">
+            <% if (locals.errors && errors.precio) { %>
+                <p class="msg-error">
+                <%= errors.precio.msg%>
+                </p>
+            <% } %>
+            <input type="number" name="descuento" id="descuento" placeholder="Descuento" value="<%= locals.old && old.descuento ? old.descuento : '' %>">
+            <% if (locals.errors && errors.descuento) { %>
+                <p class="msg-error">
+                <%= errors.descuento.msg%>
+                </p>
+            <% } %>
+            <input type="number" name="alcohol" id="alcohol" step="0.01" min="0" max="20" placeholder="Alcohol producto" value="<%= locals.old && old.alcohol ? old.alcohol : '' %>">
+            <% if (locals.errors && errors.alcohol) { %>
+                <p class="msg-error">
+                <%= errors.alcohol.msg%>
+                </p>
+            <% } %>
             <h3>Color</h3>
             <select name="color" id="color">
                 <option>1</option>
@@ -46,9 +66,19 @@
                 <option>1000ml</option>
                 <option>1250ml</option>
             </select>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"><%= locals.old && old.description ? old.description : ''%></textarea>
+            <% if (locals.errors && errors.description) { %>
+                <p class="msg-error">
+                <%= errors.description.msg%>
+                </p>
+            <% } %>
             <label for="imagen">Seleccionar imagen</label>
             <input type="file" id="imagen" name="imagen">
+            <% if (locals.errors && errors.imagen) { %>
+                <p class="msg-error">
+                <%= errors.imagen.msg%>
+                </p>
+            <% } %>
             <button method="POST" type="submit">Enviar</button>
         <button type="reset">Borrar</button>
 </form>

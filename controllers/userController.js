@@ -4,6 +4,8 @@ const path = require('path')
 
 const bcryptjs = require("bcryptjs")
 
+const bcrypt = require('bcrypt')
+
 const User = require('../data/models/User')
 
 const User3 = require('../data/models/User2')
@@ -51,7 +53,7 @@ const userController = {
                 surname : req.body.surname,
                 email : req.body.email,
                 direction: req.body.direction,
-                password: bcryptjs.hashSync(req.body.password, 12),
+                password: bcrypt.hashSync(req.body.password, 12),
                 image : req.file.filename
             }
 
@@ -120,10 +122,10 @@ const userController = {
             .then((user) => {
                 //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
                 let errors = validationResult(req);
+                let users 
 
                 if (req.body.email != '' && req.body.password != '') {
-                    bcryptjs.compareSync(req.body.password, user.password)
-                    console.log('ok1')
+                    bcrypt.compareSync(user.password, req.body.password)
                 } else {
                     console.log('ok2')
                     return res.render(path.resolve(__dirname, '../views/usuarios/login'), { usuario: req.session.usuario, errors: [{ msg: "Credenciales invalidas" }] });
@@ -176,7 +178,7 @@ const userController = {
             name: req.body.name,
             surname: req.body.surname,
             email: req.body.email,
-            password: bcryptjs.hashSync(req.body.password, 12),
+            password: bcrypt.hashSync(req.body.password, 12),
             imagen: req.file.filename
         }, {
             where: {

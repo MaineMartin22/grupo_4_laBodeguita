@@ -37,22 +37,44 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 let validaciones = [
-    body('name').notEmpty().withMessage('El campo nombre no puede estar vacío'),
-    body('surname').notEmpty().withMessage('El campo apellido no puede estar vacío'),
-    body('direction').notEmpty().withMessage('El campo dirección no puede estar vacío'),
-    body('email').isEmail().withMessage('Agregar un email válido'),
+    check('name').isFloat({min: 2}).withMessage('El campo nombre no puede estar vacío, debe tener al menos dos caracteres'),
+    check('surname').isFloat({min: 2}).withMessage('El campo apellido no puede estar vacío, debe tener al menos dos caracteres'),
+    check('direction').notEmpty().withMessage('El campo dirección no puede estar vacío'),
+    check('email').isEmail().withMessage('Agregar un email válido'),
   //Aquí valido el Password   
-    body('password').notEmpty({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres al menos una letra y un número'),
+    check('password').isStrongPassword({ minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,}).withMessage('La contraseña deberá ser minimamente de 8 caracteres y poseer letras mayúsculas, minúsculas, un número y un carácter especial.'),
   //Aquí valido si eusuario existe o no en la tabla de usuarios Por el campo email)
   //Aquí valido la confimación del password dispuesto por el usuario
-    body('repassword').isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
+  check('repassword').isStrongPassword({ minLength: 8,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 1,}).withMessage('La contraseña deberá ser minimamente de 8 caracteres y poseer letras mayúsculas, minúsculas, un número y un carácter especial.'),
 
-    body('repassword').custom((value, {req}) =>{
+  check('repassword').custom((value, {req}) =>{
         if(req.body.password == value ){
             return true    // Si yo retorno un true  no se muestra el error     
         }else{
             return false   // Si retorno un false si se muestra el error
-        }}).withMessage('Las contraseñas deben ser iguales')];
+        }}).withMessage('Las contraseñas deben ser iguales'),
+
+    check('avatar').custom((value, { req }) => {
+            let file = req.file;
+            let extAceptadas = ['.png', '.jpg', '.jpeg', '.gif'];
+            if (!file) {
+                throw new Error('Tienes que subir una foto');
+            } else {
+                let extension = path.extname(file.originalname);
+                if (!extAceptadas.includes(extension)) {
+                    throw new Error(`Las extensiones permitidas son: ${extAceptadas.join(', ')}`);
+                }
+            }
+            return true;
+        })];
 
 router.get('/register', guestMiddleware, userController.registerUser);
 
