@@ -58,13 +58,14 @@
             <% if (locals.errors && errors.password) { %>
               <p class="msg-error"> <%= errors.password.msg%></p>
             <% } %>
+          </div>
         <div class="general">
-          <div class="general">
             <label class="label" for="pass">Repetir contraseña</label>
             <input type="password" id="pass" name="repassword">
             <% if (locals.errors && errors.repassword) { %>
               <p class="msg-error"> <%= errors.repassword.msg%></p>
             <% } %>
+        </div>
         <div class="general">
           <input type="file" id="avatar" name="avatar">
       </div>
