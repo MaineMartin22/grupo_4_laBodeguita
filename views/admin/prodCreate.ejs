@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head") %>
+        <link rel="stylesheet" href="/css/estilosReg.css">
+      </head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+    <main>
+    <div class="create-div">
+    <form method="POST" action="/product/create" class="create" enctype="multipart/form-data">
+            <input type="text" name="name" id="name" placeholder="Nombre del producto">
+            <h3>Tipo de producto</h3>
+            <select name="tipo">
+                <option>Tinto</option>
+                <option>Blanco</option>
+                <option>Rosado</option>
+            </select>
+            <h3>Oferta: "0" para no, "1" para si</h3>
+            <select name="oferta">
+                <option>0</option>
+                <option>1</option>
+            </select>
+            <h3>Bodegas</h3>
+            <select name="bodega">
+                <% cellars.forEach(e => { %>
+                <option><%= e.id %> </option>
+                <% }) %>
+            </select>
+            <input type="number" name="precio" id="precio" placeholder="Precio">
+            <input type="number" name="descuento" id="descuento" placeholder="Descuento">
+            <input type="number" name="alcohol" id="alcohol" step="0.01" min="0" max="20" placeholder="Alcohol producto">
+            <h3>Color</h3>
+            <select name="color" id="color">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>            
+            <select name="tamano">
+                <option>750ml</option>
+                <option>1000ml</option>
+                <option>1250ml</option>
+            </select>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            <label for="imagen">Seleccionar imagen</label>
+            <input type="file" id="imagen" name="imagen">
+            <button method="POST" type="submit">Enviar</button>
+        <button type="reset">Borrar</button>
+</form>
+</div>
+</main>
+<footer class="footer">
+    <%- include("../partials/footer") %>
+  </footer>
+  </body>
+  <%- include("../partials/scripts") %>
+  </html>

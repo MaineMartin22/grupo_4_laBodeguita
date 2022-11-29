@@ -1,116 +1,147 @@
-const ejs = require("ejs")
-const subir = require('../models/productsModel')
 const fs = require('fs');
+
 const path = require('path')
+
+const bcryptjs = require("bcryptjs")
+
 const miPathDataBase = path.join(__dirname, '../data/productos.json')
+
+const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
+
 const prods = fs.readFileSync('./data/productos.json', 'utf-8');
+
+const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
+
 const tinto = JSON.parse(prods);
 
-const agregarProducto = nuevoProducto =>{
-    tinto.push(nuevoProducto);
+const users = JSON.parse(usuario);
 
-    return tinto
-}
+const { validationResult } = require('express-validator')
+
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+
+const Product = db.Product
+
+const Cellar = db.Cellar
 
 
 const controller = {
-    index: (req, res) => {res.render("index",{tinto:tinto})},
-    register: (req, res) => {res.render("register")},
-    productDetail: (req, res) =>{res.render("prodDetail",{tinto:tinto})},
-    login: (req, res) => {res.render("login")},
-    prodCar:(req, res) => {res.render("prodCar")},
-    toBuy: (req, res) => {res.render("finalizarCompra")},
-    product: (req,res) => {res.render("prodCreate")},
-    vinos: (req,res) =>{res.render("vinos", {tinto:tinto})},
+    login: (req, res) => {res.render("./usuarios/login", {usuario: req.session.usuario})},
+    prodCar:(req, res) => {res.render("./productos/prodCar", {usuario: req.session.usuario})},
+    toBuy: (req, res) => {res.render("./productos/finalizarCompra", {usuario: req.session.usuario})},
 
-    list: function(req, res){
-        tinto;
-        res.render('prodList', {'tinto':tinto});
+    product: function(req, res){
+        db.Cellar.findAll()
+            .then(function(cellars){
+            return res.render('./admin/prodCreate', {cellars, usuario: req.session.usuario})
+        })
+        },
+
+
+
+    index: function(req, res){
+    db.Product.findAll()
+        .then(function(productos){
+            console.log(req.session.usuario)
+        return res.render('./web/index.ejs', {productos, usuario: req.session.usuario})
+    })
     },
 
-    // search: function(req, res) {
-    //     let prodSearch = req.query.search;
-    //     tinto;
+    productDetail: function(req, res){
+    db.Product.findAll()
+        .then(function(productos){
+        return res.render('./productos/prodDetail.ejs', {productos, usuario: req.session.usuario})
+    })
+    },
+    
+    // LISTADO DE PRODUCTOS
 
-    //     let prodResults = [];
+   list: function(req, res){
+    db.Product.findAll()
+        .then(function(productos){
+        return res.render('./admin/prodList.ejs', {productos, usuario: req.session.usuario})
+    })
+    },
 
-    //     for (let i = 0; i < tinto.length; i++) {
-    //         if (tinto[i].name.includes(prodSearch)) {
-    //             prodResults.push(tinto[i])
-    //         }
-            
-    //         res.send(prodResults)
-    //     }
-    // },
+
+    // DETALLE DE CADA UNO
+
+    detalle: function(req,res){
+    console.log(req.params.idProd);
+    db.Product.findByPk(req.params.idProd, {
+        include: [{association : 'cellars'}, {association : 'colors'}]
+    })
+        .then(product => {
+        res.render('./productos/vinos.ejs', {product, usuario: req.session.usuario});
+    });
+    },
+
+    // CREAR PRODUCTOS
 
     create: function(req, res) {
-        let newProducto = {
-        id : tinto.length+1,
-        name : req.body.name,
-        tipo : req.body.tipo,
-        bodega : req.body.bodega,
-        collapse : 'collapse' + (tinto.length + 1),
-        precio : req.body.precio,
-        alcohol : req.body.alcohol,
-        color : req.body.color,
-        oferta: req.body.oferta,
-        descuento: req.body.descuento,
-        tamaño : req.body.tamaño,
-        imagen : req.body.imagen
+        db.Product.create({
+            name: req.body.name,
+            type: req.body.tipo,
+            id_cellar: req.body.bodega,
+            price: req.body.precio,
+            description: req.body.description,
+            alcohol: req.body.alcohol,
+            id_color: req.body.color,
+            sale: req.body.oferta,
+            discount: req.body.descuento,
+            size: req.body.tamano,
+            image: req.file.originalname
+        })
+        res.redirect('./list')
+    },
+
+    // EDITAR DE PRODUCTO
+
+    edit : function(req,res){
+        console.log(req.params.idProd);
+        db.Product.findByPk(req.params.idProd)
+            .then(product => {
+            res.render('./admin/prodEdit',{product, usuario: req.session.usuario} );
+        });
+        },
+
+    update:(req, res)=> {
+        db.Product.update({
+            name: req.body.name,
+            type: req.body.tipo,
+            id_cellar: req.body.bodega,
+            price: req.body.precio,
+            description: req.body.description,
+            alcohol: req.body.alcohol,
+            color: req.body.color,
+            sale: req.body.oferta,
+            discount: req.body.descuento,
+            size: req.body.tamano,
+            image: req.file.originalname
+
+        }, {
+        where: {
+            id: req.params.idProd
         }
-        tinto.push(newProducto);
-        fs.writeFileSync(miPathDataBase, JSON.stringify(tinto, null, ' '))
-        res.redirect('/detalleProducto')
+        });
+
+        res.redirect('../list')
     },
 
-     update : function(req, res) {
-        let idProd = req.params.idProd;
-
-        let prodToEdit = tinto[idProd - 1];
-
-        res.render("prodEdit", {prodToEdit: prodToEdit});
-    },
-
-    edit:(req, res)=> {
-        const idProd = req.params.idProd;
-
-        const vinoEditado = {
-            id: idProd,
-            name : req.body.name,
-            tipo : req.body.tipo,
-            bodega : req.body.bodega,
-            precio : req.body.precio,
-            alcohol : req.body.alcohol,
-            color : req.body.color,
-            oferta: req.body.oferta,
-            descuento: req.body.descuento,
-            tamaño : req.body.tamaño,
-            imagen : req.body.imagen
-        }
-
-        const productoEditar = tinto.find(vino => vino.id == idProd)
-        const index = tinto.indexOf(productoEditar)
-
-        tinto.splice(index, 1, vinoEditado);
-
-        fs.writeFileSync(miPathDataBase, JSON.stringify(tinto, null, ' '))
-
-        res.redirect('/detalleProducto')
-    },
+    // BORRAR PRODUCTO
 
 
     delete: (req, res) =>{
-        const idProd = req.params.idProd;
-
-        const productoEliminar = tinto.find(vino => vino.id == idProd)
-        const index = tinto.indexOf(productoEliminar)
-
-        tinto.splice(index, 1);
-
-        fs.writeFileSync(miPathDataBase, JSON.stringify(tinto))
-
-        res.redirect('/list')
-
+        id = req.params.idProd
+        db.Product.destroy({
+        where: {
+        id: id
+        }
+        }).then(function(result){
+            res.redirect('../list')
+        })
     }
 }
 

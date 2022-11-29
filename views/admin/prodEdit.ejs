@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head") %>
+        <link rel="stylesheet" href="/css/estilosReg.css">
+      </head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+    <main>
+    <div class="create-div">
+    <form method="POST" action="<%= product.id %>" class="create" enctype="multipart/form-data">
+            <h3>Editando producto: <%=product.name%> - ID número: <%= product.id %></h3>
+            <div>
+            <input type="text" name="name" id="name" value="<%=product.name%>">
+            <h3>Tipo</h3>
+            <select name="tipo" id="tipo">
+            <% if (product.type == "Rosado") { %>
+                <option><%=product.type%></option>
+                <option>Tinto</option>
+                <option>Blanco</option>
+            <% } else if (product.type == "Tinto" ) { %> 
+                <option><%=product.type%></option>
+                <option>Rosado</option>
+                <option>Blanco</option>
+            <% } else { %>
+                <option><%=product.type%></option>
+                <option>Rosado</option>
+                <option>Tinto</option>
+            <% };%>
+        </select>
+        <h3>Oferta: "0" para no, "1" para si</h3>
+        <select name="oferta" id="oferta">
+            <option>0</option>
+            <option>1</option>
+        </select>
+
+            <h3>Precio</h3>
+            <input type="number" name="precio" id="precio" value="<%=product.price%>">
+            <h3>Bodega: 1 - Malbec, 2 - Santa Julia, 3 - Norton</h3>
+            <select name="bodega" id="bodega">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <h3>% de alcohol</h3>
+            <input type="text" name="alcohol" id="alcohol" value="<%=product.alcohol%>">
+            <h3>Descuento en número entero</h3>
+            <input type="text" name="descuento" id="descuento" value="<%=product.discount%>">
+            <h3>Tamaño</h3>
+            <select name="tamano" id="tamano">
+                    <option>750ml</option>
+                    <option>1000ml</option>
+                    <option>1250ml</option>
+            </select>
+            <h3>Color</h3>
+            <select name="color" id="color">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+        </select>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            <label for="imagen">Seleccionar imagen</label>
+            <input type="file" id="imagen" name="imagen">
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+    </div>
+</form>
+</div>
+</main>
+<footer class="footer">
+    <%- include("../partials/footer") %>
+  </footer>
+  </body>
+  <%- include("../partials/scripts") %>
+
+</html>

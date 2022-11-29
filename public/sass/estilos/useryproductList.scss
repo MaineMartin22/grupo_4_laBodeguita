@@ -1,0 +1,45 @@
+
+  /* LISTA DE PRODUCTOS  */
+
+.prodList{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.prodList div{
+  width: 100%;
+  background: #0f20273e;
+  background: -webkit-linear-gradient(to right, #011B36, #0e355f, #0F2027);  
+  background: linear-gradient(to right, #011b3695, #0e355f79, #0f2027bc); 
+  color: #fff;
+  margin: auto;
+   article  {
+     table{
+      color: #fff;
+      td{
+        a{
+          i{
+            color: #fff;
+          }
+        }
+      }
+     }
+   }
+}
+
+.prodList div article table td button{
+    background-color: transparent;
+    align-content: center;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    i{
+      position: absolute;
+      color: #fff;
+      top: -15px;
+    }
+}

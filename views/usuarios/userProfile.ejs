@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head") %>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+    <%- include("../partials/navBar") %>
+    </header>
+    <main class="main-profile">
+    <h2>Bienvenido ¡<%= usuario.name %>!</h2>
+    <div class="profile-info">
+      <div class="profile-title">
+        <div class="profile-img">
+          <img src="/images/avatar/<%= usuario.image %> " alt="avatar">
+        </div>
+        <div class="profile-name">
+          <p><%= usuario.name %> <%= usuario.surname %></p>
+        </div>
+      </div>
+      <div class="profile-data">
+        <p>Editar mi información</p>
+        <form action="/users/profile" method="POST">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" value="<%= usuario.name %>">
+            <label for="nombre">Apellido</label>
+            <input type="text" name="apellido" value="<%= usuario.surname %>">
+            <label for="nombre">Direccion</label>
+            <input type="text" name="direccion" value="<%= usuario.direction %>">
+            <label for="contrasena">Nueva contraseña</label>
+            <input type="password" name="contrasena">
+        </form>
+      </div>
+    </div>
+    <div class="buttons-profile">
+      <form action="/users/logout" method="GET">
+        <button id="logout" type="submit">Cerrar Sesion</button>
+      </form>
+      <form action="/users/profile">
+        <button id="edit" type="submit">Guardar cambios</button>
+      </form>
+    </div>
+  </main>
+  <footer class="footer">
+    <%- include("../partials/footer") %>
+</footer>
+  </body>
+  <%- include("../partials/scripts") %>
+
+</html>

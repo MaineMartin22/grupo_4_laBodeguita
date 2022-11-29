@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head") %>
+        <link rel="stylesheet" href="/css/estilosReg.css">
+      </head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+    <main>
+        <section class="prodList">
+            <div class="prodList-div">
+            <div>
+            <h4>Lista de productos</h4>
+            <h4>Haz click para ver y editar</h4>
+            <article class="col-12" >
+            <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Apellido</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Categoria</th>
+                          <th scope="col">Editar</th>
+                          <th scope="col">Borrar</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% usuarios.forEach(tint => { %>
+                        <tr>
+                          <td><%= tint.id%> </td>
+                          <td><%= tint.name%> </td>
+                          <td><%= tint.surname%> </td>
+                          <td><%= tint.email%> </td>
+                          <td><%= tint.id_categories%> </td>
+                          <td><a href="/users/edit/<%= tint.id%> "> <ion-icon name="pencil-outline"><i class="fa-solid fa-pencil"></i></i></a></td>
+                          <td><a href="/users/delete/<%= tint.id%>"><ion-icon name="trash-outline"><i class="fa-solid fa-trash"></i></a></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+    </section>
+    </main>
+    <footer class="footer">
+    <%- include("../partials/footer") %>
+  </footer>
+  </body>
+  <%- include("../partials/scripts") %>
+
+</html>

@@ -1,0 +1,159 @@
+/* MAIN ESTILOS - SECTION 1 */
+
+main {
+    background-image: url(/images/products/main-fondo.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  .section {
+    background-color: transparent;
+    height: 750px;
+    display: flex;
+    padding-top: 80px;
+  }
+  
+  .sect-div {
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    margin-top: 50%;
+    cursor: pointer;
+  }
+  
+  .sect-img {
+    margin: auto;
+    text-align: center;
+  }
+  
+  .la-bodeguita {
+    width: 100%;
+    color: #fff;
+    font-size: 45px;
+  }
+  
+  
+  .sect-text p {
+    color: #fff;
+    font-size: 15px;
+  }
+  
+  /*CARRUSEL, SECTION DOS - OFERTAS*/
+  
+  .section-two {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #011B36, #373B44);
+    background: linear-gradient(to right, #011B36, #373B44);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .carrusel-img {
+    width: 100%;
+  }
+  
+  /* INICIO - OFERTAS*/
+  
+  .ofertas {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    text-align: left;
+    padding-top: 30px;
+  }
+  
+  .ofer-title {
+    width: 90%;
+    margin: auto;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: "Roboto", sans-serif;
+  }
+  .ofer-title h3 {
+    font-size: 30px;
+  }
+  
+  .ofer-prod {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 15px;
+    width: 90%;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: #d0d0d0;
+  }
+  
+  .ofer-img {
+    width: 100%;
+  }
+  
+  .ofer-img img {
+    width: 100%;
+    margin: auto;
+    object-fit: contain;
+  }
+  
+  .ofer-text {
+    width: 100%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    border-top: 2px solid #011B36;
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #011B36, #373B44);
+    background: linear-gradient(to right, #011B36, #373B44);
+    color: #fff;
+    text-align: center;
+  
+  }
+  
+  .ofer-text h4 {
+    text-align: center;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .ofer-text p {
+    padding-top: 15px;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .descuento {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .ofer-precio {
+    font-size: 20px;
+    width: 90%;
+    padding-bottom: 20px;
+    margin: auto;
+  }
+  
+  .ofer-bot {
+    font-size: 15px;
+    color: #011B36;
+    padding: 5px;
+    border: 1px solid #011B36;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    text-decoration: none;
+  }
+  
+  .ofer-bot:hover {
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #011B36;
+  }
+  
+  

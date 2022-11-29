@@ -1,60 +1,116 @@
 <nav id="desktopnav" class="nav-bar">
-    <div class="menu-hamb">
-        <i class="fa-solid fa-bars"></i>
+  <div class="menu-hamb">
+      <i class="fa-solid fa-bars"></i>
+  </div>
+  <div class="nav-contein">
+    <% if (usuario && usuario.id_categories == 1) { %>
+      <a class="nav-links" href="/users/list">Usuarios</a>
+      <a class="nav-links" href="/product/create">Crear</a>
+      <a class="nav-links" href="/product/list">Lista de productos</a>
+      <% } else {%> 
+      <a class="nav-links" href="/home">Nosotros</a>
+      <a class="nav-links" href="/detalleProducto">Vinos</a>
+      <a class="nav-links" href="#footer">Contacto</a>
+      <% };%> 
+  </div>
+  <div class="nav-logo">
+      <a href="/"><img src="/images/products/LogoRedondo.svg" alt="LogoRedondo"></a>
+  </div>
+  <div class="nav-contein-login">
+      <% if (usuario) { %>
+        <div class="user-div">
+        <div class="profile-img-nav">
+          <img src="/images/avatar/<%= usuario.image %>" alt="avatar">
+        </div>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola <%= usuario.name %></a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/users/logout">Cerrar sesión</a></li>
+          <% if (usuario&& usuario.id_categories == 1) { %>
+            <li><a class="dropdown-item" href="/home">Inicio</a></li>
+            <li><a class="dropdown-item" href="/detalleProducto">Vinos</a></li>
+            <li><a class="dropdown-item" href="/finalizarCompra">Finalizar compra</a></li>
+
+            <% };%> 
+        </ul>
+      </li>
     </div>
-    <div class="nav-contein">
-        <a class="nav-links" href="home">Nosotros</a>
-        <a class="nav-links" href="create">Crear</a>
-        <a class="nav-links" href="detalleProducto">Vinos</a>
-        <a class="nav-links" href="register">Registrarse <i class="fa-solid fa-message-middle"></i></a>
-    </div>
-    <div class="nav-logo">
-        <img src="images/LogoRedondo.svg" alt="LogoRedondo">
-    </div>
-    <div class="nav-contein-login">
-        <a class="nav-links" href="login"><p>Ingresar </p><i class="fa-solid fa-right-to-bracket"></i></a>
-        <a href="carrito" class="carrito-i"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
+      <% } else { %> 
+      <a class="nav-links" href="/users/login">Ingresar</a>
+      <% }; %>
+      <li class="nav-item"><a href="/carrito" class="carrito-i"><i class="fa-solid fa-cart-shopping"></i><span class="cartNumber">0</span></a></li>
+  </div>
 </nav>
 
 <nav id="mobilenav" class="navbar fixed-top">
-    <div id="mobilenav-cont" class="container-fluid">
-    <div class="nav-logo-mobile">
-      <a class="navbar-brand" href="home"><img src="/images/LogoRedondo.svg" alt=""></a>
-    </div>
-      <button class="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <div class="offcanvas-div">
-            <a class="navbar-brand" id="offcanvasNavbarLabel"><img src="/images/LogoRedondo.svg" alt=""></a>
-          </div>
-          <button type="button" class="text-reset" data-bs-dismiss="offcanvas" id="btn-close"><i class="fa-solid fa-xmark"></i></button>
+  <div id="mobilenav-cont" class="container-fluid">
+  <div class="nav-logo-mobile">
+    <a class="navbar-brand" href="/home"><img src="/images/products/LogoRedondo.svg" alt=""></a>
+  </div>
+    <button class="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <div class="offcanvas-div">
+          <% if (usuario) { %>
+            <a class="navbar-brand" href="/users/profile">¡Bienvenido <%= usuario.name %>! </a> 
+          <% }else { %>
+          <a class="navbar-brand" id="offcanvasNavbarLabel"><img src="/images/products/LogoRedondo.svg" alt=""></a>
+          <% }; %> 
         </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <button type="button" class="text-reset" data-bs-dismiss="offcanvas" id="btn-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <% if (usuario&& usuario.id_categories == 1) { %>
             <li class="nav-item">
-              <a class="nav-links" aria-current="page" href="/">Inicio</a>
+              <a class="nav-links" aria-current="page" href="/product/create">Crear productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-links" href="detalleProducto">Vinos</a>
+              <a class="nav-links" href="/users/list">Lista usuarios</a>
             </li>
             <li class="nav-item">
-                <a href="carrito" class="carrito-i nav-links">Mi carrito <i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/product/list" class="carrito-i nav-links">Lista productos</a>
               </li>
-            <li class="nav-item">
-                <a class="nav-links" href="login"><p>Ingresar <i class="fa-solid fa-right-to-bracket"></i></p></a></li>
+            <% }else { %>
+          <li class="nav-item">
+            <a class="nav-links" aria-current="page" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-links" href="/detalleProducto">Vinos</a>
+          </li>
+          <li class="nav-item">
+              <a href="/carrito" class="carrito-i nav-links">Mi carrito <i class="fa-solid fa-cart-shopping"></i></a>
             </li>
-          </ul>
-            <form class="sect-search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
-                <button class="btn btn-outline-light" type="submit">Búscar</button>
-            </form>
-        </div>
+            <% }; %> 
+          <% if (usuario) { %>
+          <li class="nav-item">
+              <a class="nav-links" href="/users/profile"><p>Mi perfil <i class="fa-solid fa-right-to-bracket"></i></p></a></li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-links" href="/users/logout">Cerrar sesión</a></li>
+        </li>
+          <% }else { %>
+          <li class="nav-item">
+              <a class="nav-links" href="/users/login"><p>Ingresar <i class="fa-solid fa-right-to-bracket"></i></p></a></li>
+          </li>
+          <% }; %> 
+        </ul>
+          <form class="sect-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
+              <button class="btn btn-outline-light" type="submit">Búscar</button>
+          </form>
+          <div class="offcanvas-body-img">
+          <img src="/images/products/LogoRedondo.svg" alt="Logo"></a>
+          </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   

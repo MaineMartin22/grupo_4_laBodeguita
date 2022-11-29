@@ -1,0 +1,46 @@
+/*Footer*/
+
+.footer {
+    background: #373B44;
+    background: -webkit-linear-gradient(to right, #011B36, #373B44);
+    background: linear-gradient(to right, #011B36, #373B44);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    height: 400px;
+    justify-content: space-around;
+    text-align: center;
+    border-top: 2px solid #011B36;
+  }
+  
+  .footer-content {
+    align-content: center;
+    padding-top: 30px;
+    width: 70%;
+    margin: auto;
+  }
+  
+  .footer-content i {
+    font-size: 30px;
+    color: #fff;
+    margin-top: 15px;
+    margin-right: 15px;
+  }
+  
+  .footer-logo {
+    width: 50%;
+    height: 100px;
+    margin: auto;
+    filter: drop-shadow(-3px 1px 1px #000);
+  }
+  
+  .footer-text {
+    color: #fff;
+    margin: auto;
+  }
+  
+  .footer-text-h {
+    font-size: 20px;
+    color: #fff;
+  }
+  

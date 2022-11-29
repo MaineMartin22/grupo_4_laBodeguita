@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+<main>
+<section class="shopping-cart"> 
+    <div class="cart">
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody class="cartRows">
+            </tbody>
+        </table>
+        <div class="totalAmount">$ 0</div>
+    
+<form action="" id="checkoutCart" method="post">
+<select name="paymentMethod" id="paymentMethod">Metodo de pago
+    <option value="Débito">Débito</option>
+    <option value="Crédito">Crédito</option>
+</select>
+<select name="shippingMethod" id="shippingMethod">Metodo de envío
+    <option value="OCA">OCA a domicilio</option>
+    <option value="Correo Argentino">Correo Argentino a domicilio</option>
+    <option value="sucursal">Retiro en sucursal</option>
+</select>
+
+    <button class="btn btn-primary btn-lg btn-block waves-effect waves-light"
+    type="submit">Finalizar compra</button>
+</form>
+
+</section>
+</main>
+
+<footer class="footer">
+    <%- include("../partials/footer") %>
+</footer>
+</body>
+    <script src="/js/cart.js"></script>
+    <%- include("../partials/scripts") %>
+</html>
