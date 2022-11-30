@@ -2,18 +2,11 @@
 
 function prodInCart() {
     if (localStorage.carrito) {
-
-        return localStorage.carrito ? JSON.parse(localStorage.carrito).length : "0"
+        return JSON.parse(localStorage.carrito).length
+    } else{
+        return "0"
     }
 }
-
-// toastr.options = {
-//     positionClass: "toast-bottom-right",
-//     fadeIn: 300,
-//     fadeOut: 1000,
-//     timeOut: 5000,
-//     extendedTimeOut: 1000
-// };
 
 let botonComprar = document.querySelectorAll('.addCart')
 let cartNumber = document.querySelector('.cartNumber')
@@ -40,7 +33,6 @@ botonComprar.forEach((boton)=>{
             localStorage.setItem('carrito',JSON.stringify([{id:e.target.dataset.id,quantity: 1}]))
         }
         cartNumber.innerText = prodInCart();
-        // console.log(e.target.dataset.id);
     })
 })
 

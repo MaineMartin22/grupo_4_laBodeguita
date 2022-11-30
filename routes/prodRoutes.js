@@ -70,6 +70,6 @@ router.post('/delete/:idProd', Maincontroller.delete)
 
 router.get('/edit/:idProd', authMiddleware, notadmMiddleware, Maincontroller.edit)
 
-router.post('/edit/:idProd', productFile.single('imagen'), Maincontroller.update)
+router.post('/edit/:idProd', productFile.single('imagen'), validaciones, Maincontroller.update)
 
 module.exports = router

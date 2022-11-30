@@ -119,6 +119,17 @@ const controller = {
         },
 
     update:(req, res)=> {
+        const resultValidation = validationResult(req);
+
+
+        if(resultValidation.errors.length > 0) {
+            db.Product.findByPk(req.params.idProd)
+            .then(product => {
+            res.render('./admin/prodEdit',{product, usuario: req.session.usuario, errors: resultValidation.mapped(),  old: req.body,
+            } );
+        });
+        }
+        else{
         db.Product.update({
             name: req.body.name,
             type: req.body.tipo,
@@ -139,7 +150,7 @@ const controller = {
         });
 
         res.redirect('../list')
-    },
+    }},
 
     // BORRAR PRODUCTO
 
