@@ -37,8 +37,8 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 let validaciones = [
-    check('name').isFloat({min: 2}).withMessage('El campo nombre no puede estar vacío, debe tener al menos dos caracteres'),
-    check('surname').isFloat({min: 2}).withMessage('El campo apellido no puede estar vacío, debe tener al menos dos caracteres'),
+    check('name').isLength({min: 2}).withMessage('El campo nombre no puede estar vacío, debe tener al menos dos caracteres'),
+    check('surname').isLength({min: 2}).withMessage('El campo apellido no puede estar vacío, debe tener al menos dos caracteres'),
     check('direction').notEmpty().withMessage('El campo dirección no puede estar vacío'),
     check('email').isEmail().withMessage('Agregar un email válido'),
   //Aquí valido el Password   
