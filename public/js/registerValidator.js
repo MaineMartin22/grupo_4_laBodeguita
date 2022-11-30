@@ -1,5 +1,7 @@
 window.addEventListener("load", function () {
-    console.log('Archivo vinculado')
+    console.log('Archivo vinculado - register')
+
+    // VALIDACIONES REGISTER
 
     let button = document.getElementById('boton')
     let name = document.getElementById('nombre')
@@ -54,7 +56,18 @@ window.addEventListener("load", function () {
     repassword.addEventListener('blur', validatePassword)
 
 
-    email.addEventListener('change', function (e) {
+    email.addEventListener('blur', function (e) {
+
+        const field = e.target
+        const valueName = e.target.value
+
+        if (valueName.length < 1) {
+            field.nextElementSibling.classList.add('error');
+            field.nextElementSibling.innerText = "Este campo es obligatorio"
+        } else {
+            field.nextElementSibling.classList.remove('error');
+        }
+
         let expReg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
         let isValid = expReg.test(email.value)
 
@@ -78,17 +91,19 @@ window.addEventListener("load", function () {
             field.nextElementSibling.classList.remove('error');
         }
 
-        if (avatar.value < 1) {
-            alert('subi un avatar')
-        }
+        
     })
 
     button.addEventListener('click', function (e) {
         if (!checkbox.checked) {
             e.preventDefault();
-            alert('debes ser mayor de edad wey')
+            sweetAlert('debes ser mayor de edad wey')
+        }
+
+        if (avatar.value < 1) {
+            e.preventDefault(); 
+            sweetAlert('Debes subir un avatar');
         }
     })
-
 
 })
