@@ -75,6 +75,11 @@ let validaciones = [
             }
             return true;
         })];
+    
+    let validacionesLogin = [
+        check('email').isEmail().withMessage('Agregar un email válido'),
+        check('password').isLength({min: 5}).withMessage('Debe completar su contraseña')
+    ]
 
 router.get('/register', guestMiddleware, userController.registerUser);
 
@@ -84,7 +89,7 @@ router.post('/register', guestMiddleware, uploadFile.single('avatar'), validacio
 router.get('/login' , guestMiddleware, userController.login); 
 
 //Proceso de Login
-router.post('/login', userController.loginProcess); 
+router.post('/login', validacionesLogin, userController.loginProcess); 
 
 //Perfil de usuario
 router.get('/profile', authMiddleware, userController.profile)

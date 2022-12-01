@@ -19,16 +19,21 @@
         <div>
           <div class="general">
             <label class="label" for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Email">
+            <input type="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" name="email" placeholder="Email" >
             <span></span>
-            <% if (locals.errors && errors.msg) { %>
-              <div class="text-danger">
-                <%= errors.email.msg %>
-              </div>
+            <% if (locals.errors && errors.email) { %>
+              <p class="msg-error">
+                  <%= errors.email.msg%>
+              </p>
               <% } %>
           </div>
           <div class="general">
             <input type="password" id="password" name="password" placeholder="Contraseña">
+            <% if ( locals.errors && errors.password) { %>
+              <p class="msg-error">
+                  <%= errors.password.msg%>
+              </p>
+              <% } %>
             <span></span>
             <label class="label" for="password"></label>
           </div>

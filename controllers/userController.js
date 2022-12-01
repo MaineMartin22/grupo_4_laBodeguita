@@ -115,6 +115,22 @@ const userController = {
     },
 
     loginProcess: (req, res) => {
+        //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
+
+        let resultValidation = validationResult(req);
+        let errors = resultValidation.mapped()
+        console.log(errors);
+
+        if(resultValidation.errors.length > 0) {
+            return  res.render('./usuarios/login', {
+                usuario: req.session.usuario,
+                errors: resultValidation.mapped(),  old: req.body,
+            });
+        }
+  
+
+
+
         User2.findOne({
             where: {
                 email: req.body.email
@@ -122,12 +138,6 @@ const userController = {
             raw: true
         })
             .then((user) => {
-                //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
-                let errors = validationResult(req);
-
-                if(errors.errors.length){
-                    return res.render('./usuarios/login', {errors: errors.mapped(), oldDate:req.body})
-                }
 
                 console.log(user);
                 if (req.body.email != '' && req.body.password != '') {
