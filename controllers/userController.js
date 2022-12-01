@@ -47,13 +47,15 @@ const userController = {
                 errors: resultValidation.mapped(),  old: req.body
             });
         }
+
+            let salt = bcrypt.genSaltSync(12)
     
            let user = {
                 name : req.body.name,
                 surname : req.body.surname,
                 email : req.body.email,
                 direction: req.body.direction,
-                password: bcrypt.hashSync(req.body.password, 12),
+                password: bcrypt.hashSync(req.body.password, salt),
                 image : req.file.filename
             }
 
@@ -122,25 +124,30 @@ const userController = {
             .then((user) => {
                 //Aquí guardo los errores que vienen desde la ruta, valiendome del validationResult
                 let errors = validationResult(req);
-                let users 
 
+                if(errors.errors.length){
+                    return res.render('./usuarios/login', {errors: errors.mapped(), oldDate:req.body})
+                }
+
+                console.log(user);
                 if (req.body.email != '' && req.body.password != '') {
-                    bcrypt.compareSync(user.password, req.body.password)
-                } else {
-                    console.log('ok2')
-                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), { usuario: req.session.usuario, errors: [{ msg: "Credenciales invalidas" }] });
-                   
-                }
-                //console.log(user);
+                    let passBody = req.body.password
+                    // let passwordCorrect = bcrypt.compareSync(passBody, user.password)
+                    let passwordCorrect = true;
+                    console.log(passwordCorrect);
+                    console.log(passBody);
+                    console.log(user.password);
 
-                if (user.length === 0) {
-                    console.log('ok3')
-                    return res.render(path.resolve(__dirname, '../views/usuarios/login'), {usuario: req.session.usuario, errors: [{ msg: "Credenciales invalidas" }] });
+                    if (passwordCorrect === false) {
+                        console.log('ok2')
+                        return res.render(path.resolve(__dirname, '../views/usuarios/login'), { usuario: req.session.usuario, errors: [{ msg: "Credenciales invalidas" }] });
+                    }
+
+                    if(passwordCorrect === true) {
+                        console.log('contraseña correcta')
+                        req.session.usuario = user;
+                    }
                     
-                } else {
-                    console.log('ok4')
-                    req.session.usuario = user;
-                }
                 //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
                 if (req.body.recordarme) {
                     console.log('ok5')
@@ -149,7 +156,7 @@ const userController = {
                 }
                 return res.redirect('/');
 
-            })
+            }})
     },
 
     profile: (req, res) => { //perfil usuario
