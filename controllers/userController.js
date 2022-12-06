@@ -127,9 +127,6 @@ const userController = {
                 errors: resultValidation.mapped(),  old: req.body,
             });
         }
-  
-
-
 
         User2.findOne({
             where: {
@@ -142,8 +139,8 @@ const userController = {
                 console.log(user);
                 if (req.body.email != '' && req.body.password != '') {
                     let passBody = req.body.password
-                    // let passwordCorrect = bcrypt.compareSync(passBody, user.password)
-                    let passwordCorrect = true;
+                    let passwordCorrect = bcrypt.compareSync(passBody, user.password)
+                    // let passwordCorrect = true;
                     console.log(passwordCorrect);
                     console.log(passBody);
                     console.log(user.password);
