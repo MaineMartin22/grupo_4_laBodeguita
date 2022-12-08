@@ -93,7 +93,7 @@ const controller = {
         }
         else{
         db.Product.create({
-            name: req.body.name,
+            name: (req.body.name).toUpperCase(),
             type: req.body.tipo,
             id_cellar: req.body.bodega,
             price: req.body.precio,
@@ -131,7 +131,7 @@ const controller = {
         }
         else{
         db.Product.update({
-            name: req.body.name,
+            name: (req.body.name).toUpperCase(),
             type: req.body.tipo,
             id_cellar: req.body.bodega,
             price: req.body.precio,

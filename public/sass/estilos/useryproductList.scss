@@ -3,11 +3,27 @@
 
 .prodList{
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 1000px;
   width: 80%;
   margin: auto;
   text-align: center;
-  height: 850px;
+  height: 100vh;
+  a{
+    color: #fff;
+    background-color: #011B36;
+    padding: 5px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    transition: all .4s ease-in-out;
+    border: 1px solid #fff;
+  }
+
+  a:hover{
+    color: #fff;
+
+  }
 }
 
 .prodList div{
@@ -21,9 +37,48 @@
      table{
       color: #fff;
       td{
+        
+        .modal-container{
+            background: none;
+            img{
+                width: 30px;
+                background-color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 1;
+        }
+      }
+      .modal-container.activeImg{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        img{
+          height: 420px;
+          width: 350px;
+        }
+      }
+      .modal-container.activeImg::after{
+        content: '';
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.56);
+        z-index: 0;
+      }
+      }
+      td{
         a{
           i{
             color: #fff;
+            transition: all .4s ease-in-out;
+
           }
         }
       }

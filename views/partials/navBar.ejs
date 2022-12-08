@@ -27,14 +27,13 @@
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola <%= usuario.name %></a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="/users/logout">Cerrar sesión</a></li>
           <% if (usuario&& usuario.id_categories == 1) { %>
             <li><a class="dropdown-item" href="/home">Inicio</a></li>
             <li><a class="dropdown-item" href="/detalleProducto">Vinos</a></li>
             <li><a class="dropdown-item" href="/finalizarCompra">Finalizar compra</a></li>
-
             <% };%> 
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/users/logout">Cerrar sesión</a></li>
         </ul>
       </li>
     </div>
@@ -76,6 +75,15 @@
             <li class="nav-item">
                 <a href="/product/list" class="carrito-i nav-links">Lista productos</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-links" aria-current="page" href="/">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-links" href="/detalleProducto">Vinos</a>
+              </li>
+              <li class="nav-item">
+                  <a href="/carrito" class="carrito-i nav-links">Mi carrito <i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
             <% }else { %>
           <li class="nav-item">
             <a class="nav-links" aria-current="page" href="/">Inicio</a>
@@ -100,7 +108,7 @@
           </li>
           <% }; %> 
         </ul>
-          <form class="sect-search">
+          <form action="./product/search" method="get">
               <i class="fa-solid fa-magnifying-glass"></i>
               <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
               <button class="btn btn-outline-light" type="submit">Búscar</button>

@@ -11,15 +11,14 @@
     margin: auto;
     margin-top: 30px;
   }
-  .main-vinos .sect-search input {
-    padding: 3px 5px;
+  .main-vinos .sect-search form input {
     border: 3px solid #fff;
     border-radius: 3px;
     width: 100%;
     outline: none;
     padding-left: 40px;
   }
-  .main-vinos .sect-search input:focus {
+  .main-vinos .sect-search form input:focus {
     box-shadow: 0 1px 1px #011B36;
     border: 3px solid #011B36;
   }
@@ -31,7 +30,7 @@
     padding: 1px 5px;
     font-size: 16px;
     left: 1%;
-    top: 9px;
+    top: 19px;
   }
   
   .sect-search {
@@ -41,16 +40,39 @@
     margin: auto;
     margin-top: 30px;
   }
-  .sect-search input {
-    padding: 3px 5px;
-    border: 3px solid #fff;
-    border-radius: 3px;
+
+  .sect-search form{
+    display: flex;
     width: 100%;
+    align-items: center;
+    text-align: center;
+
+  }
+  .sect-search form input {
+    border-radius: 3px;
+    padding: 3px;
+    width: 70%;
     outline: none;
-    padding-left: 40px;
     margin-right: 5px;
   }
-  .sect-search input:focus {
+
+  .sect-search form button{
+    width: 10%;
+    font-size: 20px;
+    background: none;
+    color: #fff;
+    border: 2px solid #fff;
+    margin-bottom: 10px;
+    transition: all .4s ease-in-out;
+  }
+
+  .sect-search form button:hover{
+    background-color: #fff;
+    color: #011B36;
+    border:2px solid #011B36;
+  }
+
+  .sect-search form input:focus {
     box-shadow: 0 1px 1px #011B36;
     border: 3px solid #011B36;
   }

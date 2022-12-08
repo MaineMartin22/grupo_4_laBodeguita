@@ -69,13 +69,6 @@ module.exports = (sequelize, dataTypes) => {
             as: "colors",
             foreignKey: "id_color", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
         });
-        Product.belongsToMany(models.Cart_product, {
-            as: "cart_products",
-            through: "cart_product", // ponemos el nombre de la tabla pivot
-            foreignKey: "id_product", // nombre de la columna en la tabla pivot que hace referencia al modelo actual
-            otherKey: "id_cart", // le dice a sequalize cuál es el nombre de la columna en la tabla pivot que hace referencia a la conexión
-            timestamps: false
-        });
     }
 
     return Product
