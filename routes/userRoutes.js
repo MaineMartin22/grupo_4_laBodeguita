@@ -105,7 +105,7 @@ router.get('/list', authMiddleware, notadmMiddleware, userController.userList);
 
 router.get('/delete/:idUser', authMiddleware, notadmMiddleware, userController.userList)
 
-router.delete('/delete/:idUser', userController.deleteUser)
+router.post('/delete/:idUser', userController.deleteUser)
 
 // EDITAR USUARIO DESDE ADMIN
 

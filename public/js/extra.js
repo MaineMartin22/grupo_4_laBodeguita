@@ -9,6 +9,7 @@ function prodInCart() {
 }
 
 let botonComprar = document.querySelectorAll('.addCart')
+let botonBorrar = document.querySelectorAll('.vaciarCart')
 let cartNumber = document.querySelector('.cartNumber')
 cartNumber.innerText = prodInCart();
 
@@ -36,4 +37,12 @@ botonComprar.forEach((boton)=>{
     })
 })
 
-console.log(botonComprar );
+console.log(botonComprar);
+
+botonBorrar.forEach((boton)=>{
+    boton.addEventListener('click', (e) =>{
+        window.location.reload();
+    })
+})
+
+console.log(botonBorrar);

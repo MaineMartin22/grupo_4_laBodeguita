@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2022 a las 23:23:41
+-- Tiempo de generación: 08-12-2022 a las 01:20:13
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -112,6 +112,41 @@ INSERT INTO `colors` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `orderitems`
+--
+
+CREATE TABLE `orderitems` (
+  `id` int(11) NOT NULL,
+  `orderId` int(11) NOT NULL,
+  `productId` int(11) DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  `deletedAt` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `total` decimal(10,0) NOT NULL,
+  `paymentMethod` varchar(25) NOT NULL,
+  `shippingMethod` varchar(25) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updateAt` datetime NOT NULL,
+  `deletedAt` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `products`
 --
 
@@ -160,7 +195,7 @@ CREATE TABLE `users2` (
   `surname` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL,
   `direction` varchar(50) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `image` varchar(50) NOT NULL,
   `id_categories` int(11) NOT NULL DEFAULT 2,
   `id_cart` varchar(25) NOT NULL
@@ -171,14 +206,7 @@ CREATE TABLE `users2` (
 --
 
 INSERT INTO `users2` (`id`, `name`, `surname`, `email`, `direction`, `password`, `image`, `id_categories`, `id_cart`) VALUES
-(1, 'Sergio', 'Picard', 'sergio@gmail.com', 'Aragón 305', 'sergio12345', '1665877724799_img.webp', 1, ''),
-(3, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$iJMyjsLoJmdHgVH5i6', '', 2, ''),
-(6, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$2.NBhI2pUKfKgR.Whr', '', 0, ''),
-(97781777, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$AGgZcQPPIo9b/XOyXS', '', 0, ''),
-(97781778, 'sergio', 'picard', 'sergio1@gmail.com', 'sergio 305', '$2a$12$dZF0cWX1m.GN9kychP', '1668475006840_img.webp', 0, ''),
-(97781779, 'sergio', 'picard', 'sergio@gmail.com', 'sergio 305', '$2a$12$Kkl8cqftkzJxxyit4A', '1668475121197_img.webp', 0, ''),
-(97781780, ' Martin', 'Maine', 'mm@gmail.com', 'Avenida Mitre 939', '$2a$12$40PSAXGWtKY.esiUsY', '1668514194623_img.png', 0, ''),
-(97781781, 'martin', 'maine', 'mm123@gmail.com', 'avenida mitre 939', '$2a$12$CufnM0D4Xg99G4Ywn5', '1668628244581_img.png', 1, '');
+(6671, 'tamco', 'tamco', 'tamco@gmail.com', 'tamco 305', '$2b$12$mak/G6cSjQOFwr4LbAgtiuRCrQR8uO6TFSbR36vEvQeE4EDoB64Vm', '1670457163335_img.png', 1, '');
 
 --
 -- Índices para tablas volcadas
@@ -214,6 +242,18 @@ ALTER TABLE `cellars`
 -- Indices de la tabla `colors`
 --
 ALTER TABLE `colors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `orderitems`
+--
+ALTER TABLE `orderitems`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -266,16 +306,28 @@ ALTER TABLE `colors`
   MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `orderitems`
+--
+ALTER TABLE `orderitems`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `users2`
 --
 ALTER TABLE `users2`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97781782;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

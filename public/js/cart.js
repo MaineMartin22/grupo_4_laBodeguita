@@ -32,7 +32,7 @@ if (localStorage.carrito) {
                         <td>${product.price}</td>
                         <td>${item.quantity}</td>
                         <td>${parseFloat(product.price * item.quantity, 2).toFixed(2)}</td>
-                        <td><a href="#" onclick="vaciarCarrito(${index})">Eliminar</a></td>
+                        <td><a href="#" class="deleteCart" onclick="vaciarCarrito(${index})">Eliminar</a></td>
                         </tr>
                         `;
                 products.push({

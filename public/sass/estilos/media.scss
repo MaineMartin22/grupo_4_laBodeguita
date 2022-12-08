@@ -35,6 +35,11 @@
       .create{
         width: 90%;
       }
+
+      
+  .footer-content{
+    width: 80%;
+  }
   
   
   }
@@ -205,12 +210,11 @@
   
     .footer {
       display: flex;
-      flex-wrap: nowrap;
+      flex-direction: row;
     }
   
-    .footer-text, .footer-text-h {
-      width: 80%;
-      margin: auto;
+    .footer-content{
+      width: 33%;
     }
   }
   @media (min-width: 810px) {

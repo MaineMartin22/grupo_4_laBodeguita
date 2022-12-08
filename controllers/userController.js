@@ -6,11 +6,6 @@ const bcryptjs = require("bcryptjs")
 
 const bcrypt = require('bcrypt')
 
-const User = require('../data/models/User')
-
-const User3 = require('../data/models/User2')
-
-
 const db = require('../database/models');
 
 const User2 = db.User2
@@ -48,16 +43,18 @@ const userController = {
             });
         }
 
-            let salt = bcrypt.genSaltSync(12)
+            // let salt = bcrypt.genSaltSync(12)
     
            let user = {
-                name : req.body.name,
-                surname : req.body.surname,
-                email : req.body.email,
+                name : (req.body.name).toUpperCase(),
+                surname : (req.body.surname).toUpperCase(),
+                email : (req.body.email).toUpperCase(),
                 direction: req.body.direction,
-                password: bcrypt.hashSync(req.body.password, salt),
+                password: bcrypt.hashSync(req.body.password, 12),
                 image : req.file.filename
             }
+
+            console.log(user.password);
 
             User2.findOne({
                 where: {
@@ -97,7 +94,6 @@ const userController = {
     // BORRAR USUARIOS
 
     deleteUser: (req, res) => {
-        (req, res) => {
             id = req.params.idUser
             User2.destroy({
                 where: {
@@ -106,7 +102,6 @@ const userController = {
             }).then(function (result) {
                 res.redirect('../list')
             })
-        }
     },
 
 

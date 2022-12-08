@@ -27,6 +27,23 @@
     color: #fff;
     padding: 50px;
     padding-top: 25%;
+      .wrap{
+        .formulario{
+          .conteiner-general-regist{
+            .general{
+              span{
+                color: red!important; 
+              }
+            }
+          }
+        }
+      }
+  }
+
+  .general{
+    span{
+      color: red!important; 
+    }
   }
   .formulario{
     width: 100%;
@@ -92,7 +109,6 @@
 
   .msg-error{
     color: red!important; 
-
   }
 
 

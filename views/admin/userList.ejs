@@ -12,7 +12,7 @@
         <section class="prodList">
             <div class="prodList-div">
             <div>
-            <h4>Lista de productos</h4>
+            <h4>Lista de usuarios</h4>
             <h4>Haz click para ver y editar</h4>
             <article class="col-12" >
             <table class="table">
@@ -36,7 +36,7 @@
                           <td><%= tint.email%> </td>
                           <td><%= tint.id_categories%> </td>
                           <td><a href="/users/edit/<%= tint.id%> "> <ion-icon name="pencil-outline"><i class="fa-solid fa-pencil"></i></i></a></td>
-                          <td><a href="/users/delete/<%= tint.id%>"><ion-icon name="trash-outline"><i class="fa-solid fa-trash"></i></a></td>
+                          <form action="/users/delete/<%= tint.id%>" method="POST"><td><button><ion-icon name="trash-outline"><i class="fa-solid fa-trash"></i></button></td></form>
                         </tr>
                         <% }); %>
                     </tbody>
