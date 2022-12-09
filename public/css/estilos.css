@@ -614,6 +614,19 @@ main {
   text-align: left;
 }
 
+#avatar {
+  width: 100%;
+  color: black;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
 .create textarea {
   border: 1px solid lightblue;
 }
