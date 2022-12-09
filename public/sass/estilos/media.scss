@@ -2,6 +2,11 @@
 
 @media (min-width: 481px) {
 
+  .profile-info{
+    width: 80vw;
+
+  }
+
     /* NAV BAR EN MOBILE */
     .menu-hamb {
       display: flex;
@@ -194,6 +199,10 @@
     }
   
     /* PERFIL EN TABLET  */
+
+    .profile-info{
+      width: 60vw;
+    }
   
     .profile-title{
       width: 100%;
@@ -288,9 +297,10 @@
     .prod-detail-ul h3{
       font-size: 25px;
     }
-  
-  
     .prod-detail-ul-2 li, .prod-detail-ul-2 li b {
       font-size: 25px;
+    }
+    .profile-info{
+      width: 40vw;
     }
   }

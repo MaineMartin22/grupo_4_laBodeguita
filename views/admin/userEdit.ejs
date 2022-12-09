@@ -10,19 +10,18 @@
     </header>
     <main>
     <div class="create-div">
-        <% users.forEach(function(tint) { %>
-            <% if (tint.id == idUser) { %>
-    <form method="POST" action="<%= tint.id %>" class="create" enctype="multipart/form-data">
-            <h3>Editando producto: <%=tint.name%> - ID número: <%= tint.id %></h3>
+    <form method="POST" class="create" enctype="multipart/form-data">
+            <h3>Editando usuario: <%=users.name%> - ID número: <%= users.id %></h3>
             <h3>Nombre y apellido</h3>
-            <input type="text" name="nombre" id="nombre" value="<%=tint.nombre%>">
-            <input type="text" name="apellido" id="apellido" value="<%=tint.apellido%>">
+            <input type="text" name="name" id="nombre" value="<%=users.name%>">
+            <input type="text" name="surname" id="apellido" value="<%=users.surname%>">
+            <input type="email" name="email" id="email" value="<% users.email %>" readonly>
             <h3>Direccion</h3>
-            <input type="text" name="direccion". id="direccion" value="<%=tint.direccion%>">
+            <input type="text" name="direction". id="direccion" value="<%=users.direction%>">
             <h3>Categoria</h3>
-            <select name="categoria" id="categoria">
-                    <option>admin</option>
-                    <option>COMPRADOR</option>
+            <select name="category" id="categoria">
+                    <option>1</option>
+                    <option>2</option>
             </select>
             <div>
             <h3>Seleccionar avatar</h3>
@@ -34,8 +33,6 @@
             <button type="reset">Borrar</button>
         </div>
 </form>
-<% } %>
-<% }) %>
 </div>
 </main>
 <footer class="footer">

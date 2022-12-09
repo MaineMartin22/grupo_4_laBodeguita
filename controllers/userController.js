@@ -178,23 +178,39 @@ const userController = {
 
     userEdit: (req, res) => {
         const idUser = req.params.idUser;
-
-        res.render('./admin/userEdit', { usuario: req.session.usuario, 'users': users, 'idUser': idUser })
-    },
+        console.log(idUser);
+        db.User2.findByPk(idUser)
+            .then(users => {
+            res.render('./admin/userEdit',{users, usuario: req.session.usuario} );
+        });
+        },
 
     userEditUpdate: (req, res) => {
+        const idUser = req.params.idUser
+
+        User2.findOne({
+            where: {
+                email: req.body.email
+            },
+            raw: true
+        })
+            .then(users => {
+                console.log(users);
+                console.log(idUser);
         User2.update({
             name: req.body.name,
             surname: req.body.surname,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 12),
-            imagen: req.file.filename
-        }, {
-            where: {
+            email: users.email,
+            direction: req.body.direction,
+            password: users.password,
+            imagen: req.file.filename,
+            id_categories: req.body.category
+        }),{
+            where:{
                 id: req.params.idUser
-            }
-        });
-
+            },
+            raw: true
+        }});
         res.redirect('../list')
     },
 

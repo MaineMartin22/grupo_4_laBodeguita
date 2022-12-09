@@ -12,113 +12,113 @@
         <%- include("../partials/navBar") %>
     </header>
     <!-- Formulario -->
-    <main class="formulario-main">
-        <div class="contenedor-formulario">
-            <div class="wrap">
-                <form class="formulario" name="formulario-registro" method="post" action="/users/register"
-                    enctype="multipart/form-data">
-                    <div class="conteiner-general-regist">
-                        <% if (locals.errors) { %>
-                            <% for (let oneError in errors) { %>
-                                <p>
-                                    <% errors[oneError].msg %>
-                                </p>
-                                <%} %>
-                                    <% }; %>
-                                        <div class="general">
-                                            <label class="label" for="nombre">Nombre</label>
-                                            <input type="text" id="nombre" name="name"
-                                                value="<%= locals.old && old.name ? old.name : '' %>">
-                                            <span></span>
-                                            <% if (locals.errors && errors.name) { %>
-                                                <p class="msg-error">
-                                                    <%= errors.name.msg%>
-                                                </p>
-                                                <% } %>
-                                        </div>
+<main class="formulario-main">
+<div class="contenedor-formulario">
+<div class="wrap">
+<form class="formulario" name="formulario-registro" method="post" action="/users/register"
+enctype="multipart/form-data">
+<div class="conteiner-general-regist">
+<% if (locals.errors) { %>
+<% for (let oneError in errors) { %>
+<p>
+<% errors[oneError].msg %>
+</p>
+<%} %>
+<% }; %>
+    <div class="general">
+        <label class="label" for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="name"
+            value="<%= locals.old && old.name ? old.name : '' %>">
+        <span></span>
+        <% if (locals.errors && errors.name) { %>
+            <p class="msg-error">
+                <%= errors.name.msg%>
+            </p>
+            <% } %>
+    </div>
 
-                                        <div class="general">
-                                            <label class="label" for="apellido">Apellido</label>
-                                            <input type="text" id="apellido" name="surname" class="apellido"
-                                                value="<%= locals.old && old.surname ? old.surname : '' %>">
-                                            <span class="error"></span>
-                                            <% if (locals.errors && errors.surname) { %>
-                                                <p class="msg-error">
-                                                    <%= errors.surname.msg%>
-                                                </p>
-                                                <% } %>
-                                        </div>
-                                        <div class="general">
-                                            <label class="label" for="direccion">Dirección</label>
-                                            <input type="text" id="direccion" name="direction"
-                                                value="<%= locals.old && old.direction ? old.direction : '' %>">
-                                            <span></span>
-                                            <% if (locals.errors && errors.direction) { %>
-                                                <p class="msg-error">
-                                                    <%= errors.direction.msg%>
-                                                </p>
-                                                <% } %>
-                                        </div>
-                                        <div class="general">
-                                            <label class="label" for="email">Email</label>
-                                            <input type="email" id="email" name="email"
-                                                value="<%= locals.old && old.email ? old.email : '' %>">
-                                            <span></span>
-                                            <% if (locals.errors && errors.email) { %>
-                                                <p class="msg-error">
-                                                    <%= errors.email.msg%>
-                                                </p>
-                                                <% } %>
-                                                    <% if (locals.errors && errors.msg) { %>
-                                                        <p class="msg-error">
-                                                            <%= errors.msg%>
-                                                        </p>
-                                                        <% } %>
-                                        </div>
-                                        <div class="general">
-                                            <label class="label" for="pass">Contraseña</label>
-                                            <input type="password" id="pass" name="password">
-                                            <span></span>
-                                            <% if (locals.errors && errors.password) { %>
-                                                <p class="msg-error">
-                                                    <%= errors.password.msg%>
-                                                </p>
-                                                <% } %>
-                                        </div>
-                                        <div class="general">
-                                            <label class="label" for="pass2">Repetir contraseña</label>
-                                            <input type="password" id="pass2" name="repassword">
-                                            <span></span>
-                                            <% if (locals.errors && errors.repassword) { %>
-                                                <p class="msg-error">
-                                                    <%= errors.repassword.msg%>
-                                                </p>
-                                                <% } %>
-                                        </div>
-                                        <div class="general">
-                                            <label for="avatar">Imagen</label>
-                                            <input type="file" id="avatar" name="avatar" width="100%">
-                                            <span></span>
-                                            <% if (locals.errors && errors.avatar) { %>
-                                                <p class="msg-error">
-                                                    <%= errors.avatar.msg%>
-                                                </p>
-                                                <% } %>
-                                        </div>
-                                        <div class="checkbox">
-                                            <div>
-                                                <input type="checkbox" id="mayor-edad" name="mayor-edad">
-                                                <label for="mayor-edad">Soy mayor de 18</label>
-                                            </div>
-                                            <input type="submit" id="boton" value="Registrarse">
-                                        </div>
-                    </div>
-                    <p>¿Ya eres miembro? <a href="login">Inicia Sesión</a></p>
-            </div>
+    <div class="general">
+        <label class="label" for="apellido">Apellido</label>
+        <input type="text" id="apellido" name="surname" class="apellido"
+            value="<%= locals.old && old.surname ? old.surname : '' %>">
+        <span class="error"></span>
+        <% if (locals.errors && errors.surname) { %>
+            <p class="msg-error">
+                <%= errors.surname.msg%>
+            </p>
+            <% } %>
+    </div>
+    <div class="general">
+        <label class="label" for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direction"
+            value="<%= locals.old && old.direction ? old.direction : '' %>">
+        <span></span>
+        <% if (locals.errors && errors.direction) { %>
+            <p class="msg-error">
+                <%= errors.direction.msg%>
+            </p>
+            <% } %>
+    </div>
+    <div class="general">
+        <label class="label" for="email">Email</label>
+        <input type="email" id="email" name="email"
+            value="<%= locals.old && old.email ? old.email : '' %>">
+        <span></span>
+        <% if (locals.errors && errors.email) { %>
+            <p class="msg-error">
+                <%= errors.email.msg%>
+            </p>
+            <% } %>
+                <% if (locals.errors && errors.msg) { %>
+                    <p class="msg-error">
+                        <%= errors.msg%>
+                    </p>
+                    <% } %>
+    </div>
+    <div class="general">
+        <label class="label" for="pass">Contraseña</label>
+        <input type="password" id="pass" name="password">
+        <span></span>
+        <% if (locals.errors && errors.password) { %>
+            <p class="msg-error">
+                <%= errors.password.msg%>
+            </p>
+            <% } %>
+    </div>
+    <div class="general">
+        <label class="label" for="pass2">Repetir contraseña</label>
+        <input type="password" id="pass2" name="repassword">
+        <span></span>
+        <% if (locals.errors && errors.repassword) { %>
+            <p class="msg-error">
+                <%= errors.repassword.msg%>
+            </p>
+            <% } %>
+    </div>
+    <div class="general">
+        <label for="avatar">Imagen</label>
+        <input type="file" id="avatar" name="avatar" width="100%">
+        <span></span>
+        <% if (locals.errors && errors.avatar) { %>
+            <p class="msg-error">
+                <%= errors.avatar.msg%>
+            </p>
+            <% } %>
+    </div>
+    <div class="checkbox">
+        <div>
+            <input type="checkbox" id="mayor-edad" name="mayor-edad">
+            <label for="mayor-edad">Soy mayor de 18</label>
         </div>
-        </div>
-        </form>
-        </div>
+        <input type="submit" id="boton" value="Registrarse">
+    </div>
+</div>
+<p>¿Ya eres miembro? <a href="login">Inicia Sesión</a></p>
+</div>
+</div>
+</div>
+</form>
+</div>
     </main>
 </body>
 <script src="../../js/registerValidator.js"></script>

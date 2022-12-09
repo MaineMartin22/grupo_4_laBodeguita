@@ -182,8 +182,8 @@ a {
 }
 
 .profile-img-nav img {
-  object-fit: cover;
-  width: 100;
+  object-fit: contain;
+  width: 100%;
   height: 100%;
   background-color: #fff;
   border-radius: 50%;
@@ -1051,15 +1051,13 @@ main {
 }
 
 .profile-info {
-  width: 60%;
+  width: 80vw;
   text-align: center;
   margin: auto;
-  background: rgba(15, 32, 39, 0.2431372549);
-  background: -webkit-linear-gradient(to right, #011B36, #0e355f, #0F2027);
-  background: linear-gradient(to right, rgba(1, 27, 54, 0.5843137255), #0e355f, rgba(15, 32, 39, 0.737254902));
+  background: rgba(255, 255, 255, 0.73);
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.306);
-  color: #fff;
+  color: #011B36;
 }
 
 .profile-title {
@@ -1080,12 +1078,11 @@ main {
 
 .profile-img img {
   object-fit: contain;
-  width: 100;
+  width: 100%;
   height: 100%;
   background-color: #fff;
   border-radius: 50%;
-  border: 3px solid #0f345b;
-  box-shadow: 0px 1px 8px rgb(254, 254, 254);
+  border: 2px solid #0f345b;
 }
 
 .profile-name p, .profile-category p {
@@ -1153,6 +1150,7 @@ main {
   padding: 8px;
   border-radius: 5px;
   font-size: 15px;
+  transition: all 0.4s ease-in-out;
 }
 
 .buttons-profile form button:hover {
@@ -1514,6 +1512,10 @@ main button {
 }
 
 @media (min-width: 481px) {
+  .profile-info {
+    width: 80vw;
+  }
+
   /* NAV BAR EN MOBILE */
   .menu-hamb {
     display: flex;
@@ -1698,6 +1700,10 @@ main button {
   }
 
   /* PERFIL EN TABLET  */
+  .profile-info {
+    width: 60vw;
+  }
+
   .profile-title {
     width: 100%;
     display: flex;
@@ -1790,6 +1796,10 @@ main button {
 
   .prod-detail-ul-2 li, .prod-detail-ul-2 li b {
     font-size: 25px;
+  }
+
+  .profile-info {
+    width: 40vw;
   }
 }
 
