@@ -1,0 +1,125 @@
+/* PROFILE USER  */
+.main-profile{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    height: 100vh;
+  }
+  
+  .main-profile h2{
+    color: #fff;
+  }
+  
+  .profile-info{
+      width: 60%;
+      text-align: center;
+      margin: auto;
+      background: #0f20273e;
+      background: -webkit-linear-gradient(to right, #011B36, #0e355f, #0F2027);  
+      background: linear-gradient(to right, #011b3695, #0e355f, #0f2027bc); 
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.306);
+      color: #fff;
+  }
+  .profile-title{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: 20px 0px;
+  }
+  .profile-img{
+      width: 60px;
+      height: 60px;
+  }
+  .profile-img img{
+    object-fit: contain;
+    width: 100;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3px solid #0f345b;
+    box-shadow: 0px 1px 8px rgb(254, 254, 254);
+  }
+  .profile-name p , .profile-category p{
+    text-align: center;
+    margin: auto;
+  }
+  
+  .profile-data{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0px;
+    border-top: 1px solid #011B36;
+  }
+  
+  .profile-data p{
+    font-size: 20px;
+  }
+  
+  .profile-data form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    text-align: center;
+    margin: auto;
+  }
+  
+  .profile-data form input{
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  .profile-data form input[type=text]:focus {
+    background-color: #1441702a;
+    color: #fff;
+    
+  }
+  
+  .profile-data form label{
+    width: 90%;
+    text-align: center;
+    margin: auto;
+  
+  }
+  
+  .buttons-profile{
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  
+  .buttons-profile form{
+    margin: 0px 10px;
+  }
+  
+  .buttons-profile form button{
+    background-color: #0f2027b4;
+    color: #fff;
+    border: 1px solid #fff ;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  
+  .buttons-profile form button:hover{
+    border: 1px solid #0f20273e;
+    background-color: #fff;
+    color: #0f2027;
+  
+  }
+  

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include("../partials/head") %>
+    <link rel="stylesheet" href="/css/estilos-finalizarCompra.css">
+  </head>
+
+<body>
+  <header class="header">
+    <%- include("../partials/navBar") %>
+</header>
+
+    <main>
+        <form id="formulario" action="/"> 
+            <div class="contacto">
+                <h3> Datos de contacto</h3>
+                <input type="email" name="" id="" placeholder="Email"> 
+            </div>
+            <div class="envio">
+                <h3> Datos de entrega</h3>
+                <div class="names">
+                            <input type="text" name="name" id="name" placeholder="Nombre">                         
+                            <input type="text" name="surname" id="surname" placeholder="Apellido"> 
+                    </div>
+                    <div class="direccion">
+                            <input type="text" name="adress" id="adress"  placeholder="Dirección"> 
+                    </div>
+                    <div class="city">
+                            <input type="text" name="province" placeholder="Provincia"> 
+                            <input type="number" name="zip-code" placeholder="C.P."> 
+                            <input type="text" name="city" placeholder="Ciudad"> 
+                    </div>
+                    <div class="phone">
+                            <input type="number" name="phone-number" placeholder="Número de teléfono"> 
+                    </div>
+
+                </div>
+
+                <div class="formaDePago">
+                    <h3>Forma de pago</h3>
+                        <div class="type-card">
+                                <input type="number" name="card-number" placeholder="Número de la tarjeta">
+                                <input type="text" name="cardholder" placeholder="Nombre y apellido del titular de la tarjeta"> 
+                        </div>
+                    <div class="datos-tarjeta">
+                            <input type="number" name="expiration-date" placeholder="Fecha de vencimiento">         
+                            <input type="number" name="security-code" placeholder="Código de seguridad">         
+                            <input type="number" name="document" placeholder="DNI"> 
+                    </div>
+                </div>
+                <button type="submit" class="enviar">FINALIZAR COMPRA</button>
+        </form>
+    
+    </main>
+    <footer class="footer">
+      <%- include("../partials/footer") %>
+</footer>
+</body>
+      <%- include("../partials/scripts") %>
+</html>

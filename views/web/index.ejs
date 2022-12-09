@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head") %>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+<main class="main">
+    <section class="section">
+        <div class="sect-div" data-aos="fade-up">
+            <div class="sect-img">
+                <h2 class="la-bodeguita">La Bodeguita</h2>
+            </div>
+            <div class="sect-text">
+                <p class="sect-p">El arte de disfrutar un buen vino</p>
+            </div>
+        </div>
+    </section>
+    <section class="section-two">
+        <div class="ofer-title">
+            <h3>Ofertas del mes</h3>
+        </div>
+        <div class="carrusel">
+            <div id="carouselExampleDark" class="carousel slide carousel-dark" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  
+                    <div class="carousel-item active">
+                    <div class="carrusel-img" src="/images/products/vino1.png" class="d-block w-100" alt="...">
+                        <div class="ofer-prod">
+                            <div class="ofer-img">
+                                <img src="/images/products/CADUS-SINGLE-VINEYARD.jpg" alt="vino">
+                            </div>
+                            <div class="ofer-text">
+                                <div>
+                                <h4>La Linda</h4>
+                                </div>
+                                <div>
+                                <p class="descuento">Descuento: 10%</p>
+                                <p class="ofer-precio">Precio anterior: <del>$3000</p></del>
+                                <h5 class="ofer-precio">Precio: $2700</h5>
+                                </div>
+                                <a class="ofer-bot" href="#">Comprar</a>
+                                <a class="ofer-bot" href="detalleProducto">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <% productos.forEach(function(ofer) { %>
+                    <% if (ofer.sale != "0") { %>
+                    <div class="carousel-item">
+                    <div class="carrusel-img" src="/images/products/vino1.png" class="d-block w-100" alt="...">
+                        <div class="ofer-prod">
+                            <div class="ofer-img">
+                                <img src="/images/products/<%= ofer.image %> " alt="vino">
+                            </div>
+                            <div class="ofer-text">
+                                <div>
+                                <h4><%=ofer.name%> </h4>
+                                </div>
+                                <div>
+                                <p class="descuento">Descuento: <%=ofer.discount%>%</p>
+                                <p class="ofer-precio">Precio anterior: $<del><%=ofer.price%></p></del>
+                                <h5 class="ofer-precio">Precio: $<%= ofer.price-(ofer.price * (ofer.discount/100))%> 
+                                </h5></div>
+                                <a class="ofer-bot" href="#">Comprar</a>
+                                <a class="ofer-bot" href="detalleProducto">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <% } %>  
+                  <% }); %>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+    </section>
+<section class="ofertas">
+    <div class="ofer-title">
+        <h3>Ofertas del mes</h3>
+    </div>
+    <div class="ofer-productos">
+        <% productos.forEach(function(ofer) { %>      
+        <% if (ofer.sale != "0") { %>
+         
+        <div class="ofer-prod" data-aos="zoom-in-up">
+            <div class="ofer-img">
+                <img src="/images/products/<%= ofer.image %>" alt="vino">
+            </div>
+            <div class="ofer-text">
+                <div>
+                    <h4><%=ofer.name%> </h4>
+                    <p><%=ofer.color%> </p>
+                </div>
+                <div>
+                    <p class="descuento">Descuento: <%=ofer.discount%>%</p>
+                    <p class="ofer-precio">Precio anterior: <del>$<%=ofer.price%></p></del>
+                    <h5 class="ofer-precio">Precio:$ <%=ofer.price - ofer.price * (ofer.discount/100)%></h5>
+                    <a class="ofer-bot" href="#">Comprar</a>
+                    <a class="ofer-bot" href="detalleProducto">Ver más</a>
+                </div>
+                </div>
+            </div>
+            <% } %>  
+            <% }); %>
+        </div>
+    </div>
+</section>
+</main>
+<footer class="footer">
+    <%- include("../partials/footer") %>
+</footer>
+</body>
+<!-- BOOTSTRAP JS -->
+<%- include("../partials/scripts") %>
+
+</html>

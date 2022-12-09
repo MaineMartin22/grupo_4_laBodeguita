@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head") %>
+        <link rel="stylesheet" href="/css/estilosReg.css">
+      </head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+    <main>
+        <section class="prodList">
+        <div class="prodList-div">
+        <div>
+        <h4>Lista de productos</h4>
+        <h4>Haz click para ver y editar</h4>
+        <article class="col-12" >
+        <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Ver</th>
+                      <th scope="col">Editar</th>
+                      <th scope="col">Borrar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% productos.forEach(tint => { %>
+                    <tr>
+                      <td><%= tint.id%> </td>
+                      <td><%= tint.name%> </td>
+                      <td><a href="/product/<%= tint.id%> "> <ion-icon name="eye-outline"><i class="fa-solid fa-eye"></i></a></td>
+                      <td><a href="/product/edit/<%= tint.id%> "> <ion-icon name="pencil-outline"><i class="fa-solid fa-pencil"></i></i></a></td>
+                      <td><form action="/product/delete/<%= tint.id%>" method="POST"><button><i class="fa-solid fa-trash"></i></button></form></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            </article>
+            </div>
+        </div>
+</section>
+    </main>
+    <footer class="footer">
+    <%- include("../partials/footer") %>
+  </footer>
+  </body>
+  <%- include("../partials/scripts") %>
+
+</html>

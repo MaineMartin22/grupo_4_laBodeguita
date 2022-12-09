@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../partials/head") %>
+        <link rel="stylesheet" href="/css/estilosReg.css">
+</head>
+
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+    <main>
+<div class="create-div">
+<form method="POST" action="/product/create" class="create" enctype="multipart/form-data">
+<input type="text" name="name" id="name" placeholder="Nombre del producto"
+value="<%= locals.old && old.name ? old.name : '' %>">
+<span></span>
+<% if (locals.errors && errors.name) { %>
+<p class="msg-error">
+<%= errors.name.msg%>
+</p>
+<% } %>
+<h3>Tipo de producto</h3>
+<select name="tipo">
+<option>Tinto</option>
+<option>Blanco</option>
+<option>Rosado</option>
+</select>
+<h3>Oferta: "0" para no, "1" para si</h3>
+<select name="oferta">
+<option>0</option>
+<option>1</option>
+</select>
+<h3>Bodegas</h3>
+<h3>1 para <b>Malbec</b>, 2 para <b>Santa Julia</b>, 3 para <b>Norton</b></h3>
+<select name="bodega">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+</select>
+<input type="number" name="precio" id="precio" placeholder="Precio"
+value="<%= locals.old && old.precio ? old.precio : '' %>">
+<span></span>
+<% if (locals.errors && errors.precio) { %>
+<p class="msg-error">
+<%= errors.precio.msg%>
+</p>
+<% } %>
+<input type="number" name="descuento" id="descuento" placeholder="Descuento"
+value="<%= locals.old && old.descuento ? old.descuento : '' %>">
+<span></span>
+<% if (locals.errors && errors.descuento) { %>
+<p class="msg-error">
+<%= errors.descuento.msg%>
+</p>
+<% } %>
+<input type="number" name="alcohol" id="alcohol" step="0.01" min="0" max="20"
+placeholder="Alcohol producto"
+value="<%= locals.old && old.alcohol ? old.alcohol : '' %>">
+<span></span>
+<% if (locals.errors && errors.alcohol) { %>
+<p class="msg-error">
+    <%= errors.alcohol.msg%>
+</p>
+<% } %>
+    <h3>Color</h3>
+    <select name="color" id="color">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+    </select>
+    <select name="tamano">
+        <option>750ml</option>
+        <option>1000ml</option>
+        <option>1250ml</option>
+    </select>
+    <h3>Descripción del producto</h3>
+    <textarea name="description" id="description"><%= locals.old && old.description ? old.description : ''%></textarea>
+    <span></span>
+    <% if (locals.errors && errors.description) { %>
+        <p class="msg-error">
+            <%= errors.description.msg%>
+        </p>
+    <% } %>
+        <label for="imagen">Imagen</label>
+        <input type="file" id="imagen" name="imagen" width="100%">
+        <span></span>
+        <% if (locals.errors && errors.imagen) { %>
+            <p class="msg-error">
+                <%= errors.imagen.msg%>
+            </p>
+            <% } %>
+                    <button id='submit' method="POST" type="submit">Enviar</button>
+                    <button type="reset">Borrar</button>
+</form>
+</div>
+</main>
+    <footer class="footer">
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+<script src="../../js/create_editProductValidator.js"></script>
+<%- include("../partials/scripts") %>
+
+</html>
