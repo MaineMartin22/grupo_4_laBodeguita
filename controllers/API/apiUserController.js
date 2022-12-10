@@ -52,7 +52,7 @@ module.exports = {
                 let respuesta = {
                     meta: {
                         status: 200,
-                        url: '/api/clientes/:id'
+                        url: `/api/users/${cliente.id}`
                     },
                     data: user
                 }
