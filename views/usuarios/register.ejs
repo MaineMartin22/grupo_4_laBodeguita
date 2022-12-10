@@ -96,7 +96,8 @@ enctype="multipart/form-data">
             <% } %>
     </div>
     <div class="general">
-        <label for="avatar">Imagen</label>
+        <label class="label" for="avatar">Avatar</label>
+        <br>
         <input type="file" id="avatar" name="avatar" width="100%">
         <span></span>
         <% if (locals.errors && errors.avatar) { %>
