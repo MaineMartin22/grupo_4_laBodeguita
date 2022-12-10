@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <%- include("../partials/head") %>
+    <link rel="stylesheet" href="/css/estilosReg.css">
+</head>
+
+<body>
+  <header class="header">
+    <%- include("../partials/navBar") %>
+  </header>
+  <main>
+    <!-- Formulario -->
+    <div class="contenedor-formulario">
+      <div class="wrap">
+        <form action="/users/login" class="formulario" method="POST">
+        <div>
+          <div class="general">
+            <label class="label" for="email"></label>
+            <input type="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" name="email" placeholder="Email" >
+            <span></span>
+            <% if (locals.errors && errors.email) { %>
+              <p class="msg-error">
+                  <%= errors.email.msg%>
+              </p>
+              <% } %>
+          </div>
+          <div class="general">
+            <input type="password" id="password" name="password" placeholder="Contraseña">
+            <% if ( locals.errors && errors.password) { %>
+              <p class="msg-error">
+                  <%= errors.password.msg%>
+              </p>
+              <% } %>
+            <span></span>
+            <label class="label" for="password"></label>
+          </div>
+          <div class="checkbox">
+            <div>
+              <input class="remember" type="checkbox" name="remember_user" id="remember_user" />
+              <label for="remember_user">Recordarme</label>
+              <p>¿No recuerdas tu contraseña? Haz click<a href="home"> aquí</a></p>
+              <p>¿Aún no tienes cuenta?<a href="/users/register"> Registrarse</a></p>
+            </div>
+          </div>
+          <button type="submit" id="boton">Ingresar</button>
+        </div>
+        </form>
+      </div>
+  </main>
+  <footer class="footer">
+    <%- include("../partials/footer") %>
+  </footer>
+</body>
+<script src="../../js/loginValidator.js"></script>
+<%- include("../partials/scripts") %>
+
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+<main class="main-vinos">
+<section class="section-vinos">
+    <div class="sect-search" id="sect-search-main">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <form action="./product/search" method="get">
+            <input type="search" name="search" id="search" placeholder="Encontrá lo que estas buscando">
+            <button type="submit">Búscar</button>
+        </form>
+    </div>
+        <h2 class="vin-tipos-title">Vino Tinto</h2>
+        <%- include("../partials/vinos/tinto") %>
+        <h2 class="vin-tipos-title">Vino Blanco</h2>
+        <%- include("../partials/vinos/blanco") %>
+        <h2 class="vin-tipos-title">Vino Rosado</h2>
+        <%- include("../partials/vinos/rosado") %>
+</section>
+</main>
+<footer class="footer">
+    <%- include("../partials/footer") %>
+</footer>
+</body>
+<!-- BOOTSTRAP JS -->
+
+<%- include("../partials/scripts") %>
+<script>function mostrar(){
+    swal('Las estrellas marcan las ofertas', '¡Disfrute su visita!', 'info');                       
+}
+window.mostrar()  </script>
+
+
+</html>

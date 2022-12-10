@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+<main>
+<section class="shopping-cart"> 
+    <div class="cart">
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody class="cartRows">
+            </tbody>
+        </table>
+        <div class="totalAmount">$ 0</div>
+    
+    <div class="cart-card3">
+        <a href="finalizarCompra"><button type="submit">Finalizar Compra</button></a>
+        <a href="#" class="vaciarCart"onclick="vaciarCarrito()"><button type="submit" onclick="vaciarCarrito()">Vaciar Carrito</button></a>
+    </div>
+</section>
+</main>
+
+<footer class="footer">
+    <%- include("../partials/footer") %>
+</footer>
+</body>
+    <script src="/js/cart.js"></script>
+    <%- include("../partials/scripts") %>
+</html>

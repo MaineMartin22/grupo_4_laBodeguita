@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head") %>
+        <link rel="stylesheet" href="/css/estilosReg.css">
+      </head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+    <main>
+        <section class="prodList">
+        <div class="prodList-div">
+        <div>
+        <h4>Productos buscados</h4>
+        <article class="col-12" >
+        <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Ver</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Imagen</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% productos.forEach(tint => { %>
+                    <tr>
+                      <td><%= tint.id%> </td>
+                      <td><%= tint.name%> </td>
+                      <td><a href="/product/<%= tint.id%> "> <ion-icon name="eye-outline"><i class="fa-solid fa-eye"></i></a></td>
+                        <% if (tint.sale != "0") { %>
+                          <td>$<%= tint.price-(tint.price * (tint.discount/100))%></b></td>
+                        <% } else {%> 
+                        <td>$<%= tint.price%></td>
+                        <% } %> 
+                      <td><div class="modal-container"><img src="../images/products/<%= tint.image%>" alt=""></div></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            </article>
+            </div>
+        </div>
+        <a href="/detalleProducto" class="enviar">Todos los productos</a>
+</section>
+    </main>
+    <footer class="footer">
+    <%- include("../partials/footer") %>
+  </footer>
+  </body>
+  <%- include("../partials/scripts") %>
+
+</html>

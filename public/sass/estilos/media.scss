@@ -1,0 +1,306 @@
+
+
+@media (min-width: 481px) {
+
+  .profile-info{
+    width: 80vw;
+
+  }
+
+    /* NAV BAR EN MOBILE */
+    .menu-hamb {
+      display: flex;
+    }
+  
+    .nav-contein {
+      display: none;
+    }
+  
+    .container-fluid a img{
+      width: 70%;
+    }
+  
+    /* SECTION 1 EN MOBILE */
+  
+    .sect-img {
+      margin: auto;
+      text-align: center;
+      transition: all .4s ease-in-out;
+    }
+  
+  
+    .cart-card2{
+      width: 60%;
+    }
+  
+      .cart-prod img{
+      width: 50%;
+      }
+
+      .create{
+        width: 90%;
+      }
+
+      
+  .footer-content{
+    width: 80%;
+  }
+  
+  
+  }
+  @media (min-width: 610px) {
+
+    .create{
+      width: 70%;
+    }
+
+    .contenedor-formulario{
+      padding-top: 15%;
+      padding-bottom: 15%;
+    }
+
+  
+      /* NAV BAR EN TABLET */
+  
+    .menu-hamb {
+      display: none;
+    }
+    .menu-hamb i {
+      display: none;
+    }
+  
+    .nav-contein {
+      display: flex;
+      margin: auto;
+      justify-content: space-evenly;
+    }
+     .nav-contein a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  
+    #desktopnav{
+      display: flex;
+    }
+  
+    #mobilenav{
+      display: none;
+    }
+  
+    #sect-search-main{
+      display: flex;
+    }
+  
+    /* SECCION DEL INICIO Y OFERTAS EN TABLET */
+  
+    .section-two {
+      display: none;
+    }
+  
+    .ofertas {
+      display: flex;
+    }
+  
+    .ofer-productos {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
+    .ofer-prod {
+      width: 43%;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+  
+    /* SECTION DE LOS VINOS EN TABLET */
+  
+    .sect-search input {
+      width: 80%;
+    }
+    .vin-tipos {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  
+    .vin-prod {
+      width: 45%;
+    }
+  
+    .div-collapse {
+      width: 95%;
+    }
+  
+    .div--colapse {
+      height: 170px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .div--colapse p {
+      margin: auto;
+      margin-bottom: 20px;
+    }
+  
+    .sect-div {
+      margin: auto;
+      margin-left: 55%;
+    }
+  
+    /* DETALLE DEL PRODUCTO EN TABLET  */
+  
+    .prod-detail {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
+    .prod-detail-img {
+      width: 40%;
+      margin: auto;
+      min-height: 150px;
+      margin-top: 30px;
+    }
+  
+    .prod-detail-img img {
+      margin: auto;
+      padding-bottom: 60px;
+    }
+  
+    .prod-detail-info {
+      width: 50%;
+    }
+  
+  
+    .cart-card2{
+      width: 60%;
+    }
+  
+    .cart-prod img{
+      width: 50%;
+    }
+    .cart-prod-text h3{
+      font-size: 18px;
+    }
+  
+    .form-group{
+      width: 60%;
+      margin: auto;
+    }
+  
+    .input-group{
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+    }
+  
+    /* PERFIL EN TABLET  */
+
+    .profile-info{
+      width: 60vw;
+    }
+  
+    .profile-title{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  
+    .profile-data form{
+      width: 50%;
+  }
+    /* FOOTER EN TABLET */
+  
+    .footer {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .footer-content{
+      width: 33%;
+    }
+  }
+  @media (min-width: 810px) {
+  
+    .create{
+      width: 50%;
+    }
+
+
+    /* NAVBAR EN DESKTOP */
+    .nav-contein a {
+        font-size: 15px;
+    }
+  
+    .nav-contein-login li img{
+      width: 22%;
+    
+    }
+  
+    /* PRODUCTOS EN DESKTOP */
+    .vin-prod {
+      width: 22%;
+    }
+    .vin-text p {
+      width: 100%;
+      font-size: 15px;
+    }
+    .vin-text a {
+      font-size: 12px;
+    }
+  
+    .div--colapse {
+      height: 140px;
+      width: 100%;
+    }
+  
+    .vin-img{
+      height: 200px;
+    }
+    .vin-img img{
+      height: 200px;
+      object-fit: contain;
+    }
+  
+  
+  
+    /* OFERTAS EN DESKTOP */
+  
+    .ofer-prod {
+      width: 22%;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+  
+  
+    .cart-card2{
+      width: 40%;
+    }
+  
+    .cart-prod img{
+      width: 30%;
+    }
+    
+    .prod-detail-title h2{
+      font-size: 40px;
+    }
+  
+    .prod-detail-img img{
+      height: 800px;
+    }
+  
+    .prod-detail-ul h3{
+      font-size: 25px;
+    }
+    .prod-detail-ul-2 li, .prod-detail-ul-2 li b {
+      font-size: 25px;
+    }
+    .profile-info{
+      width: 40vw;
+    }
+  }
