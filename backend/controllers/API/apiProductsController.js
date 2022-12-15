@@ -6,7 +6,12 @@ const { Op } = require("sequelize");
 module.exports = {
 
     list: (req, res) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            raw: true,
+            include: ['cellars', 'sizes'],
+            //Trae asociacion en objeto
+            nest: true
+        })
             .then(productos => {
 
                 let categoryTinto = [];
@@ -29,11 +34,12 @@ module.exports = {
                 let productDetail = [];
 
                 productos.forEach(products => {
+                    console.log(products);
                     productDetail.push({
                         id: products.id,
                         name: products.name,
                         description: products.description,
-                        id_cellar: products.id_cellar,
+                        cellar: products.cellars.name,
                         detail: `/api/products/${products.id}`
                     })
                 })
@@ -52,9 +58,19 @@ module.exports = {
             })
     },
 
-    detail: (req, res) => {
+    detail: async (req, res) => {
         db.Product.findByPk(req.params.id)
-            .then(product => {
+            .then(async product => {
+               let sizes = await db.SizeProduct.findAll({
+                    raw: true,
+                    where: {
+                        id_product: product.id
+                    },
+                    include: 'size',
+                    nest: true
+                })
+
+                sizes = sizes.map(size => size.size.size)
 
                 let productDetail = [];
 
@@ -67,10 +83,11 @@ module.exports = {
                     alcohol: product.alcohol,
                     sale: product.sale,
                     discount: product.discount,
-                    size: product.size,
+                    //size: product.size,
                     image: `/images/products/${product.image}`,
                     id_cellar: product.id_cellar,
                     id_color: product.id_color,
+                    sizes: sizes
                 })
 
                 let respuesta = {

@@ -36,10 +36,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(20),
             allowNull: false
         },
-        size: {
-            type: dataTypes.STRING(8),
-            allowNull: false
-        },
         image: {
             type: dataTypes.STRING(50),
             // allowNull: false
@@ -69,6 +65,15 @@ module.exports = (sequelize, dataTypes) => {
             as: "colors",
             foreignKey: "id_color", // cuál es el nombre de la columna en la tabla pivot que hace referencia al modelo actual
         });
+        Product.belongsToMany(models.Size, {
+            as: "sizes",
+            through: 'sizeProduct',
+            foreignKey: "id_product",
+            otherKey: 'id_size',
+            timestamps: false
+
+        });
+        
     }
 
     return Product

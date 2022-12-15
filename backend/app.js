@@ -14,6 +14,7 @@ const session = require('express-session');
 const cookies = require('cookie-parser');
 const logger = require('morgan');
 const sequelize = require('sequelize');
+const cors = require("cors")
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
@@ -40,7 +41,7 @@ app.use(userLoggedMiddleware);
 app.use(express.urlencoded({ extended: false }));
 
 
-
+app.use(cors())
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended : true}));
 app.use(express.json());
