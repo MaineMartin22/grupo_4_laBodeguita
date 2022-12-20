@@ -92,9 +92,6 @@ window.addEventListener("load", function () {
         if (precio.value < 1) {
             e.preventDefault(); 
         }
-        if (descuento.value < 1) {
-            e.preventDefault(); 
-        }
         if (alcohol.value < 1) {
             e.preventDefault(); 
         }

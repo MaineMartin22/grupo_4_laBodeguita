@@ -40,6 +40,7 @@ module.exports = {
                         name: products.name,
                         description: products.description,
                         cellar: products.cellars.name,
+                        image: `/images/products/${products.image}`,
                         detail: `/api/products/${products.id}`
                     })
                 })

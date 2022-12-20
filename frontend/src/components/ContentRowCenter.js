@@ -8,7 +8,6 @@ function ContentRowCenter(){
             
             {/*<!-- Last Movie in DB -->*/}
             <LastMovieInDb />
-            {/*<!-- End content row last movie in Data Base -->*/}
 
             {/*<!-- Genres in DB -->*/}
             <GenresInDb />

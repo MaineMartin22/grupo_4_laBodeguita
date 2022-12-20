@@ -10,10 +10,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(25),
             allowNull: false
         },
-        type: {
-            type: dataTypes.STRING(25),
-            allowNull: false
-        },
         
         price: {
             type: dataTypes.INTEGER(11),
@@ -70,6 +66,14 @@ module.exports = (sequelize, dataTypes) => {
             through: 'sizeProduct',
             foreignKey: "id_product",
             otherKey: 'id_size',
+            timestamps: false
+
+        });
+        Product.belongsToMany(models.Type, {
+            as: "types",
+            through: 'typeProduct',
+            foreignKey: "id_product",
+            otherKey: 'id_type',
             timestamps: false
 
         });
