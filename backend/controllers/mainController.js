@@ -50,11 +50,13 @@ const controller = {
     },
 
     productDetail: function(req, res){
-    db.Product.findAll()
-        .then(function(productos){
-        return res.render('./productos/prodDetail.ejs', {productos, usuario: req.session.usuario})
-    })
-    },
+        db.Product.findAll({
+            include: [{association : 'cellars'}, {association : 'colors'}]
+        })
+            .then(productos => {
+            res.render('./productos/prodDetail.ejs', {productos, usuario: req.session.usuario});
+        });
+        },
     
     // LISTADO DE PRODUCTOS
 
