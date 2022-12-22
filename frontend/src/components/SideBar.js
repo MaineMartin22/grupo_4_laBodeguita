@@ -1,10 +1,11 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/logo2.jpg';
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
 import ContentRowMovies from './ContentRowMovies';
 import SearchMovies from './SearchMovies';
+import Size from './Size';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 
@@ -28,7 +29,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Dashboard - La Bodeguita</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -41,7 +42,14 @@ function SideBar(){
                 <li className="nav-item">
                 <Link className="nav-link" to="/GenresInDb">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
+                        <span>Colors</span>
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                <Link className="nav-link"  to="/Size">
+                        <i className="fas fa-fw fa-folder"></i>
+                        <span>Sizes</span>
                     </Link>
                 </li>
 
@@ -86,6 +94,9 @@ function SideBar(){
                 </Route>
                 <Route path="/SearchMovies">
                     <SearchMovies />
+                </Route>
+                <Route path="/Size">
+                    <Size />
                 </Route>
                 <Route component={NotFound} />
             </Switch>

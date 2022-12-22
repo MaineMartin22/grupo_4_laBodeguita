@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-function GenresInDb() {
+function Size() {
 
-  const [totalColors, setTotalColors] = useState({})
+  const [sizes, setSizes] = useState({})
 
   useEffect(() => {
-    fetch('http://localhost:2000/api/colors')
+    fetch('http://localhost:2000/api/sizes')
       .then(response => response.json())
       .then((data) => {
         //console.log(data);
-        let color = data.data
-        setTotalColors(color)
+        let size = data.data
+        setSizes(size)
       })
   }, [])
   return (
@@ -18,18 +18,18 @@ function GenresInDb() {
       <div className="card shadow">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
-            Colors of wines in Data Base
+            Sizes of wines in Data Base
           </h5>
         </div>
         <div className="row card-body">
-          {totalColors.length > 0 && totalColors.map( color => {
+          {sizes.length > 0 && sizes.map( size => {
             return (
               <>
                 <div className="col-lg-6 mb-4">
                   <div className="">
                     <div className="card bg-dark text-white shadow">
                       <div className="card-body">
-                        {color.name}
+                        {size.name}
                         </div>
                     </div>
                   </div>
@@ -45,4 +45,4 @@ function GenresInDb() {
   );
 }
 
-export default GenresInDb;
+export default Size;

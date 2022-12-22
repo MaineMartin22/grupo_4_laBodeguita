@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ChartRow from './ChartRow';
+
 
 
 function Chart() {
@@ -33,16 +33,26 @@ function Chart() {
                                 <th>Tipo</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <ChartRow products = {totalProducts}/>
+                    
+                    {totalProducts.length > 0 && totalProducts.map((product) => {
+                        return (
+                            <>
 
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <th>{product.name}</th>
+                                    <th>{product.cellar}</th>
+                                    <th>{product.id}</th>
+                                    <th>{product.price}</th>
+                                    <th>{product.type}</th>
+                                </tr>
+                            </>
+                        )
+                    })}
+                </table>
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
 
 export default Chart;
