@@ -3,7 +3,7 @@ import image from '../assets/images/logo2.jpg';
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
-import ContentRowMovies from './ContentRowMovies';
+import Chart from './Chart';
 import SearchMovies from './SearchMovies';
 import Size from './Size';
 import NotFound from './NotFound';
@@ -57,14 +57,14 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/LastMovieInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Last product</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowMovies">
+                <Link className="nav-link" to="/Chart">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Totales</span></Link>
+                        <span>List of products</span></Link>
                 </li>
 
                   {/*<!-- Nav Item - Tables -->*/}
@@ -89,8 +89,8 @@ function SideBar(){
                 <Route path="/LastMovieInDb">
                     <LastMovieInDb />
                 </Route>
-                <Route path="/ContentRowMovies">
-                <ContentRowMovies/>
+                <Route path="/Chart">
+                <Chart/>
                 </Route>
                 <Route path="/SearchMovies">
                     <SearchMovies />

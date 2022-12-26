@@ -8,7 +8,7 @@ function ContentRowMovies(props){
             <SmallCard 
                 title= 'Total products'
                 color= 'primary'
-                cuantity = {props.products.length}
+                cuantity = {props.products ? props.products.length : 0}
                 icon= 'fas fa-wine-bottle'
             />
              <SmallCard 
