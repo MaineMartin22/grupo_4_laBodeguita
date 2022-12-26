@@ -5,14 +5,26 @@ const { Op } = require("sequelize");
 
 module.exports = {
 
-    list: (req, res) => {
+    list: async (req, res) => {
         db.Product.findAll({
             raw: true,
-            include: ['cellars', 'sizes'],
+            include: ['cellars', 'sizes', 'colors'],
             //Trae asociacion en objeto
             nest: true
         })
-            .then(productos => {
+            .then(async productos => {
+                let sizes = await db.SizeProduct.findAll({
+                    raw: true,
+                    include: 'size',
+                    nest: true
+                })
+                let color = await db.Color.findAll({
+                    raw: true,
+                    include: 'products',
+                    nest: true
+                })
+
+                sizes = sizes.map(size => size.size.size)
 
                 let categoryTinto = [];
                 let categoryBlanco = [];
@@ -40,7 +52,15 @@ module.exports = {
                         name: products.name,
                         description: products.description,
                         cellar: products.cellars.name,
+                        type: products.type,
+                        price: products.price,
+                        description: products.description,
+                        alcohol: products.alcohol,
+                        sale: products.sale,
+                        discount: products.discount,
                         image: `/images/products/${products.image}`,
+                        sizes: sizes,
+                        color: products.colors.name,
                         detail: `/api/products/${products.id}`
                     })
                 })
@@ -62,7 +82,7 @@ module.exports = {
     detail: async (req, res) => {
         db.Product.findByPk(req.params.id)
             .then(async product => {
-               let sizes = await db.SizeProduct.findAll({
+                let sizes = await db.SizeProduct.findAll({
                     raw: true,
                     where: {
                         id_product: product.id
@@ -86,9 +106,8 @@ module.exports = {
                     discount: product.discount,
                     //size: product.size,
                     image: `/images/products/${product.image}`,
-                    id_cellar: product.id_cellar,
-                    id_color: product.id_color,
-                    sizes: sizes
+                    sizes: sizes,
+                    colors: color
                 })
 
                 let respuesta = {
@@ -100,5 +119,22 @@ module.exports = {
                 }
                 res.json(respuesta);
             });
-    }
+    },
+
+   /*  search: function(req, res){
+
+        let busquedaUsuario = input.current.value
+        db.Product.findAll()
+            .then(function(productos){
+
+            let prodResults = []
+
+            for (let i = 0; i < productos.length; i++) {
+                if (productos[i].name.includes(busquedaUsuario)) {
+                    prodResults.push(productos[i])
+                }
+                
+            }
+        })
+        } */
 }
