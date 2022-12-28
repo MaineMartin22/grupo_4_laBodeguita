@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <header class="header">
+        <%- include("../partials/navBar") %>
+    </header>
+<main>
+    <section class="productos-detail">             
+        <div class="prod-detail">
+            <div class="prod-detail-img">
+                <img src="/images/products/<%=product.image%>" alt="">
+            </div>
+            <div class="prod-detail-info">
+                <div class="prod-detail-title">
+                    <h2 class="prod-detail-h2"><%=product.name%> </h2>
+                    <div class="prod-detail-caract">
+                        <div class="prod-detail-ul">
+                            <h3>Alcohol: <%=product.alcohol%>%</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="prod-detail-descr">
+                    <h4 class="prod-detail-h4">Información</h4>
+                    <ul class="prod-detail-ul-2">
+                        <li><b>Color:</b> <%=product.colors.name%> </li>
+                        <li><b>Bodega:</b> <%=product.cellars.name%></li>
+                        <li><b>Tipo:</b> <%=product.type%></li>
+                        <li><b>Tamaños disponibles:</b>
+                            <select name="" id="">
+                            <% sizes.forEach(function(size) { %>      
+                            <option value=""><%=size%></option>
+                            <% }) %> 
+                        </select></li>
+                        <% if (product.sale != "0") { %>
+                            <li><b>Precio: $<%= product.price-(product.price * (product.discount/100))%></b> $<del><%= product.price%></del></li>
+                        <% } else {%> 
+                            <li><b>Precio: $<%=product.price%></b><li>
+                        <% } %> 
+                        <li><b>Descripción:</b> <%=product.description%></li>
+                        <li><h3>Hasta 3 cuotas sin interés <i class="fa-solid fa-credit-card"></i></h3></li>
+                    </ul>
+                </div>
+                <div class="prod-detail-buttons">
+                    <a href="../carrito" class="prod-detail-butt addCart" data-id="<%= product.id %> ">Añadir a carrito</a>
+                    <a href="../detalleProducto" class="prod-detail-butt">Ver otros vinos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <%- include("../partials/footer") %>
+</footer>
+</body>
+    <%- include("../partials/scripts") %>
+</html>
