@@ -80,6 +80,16 @@
   
   .prod-detail-ul-2 li {
     font-size: 15px;
+    select{
+      border: none;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #fff;
+      option{
+        background-color: black;
+        border: none;
+      }
+    }
   }
   
   .prod-detail-ul-2 li b {

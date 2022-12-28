@@ -16,8 +16,8 @@
                 </div>
                     <div class="div-collapse collapse" id="collapse<%=tint.id%>">
                         <div class="div--colapse">
-                        <p>Tamaño: <%=tint.size%> </p>
-                        <% if (tint.sale != "0") { %>
+                            <p>Alcohol: <%=tint.alcohol%>% </p>
+                            <% if (tint.sale != "0") { %>
                             <p><b class="price">Precio: $<%= tint.price-(tint.price * (tint.discount/100))%></b> $<del><%= tint.price%></del></p>
                         <% } else {%> 
                             <p><b class="price">Precio: $<%=tint.price%></b></p>

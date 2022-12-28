@@ -39,8 +39,6 @@ const controller = {
         })
         },
 
-
-
     index: function(req, res){
     db.Product.findAll()
         .then(function(productos){
@@ -50,9 +48,19 @@ const controller = {
     },
 
     productDetail: function(req, res){
-    db.Product.findAll()
-        .then(function(productos){
-        return res.render('./productos/prodDetail.ejs', {productos, usuario: req.session.usuario})
+    db.Product.findAll(
+        {   
+            include: [{association : 'sizes'}]
+        })
+        .then(async productos => {
+            let sizes = await db.SizeProduct.findAll({
+                include: 'size',
+                raw: true,
+                nest: true
+            })
+        sizes = sizes.map(size => size.size.size)
+        console.log(sizes);
+        return res.render('./productos/prodDetail.ejs', {productos, sizes, usuario: req.session.usuario})
     })
     },
     
@@ -71,10 +79,19 @@ const controller = {
     detalle: function(req,res){
     console.log(req.params.idProd);
     db.Product.findByPk(req.params.idProd, {
-        include: [{association : 'cellars'}, {association : 'colors'}]
+        include: [{association : 'cellars'}, {association : 'colors'},  'sizes']
     })
-        .then(product => {
-        res.render('./productos/vinos.ejs', {product, usuario: req.session.usuario});
+        .then( async product => {
+            let sizes = await db.SizeProduct.findAll({
+                where: {
+                    id_product : req.params.idProd
+                },
+                include: 'size',
+                raw: true,
+                nest: true
+            })
+        sizes = sizes.map(size => size.size.size)
+        res.render('./productos/vinos.ejs', {product, sizes, usuario: req.session.usuario});
     });
     },
 

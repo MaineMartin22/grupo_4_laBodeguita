@@ -135,6 +135,8 @@ const userController = {
                 if (req.body.email != '' && req.body.password != '') {
                     let passBody = req.body.password
                     let passwordCorrect = bcrypt.compareSync(passBody, user.password)
+                    console.log(user.password);
+                    console.log(user);
                     // let passwordCorrect = true;
                     console.log(passwordCorrect);
                     console.log(passBody);

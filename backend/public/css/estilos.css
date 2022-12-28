@@ -602,21 +602,8 @@ main {
   text-align: left;
 }
 
-.create input, .create select, .create textarea{
+.create input, .create select, .create textarea, #avatar {
   width: 80%;
-  margin: auto;
-  outline: none;
-  padding: 18px 0px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid lightblue;
-  font-size: 18px;
-  text-align: left;
-}
-
-#avatar {
-  width: 100%;
-  color: black;
   margin: auto;
   outline: none;
   padding: 18px 0px;
@@ -792,6 +779,16 @@ main {
 
 .prod-detail-ul-2 li {
   font-size: 15px;
+}
+.prod-detail-ul-2 li select {
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+}
+.prod-detail-ul-2 li select option {
+  background-color: black;
+  border: none;
 }
 
 .prod-detail-ul-2 li b {
