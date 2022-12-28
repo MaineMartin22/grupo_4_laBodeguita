@@ -97,7 +97,7 @@ window.addEventListener("load", function () {
     button.addEventListener('click', function (e) {
         if (!checkbox.checked) {
             e.preventDefault();
-            sweetAlert('debes ser mayor de edad wey')
+            sweetAlert('Debes ser mayor de edad');
         }
 
         if (avatar.value < 1) {
