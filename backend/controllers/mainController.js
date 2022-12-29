@@ -46,7 +46,6 @@ const controller = {
         return res.render('./web/index.ejs', {productos, usuario: req.session.usuario})
     })
     },
-
     productDetail: function(req, res){
     db.Product.findAll(
         {   
@@ -63,6 +62,7 @@ const controller = {
         return res.render('./productos/prodDetail.ejs', {productos, sizes, usuario: req.session.usuario})
     })
     },
+
     
     // LISTADO DE PRODUCTOS
 
@@ -97,7 +97,7 @@ const controller = {
 
     // CREAR PRODUCTOS
 
-    create: function(req, res) {
+    create: async function(req, res) {
 
         const resultValidation = validationResult(req);
 
@@ -109,7 +109,7 @@ const controller = {
             });
         }
         else{
-        db.Product.create({
+        await db.Product.create({
             name: (req.body.name).toUpperCase(),
             type: req.body.tipo,
             id_cellar: req.body.bodega,
@@ -119,9 +119,9 @@ const controller = {
             id_color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
-            size: req.body.tamano,
             image: req.file.originalname
         })
+
         res.redirect('./list')}
     },
 
@@ -135,7 +135,7 @@ const controller = {
         });
         },
 
-    update:(req, res)=> {
+    update: async (req, res)=> {
         const resultValidation = validationResult(req);
 
 
@@ -147,7 +147,7 @@ const controller = {
         });
         }
         else{
-        db.Product.update({
+       await db.Product.update({
             name: (req.body.name).toUpperCase(),
             type: req.body.tipo,
             id_cellar: req.body.bodega,
@@ -157,14 +157,25 @@ const controller = {
             color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
-            size: req.body.tamano,
             image: req.file.originalname
-
         }, {
         where: {
             id: req.params.idProd
         }
         });
+
+        db.Product.findByPk(req.params.idProd)
+        .then(function(producto){
+            console.log(producto);
+            if (producto) {
+                console.log(producto.id);
+                console.log(req.body.tamano);
+                db.SizeProduct.create({
+                    id_product: producto.id,
+                    id_size: req.body.tamano
+            })
+        }
+        })
 
         res.redirect('../list')
     }},

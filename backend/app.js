@@ -9,6 +9,7 @@ const usersApi = require('./routes/API/usersApi')
 const productsApi = require('./routes/API/productsApi')
 const cellarApi = require('./routes/API/cellarsApi')
 const colorApi = require('./routes/API/colorsApi')
+const sizeApi = require('./routes/API/sizesApi')
 const ejs = require("ejs")
 const multer = require("multer")
 const methodOverride = require('method-override')
@@ -56,6 +57,8 @@ app.use("/api/users", usersApi);
 app.use("/api/products", productsApi);
 app.use("/api/cellar", cellarApi);
 app.use("/api/colors", colorApi);
+app.use("/api/sizes", sizeApi);
+
 
 
 // Template Engine

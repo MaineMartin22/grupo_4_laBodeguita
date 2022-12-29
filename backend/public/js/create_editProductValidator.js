@@ -17,10 +17,10 @@ window.addEventListener("load", function () {
         const valueName = e.target.value
 
         if (valueName.length < 1) {
-            field.nextElementSibling.classList.add('error');
+            field.nextElementSibling.classList.add('msg-error');
             field.nextElementSibling.innerText = "Este campo es obligatorio"
         } else {
-            field.nextElementSibling.classList.remove('error');
+            field.nextElementSibling.classList.remove('msg-error');
             field.nextElementSibling.innerText = '';
         }
     }
@@ -31,10 +31,10 @@ window.addEventListener("load", function () {
         const valueName = e.target.value
 
         if (valueName.length < 5) {
-            field.nextElementSibling.classList.add('error');
+            field.nextElementSibling.classList.add('msg-error');
             field.nextElementSibling.innerText = "Este campo es obligatorio y como mínimo deberá tener 5 caracteres"
         } else {
-            field.nextElementSibling.classList.remove('error')
+            field.nextElementSibling.classList.remove('msg-error')
             field.nextElementSibling.innerText = '';
         }
     })
@@ -51,10 +51,10 @@ window.addEventListener("load", function () {
         const valueName = e.target.value
 
         if (valueName.length < 20) {
-            field.nextElementSibling.classList.add('error');
+            field.nextElementSibling.classList.add('msg-error');
             field.nextElementSibling.innerText = "Este campo es obligatorio y como mínimo deberá tener 20 caracteres"
         } else {
-            field.nextElementSibling.classList.remove('error');
+            field.nextElementSibling.classList.remove('msg-error');
             
         }
     })
@@ -69,10 +69,10 @@ window.addEventListener("load", function () {
         const extAccept = ['jpg', 'jpeg', 'png', 'gif']
 
         if (!extAccept.includes(fileExt)) {
-            field.nextElementSibling.classList.add('error');
+            field.nextElementSibling.classList.add('msg-error');
             field.nextElementSibling.innerText = `Este campo acepta formatos ${extAccept.join(', ')}`
         } else {
-            field.nextElementSibling.classList.remove('error')
+            field.nextElementSibling.classList.remove('msg-error')
             field.nextElementSibling.innerText = '';
         }
 
