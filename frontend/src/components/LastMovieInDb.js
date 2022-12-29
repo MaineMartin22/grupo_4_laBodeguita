@@ -25,14 +25,16 @@ function LastMovieInDb() {
                     <div className="text-center">
                         <h1>{totalProducts.name}</h1>
                         <br />
-                        <h5>Descripción: 
-                        <br />
-                             {totalProducts.description}</h5>
-                        <br />
+                        <h5>Descripción: {totalProducts.description}</h5>
                         <h5>Bodega: {totalProducts.cellar}</h5>
+                        <h5>Precio: {totalProducts.price}</h5>
+                        <h5>Tipo: {totalProducts.type}</h5>
+                        <h5>Tamaños: {totalProducts.sizes}</h5>
+                        <h5>Alcohol: {totalProducts.alcohol}</h5>
+                        <h5>Color: {totalProducts.color}</h5>
+
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: 25 + 'rem' }} src={totalProducts.image} alt={totalProducts.name} />
                     </div>
-                    <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
                 </div>
             </div>
         </div>

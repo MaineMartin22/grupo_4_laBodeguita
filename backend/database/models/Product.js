@@ -6,11 +6,12 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        type: {
+        name: {
             type: dataTypes.STRING(25),
             allowNull: false
         },
-        name: {
+        
+        type: {
             type: dataTypes.STRING(25),
             allowNull: false
         },
@@ -75,6 +76,14 @@ module.exports = (sequelize, dataTypes) => {
             through: 'sizeProduct',
             foreignKey: "id_product",
             otherKey: 'id_size',
+            timestamps: false
+
+        });
+        Product.belongsToMany(models.Type, {
+            as: "types",
+            through: 'typeProduct',
+            foreignKey: "id_product",
+            otherKey: 'id_type',
             timestamps: false
 
         });

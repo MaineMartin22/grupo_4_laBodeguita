@@ -62,7 +62,6 @@ const controller = {
         return res.render('./productos/prodDetail.ejs', {productos, sizes, usuario: req.session.usuario})
     })
     },
-
     
     // LISTADO DE PRODUCTOS
 
