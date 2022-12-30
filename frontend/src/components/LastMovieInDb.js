@@ -29,7 +29,6 @@ function LastMovieInDb() {
                         <h4><b>Bodega:</b> {totalProducts.cellar}</h4>
                         <h4><b>Precio:</b> ${totalProducts.price}</h4>
                         <h4><b>Tipo:</b> {totalProducts.type}</h4>
-                        <h4><b>Tamaños:</b> {totalProducts.sizes}</h4>
                         <h4><b>Alcohol:</b> {totalProducts.alcohol}</h4>
                         <h4><b>Color:</b> {totalProducts.color}</h4>
                         <div className="text-center">
