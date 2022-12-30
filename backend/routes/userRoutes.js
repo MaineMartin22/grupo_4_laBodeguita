@@ -107,10 +107,8 @@ router.get('/delete/:idUser', authMiddleware, notadmMiddleware, userController.u
 
 router.post('/delete/:idUser', userController.deleteUser)
 
-// EDITAR USUARIO DESDE ADMIN
+// VER USUARIO DESDE ADMIN
 
 router.get('/edit/:idUser', authMiddleware, notadmMiddleware, userController.userEdit )
-
-router.post('/edit/:idUser', uploadFile.single('avatar'), userController.userEditUpdate)
 
 module.exports = router

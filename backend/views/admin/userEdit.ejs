@@ -9,31 +9,38 @@
         <%- include("../partials/navBar") %>
     </header>
     <main>
-    <div class="create-div">
-    <form method="POST" class="create" enctype="multipart/form-data">
-            <h3>Editando usuario: <%=users.name%> - ID número: <%= users.id %></h3>
-            <h3>Nombre y apellido</h3>
-            <input type="text" name="name" id="nombre" value="<%=users.name%>">
-            <input type="text" name="surname" id="apellido" value="<%=users.surname%>">
-            <input type="email" name="email" id="email" value="<% users.email %>" readonly>
-            <h3>Direccion</h3>
-            <input type="text" name="direction". id="direccion" value="<%=users.direction%>">
-            <h3>Categoria</h3>
-            <select name="category" id="categoria">
-                    <option>1</option>
-                    <option>2</option>
-            </select>
-            <div>
-            <h3>Seleccionar avatar</h3>
-            <div>
-            <label for="avatar">Seleccionar avatar</label>
-            <input type="file" id="avatar" name="avatar">
+    <div class="profile-user">
+        <div class="profile-info-div">
+            <div class="profile-info-img">
+                <img src="/images/avatar/<%= user.image %>" alt="">
             </div>
-            <button type="submit">Enviar</button>
-            <button type="reset">Borrar</button>
+            <div class="profile-info-h3">
+                <h3>Información del usuario</h3>
+                <div class="profile-info-data">
+                    <table class="profile-info-table">
+                        <tbody>
+                                <tr>
+                                    <th><li>Nombre y apellido</li></th>
+                                    <td><li><%= user.name %> <%= user.surname %></li></td>
+                                </tr>
+                                <tr>
+                                    <th><li>Dirección</li></th>
+                                    <td><li><%= user.direction %></li></td>
+                                </tr>
+                                <tr>
+                                    <th><li>Email </li></th>
+                                    <td><li><%= user.email %></li></td>
+                                </tr>
+                                <tr>
+                                    <th><li>Fecha de nacimiento </li></th>
+                                    <td><li>NN</li></td>
+                                </tr>
+                            </tbody>
+                        </table>
         </div>
-</form>
-</div>
+        </div>
+    </div>
+ </div>
 </main>
 <footer class="footer">
     <%- include("../partials/footer") %>

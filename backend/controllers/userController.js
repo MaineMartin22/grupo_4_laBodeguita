@@ -182,8 +182,9 @@ const userController = {
         const idUser = req.params.idUser;
         console.log(idUser);
         db.User2.findByPk(idUser)
-            .then(users => {
-            res.render('./admin/userEdit',{users, usuario: req.session.usuario} );
+            .then(user => {
+            // console.log(users.name);
+            res.render('./admin/userEdit', {user, usuario: req.session.usuario} );
         });
         },
 
