@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 28-12-2022 a las 02:33:46
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Host: localhost
+-- Generation Time: Mar 24, 2022 at 12:45 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,433 +18,598 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `la_bodeguita`
+-- Database: `structure`
 --
+
+DROP DATABASE IF EXISTS `structure`;
+CREATE DATABASE `structure`;
+USE `structure`;
+
+--
+-- Table structure for table `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
+(1, 'Nike', NULL, NULL),
+(2, 'Adidas', NULL, NULL),
+(3, 'Topper', NULL, NULL),
+(4, 'Puma', NULL, NULL),
+(5, 'Fila', NULL, NULL),
+(6, 'Kappa', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carts`
+-- Table structure for table `carts`
 --
 
 CREATE TABLE `carts` (
-  `id` bigint(10) UNSIGNED NOT NULL,
-  `name` varchar(25) NOT NULL,
-  `id_user` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `userId` int(10) UNSIGNED DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cart_products`
---
-
-CREATE TABLE `cart_products` (
-  `id` bigint(10) UNSIGNED NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price_product` int(11) NOT NULL,
-  `id_cart` varchar(25) NOT NULL,
-  `id_product` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
-  `id` bigint(10) UNSIGNED NOT NULL,
-  `name` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `categories`
+-- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'admin'),
-(2, 'usuario');
+INSERT INTO `categories` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
+(1, 'Running', NULL, NULL),
+(2, 'Fútbol', NULL, NULL),
+(3, 'Street', NULL, NULL),
+(4, 'Verano', NULL, NULL),
+(5, 'Hockey', NULL, NULL),
+(6, 'Básquet', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cellars`
---
-
-CREATE TABLE `cellars` (
-  `id` bigint(10) UNSIGNED NOT NULL,
-  `name` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `cellars`
---
-
-INSERT INTO `cellars` (`id`, `name`) VALUES
-(1, 'Malbec'),
-(2, 'Santa julia'),
-(3, 'Norton');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `colors`
+-- Table structure for table `colors`
 --
 
 CREATE TABLE `colors` (
-  `id` bigint(10) NOT NULL,
-  `name` varchar(25) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `colors`
+-- Dumping data for table `colors`
 --
 
-INSERT INTO `colors` (`id`, `name`) VALUES
-(1, 'Rojo'),
-(2, 'Rosado'),
-(3, 'Negro'),
-(4, 'Blanco'),
-(5, 'Dorado'),
-(6, 'Plateado');
+INSERT INTO `colors` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
+(1, 'Blanco', NULL, NULL),
+(2, 'Negro', NULL, NULL),
+(3, 'Amarillo', NULL, NULL),
+(4, 'Violeta', NULL, NULL),
+(5, 'Rojo', NULL, NULL),
+(6, 'Azul', NULL, NULL),
+(7, 'verde', NULL, NULL),
+(8, 'Rosa', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `orderitems`
+-- Table structure for table `gender`
 --
 
-CREATE TABLE `orderitems` (
-  `id` int(11) NOT NULL,
-  `orderId` int(11) NOT NULL,
-  `productId` int(11) DEFAULT NULL,
-  `name` varchar(100) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  `deletedAt` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `gender` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `gender`
+--
+
+INSERT INTO `gender` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
+(1, 'Masculino', NULL, NULL),
+(2, 'Femenino', NULL, NULL),
+(3, 'Unisex', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `orders`
+-- Table structure for table `productcart`
 --
 
-CREATE TABLE `orders` (
-  `id` int(11) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `total` decimal(10,0) NOT NULL,
-  `paymentMethod` varchar(25) NOT NULL,
-  `shippingMethod` varchar(25) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updateAt` datetime NOT NULL,
-  `deletedAt` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `productcart` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `productId` int(10) UNSIGNED DEFAULT NULL,
+  `cartId` int(10) UNSIGNED DEFAULT NULL,
+  `productPrice` decimal(8,2) DEFAULT NULL,
+  `quantity` int(10) UNSIGNED DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `products`
+-- Table structure for table `productcategory`
+--
+
+CREATE TABLE `productcategory` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `productId` int(10) UNSIGNED DEFAULT NULL,
+  `categoryId` int(10) UNSIGNED DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `productcategory`
+--
+
+INSERT INTO `productcategory` (`id`, `productId`, `categoryId`, `createdAt`, `updatedAt`) VALUES
+(17, 16, 2, '2022-03-22 02:52:50', '2022-03-22 02:52:50'),
+(18, 17, 2, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(19, 18, 1, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(20, 19, 1, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(21, 20, 1, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(22, 21, 1, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(23, 21, 3, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(24, 22, 1, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(25, 23, 3, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(28, 25, 3, '2022-03-22 15:04:57', '2022-03-22 15:04:57'),
+(29, 26, 1, '2022-03-22 15:05:52', '2022-03-22 15:05:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productcolor`
+--
+
+CREATE TABLE `productcolor` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `productId` int(10) UNSIGNED DEFAULT NULL,
+  `colorId` int(10) UNSIGNED DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `productcolor`
+--
+
+INSERT INTO `productcolor` (`id`, `productId`, `colorId`, `createdAt`, `updatedAt`) VALUES
+(9, 16, 6, '2022-03-22 02:52:50', '2022-03-22 02:52:50'),
+(10, 17, 1, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(11, 17, 2, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(12, 17, 3, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(13, 18, 1, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(14, 18, 2, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(15, 18, 5, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(16, 18, 6, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(17, 19, 1, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(18, 19, 2, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(19, 20, 1, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(20, 20, 2, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(21, 21, 1, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(22, 21, 2, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(23, 21, 5, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(24, 21, 6, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(25, 22, 1, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(26, 22, 3, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(27, 22, 4, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(28, 22, 5, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(29, 22, 6, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(30, 23, 1, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(31, 23, 2, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(32, 23, 4, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(36, 25, 1, '2022-03-22 15:04:57', '2022-03-22 15:04:57'),
+(37, 25, 2, '2022-03-22 15:04:57', '2022-03-22 15:04:57'),
+(38, 26, 1, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(39, 26, 2, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(40, 26, 3, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(41, 26, 4, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(42, 26, 5, '2022-03-22 15:05:52', '2022-03-22 15:05:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
-  `id` bigint(10) UNSIGNED NOT NULL,
-  `name` varchar(25) NOT NULL,
-  `type` varchar(25) NOT NULL,
-  `price` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `alcohol` varchar(20) NOT NULL,
-  `sale` tinyint(1) NOT NULL,
-  `discount` varchar(20) NOT NULL,
-  `image` varchar(50) NOT NULL,
-  `id_cellar` varchar(25) NOT NULL,
-  `id_color` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` decimal(8,2) NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no-image.png',
+  `description` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `brandId` int(10) UNSIGNED DEFAULT NULL,
+  `genderId` int(10) UNSIGNED DEFAULT NULL,
+  `userId` int(10) UNSIGNED DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `products`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `type`, `price`, `description`, `alcohol`, `sale`, `discount`, `image`, `id_cellar`, `id_color`) VALUES
-(12, 'Sergio', 'Tinto', 5000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.5', 1, '10', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
-(13, 'SANTA MALENA', 'Blanco', 9000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 0, '15', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
-(14, 'Malbec', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', 'CADUS-SINGLE-VINEYARD.jpg', '3', '3'),
-(15, 'Santa Julia', 'Tinto', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '15', 0, '15', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
-(16, 'Malbec', 'Tinto', 4600, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.5', 0, '10', 'CADUS-SINGLE-VINEYARD.jpg', '2', '2'),
-(17, 'Alma Negra', 'Tinto', 7000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
-(18, 'Malbec', 'Blanco', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', 'CADUS-SINGLE-VINEYARD.jpg', '1', '1'),
-(19, 'Santa Julia', 'Blanco', 4500, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '13.5', 1, '14', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
-(20, 'Malbec Rosado', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 0, '15', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4'),
-(21, 'Alma blanca', 'Blanco', 3000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '15.3', 0, '5', 'CADUS-SINGLE-VINEYARD.jpg', '1', '3'),
-(22, 'Alma Rosada', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 0, '15', 'CADUS-SINGLE-VINEYARD.jpg', '1', '2'),
-(23, 'Santa Julia', 'Rosado', 6000, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown', '14.3', 1, '15', 'CADUS-SINGLE-VINEYARD.jpg', '1', '4');
+INSERT INTO `products` (`id`, `name`, `price`, `image`, `description`, `brandId`, `genderId`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
+(16, 'ELIMINAR', '12999.00', '1647917570739_img.jpg', 'Calzado Botines Nike Jr Superfly Vii Elite Fg De Fútbol', 1, 3, '2022-03-22 02:52:50', '2022-03-22 02:52:50', '2022-03-22 15:14:05'),
+(17, 'Botines Mercurial Nike', '12999.00', '1647960659577_img.jpeg', 'Botines Nike Jr Superfly Vii Elite Fg De Fútbol', 1, 1, '2022-03-22 14:50:59', '2022-03-22 14:50:59', NULL),
+(18, 'Zapatilla Adidas Tensaur Running', '18000.00', '1647960728991_img.jpg', 'Zapatillas que ofrecen la versatilidad necesaria para el uso diario. Estas zapatillas Adidas son perfectas para la aventura.', 2, 1, '2022-03-22 14:52:08', '2022-03-22 14:52:08', NULL),
+(19, 'Zapatillas Adidas Grand Court', '13400.00', '1647960790679_img.jpg', 'Zapatillas clásicas para todo momento, sea una salida casual o salir a caminar. Ideal para combinar con la colección Grand.', 2, 1, '2022-03-22 14:53:10', '2022-03-22 14:53:10', NULL),
+(20, 'Zapatilla Puma Flyer Flex ', '11150.00', '1647960975061_img.jpg', 'Marca alemana con una amplia colección de accesorios, ropa y calzado deportivo fabricada con los más altos estándares de calidad acompañando la pasión por los deportes y por un estilo de vida saludable.', 4, 2, '2022-03-22 14:56:15', '2022-03-22 14:56:15', NULL),
+(21, 'Zapatilla Fila Disruptor Ii Premium', '22400.00', '1647961091195_img.jpg', 'Un versión actualizada de la famosa silueta de los 90s. Estas Fila Disruptor para mujer son un ícono de la moda urbana, son clásicas y combinables. Están confeccionadas en material sintético con una suela de EVA liviana que aporta comodidad en cada paso.', 5, 1, '2022-03-22 14:58:11', '2022-03-22 14:58:11', NULL),
+(22, 'Zapatilla Fila Mujer Mindblower', '9400.00', '1647961229091_img.jpg', 'El upper mantiene su fidelidad a los orígenes en cuanto a estética se refiere, respecto a los materiales utilizado, se ha dado paso a un piel sintética más ligera, cuyo interior esta reforzado con un forro textil muy suave al tacto.', 5, 2, '2022-03-22 15:00:29', '2022-03-22 15:00:29', NULL),
+(23, 'Zapatilla Fila MB L12', '24500.00', '1647961325612_img.jpg', 'Aunque las zapatillas parezcan robustas y voluminosas, nada tiene que ver con la sensación de pisar sobre estas zapatillas, en la cual su espuma de doble densidad proporciona un confort excelente. ', 5, 1, '2022-03-22 15:02:05', '2022-03-22 15:02:05', NULL),
+(24, 'Zapatillas Nike Lunarepic Flyknit', '19999.00', '1647961390337_img.jpg', 'Súmate a la lujosa comodidad de las zapatillas de running Nike Flyknit LunarEpic para mujer. Está afinado con precisión con una parte superior construida Flyknit y espuma Lunarlon sensible para ofrecer una conducción suave kilómetro tras kilómetro.\r\n ', 1, 3, '2022-03-22 15:03:10', '2022-03-23 23:44:53', NULL),
+(25, 'Zapatillas Entrenamiento Metcon ', '11199.00', '1647961497008_img.jpg', 'Zapatillas Nike Metcon 5 Originales / Rincón del Fútbol', 1, 3, '2022-03-22 15:04:57', '2022-03-22 15:04:57', NULL),
+(26, 'Zapatilla Kappa Authentic Kassidy1', '8999.00', '1647961552632_img.jpg', 'Zapatilla Kappa moda urbana al mejor estilo de New York.', 6, 2, '2022-03-22 15:05:52', '2022-03-22 15:05:52', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sizeproduct`
+-- Table structure for table `productsize`
 --
 
-CREATE TABLE `sizeproduct` (
-  `id` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL,
-  `id_size` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `productsize` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `productId` int(10) UNSIGNED DEFAULT NULL,
+  `sizeId` int(10) UNSIGNED DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `sizeproduct`
+-- Dumping data for table `productsize`
 --
 
-INSERT INTO `sizeproduct` (`id`, `id_product`, `id_size`) VALUES
-(1, 12, 1),
-(2, 12, 2);
+INSERT INTO `productsize` (`id`, `productId`, `sizeId`, `createdAt`, `updatedAt`) VALUES
+(16, 16, 6, '2022-03-22 02:52:50', '2022-03-22 02:52:50'),
+(17, 16, 7, '2022-03-22 02:52:50', '2022-03-22 02:52:50'),
+(18, 16, 8, '2022-03-22 02:52:50', '2022-03-22 02:52:50'),
+(19, 17, 1, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(20, 17, 3, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(21, 17, 5, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(22, 17, 6, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(23, 17, 7, '2022-03-22 14:50:59', '2022-03-22 14:50:59'),
+(24, 18, 4, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(25, 18, 6, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(26, 18, 7, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(27, 18, 8, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(28, 18, 9, '2022-03-22 14:52:09', '2022-03-22 14:52:09'),
+(29, 19, 1, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(30, 19, 5, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(31, 19, 6, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(32, 19, 7, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(33, 19, 8, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(34, 19, 9, '2022-03-22 14:53:10', '2022-03-22 14:53:10'),
+(35, 20, 1, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(36, 20, 2, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(37, 20, 3, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(38, 20, 4, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(39, 20, 5, '2022-03-22 14:56:15', '2022-03-22 14:56:15'),
+(40, 21, 1, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(41, 21, 2, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(42, 21, 3, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(43, 21, 4, '2022-03-22 14:58:11', '2022-03-22 14:58:11'),
+(44, 22, 1, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(45, 22, 2, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(46, 22, 3, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(47, 22, 4, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(48, 22, 5, '2022-03-22 15:00:29', '2022-03-22 15:00:29'),
+(49, 23, 6, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(50, 23, 7, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(51, 23, 8, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(52, 23, 9, '2022-03-22 15:02:05', '2022-03-22 15:02:05'),
+(64, 25, 7, '2022-03-22 15:04:57', '2022-03-22 15:04:57'),
+(65, 25, 8, '2022-03-22 15:04:57', '2022-03-22 15:04:57'),
+(66, 25, 9, '2022-03-22 15:04:57', '2022-03-22 15:04:57'),
+(67, 26, 1, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(68, 26, 2, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(69, 26, 3, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(70, 26, 4, '2022-03-22 15:05:52', '2022-03-22 15:05:52'),
+(71, 26, 5, '2022-03-22 15:05:52', '2022-03-22 15:05:52');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sizes`
+-- Table structure for table `sizes`
 --
 
 CREATE TABLE `sizes` (
-  `id` bigint(20) NOT NULL,
-  `size` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `sizes`
+-- Dumping data for table `sizes`
 --
 
-INSERT INTO `sizes` (`id`, `size`) VALUES
-(1, '750ml'),
-(2, '1000ml'),
-(3, '1250ml'),
-(4, '500ml');
+INSERT INTO `sizes` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
+(1, '35', NULL, NULL),
+(2, '36', NULL, NULL),
+(3, '37', NULL, NULL),
+(4, '38', NULL, NULL),
+(5, '39', NULL, NULL),
+(6, '40', NULL, NULL),
+(7, '41', NULL, NULL),
+(8, '42', NULL, NULL),
+(9, '43', NULL, NULL),
+(10, '44', NULL, NULL),
+(11, '45', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `typeproduct`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `typeproduct` (
-  `id` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL,
-  `id_type` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `types`
---
-
-CREATE TABLE `types` (
-  `id` int(11) NOT NULL,
-  `name` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no-image.png',
+  `cartId` int(10) UNSIGNED DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Estructura de tabla para la tabla `users2`
+-- Dumping data for table `users`
 --
 
-CREATE TABLE `users2` (
-  `id` int(20) NOT NULL,
-  `name` varchar(25) NOT NULL,
-  `surname` varchar(25) NOT NULL,
-  `email` varchar(25) NOT NULL,
-  `direction` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `image` varchar(50) NOT NULL,
-  `id_categories` int(11) NOT NULL DEFAULT 2,
-  `id_cart` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `cartId`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
+(1, 'Joaquin', 'goku@gmail.com', '$2a$10$pu1wiGNJwthdsUJ73dqowu8JCaQ4FTMGAewcqdtzs3T9Y.Cf7LtX6', '1647389062287_img.jpeg', NULL, '2022-03-16 00:04:22', '2022-03-16 00:04:22', NULL),
+(2, 'Joaquin', 'joaquincaggiano@gmail.com', '$2a$10$RkePEl0IzVGCDXiHJMXav.odCQhHPGJOHkK7lqCgahjEmRPrrjGbO', '1647469836086_img.jpeg', NULL, '2022-03-16 22:30:36', '2022-03-16 22:30:36', NULL),
+(3, 'Joaquin Serra', 'krilin@gmail.com', '$2a$10$Qb01ipC1Ny6mMD15rDqLsuTD2xTI2fVXQeYCSa9JyqscGQ0kUQAEK', '1647471827806_img.jpeg', NULL, '2022-03-16 23:03:47', '2022-03-16 23:03:47', NULL),
+(4, 'Facu Mayuri', 'facumayuri@gmail.com', '$2a$10$t/KLwRHPnDi65IuKyF1CNOMJ4wzoinY4KGU0R1tsn3i1HlALqNwv2', '1647483135338_img.jpeg', NULL, '2022-03-17 02:12:15', '2022-03-17 02:12:15', NULL),
+(5, 'juanki', 'juanki@gmail.com', '$2a$10$jHZR5ZgB06kd98bqoXn4aun.F5TFzGkWDWEPwWLR0u2R1b9RbKEsu', '1647483315921_img.jpeg', NULL, '2022-03-17 02:15:16', '2022-03-17 02:15:16', NULL),
+(6, 'Tom caggiano', 'tomcaggiano@gmail.com', '$2a$10$8ygRqhF5yTeOc2ffkEHgX.47FyK23dp9yWuSNcU6SpSyDogO7yS/G', '1647886922356_img.jpeg', NULL, '2022-03-21 18:22:02', '2022-03-21 18:22:02', NULL),
+(7, 'Juan Muñoz', 'juanmunoz9393@gmail.com', '$2a$10$rO/NdhixR5924wtIRkDQnef2.pPyWgYpitIDVOcWuMjr6vJbUe3xO', '1647962024371_img.jpg', NULL, '2022-03-22 15:13:44', '2022-03-22 15:13:44', NULL);
 
 --
--- Volcado de datos para la tabla `users2`
---
-
-INSERT INTO `users2` (`id`, `name`, `surname`, `email`, `direction`, `password`, `image`, `id_categories`, `id_cart`) VALUES
-(3, 'MARTÍN ', 'MAINE', 'MMAINE181@GMAIL.COM', 'Avenida mitre 939', '$2b$12$np1nobaysYwg87QYsENqaOw1TA1jTyjVY3QzoH8FOlupBqMAAeG7G', '1670507789751_img.png', 1, ''),
-(75, 'PIRULO', 'GOMEZ', 'PIRULO@GMAIL.COM', 'no la se 124', '$2b$12$cJpqfbOzXOSXrifQyYwQBeTLJ/aSFnB9XQIyOHleW2S.GmXQJsjoO', '1671492955574_img.png', 1, ''),
-(6671, 'tamco', 'tamco', 'tamco@gmail.com', 'tamco 305', '$2b$12$mak/G6cSjQOFwr4LbAgtiuRCrQR8uO6TFSbR36vEvQeE4EDoB64Vm', '1670457163335_img.png', 1, '');
-
---
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `carts`
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `carts`
 --
 ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `userId` (`userId`);
 
 --
--- Indices de la tabla `cart_products`
---
-ALTER TABLE `cart_products`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_cart` (`id_cart`,`id_product`);
-
---
--- Indices de la tabla `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cellars`
---
-ALTER TABLE `cellars`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `colors`
+-- Indexes for table `colors`
 --
 ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `orderitems`
+-- Indexes for table `gender`
 --
-ALTER TABLE `orderitems`
+ALTER TABLE `gender`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `orders`
+-- Indexes for table `productcart`
 --
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `productcart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productId` (`productId`),
+  ADD KEY `cartId` (`cartId`);
 
 --
--- Indices de la tabla `products`
+-- Indexes for table `productcategory`
+--
+ALTER TABLE `productcategory`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productId` (`productId`),
+  ADD KEY `categoryId` (`categoryId`);
+
+--
+-- Indexes for table `productcolor`
+--
+ALTER TABLE `productcolor`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productId` (`productId`),
+  ADD KEY `colorId` (`colorId`);
+
+--
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_cellar` (`id_cellar`),
-  ADD KEY `id_color` (`id_color`);
+  ADD KEY `brandId` (`brandId`);
 
 --
--- Indices de la tabla `sizeproduct`
+-- Indexes for table `productsize`
 --
-ALTER TABLE `sizeproduct`
+ALTER TABLE `productsize`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_product` (`id_product`),
-  ADD KEY `id_size` (`id_size`);
+  ADD KEY `productId` (`productId`),
+  ADD KEY `sizeId` (`sizeId`);
 
 --
--- Indices de la tabla `sizes`
+-- Indexes for table `sizes`
 --
 ALTER TABLE `sizes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `typeproduct`
+-- Indexes for table `users`
 --
-ALTER TABLE `typeproduct`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_product` (`id_product`),
-  ADD KEY `id_type` (`id_type`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `cartId` (`cartId`);
 
 --
--- Indices de la tabla `types`
---
-ALTER TABLE `types`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `users2`
---
-ALTER TABLE `users2`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categories` (`id_categories`,`id_cart`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `carts`
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cart_products`
---
-ALTER TABLE `cart_products`
-  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `cellars`
---
-ALTER TABLE `cellars`
-  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `colors`
+-- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `orderitems`
+-- AUTO_INCREMENT for table `gender`
 --
-ALTER TABLE `orderitems`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `gender`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `orders`
+-- AUTO_INCREMENT for table `productcart`
 --
-ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `productcart`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `products`
+-- AUTO_INCREMENT for table `productcategory`
+--
+ALTER TABLE `productcategory`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `productcolor`
+--
+ALTER TABLE `productcolor`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT de la tabla `sizeproduct`
+-- AUTO_INCREMENT for table `productsize`
 --
-ALTER TABLE `sizeproduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `productsize`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT de la tabla `sizes`
+-- AUTO_INCREMENT for table `sizes`
 --
 ALTER TABLE `sizes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `typeproduct`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `typeproduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `types`
+-- Constraints for dumped tables
 --
-ALTER TABLE `types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users2`
+-- Constraints for table `carts`
 --
-ALTER TABLE `users2`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
+ALTER TABLE `carts`
+  ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `productcart`
+--
+ALTER TABLE `productcart`
+  ADD CONSTRAINT `productcart_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `productcart_ibfk_2` FOREIGN KEY (`cartId`) REFERENCES `carts` (`id`);
+
+--
+-- Constraints for table `productcategory`
+--
+ALTER TABLE `productcategory`
+  ADD CONSTRAINT `productcategory_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `productcategory_ibfk_2` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`);
+
+--
+-- Constraints for table `productcolor`
+--
+ALTER TABLE `productcolor`
+  ADD CONSTRAINT `productcolor_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `productcolor_ibfk_2` FOREIGN KEY (`colorId`) REFERENCES `colors` (`id`);
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`brandId`) REFERENCES `brands` (`id`);
+
+--
+-- Constraints for table `productsize`
+--
+ALTER TABLE `productsize`
+  ADD CONSTRAINT `productsize_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `productsize_ibfk_2` FOREIGN KEY (`sizeId`) REFERENCES `sizes` (`id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `cartId` FOREIGN KEY (`cartId`) REFERENCES `carts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
