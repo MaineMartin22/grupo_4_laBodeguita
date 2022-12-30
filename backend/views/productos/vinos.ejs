@@ -30,9 +30,13 @@
                         <li><b>Tipo:</b> <%=product.type%></li>
                         <li><b>Tamaños disponibles:</b>
                             <select name="" id="">
-                            <% sizes.forEach(function(size) { %>      
-                            <option value=""><%=size%></option>
-                            <% }) %> 
+                            <% if (sizes != []) { %>
+                                <% sizes.forEach(function(size) { %>      
+                                <option value=""><%=size%></option>
+                                <% }) %> 
+                                <% } else{ %>
+                                    <option value="">Sin stock</option>
+                                <% } %> 
                         </select></li>
                         <% if (product.sale != "0") { %>
                             <li><b>Precio: $<%= product.price-(product.price * (product.discount/100))%></b> $<del><%= product.price%></del></li>

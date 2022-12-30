@@ -90,6 +90,7 @@ const controller = {
                 nest: true
             })
         sizes = sizes.map(size => size.size.size)
+        console.log(sizes);
         res.render('./productos/vinos.ejs', {product, sizes, usuario: req.session.usuario});
     });
     },

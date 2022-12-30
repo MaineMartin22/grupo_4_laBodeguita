@@ -372,10 +372,10 @@ main {
 
 /* INICIO - OFERTAS*/
 .ofertas {
-  width: 100%;
+  width: 90%;
   display: none;
   flex-direction: column;
-  text-align: left;
+  margin: auto;
   padding-top: 30px;
 }
 
@@ -399,17 +399,20 @@ main {
   width: 90%;
   color: #fff;
   border: 2px solid #fff;
-  background-color: #d0d0d0;
+  background-color: transparent;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
-.ofer-img {
-  width: 100%;
+.ofer-prod:hover {
+  background-color: #fff;
 }
 
 .ofer-img img {
   width: 100%;
   margin: auto;
   object-fit: contain;
+  filter: drop-shadow(0px 0px 5px #fff);
 }
 
 .ofer-text {
@@ -1505,6 +1508,7 @@ main button {
 
 .footer-content i:hover, .footer-content h5:hover {
   color: #011B36;
+  filter: drop-shadow(0px 0px 1px #fff);
 }
 
 .footer-logo {
