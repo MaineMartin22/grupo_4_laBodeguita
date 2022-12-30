@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         alcohol: {
-            type: dataTypes.STRING(20),
+            type: dataTypes.STRING,
             allowNull: false
         },
         sale: {
@@ -39,19 +39,19 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         discount: {
-            type: dataTypes.STRING(20),
+            type: dataTypes.STRING,
             allowNull: false
         },
         image: {
-            type: dataTypes.STRING(50),
+            type: dataTypes.STRING,
             // allowNull: false
         },
         id_cellar: {
-            type: dataTypes.STRING(25),
+            type: dataTypes.STRING,
             allowNull: false
         },
         id_color: {
-            type: dataTypes.STRING(25),
+            type: dataTypes.STRING,
             // allowNull: false
         },
     };

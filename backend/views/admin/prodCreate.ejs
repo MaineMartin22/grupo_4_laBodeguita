@@ -33,11 +33,12 @@
                             <option>1</option>
                         </select>
                         <h3>Bodegas</h3>
-                        <h3>1 para <b>Malbec</b>, 2 para <b>Santa Julia</b>, 3 para <b>Norton</b></h3>
                         <select name="bodega">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                            <% for( let i = 0; i < cellars.length; i++ ) { %>
+                                <option value="<%= cellars[i].id %>">
+                                    <%= cellars[i].name %>  
+                                </option>
+                            <% } %>    
                         </select>
                         <input type="number" name="precio" id="precio" placeholder="Precio"
                             value="<%= locals.old && old.precio ? old.precio : '' %>">
@@ -66,18 +67,20 @@
                                             <% } %>
                                                 <h3>Color</h3>
                                                 <select name="color" id="color">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
+                                                    <% for( let i = 0; i < colors.length; i++ ) { %>
+                                                        <option value="<%= colors[i].id %>">
+                                                            <%= colors[i].name %>  
+                                                        </option>
+                                                    <% } %>    
                                                 </select>
-                                                <select name="tamano">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select>
+                                                <h3>Tamaño</h3>
+                                                <div style="display: flex">
+                                                    <% for( let i = 0; i < sizes.length; i++ ) { %>
+                                                        <input name= "tamano" type="checkbox"  value="<%= sizes[i].id %>">
+                                                            <%= sizes[i].size %>  
+                                                        </input>
+                                                    <% } %>    
+                                                </div>
                                                 <h3>Descripción del producto</h3>
                                                 <textarea name="description"
                                                     id="description"><%= locals.old && old.description ? old.description : ''%></textarea>

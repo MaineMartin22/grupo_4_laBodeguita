@@ -2,12 +2,12 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Size';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         size: {
-            type: dataTypes.STRING(),
+            type: dataTypes.STRING,
             allowNull: false
         }
     };
@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Size.associate = function (models) {
         Size.belongsToMany(models.Product, {
-            as: "sizes",
+            as: "products",
             through: 'sizeProduct',
             foreignKey: "id_size",
             otherKey: 'id_product',

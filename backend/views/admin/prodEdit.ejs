@@ -1,118 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include("../partials/head") %>
+
+<head>
+    <%- include("../partials/head") %>
         <link rel="stylesheet" href="/css/estilosReg.css">
-      </head>
+</head>
+
 <body>
     <header class="header">
         <%- include("../partials/navBar") %>
     </header>
     <main>
-    <div class="create-div">
-    <form method="POST" action="<%= product.id %>" class="create" enctype="multipart/form-data">
-            <h3>Editando producto: <%=product.name%> - ID número: <%= product.id %></h3>
-            <div>
-            <input type="text" name="name" id="name" value="<%=product.name%>">
-            <span></span>
-            <% if (locals.errors && errors.name) { %>
-                <p class="msg-error">
-                <%= errors.name.msg%>
-                </p>
-            <% } %>
-            <h3>Tipo</h3>
-            <select name="tipo" id="tipo">
-            <% if (product.type == "Rosado") { %>
-                <option><%=product.type%></option>
-                <option>Tinto</option>
-                <option>Blanco</option>
-            <% } else if (product.type == "Tinto" ) { %> 
-                <option><%=product.type%></option>
-                <option>Rosado</option>
-                <option>Blanco</option>
-            <% } else { %>
-                <option><%=product.type%></option>
-                <option>Rosado</option>
-                <option>Tinto</option>
-            <% };%>
-        </select>
-        <h3>Oferta: "0" para no, "1" para si</h3>
-        <select name="oferta" id="oferta">
-            <option>0</option>
-            <option>1</option>
-        </select>
-            <h3>Precio</h3>
-            <input type="number" name="precio" id="precio" value="<%=product.price%>">
-            <span></span>
-            <% if (locals.errors && errors.precio) { %>
-                <p class="msg-error">
-                <%= errors.precio.msg%>
-                </p>
-            <% } %>
-            <h3>Bodega: 1 - Malbec, 2 - Santa Julia, 3 - Norton</h3>
-            <select name="bodega" id="bodega">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </select>
-            <h3>% de alcohol</h3>
-            <input type="text" name="alcohol" id="alcohol" value="<%=product.alcohol%>">
-            <span></span>
-            <% if (locals.errors && errors.alcohol) { %>
-                <p class="msg-error">
-                <%= errors.alcohol.msg%>
-                </p>
-            <% } %>
-            <h3>Descuento en número entero</h3>
-            <input type="text" name="descuento" id="descuento" value="<%=product.discount%>">
-            <span></span>
-            <% if (locals.errors && errors.descuento) { %>
-                <p class="msg-error">
-                <%= errors.descuento.msg%>
-                </p>
-            <% } %>
-            <h3>Tamaño</h3>
-            <select name="tamano" id="tamano">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </select>
-            <h3>Color</h3>
-            <select name="color" id="color">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-        </select>
-        <h3>Descripción del producto</h3>
-            <textarea name="description" id="description" cols="30" rows="10"><%=product.description%></textarea>
-            <span></span>
-            <% if (locals.errors && errors.description) { %>
-                <p class="msg-error">
-                <%= errors.description.msg%>
-                </p>
-            <% } %>
-            <h3>Imagen del producto</h3>
-            <input type="file" id="imagen" name="imagen">
-            <span></span>
-            <% if (locals.errors && errors.imagen) { %>
-                <p class="msg-error">
-                <%= errors.imagen.msg%>
-                </p>
-            <% } %>
-            <button id='submit'type="submit">Enviar</button>
-            <button type="reset">Borrar</button>
-    </div>
-</form>
-</div>
-</main>
-<footer class="footer">
-    <%- include("../partials/footer") %>
-  </footer>
-  </body>
-  <script src="../../js/create_editProductValidator.js"></script>
-  <%- include("../partials/scripts") %>
+        <div class="create-div">
+            <form method="POST" action="<%= product.id %>" class="create" enctype="multipart/form-data">
+                <h3>Editando producto: <%=product.name%> - ID número: <%= product.id %>
+                </h3>
+                <div>
+                    <input type="text" name="name" id="name" value="<%=product.name%>">
+                    <span></span>
+                    <% if (locals.errors && errors.name) { %>
+                        <p class="msg-error">
+                            <%= errors.name.msg%>
+                        </p>
+                        <% } %>
+                            <h3>Tipo</h3>
+                            <select name="tipo" id="tipo">
+                                <% if (product.type=="Rosado" ) { %>
+                                    <option>
+                                        <%=product.type%>
+                                    </option>
+                                    <option>Tinto</option>
+                                    <option>Blanco</option>
+                                    <% } else if (product.type=="Tinto" ) { %>
+                                        <option>
+                                            <%=product.type%>
+                                        </option>
+                                        <option>Rosado</option>
+                                        <option>Blanco</option>
+                                        <% } else { %>
+                                            <option>
+                                                <%=product.type%>
+                                            </option>
+                                            <option>Rosado</option>
+                                            <option>Tinto</option>
+                                            <% };%>
+                            </select>
+                            <h3>Oferta: "0" para no, "1" para si</h3>
+                            <select name="oferta" id="oferta">
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                            <h3>Precio</h3>
+                            <input type="number" name="precio" id="precio" value="<%=product.price%>">
+                            <span></span>
+                            <% if (locals.errors && errors.precio) { %>
+                                <p class="msg-error">
+                                    <%= errors.precio.msg%>
+                                </p>
+                                <% } %>
+                                    <h3>Bodegas</h3>
+                                    <select name="bodega">
+                                        <% for( let i=0; i < cellars.length; i++ ) { %>
+                                            <option value="<%= cellars[i].id %>">
+                                                <%= cellars[i].name %>
+                                            </option>
+                                            <% } %>
+                                    </select>
+                                    <h3>% de alcohol</h3>
+                                    <input type="text" name="alcohol" id="alcohol" value="<%=product.alcohol%>">
+                                    <span></span>
+                                    <% if (locals.errors && errors.alcohol) { %>
+                                        <p class="msg-error">
+                                            <%= errors.alcohol.msg%>
+                                        </p>
+                                        <% } %>
+                                            <h3>Descuento en número entero</h3>
+                                            <input type="text" name="descuento" id="descuento"
+                                                value="<%=product.discount%>">
+                                            <span></span>
+                                            <% if (locals.errors && errors.descuento) { %>
+                                                <p class="msg-error">
+                                                    <%= errors.descuento.msg%>
+                                                </p>
+                                                <% } %>
+                                                <h3>Tamaño</h3>
+                                                <div>
+                                                    <% for( let i = 0; i < sizes.length; i++ ) { %>
+                                                        <input name= "tamano" type="checkbox"  value="<%=sizes[i].id %>">
+                                                            <%=sizes[i].size %>  
+                                                        </input>
+                                                    <% } %>    
+                                                </div>
+                                                    <h3>Color</h3>
+                                                    <select name="color" id="color">
+                                                        <% for( let i=0; i < colors.length; i++ ) { %>
+                                                            <option value="<%= colors[i].id %>">
+                                                                <%= colors[i].name %>
+                                                            </option>
+                                                            <% } %>
+                                                    </select>
+                                                    <h3>Descripción del producto</h3>
+                                                    <textarea name="description" id="description" cols="30"
+                                                        rows="10"><%=product.description%></textarea>
+                                                    <span></span>
+                                                    <% if (locals.errors && errors.description) { %>
+                                                        <p class="msg-error">
+                                                            <%= errors.description.msg%>
+                                                        </p>
+                                                        <% } %>
+                                                            <h3>Imagen del producto</h3>
+                                                            <input type="file" id="imagen" name="imagen">
+                                                            <span></span>
+                                                            <% if (locals.errors && errors.imagen) { %>
+                                                                <p class="msg-error">
+                                                                    <%= errors.imagen.msg%>
+                                                                </p>
+                                                                <% } %>
+                                                                    <button id='submit' type="submit">Enviar</button>
+                                                                    <button type="reset">Borrar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+<script src="../../js/create_editProductValidator.js"></script>
+<%- include("../partials/scripts") %>
 
 </html>

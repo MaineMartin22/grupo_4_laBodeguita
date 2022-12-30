@@ -29,11 +29,15 @@
                         <li><b>Bodega:</b> <%=product.cellars.name%></li>
                         <li><b>Tipo:</b> <%=product.type%></li>
                         <li><b>Tamaños disponibles:</b>
-                            <select name="" id="">
-                            <% sizes.forEach(function(size) { %>      
-                            <option value=""><%=size%></option>
-                            <% }) %> 
-                        </select></li>
+                        <select name="" id="">
+                        <% if (product.sizes.length > 0) { %>
+                                    <% product.sizes.forEach(size=> { %>
+                                        <option value=""><%= size.size %></option>
+                                    <% }) %>
+                                    <% } else {%>
+                                        <option>Sin stock del producto </option>
+                                        <% } %> 
+                                    </select></li>
                         <% if (product.sale != "0") { %>
                             <li><b>Precio: $<%= product.price-(product.price * (product.discount/100))%></b> $<del><%= product.price%></del></li>
                         <% } else {%> 
