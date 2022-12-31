@@ -152,6 +152,7 @@ const controller = {
             id: req.params.idProd
         }
         });
+        productEdit.removeSizes(productEdit.sizes);
         productEdit.addSize(req.body.tamano);
 
         res.redirect('../list')
