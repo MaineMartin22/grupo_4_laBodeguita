@@ -606,8 +606,44 @@ main {
   text-align: left;
 }
 
-.create input, .create select, .create textarea, #avatar {
+.create input, .create select, .create textarea {
   width: 80%;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
+.prod-create-tamano {
+  display: flex;
+  width: 70%;
+  margin: auto;
+}
+
+.prod-create-tamano input[type=checkbox]:checked {
+  color: red;
+}
+
+#avatar {
+  width: 100%;
+  color: #000;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
+#ficha {
+  width: 100%;
+  color: #000;
   margin: auto;
   outline: none;
   padding: 18px 0px;
@@ -1518,10 +1554,14 @@ main button {
   margin: auto;
   padding-top: 100px;
 }
+.cart h3 {
+  color: #fff;
+}
 .cart table {
   width: 100%;
-  color: #303f9f;
+  color: #011B36;
   background-color: #fff;
+  border-radius: 5px;
 }
 .cart table thead {
   width: 100%;
@@ -1531,12 +1571,20 @@ main button {
 }
 .cart table tbody tr td {
   font-size: 10px;
+  color: #011B36;
+}
+.cart table tbody tr td a {
+  text-decoration: none;
+  color: #011B36;
+}
+.cart table tbody tr td img {
+  width: 25px;
+  object-fit: contain;
 }
 
 .totalAmount {
-  font-size: 30px;
-  color: #303f9f;
-  background-color: #fff;
+  font-size: 45px;
+  color: #fff;
   width: auto;
 }
 

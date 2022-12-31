@@ -140,8 +140,44 @@
   text-align: left;
 }
 
-.create input, .create select, .create textarea, #avatar {
+.create input, .create select, .create textarea{
   width: 80%;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
+.prod-create-tamano{
+  display: flex;
+  width: 70%;
+  margin: auto;
+}
+
+.prod-create-tamano input[type="checkbox"]:checked {
+  color: red;
+}
+
+#avatar{
+  width: 100%;
+  color: #000;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
+#ficha{
+  width: 100%;
+  color: #000;
   margin: auto;
   outline: none;
   padding: 18px 0px;

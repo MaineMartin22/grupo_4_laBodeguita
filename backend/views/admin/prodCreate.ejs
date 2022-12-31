@@ -74,10 +74,11 @@ value="<%= locals.old && old.name ? old.name : '' %>">
         <% } %>    
         </select>
         <h3>Tamaño</h3>
-        <div style="display: flex">
+        <div class="prod-create-tamano">
         <% for( let i = 0; i < sizes.length; i++ ) { %>
-        <input name= "tamano" type="checkbox"  value="<%= sizes[i].id %>">
-        <%= sizes[i].size %>  
+        <input name= "tamano" type="checkbox" id="<%= sizes[i].id %>">
+        <label for="<%= sizes[i].id %>"><%= sizes[i].size %>  
+        </label>
         </input>
         <% } %>    
         </div>

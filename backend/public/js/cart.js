@@ -24,7 +24,6 @@ if (localStorage.carrito) {
         .then((res) => res.json())
         .then((product) => {
             if (product) {
-                
                 cartRows.innerHTML += `
                 <tr id"row${index}">
                         <th scope="row">${index + 1}</th>
@@ -32,14 +31,15 @@ if (localStorage.carrito) {
                         <td>${product.price}</td>
                         <td>${item.quantity}</td>
                         <td>${parseFloat(product.price * item.quantity, 2).toFixed(2)}</td>
-                        <td><a href="#" class="deleteCart" onclick="vaciarCarrito(${index})">Eliminar</a></td>
+                        <td><img src="../images/products/${product.image}" alt=""></td>
                         </tr>
                         `;
                 products.push({
                     id: product.id,
                     name: product.name,
                     price: product.price,
-                    quantity: item.quantity
+                    quantity: item.quantity,
+                    image: product.image
                 })
                 console.log(products);
             } else {

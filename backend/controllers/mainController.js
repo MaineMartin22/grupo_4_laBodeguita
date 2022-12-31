@@ -4,18 +4,6 @@ const path = require('path')
 
 const bcryptjs = require("bcryptjs")
 
-const miPathDataBase = path.join(__dirname, '../data/productos.json')
-
-const miUserPathDataBase = path.join(__dirname, '../data/usuarios.json')
-
-const prods = fs.readFileSync('./data/productos.json', 'utf-8');
-
-const usuario = fs.readFileSync('./data/usuarios.json', 'utf-8');
-
-const tinto = JSON.parse(prods);
-
-const users = JSON.parse(usuario);
-
 const { validationResult } = require('express-validator')
 
 const db = require('../database/models');
