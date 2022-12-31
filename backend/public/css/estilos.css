@@ -606,8 +606,21 @@ main {
   text-align: left;
 }
 
-.create input, .create select, .create textarea, #avatar {
+.create input, .create select, .create textarea{
   width: 80%;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
+#avatar {
+  width: 100%;
+  color: black;
   margin: auto;
   outline: none;
   padding: 18px 0px;
@@ -643,14 +656,7 @@ main {
   bottom: 0;
 }
 
-.create input[type=file] {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
+
 
 .create label[for=imagen], .create label[for=avatar] {
   font-size: 14px;
