@@ -80,6 +80,12 @@
   
   .prod-detail-ul-2 li {
     font-size: 15px;
+    a{
+      text-decoration: none;
+      color: #a7a7a7;
+      border-bottom: 1px solid #a7a7a7;
+
+    }
     select{
       border: none;
       border-radius: 5px;

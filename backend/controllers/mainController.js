@@ -22,9 +22,6 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
-const Product = db.Product
-
-const Cellar = db.Cellar
 
 
 const controller = {
@@ -32,11 +29,12 @@ const controller = {
     prodCar:(req, res) => {res.render("./productos/prodCar", {usuario: req.session.usuario})},
     toBuy: (req, res) => {res.render("./productos/finalizarCompra", {usuario: req.session.usuario})},
 
-    product: function(req, res){
-        db.Cellar.findAll()
-            .then(function(cellars){
-            return res.render('./admin/prodCreate', {cellars, usuario: req.session.usuario})
-        })
+    product: async function(req, res){
+        const cellars = await db.Cellar.findAll()
+        const sizes = await db.Size.findAll()
+        const colors = await db.Color.findAll()
+
+            return res.render('./admin/prodCreate', {cellars, sizes, colors, usuario: req.session.usuario})
         },
 
     index: function(req, res){
@@ -52,8 +50,7 @@ const controller = {
             include: [{association : 'sizes'}]
         })
         .then(async productos => {
-            let sizes = await db.SizeProduct.findAll({
-                include: 'size',
+            let sizes = await db.Size.findAll({
                 raw: true,
                 nest: true
             })
@@ -75,24 +72,11 @@ const controller = {
 
     // DETALLE DE CADA UNO
 
-    detalle: function(req,res){
-    console.log(req.params.idProd);
-    db.Product.findByPk(req.params.idProd, {
-        include: [{association : 'cellars'}, {association : 'colors'},  'sizes']
+    detalle: async function(req,res){
+    const product = await db.Product.findByPk(req.params.idProd, {
+        include: ['cellars', 'colors',  'sizes']
     })
-        .then( async product => {
-            let sizes = await db.SizeProduct.findAll({
-                where: {
-                    id_product : req.params.idProd
-                },
-                include: 'size',
-                raw: true,
-                nest: true
-            })
-        sizes = sizes.map(size => size.size.size)
-        console.log(sizes);
-        res.render('./productos/vinos.ejs', {product, sizes, usuario: req.session.usuario});
-    });
+        res.render('./productos/vinos.ejs', {product, usuario: req.session.usuario});
     },
 
     // CREAR PRODUCTOS
@@ -101,7 +85,6 @@ const controller = {
 
         const resultValidation = validationResult(req);
 
-
         if(resultValidation.errors.length > 0) {
             return  res.render('./admin/prodCreate', {
                 usuario: req.session.usuario,
@@ -109,7 +92,7 @@ const controller = {
             });
         }
         else{
-        await db.Product.create({
+            const productStored = await db.Product.create({
             name: (req.body.name).toUpperCase(),
             type: req.body.tipo,
             id_cellar: req.body.bodega,
@@ -119,20 +102,23 @@ const controller = {
             id_color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
+            ficha: req.file.originalname,
             image: req.file.originalname
         })
+        productStored.addSize(req.body.tamano);
 
         res.redirect('./list')}
     },
 
     // EDITAR DE PRODUCTO
 
-    edit : function(req,res){
-        console.log(req.params.idProd);
-        db.Product.findByPk(req.params.idProd)
-            .then(product => {
-            res.render('./admin/prodEdit',{product, usuario: req.session.usuario} );
-        });
+    edit : async function(req,res){
+        const product = await db.Product.findByPk(req.params.idProd)
+        const cellars = await db.Cellar.findAll()
+        const sizes = await db.Size.findAll()
+        const colors = await db.Color.findAll()
+        
+        res.render('./admin/prodEdit',{product, cellars, sizes, colors, usuario: req.session.usuario} );
         },
 
     update: async (req, res)=> {
@@ -140,14 +126,16 @@ const controller = {
 
 
         if(resultValidation.errors.length > 0) {
-            db.Product.findByPk(req.params.idProd)
+            db.Product.findByPk(req.params.idProd, { include: ['cellars', 'colors',  'sizes'] })
             .then(product => {
             res.render('./admin/prodEdit',{product, usuario: req.session.usuario, errors: resultValidation.mapped(),  old: req.body,
             } );
         });
         }
+        
         else{
-       await db.Product.update({
+            const productEdit = await db.Product.findByPk(req.params.idProd, { include: ['cellars', 'colors',  'sizes'] })
+            db.Product.update({
             name: (req.body.name).toUpperCase(),
             type: req.body.tipo,
             id_cellar: req.body.bodega,
@@ -157,25 +145,14 @@ const controller = {
             color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
+            ficha: req.file.originalname,
             image: req.file.originalname
         }, {
         where: {
             id: req.params.idProd
         }
         });
-
-        db.Product.findByPk(req.params.idProd)
-        .then(function(producto){
-            console.log(producto);
-            if (producto) {
-                console.log(producto.id);
-                console.log(req.body.tamano);
-                db.SizeProduct.create({
-                    id_product: producto.id,
-                    id_size: req.body.tamano
-            })
-        }
-        })
+        productEdit.addSize(req.body.tamano);
 
         res.redirect('../list')
     }},

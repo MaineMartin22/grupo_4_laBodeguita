@@ -13,27 +13,15 @@ module.exports = {
             nest: true
         })
             .then(async productos => {
-                let sizes = await db.SizeProduct.findAll({
-                    raw: true,
-                    include: 'size',
-                    nest: true
-                })
-                let color = await db.Color.findAll({
-                    raw: true,
-                    include: 'products',
-                    nest: true
-                })
 
-                sizes = sizes.map(size => size.size.size)
-
-                let categoryTinto = [];
-                let categoryBlanco = [];
-                let categoryRosado = [];
+                let categoryTinto = 0;
+                let categoryBlanco = 0;
+                let categoryRosado = 0;
 
 
                 productos.forEach(products => {
                     if (products.type == 'Tinto') {
-                        categoryTinto++
+                     categoryTinto++
                     }
                     if (products.type == 'Blanco') {
                         categoryBlanco++
@@ -42,6 +30,21 @@ module.exports = {
                         categoryRosado++
                     }
                 })
+
+                let countByCategory = [
+                    {
+                        Type: 'Tinto',
+                        count: categoryTinto
+                    },
+                    {
+                        Type: 'Blanco',
+                        count: categoryBlanco
+                    },
+                    {
+                        Type: 'Rosado',
+                        count: categoryRosado
+                    }
+                ]
 
                 let productDetail = [];
 
@@ -58,8 +61,9 @@ module.exports = {
                         alcohol: products.alcohol,
                         sale: products.sale,
                         discount: products.discount,
+                        size: products.size,
+                        sizes: products.sizes,
                         image: `/images/products/${products.image}`,
-                        sizes: sizes,
                         color: products.colors.name,
                         detail: `/api/products/${products.id}`
                     })
@@ -69,7 +73,7 @@ module.exports = {
                     meta: {
                         status: 200,
                         count: productos.length,
-                        countByCategory: { 'Tinto': categoryTinto, 'Blanco': categoryBlanco, 'Rosado': categoryRosado },
+                        countByCategory: countByCategory,
                         url: '/api/products'
                     },
                     data: productDetail
@@ -80,19 +84,14 @@ module.exports = {
     },
 
     detail: async (req, res) => {
-        db.Product.findByPk(req.params.id)
+        db.Product.findByPk(req.params.id, 
+            {
+                raw: true,
+                include: ['cellars', 'sizes', 'colors'],
+                //Trae asociacion en objeto
+                nest: true
+        })
             .then(async product => {
-                let sizes = await db.SizeProduct.findAll({
-                    raw: true,
-                    where: {
-                        id_product: product.id
-                    },
-                    include: 'size',
-                    nest: true
-                })
-
-                sizes = sizes.map(size => size.size.size)
-
                 let productDetail = [];
 
                 productDetail.push({
@@ -104,10 +103,10 @@ module.exports = {
                     alcohol: product.alcohol,
                     sale: product.sale,
                     discount: product.discount,
-                    //size: product.size,
+                    size: product.size,
                     image: `/images/products/${product.image}`,
-                    sizes: sizes,
-                    colors: color
+                    sizes: product.sizes,
+                    colors: product.colors.name
                 })
 
                 let respuesta = {

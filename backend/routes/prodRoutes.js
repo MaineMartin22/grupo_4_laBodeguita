@@ -28,6 +28,18 @@ const productStorage = multer.diskStorage({
 
 const productFile = multer({ productStorage });
 
+const fichaStorage = multer.diskStorage({
+    destination: (req, file, cb) =>{
+        cb(null, './public/images/fichas' )
+    },
+    filename: (req, file, cb) =>{
+        let fileName = `${Date.now()}_img${path.extname(file.originalname)}`
+        cb(null, fileName)
+    }
+});
+
+const fichaFile = multer({ productStorage });
+
 
 let validaciones = [
     check('name').isLength({min: 5}).withMessage('El campo no puede estar vacío, debe tener al menos cinco caracteres'),
@@ -40,6 +52,19 @@ let validaciones = [
         let extAceptadas = ['.png', '.jpg', '.jpeg', '.gif'];
         if (!file) {
             throw new Error('Tienes que subir una foto');
+        } else {
+            let extension = path.extname(file.originalname);
+            if (!extAceptadas.includes(extension)) {
+                throw new Error(`Las extensiones permitidas son: ${extAceptadas.join(', ')}`);
+            }
+        }
+        return true;
+    }),
+    check('ficha').custom((value, { req }) => {
+        let file = req.file;
+        let extAceptadas = ['.pdf'];
+        if (!file) {
+            throw new Error('Tienes que subir una ficha');
         } else {
             let extension = path.extname(file.originalname);
             if (!extAceptadas.includes(extension)) {
@@ -60,7 +85,7 @@ router.get('/list', authMiddleware, notadmMiddleware, Maincontroller.list);
 
 router.get('/create' , authMiddleware, notadmMiddleware, Maincontroller.product);
 
-router.post('/create', productFile.single('imagen'), validaciones, Maincontroller.create);
+router.post('/create', productFile.single('imagen'), fichaFile.single('ficha'), validaciones, Maincontroller.create);
 
 router.get('/:idProd', Maincontroller.detalle)
 
@@ -70,6 +95,6 @@ router.post('/delete/:idProd', Maincontroller.delete)
 
 router.get('/edit/:idProd', authMiddleware, notadmMiddleware, Maincontroller.edit)
 
-router.post('/edit/:idProd', productFile.single('imagen'), validaciones, Maincontroller.update)
+router.post('/edit/:idProd', productFile.single('imagen'), fichaFile.single('ficha'), validaciones, Maincontroller.update)
 
 module.exports = router

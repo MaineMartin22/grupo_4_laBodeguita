@@ -75,10 +75,10 @@ let validaciones = [
             }
             return true;
         })];
-    
+
     let validacionesLogin = [
         check('email').isEmail().withMessage('Agregar un email válido'),
-        check('password').isLength({min: 5}).withMessage('Debe completar su contraseña')
+        check('password').isLength({min: 5}).withMessage('Debe completar su contraseña'),
     ]
 
 router.get('/register', guestMiddleware, userController.registerUser);

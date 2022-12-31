@@ -29,21 +29,22 @@
                         <li><b>Bodega:</b> <%=product.cellars.name%></li>
                         <li><b>Tipo:</b> <%=product.type%></li>
                         <li><b>Tamaños disponibles:</b>
-                            <select name="" id="">
-                            <% if (sizes != []) { %>
-                                <% sizes.forEach(function(size) { %>      
-                                <option value=""><%=size%></option>
-                                <% }) %> 
-                                <% } else{ %>
-                                    <option value="">Sin stock</option>
-                                <% } %> 
-                        </select></li>
+                        <select name="" id="">
+                        <% if (product.sizes.length > 0) { %>
+                                    <% product.sizes.forEach(size=> { %>
+                                        <option value=""><%= size.size %></option>
+                                    <% }) %>
+                                    <% } else {%>
+                                        <option>Sin stock del producto </option>
+                                        <% } %> 
+                                    </select></li>
                         <% if (product.sale != "0") { %>
                             <li><b>Precio: $<%= product.price-(product.price * (product.discount/100))%></b> $<del><%= product.price%></del></li>
                         <% } else {%> 
                             <li><b>Precio: $<%=product.price%></b><li>
                         <% } %> 
                         <li><b>Descripción:</b> <%=product.description%></li>
+                        <li><a href="/images/fichas/<%=product.ficha%>" target="_blank">Ficha técnica<i class="fa-solid fa-file-pdf"></i></a></li>
                         <li><h3>Hasta 3 cuotas sin interés <i class="fa-solid fa-credit-card"></i></h3></li>
                     </ul>
                 </div>

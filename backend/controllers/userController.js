@@ -67,7 +67,12 @@ const userController = {
                 if (users) {
                     return  res.render('./usuarios/register', {
                         usuario: req.session.usuario,
-                        old: req.body, errors: [{msg: 'Este email esta creado'}]
+                        old: req.body, errors: {
+                            email: {
+                                msg: 
+                                    'Este email ya está registrado'
+                            }
+                        }
                         //FALTA CREAR EL ERROR QUE INFORME QUE EL EMAIL YA ESTA REGISTRADO
                     });
                 }
@@ -131,45 +136,62 @@ const userController = {
         })
             .then((user) => {
 
+                let nothing = null
+                console.log(user != nothing);
                 console.log(user);
-                if (req.body.email != '' && req.body.password != '') {
-                    let passBody = req.body.password
+                if (user === nothing) {
+                    console.log('ok2')
+                    return res.render('../views/usuarios/login' , { usuario: req.session.usuario, old: req.body, errors: {
+                        email: {
+                            msg: 'Email no encontrado en nuestra base de datos'
+                        }
+                    }})
+                }
+                    if (req.body.email != '' && req.body.password != '') {
+                        let passBody = req.body.password
                     let passwordCorrect = bcrypt.compareSync(passBody, user.password)
-                    console.log(user.password);
-                    console.log(user);
+                    //console.log(user.password);
+                    //console.log(user);
                     // let passwordCorrect = true;
                     console.log(passwordCorrect);
                     console.log(passBody);
                     console.log(user.password);
-
+                    
                     if (passwordCorrect === false) {
+                        
                         console.log('ok2')
-                        return res.render(path.resolve(__dirname, '../views/usuarios/login'), { usuario: req.session.usuario, errors: [{ msg: "Credenciales invalidas" }] });
+                        return res.render('../views/usuarios/login' , { usuario: req.session.usuario, old: req.body, errors: {
+                            password: {
+                                msg: 'Contraseña incorrecta'
+                            }
+                        }})
                     }
-
+                    
                     if(passwordCorrect === true) {
                         console.log('contraseña correcta')
                         req.session.usuario = user;
+                        delete user.password
                     }
                     
-                //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
-                if (req.body.recordarme) {
-                    console.log('ok5')
-                    res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 })
-                    console.log('ok6')
-                }
-                return res.redirect('/');
-
-            }})
-    },
-
-    profile: (req, res) => { //perfil usuario
-        return res.render('./usuarios/userProfile', {
-            usuario: req.session.usuario,
-            user: req.session.userLogged,
-            admin: req.session.admin
-        });
-    },
+                    //Aquí verifico si el usuario le dio click en el check box para recordar al usuario 
+                    if (req.body.recordarme) {
+                        console.log('ok5')
+                        res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 })
+                        console.log('ok6')
+                    }
+                    
+                    return res.redirect('/');
+                    
+                }})
+            },
+            
+            profile: (req, res) => { //perfil usuario
+                return res.render('./usuarios/userProfile', {
+                    usuario: req.session.usuario,
+                    user: req.session.userLogged,
+                    admin: req.session.admin
+                });
+            },
 
     logout: (req, res) => {
         res.clearCookie('userEmail');
