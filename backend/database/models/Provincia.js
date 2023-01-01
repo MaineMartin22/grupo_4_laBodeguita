@@ -13,14 +13,14 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         timestamps: false,
-        tableName: "cellars" //Nacho explicó que el nombre de la tabla sería el nombre del modelo en plural
+        tableName: "provincias" //Nacho explicó que el nombre de la tabla sería el nombre del modelo en plural
     };
 
     const Provincia = sequelize.define(alias, cols, config);
 
     Provincia.associate = function (models) {
         Provincia.hasMany(models.User2, {
-            as: "provincias",
+            as: "users2",
             foreignKey: "provincia", //columna en la DB que une las 2 tablas
 
         });

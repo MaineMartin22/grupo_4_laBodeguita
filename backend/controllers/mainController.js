@@ -90,7 +90,7 @@ const controller = {
             id_color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
-            ficha: req.file.originalname,
+            // ficha: req.file.originalname,
             image: req.file.originalname
         })
         productStored.addSize(req.body.tamano);
@@ -133,7 +133,7 @@ const controller = {
             color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
-            ficha: req.file.originalname,
+            // ficha: req.file.originalname,
             image: req.file.originalname
         }, {
         where: {

@@ -57,6 +57,10 @@ module.exports = (sequelize, dataTypes) => {
             as: "categories",
             foreignKey: "id_categories", //columna en la DB que une las 2 tablas
         });
+        User2.belongsTo(models.Provincia,{
+            as: "provincias",
+            foreignKey: "provincia", //columna en la DB que une las 2 tablas
+        });
     }
 
     return User2
