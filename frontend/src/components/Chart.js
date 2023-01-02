@@ -43,7 +43,7 @@ function Chart() {
                                     <th>{product.name}</th>
                                     <th>{product.cellar}</th>
                                     <th>{product.color}</th>
-                                    <th>{product.price}</th>
+                                    <th>${product.price}</th>
                                     <th>{product.type}</th>
                                     <th>{product.size ? product.size : 'Sin stock' }</th>
                                 </tr>

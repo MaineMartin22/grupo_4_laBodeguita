@@ -6,6 +6,7 @@ import LastMovieInDb from './LastMovieInDb';
 import Chart from './Chart';
 import SearchMovies from './SearchMovies';
 import Size from './Size';
+import Wines from './Wines';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 
@@ -53,6 +54,13 @@ function SideBar(){
                     </Link>
                 </li>
 
+                <li className="nav-item">
+                <Link className="nav-link"  to="/Wines">
+                        <i className="fas fa-fw fa-folder"></i>
+                        <span>Productos por categoría</span>
+                    </Link>
+                </li>
+
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/LastMovieInDb">
@@ -97,6 +105,9 @@ function SideBar(){
                 </Route>
                 <Route path="/Size">
                     <Size />
+                </Route>
+                <Route path="/Wines">
+                    <Wines />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
