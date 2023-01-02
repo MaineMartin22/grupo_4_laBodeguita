@@ -505,6 +505,20 @@ main {
   padding: 50px;
   padding-top: 25%;
 }
+.contenedor-formulario .wrap .formulario .conteiner-general-regist .general {
+  text-align: left;
+}
+.contenedor-formulario .wrap .formulario .conteiner-general-regist .general select {
+  padding: 5px;
+  padding-left: 10px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  color: rgb(117, 117, 117);
+}
+.contenedor-formulario .wrap .formulario .conteiner-general-regist .general select:focus {
+  outline: 0;
+}
 .contenedor-formulario .wrap .formulario .conteiner-general-regist .general span {
   color: red !important;
 }
@@ -606,7 +620,8 @@ main {
   text-align: left;
 }
 
-.create input, .create select, .create textarea{
+
+.create input, .create select, .create textarea {
   width: 80%;
   margin: auto;
   outline: none;
@@ -618,9 +633,19 @@ main {
   text-align: left;
 }
 
+.prod-create-tamano {
+  display: flex;
+  width: 70%;
+  margin: auto;
+}
+
+.prod-create-tamano input[type=checkbox]:checked {
+  color: red;
+}
+
 #avatar {
   width: 100%;
-  color: black;
+  color: #000;
   margin: auto;
   outline: none;
   padding: 18px 0px;
@@ -630,6 +655,7 @@ main {
   font-size: 18px;
   text-align: left;
 }
+
 
 .create textarea {
   border: 1px solid lightblue;
@@ -657,8 +683,7 @@ main {
 }
 
 
-
-.create label[for=imagen], .create label[for=avatar] {
+.create label[for=imagen], .create label[for=avatar], .create label[for=ficha] {
   font-size: 14px;
   font-weight: 600;
   color: #fff;
@@ -677,6 +702,12 @@ main {
 }
 
 .create label[for=imagen]:hover {
+  background-color: #fff;
+  color: #011B36;
+  border: 1px solid #011B36;
+}
+
+.create label[for=ficha]:hover {
   background-color: #fff;
   color: #011B36;
   border: 1px solid #011B36;
@@ -1524,10 +1555,14 @@ main button {
   margin: auto;
   padding-top: 100px;
 }
+.cart h3 {
+  color: #fff;
+}
 .cart table {
   width: 100%;
-  color: #303f9f;
+  color: #011B36;
   background-color: #fff;
+  border-radius: 5px;
 }
 .cart table thead {
   width: 100%;
@@ -1537,12 +1572,20 @@ main button {
 }
 .cart table tbody tr td {
   font-size: 10px;
+  color: #011B36;
+}
+.cart table tbody tr td a {
+  text-decoration: none;
+  color: #011B36;
+}
+.cart table tbody tr td img {
+  width: 25px;
+  object-fit: contain;
 }
 
 .totalAmount {
-  font-size: 30px;
-  color: #303f9f;
-  background-color: #fff;
+  font-size: 45px;
+  color: #fff;
   width: auto;
 }
 

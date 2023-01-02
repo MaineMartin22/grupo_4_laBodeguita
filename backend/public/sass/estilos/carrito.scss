@@ -2,10 +2,14 @@
     width: 90%;
     margin: auto;
     padding-top: 100px;
+    h3{
+      color: #fff;
+    }
     table{
         width: 100%;
-        color: #303f9f;
+        color: #011B36;
         background-color: #fff;
+        border-radius: 5px;
         thead{
             width: 100%;
             tr{
@@ -19,7 +23,16 @@
             tr{
                 td{
                     font-size: 10px;
+                    color: #011B36;
+                    a{
+                      text-decoration: none;
+                      color: #011B36;
 
+                    }
+                    img{
+                      width: 25px;
+                      object-fit: contain;
+                    }
                 }
             }
         }
@@ -27,9 +40,8 @@
 }
 
 .totalAmount{
-    font-size: 30px;
-    color: #303f9f;
-    background-color: #fff;
+    font-size: 45px;
+    color: #fff;
     width: auto;
 }
 

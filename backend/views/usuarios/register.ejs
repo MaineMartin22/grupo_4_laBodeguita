@@ -60,6 +60,22 @@ enctype="multipart/form-data">
             <% } %>
     </div>
     <div class="general">
+        <select name="provincia" id="provincia">
+        <% for( let i=0; i < provincias.length; i++ ) { %>
+            <option value="<%= provincias[i].id %>">
+                <%= provincias[i].provincia %>
+            </option>
+            <% } %>
+        </select>
+            value="<%= locals.old && old.direction ? old.direction : '' %>">
+        <span></span>
+        <% if (locals.errors && errors.direction) { %>
+            <p class="msg-error">
+                <%= errors.direction.msg%>
+            </p>
+            <% } %>
+    </div>
+    <div class="general">
         <label class="label" for="email">Email</label>
         <input type="email" id="email" name="email"
             value="<%= locals.old && old.email ? old.email : '' %>">

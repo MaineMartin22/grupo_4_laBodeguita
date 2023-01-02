@@ -31,6 +31,18 @@
         .formulario{
           .conteiner-general-regist{
             .general{
+              text-align: left;
+              select{
+                padding: 5px;
+                padding-left: 10px;
+                width: 100%;
+                border: none;
+                border-bottom: 2px solid lightblue;
+                color: rgb(117, 117, 117);
+              }
+              select:focus{
+                outline: 0;
+              }
               span{
                 color: red!important; 
               }
@@ -140,8 +152,44 @@
   text-align: left;
 }
 
-.create input, .create select, .create textarea, #avatar {
+.create input, .create select, .create textarea{
   width: 80%;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
+.prod-create-tamano{
+  display: flex;
+  width: 70%;
+  margin: auto;
+}
+
+.prod-create-tamano input[type="checkbox"]:checked {
+  color: red;
+}
+
+#avatar{
+  width: 100%;
+  color: #000;
+  margin: auto;
+  outline: none;
+  padding: 18px 0px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightblue;
+  font-size: 18px;
+  text-align: left;
+}
+
+#ficha{
+  width: 80%;
+  color: #000;
   margin: auto;
   outline: none;
   padding: 18px 0px;
@@ -177,17 +225,7 @@
   bottom: 0;
 }
 
-
-.create input[type="file"]{
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-  }
-
-  .create label[for="imagen"], .create label[for="avatar"] {
+  .create label[for="imagen"], .create label[for="avatar"], .create label[for="ficha"] {
     font-size: 14px;
     font-weight: 600;
     color: #fff;
@@ -206,6 +244,12 @@
     }
 
     .create label[for="imagen"]:hover{
+      background-color: #fff;
+      color: #011B36;
+      border: 1px solid #011B36;
+    }
+
+    .create label[for="ficha"]:hover{
       background-color: #fff;
       color: #011B36;
       border: 1px solid #011B36;

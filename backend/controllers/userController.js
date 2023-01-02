@@ -22,8 +22,11 @@ const { validationResult } = require('express-validator')
 const userController = {
     // REGISTRO DE NUEVO USUARIO
 
-    registerUser: (req, res) => {
-        res.render('./usuarios/register', {usuario: req.session.usuario})
+    registerUser: async (req, res) => {
+        const provincia = await db.Provincia.findAll()
+        let provincias = provincia.map(provi => provi.dataValues)
+        console.log(provincias);
+        res.render('./usuarios/register', {usuario: req.session.usuario, provincias})
     },
 
     updateUser: (req, res) =>{
@@ -44,12 +47,14 @@ const userController = {
         }
 
             // let salt = bcrypt.genSaltSync(12)
+            console.log(req.body.provincia);
     
            let user = {
                 name : (req.body.name).toUpperCase(),
                 surname : (req.body.surname).toUpperCase(),
                 email : (req.body.email).toUpperCase(),
                 direction: req.body.direction,
+                provincia: req.body.provincia,
                 password: bcrypt.hashSync(req.body.password, 12),
                 image : req.file.filename
             }
@@ -185,13 +190,24 @@ const userController = {
                 }})
             },
             
-            profile: (req, res) => { //perfil usuario
+    profile: (req, res) => { //perfil usuario
+        const userLogged = req.session.usuario
+        User2.findOne({
+            where: {
+                email: userLogged.email
+            },
+            raw: true,
+            nest: true,
+            include: ['provincias']
+        })
+            .then(user => {
+             console.log(user);
                 return res.render('./usuarios/userProfile', {
                     usuario: req.session.usuario,
-                    user: req.session.userLogged,
-                    admin: req.session.admin
-                });
-            },
+                    admin: req.session.admin,
+                    user
+                })});
+     },
 
     logout: (req, res) => {
         res.clearCookie('userEmail');
@@ -203,9 +219,10 @@ const userController = {
     userEdit: (req, res) => {
         const idUser = req.params.idUser;
         console.log(idUser);
-        db.User2.findByPk(idUser)
+        db.User2.findByPk(idUser, { include: ['provincias'] })
             .then(user => {
             // console.log(users.name);
+            console.log(user);
             res.render('./admin/userEdit', {user, usuario: req.session.usuario} );
         });
         },
@@ -227,6 +244,7 @@ const userController = {
             surname: req.body.surname,
             email: users.email,
             direction: req.body.direction,
+            provincia: req.body.provincia,
             password: users.password,
             imagen: req.file.filename,
             id_categories: req.body.category

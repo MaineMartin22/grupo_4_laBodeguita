@@ -22,6 +22,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(50),
             allowNull: false
         },
+        provincia: {
+            type: dataTypes.STRING(120),
+            allowNull: false
+        },
         password: {
             type: dataTypes.STRING(25),
             allowNull: false
@@ -52,6 +56,10 @@ module.exports = (sequelize, dataTypes) => {
         User2.belongsTo(models.Category,{
             as: "categories",
             foreignKey: "id_categories", //columna en la DB que une las 2 tablas
+        });
+        User2.belongsTo(models.Provincia,{
+            as: "provincias",
+            foreignKey: "provincia", //columna en la DB que une las 2 tablas
         });
     }
 
