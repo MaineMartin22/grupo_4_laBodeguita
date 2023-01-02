@@ -33,7 +33,11 @@
                             </tr>
                             <tr>
                                 <th><li>Provincia </li></th>
-                                <td><li><%= user.provincias.provincia %></li></td>
+                                <% if (usuario) { %>
+                                    <td><li><%= user.provincias.provincia %></li></td>
+                                <% } else {%>
+                                    <td><li>NN</li></td>
+                                <% } %> 
                             </tr>
                             <tr>
                             <th><li>Categoria</li></th>
