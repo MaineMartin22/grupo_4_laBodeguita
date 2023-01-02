@@ -31,6 +31,7 @@ function LastMovieInDb() {
                         <h4><b>Tipo:</b> {totalProducts.type}</h4>
                         <h4><b>Alcohol:</b> {totalProducts.alcohol}</h4>
                         <h4><b>Color:</b> {totalProducts.color}</h4>
+                        <h4><b>Tamaño:</b> {totalProducts.size}</h4>
                         <div className="text-center">
                             <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: 25 + 'rem' }} src={totalProducts.image} alt={totalProducts.name} />
                         </div>
