@@ -35,6 +35,14 @@
                                   <th><li>Provincia </li></th>
                                   <td><li><%= user.provincias.provincia %></li></td>
                               </tr>
+                              <tr>
+                                <th><li>Categoria</li></th>
+                                <% if (usuario.id_categories === 1) { %>
+                                    <td><li>Admin</li></td>
+                                <% } else { %>
+                                    <td><li>Comprador</li></td>
+                                <% } %>
+                            </tr>
                           </tbody>
                       </table>
       </div>

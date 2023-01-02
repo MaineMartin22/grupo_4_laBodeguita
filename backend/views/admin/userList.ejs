@@ -36,7 +36,7 @@
                           <td><%= tint.email%> </td>
                           <td><%= tint.id_categories%> </td>
                           <td><a href="/users/edit/<%= tint.id%> "> <ion-icon name="eye-outline"><i class="fa-solid fa-eye"></i></a></td>
-                          <form action="/users/delete/<%= tint.id%>" method="POST"><td><button onclick="mostrar()"><ion-icon name="trash-outline"><i class="fa-solid fa-trash"></i></button></td></form>
+                          <form action="/users/delete/<%= tint.id%>" method="POST"><td><button><ion-icon name="trash-outline"><i class="fa-solid fa-trash"></i></button></td></form>
                         </tr>
                         <% }); %>
                     </tbody>
@@ -50,9 +50,5 @@
   </footer>
   </body>
   <%- include("../partials/scripts") %>
-  <script>
-  function mostrar(){
-  swal('Título', 'Contenido', 'success')};
-  </script>
 
 </html>
