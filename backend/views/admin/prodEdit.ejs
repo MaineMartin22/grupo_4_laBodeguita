@@ -84,12 +84,13 @@
                                 </p>
                                 <% } %>
                                 <h3>Tamaño</h3>
-                                <div>
-                                    <% for( let i = 0; i < sizes.length; i++ ) { %>
-                                        <input name= "tamano" type="checkbox"  value="<%=sizes[i].id %>">
-                                            <%=sizes[i].size %>  
-                                        </input>
-                                    <% } %>    
+                                <div class="prod-create-tamano">
+                                <% for( let i = 0; i < sizes.length; i++ ) { %>
+                                <input name= "tamano" type="checkbox" id="<%= sizes[i].id %>">
+                                <label for="<%= sizes[i].id %>"><%= sizes[i].size %>  
+                                </label>
+                                </input>
+                                <% } %>    
                                 </div>
                                     <h3>Color</h3>
                                     <select name="color" id="color">
@@ -116,14 +117,14 @@
                                     <%= errors.imagen.msg%>
                                 </p>
                                 <% } %>
-                            <h3>Ficha del producto</h3>
+                            <!-- <h3>Ficha del producto</h3>
                             <input type="file" id="ficha" name="ficha" width="100%">
                             <span></span>
-                            <% if (locals.errors && errors.ficha) { %>
+                            <% /* if (locals.errors && errors.ficha) { */ %>
                             <p class="msg-error">
-                            <%= errors.ficha.msg%>
+                            <%= /* errors.ficha.msg */%>
                             </p>
-                            <% } %>
+                            <% /* } */ %> -->
                                     <button id='submit' type="submit">Enviar</button>
                                     <button type="reset">Borrar</button>
                 </div>

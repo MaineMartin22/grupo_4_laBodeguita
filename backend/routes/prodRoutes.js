@@ -28,19 +28,6 @@ const productStorage = multer.diskStorage({
 
 const productFile = multer({ productStorage });
 
-// const fichaStorage = multer.diskStorage({
-//     destination: (req, file, cb) =>{
-//         cb(null, './public/images/fichas' )
-//     },
-//     filename: (req, file, cb) =>{
-//         let fileName = `${Date.now()}_img${path.extname(file.originalname)}`
-//         cb(null, fileName)
-//     }
-// });
-
-// const fichaFile = multer({ productStorage });
-
-
 let validaciones = [
     check('name').isLength({min: 5}).withMessage('El campo no puede estar vacío, debe tener al menos cinco caracteres'),
     check('precio').isNumeric({min: 3}).withMessage('El campo no puede estar vacío'),
@@ -59,24 +46,12 @@ let validaciones = [
             }
         }
         return true;
+
     })
-    // check('ficha').custom((value, { req }) => {
-    //     let file = req.file;
-    //     let extAceptadas = ['.pdf'];
-    //     if (!file) {
-    //         throw new Error('Tienes que subir una ficha');
-    //     } else {
-    //         let extension = path.extname(file.originalname);
-    //         if (!extAceptadas.includes(extension)) {
-    //             throw new Error(`Las extensiones permitidas son: ${extAceptadas.join(', ')}`);
-    //         }
-    //     }
-    //     return true;
-    // })
 
 ]
 
-
+// BORRÉ EN LAS RUTAS LO DE : fichaFile.single('ficha')
 
 
 router.get('/search', searchController.searchBar)

@@ -9,7 +9,7 @@
       <a class="nav-links" href="/product/create">Crear</a>
       <a class="nav-links" href="/product/list">Lista de productos</a>
       <% } else {%> 
-      <a class="nav-links" href="/home">Nosotros</a>
+      <a class="nav-links" href="/home">Inicio</a>
       <a class="nav-links" href="/detalleProducto">Vinos</a>
       <a class="nav-links" href="#footer">Contacto</a>
       <% };%> 
@@ -67,27 +67,24 @@
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <% if (usuario&& usuario.id_categories == 1) { %>
             <li class="nav-item">
-              <a class="nav-links" aria-current="page" href="/product/create">Crear productos</a>
+              <a class="nav-links" aria-current="page" href="/">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-links" href="/users/list">Lista usuarios</a>
+              <a class="nav-links" href="/detalleProducto">Vinos</a>
             </li>
             <li class="nav-item">
                 <a href="/product/list" class="carrito-i nav-links">Lista productos</a>
               </li>
               <li class="nav-item">
+                <a class="nav-links" aria-current="page" href="/product/create">Crear productos</a>
+              </li>
+            <li class="nav-item">
+                <a href="/carrito" class="carrito-i nav-links">Mi carrito <i class="fa-solid fa-cart-shopping"></i></a>
+              </li>
+            <% }else { %>
+              <li class="nav-item">
                 <a class="nav-links" aria-current="page" href="/">Inicio</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-links" href="/detalleProducto">Vinos</a>
-              </li>
-              <li class="nav-item">
-                  <a href="/carrito" class="carrito-i nav-links">Mi carrito <i class="fa-solid fa-cart-shopping"></i></a>
-                </li>
-            <% }else { %>
-          <li class="nav-item">
-            <a class="nav-links" aria-current="page" href="/">Inicio</a>
-          </li>
           <li class="nav-item">
             <a class="nav-links" href="/detalleProducto">Vinos</a>
           </li>

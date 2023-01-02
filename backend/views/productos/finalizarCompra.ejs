@@ -10,47 +10,29 @@
     <%- include("../partials/navBar") %>
 </header>
 
-    <main>
-        <form id="formulario" action="/"> 
-            <div class="contacto">
+    <main class="main-buy">
+      <div class="create-div">
+        <form id="formulario" action="/" class="create"> 
                 <h3> Datos de contacto</h3>
-                <input type="email" name="" id="" placeholder="Email"> 
-            </div>
-            <div class="envio">
+                <input type="email" name="" id="" value="<%= user.email %>" readonly> 
                 <h3> Datos de entrega</h3>
-                <div class="names">
-                            <input type="text" name="name" id="name" placeholder="Nombre">                         
-                            <input type="text" name="surname" id="surname" placeholder="Apellido"> 
-                    </div>
-                    <div class="direccion">
-                            <input type="text" name="adress" id="adress"  placeholder="Dirección"> 
-                    </div>
-                    <div class="city">
-                            <input type="text" name="province" placeholder="Provincia"> 
-                            <input type="number" name="zip-code" placeholder="C.P."> 
-                            <input type="text" name="city" placeholder="Ciudad"> 
-                    </div>
-                    <div class="phone">
-                            <input type="number" name="phone-number" placeholder="Número de teléfono"> 
-                    </div>
-
-                </div>
-
-                <div class="formaDePago">
-                    <h3>Forma de pago</h3>
-                        <div class="type-card">
-                                <input type="number" name="card-number" placeholder="Número de la tarjeta">
-                                <input type="text" name="cardholder" placeholder="Nombre y apellido del titular de la tarjeta"> 
-                        </div>
-                    <div class="datos-tarjeta">
-                            <input type="number" name="expiration-date" placeholder="Fecha de vencimiento">         
-                            <input type="number" name="security-code" placeholder="Código de seguridad">         
-                            <input type="number" name="document" placeholder="DNI"> 
-                    </div>
-                </div>
+                            <input type="text" name="name" id="name" value="<%=user.name %>">                         
+                            <input type="text" name="surname" id="surname" value="<%=user.surname %>"> 
+                            <input type="text" name="adress" id="adress"  value="<%=user.direction %>"> 
+                <h3>Provincia</h3>
+                            <input type="text" name="province" value="<%=user.provincias.provincia %>">
+                            <input type="number" name="phone-number" placeholder="Número de teléfono sin +54 y 0"> 
+                <h3>Forma de pago</h3>
+                        <select name="pay" id="">
+                          <option value="Crédito">Crédito</option>
+                          <option value="Crédito">Débito</option>
+                        </select>
+                        <h3>Fecha de vencimiento</h3>        
+                            <input type="month" min="2023-01" max="2040-01" value="2023-01" name="security-code">
+                            <input type="number" name="document" placeholder="DNI del comprador"> 
                 <button type="submit" class="enviar">FINALIZAR COMPRA</button>
         </form>
-    
+      </div>
     </main>
     <footer class="footer">
       <%- include("../partials/footer") %>

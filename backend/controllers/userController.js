@@ -227,35 +227,25 @@ const userController = {
         });
         },
 
-    userEditUpdate: (req, res) => {
-        const idUser = req.params.idUser
+    // userEditUpdate: async (req, res) => {
 
-        User2.findOne({
-            where: {
-                email: req.body.email
-            },
-            raw: true
-        })
-            .then(users => {
-                console.log(users);
-                console.log(idUser);
-        User2.update({
-            name: req.body.name,
-            surname: req.body.surname,
-            email: users.email,
-            direction: req.body.direction,
-            provincia: req.body.provincia,
-            password: users.password,
-            imagen: req.file.filename,
-            id_categories: req.body.category
-        }),{
-            where:{
-                id: req.params.idUser
-            },
-            raw: true
-        }});
-        res.redirect('../list')
-    },
+    //     const userLogged = req.session.usuario
+
+    //     const user User2.findOne({
+    //         where: {
+    //             email: userLogged.email
+    //         },
+    //         raw: true,
+    //         nest: true,
+    //         include: ['provincias']
+    //     })
+    //     .then(user => {
+    //         user.update({
+    //         image: req.file.filename,
+    //  })});
+
+    // res.redirect('../list')
+    // },
 
 }
 

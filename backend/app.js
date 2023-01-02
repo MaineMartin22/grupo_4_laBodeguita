@@ -24,7 +24,7 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 //  express()
 const app = express();
-//app.use(logger('tiny'));
+app.use(logger('tiny'));
 
 //  Middlewares
 app.use(session({ 

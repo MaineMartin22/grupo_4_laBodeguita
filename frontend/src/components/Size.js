@@ -18,7 +18,7 @@ function Size() {
       <div className="card shadow">
         <div className="card-header py-3">
           <h5 className="m-0 font-weight-bold text-gray-800">
-            Sizes of wines in Data Base
+            Tamaños de vinos en la DB
           </h5>
         </div>
         <div className="row card-body">

@@ -18,33 +18,33 @@
               <h3>Información del usuario</h3>
               <div class="profile-info-data">
                   <table class="profile-info-table">
-                      <tbody>
-                              <tr>
-                                  <th><li>Nombre y apellido</li></th>
-                                  <td><li><%= usuario.name %> <%= usuario.surname %></li></td>
-                              </tr>
-                              <tr>
-                                  <th><li>Dirección</li></th>
-                                  <td><li><%= usuario.direction %></li></td>
-                              </tr>
-                              <tr>
-                                  <th><li>Email </li></th>
-                                  <td><li><%= usuario.email %></li></td>
-                              </tr>
-                              <tr>
-                                  <th><li>Provincia </li></th>
-                                  <td><li><%= user.provincias.provincia %></li></td>
-                              </tr>
-                              <tr>
-                                <th><li>Categoria</li></th>
-                                <% if (usuario.id_categories === 1) { %>
-                                    <td><li>Admin</li></td>
-                                <% } else { %>
-                                    <td><li>Comprador</li></td>
-                                <% } %>
+                    <tbody>
+                            <tr>
+                                <th><li>Nombre y apellido</li></th>
+                                <td><li><%= usuario.name %> <%= usuario.surname %></li></td>
                             </tr>
-                          </tbody>
-                      </table>
+                            <tr>
+                                <th><li>Dirección</li></th>
+                                <td><li><%= usuario.direction %></li></td>
+                            </tr>
+                            <tr>
+                                <th><li>Email </li></th>
+                                <td><li><%= usuario.email %></li></td>
+                            </tr>
+                            <tr>
+                                <th><li>Provincia </li></th>
+                                <td><li><%= user.provincias.provincia %></li></td>
+                            </tr>
+                            <tr>
+                            <th><li>Categoria</li></th>
+                            <% if (usuario.id_categories === 1) { %>
+                                <td><li>Admin</li></td>
+                            <% } else { %>
+                                <td><li>Comprador</li></td>
+                            <% } %>
+                        </tr>
+                        </tbody>
+                    </table>
       </div>
       </div>
   </div>

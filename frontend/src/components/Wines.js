@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TarjetaCategoria from "./CategoryWines";
 
-function GenresInDb() {
+function Wines() {
   const [categoriasVinos, setCategoriasVinos] = useState([]);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ function GenresInDb() {
   );
 }
 
-export default GenresInDb;
+export default Wines;

@@ -15,7 +15,26 @@ const { Op } = require("sequelize");
 const controller = {
     login: (req, res) => {res.render("./usuarios/login", {usuario: req.session.usuario})},
     prodCar:(req, res) => {res.render("./productos/prodCar", {usuario: req.session.usuario})},
-    toBuy: (req, res) => {res.render("./productos/finalizarCompra", {usuario: req.session.usuario})},
+    toBuy: (req, res) => {
+        const userLogged = req.session.usuario
+        console.log(userLogged);
+        db.User2.findOne({
+            where: {
+                email: userLogged.email
+            },
+            raw: true,
+            nest: true,
+            include: ['provincias']
+        })
+            .then(user => {
+             console.log(req.session.usuario);
+             console.log(user.provincias);
+                return res.render('./productos/finalizarCompra', {
+                    usuario: req.session.usuario,
+                    admin: req.session.admin,
+                    user
+                })})},
+        
 
     product: async function(req, res){
         const cellars = await db.Cellar.findAll()
@@ -90,7 +109,7 @@ const controller = {
             id_color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
-            // ficha: req.file.originalname,
+            ficha: 'fichavino.pdf',
             image: req.file.originalname
         })
         productStored.addSize(req.body.tamano);
@@ -133,13 +152,14 @@ const controller = {
             color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
-            // ficha: req.file.originalname,
+            ficha: 'fichavino.pdf',
             image: req.file.originalname
         }, {
         where: {
             id: req.params.idProd
         }
         });
+        productEdit.removeSizes(productEdit.sizes);
         productEdit.addSize(req.body.tamano);
 
         res.redirect('../list')

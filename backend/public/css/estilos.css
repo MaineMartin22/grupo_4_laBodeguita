@@ -1975,7 +1975,7 @@ main button {
     margin: auto;
   }
   .profile-info-div .profile-info-img img {
-    width: 100%;
+    width: 80%;
     object-fit: contain;
     height: 40vh;
     filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.49));
