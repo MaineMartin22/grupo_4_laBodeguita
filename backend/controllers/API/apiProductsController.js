@@ -61,7 +61,7 @@ module.exports = {
                         alcohol: products.alcohol,
                         sale: products.sale,
                         discount: products.discount,
-                        size: products.size,
+                        size: products.sizes.size,
                         sizes: products.sizes,
                         image: `/images/products/${products.image}`,
                         color: products.colors.name,
