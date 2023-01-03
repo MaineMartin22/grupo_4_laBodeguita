@@ -85,12 +85,11 @@
                                 <% } %>
                                 <h3>Tamaño</h3>
                                 <div class="prod-create-tamano">
-                                <% for( let i = 0; i < sizes.length; i++ ) { %>
-                                <input name= "tamano" type="checkbox" id="<%= sizes[i].id %>">
-                                <label for="<%= sizes[i].id %>"><%= sizes[i].size %>  
-                                </label>
-                                </input>
-                                <% } %>    
+                                    <% for( let i = 0; i < sizes.length; i++ ) { %>
+                                        <input name= "tamano" type="checkbox"  value="<%=sizes[i].id %>">
+                                            <%=sizes[i].size %>  
+                                        </input>
+                                    <% } %>     
                                 </div>
                                     <h3>Color</h3>
                                     <select name="color" id="color">

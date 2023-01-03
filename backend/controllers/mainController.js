@@ -89,9 +89,7 @@ const controller = {
     // CREAR PRODUCTOS
 
     create: async function(req, res) {
-
         const resultValidation = validationResult(req);
-
         if(resultValidation.errors.length > 0) {
             return  res.render('./admin/prodCreate', {
                 usuario: req.session.usuario,
@@ -109,13 +107,14 @@ const controller = {
             id_color: req.body.color,
             sale: req.body.oferta,
             discount: req.body.descuento,
-            ficha: 'fichavino.pdf',
+            // ficha: req.file.originalname,
             image: req.file.originalname
         })
+        console.log(req.body.tamano)
         productStored.addSize(req.body.tamano);
-
         res.redirect('./list')}
     },
+
 
     // EDITAR DE PRODUCTO
 
